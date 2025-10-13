@@ -341,8 +341,10 @@ export default function AdhdEducation() {
               <img 
                 src={validImages[currentSlide]} 
                 alt={`${conditions.find(c => c.id === currentCondition)?.name} Education Slide ${currentSlide + 1}`}
-                className="max-w-full max-h-full object-contain"
+                className="max-w-full max-h-full object-contain cursor-pointer"
                 onClick={nextSlide}
+                loading="eager"
+                decoding="async"
               />
             </div>
 
