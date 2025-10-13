@@ -127,16 +127,32 @@ export default function AdhdEducation() {
         const validBatch = results.filter(Boolean) as string[];
         allValid.push(...validBatch);
         
-        // Update UI progressively
-        setValidImages([...allValid]);
+        // Sort numerically by slide number to ensure correct order
+        const sortedValid = [...allValid].sort((a, b) => {
+          const numA = parseInt(a.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+          const numB = parseInt(b.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+          return numA - numB;
+        });
+        
+        // Update UI progressively with sorted images
+        setValidImages(sortedValid);
         
         // If we found no images in first batch, likely no more exist
         if (i === 0 && validBatch.length === 0) break;
       }
       
+      // Get final sorted list
+      const finalSorted = [...allValid].sort((a, b) => {
+        const numA = parseInt(a.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+        const numB = parseInt(b.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+        return numA - numB;
+      });
+      
+      setValidImages(finalSorted);
+      
       // Preload first 3 slides for instant presentation start
-      if (allValid.length > 0) {
-        preloadImages(allValid.slice(0, 3));
+      if (finalSorted.length > 0) {
+        preloadImages(finalSorted.slice(0, 3));
       }
     };
     
