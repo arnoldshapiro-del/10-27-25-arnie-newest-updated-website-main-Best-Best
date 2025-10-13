@@ -1,7 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download, ChevronLeft, ChevronRight, X, Maximize } from "lucide-react";
 import { Link } from "react-router-dom";
+
+// Optimized: Fast HEAD request to check if image exists (no download)
+const checkImageExists = async (url: string): Promise<boolean> => {
+  try {
+    const response = await fetch(url, { method: 'HEAD' });
+    return response.ok;
+  } catch {
+    return false;
+  }
+};
 
 // Generate candidate images for any condition
 const generateCandidateImages = (condition: string) => {
@@ -17,23 +27,41 @@ export default function AdhdEducation() {
   const [validImages, setValidImages] = useState<string[]>([]);
   const [currentSlide, setCurrentSlide] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [preloadedSlides, setPreloadedSlides] = useState<Set<number>>(new Set());
+  const observerRef = useRef<IntersectionObserver | null>(null);
   
+  // Optimized: Use fast HEAD requests instead of loading full images
   useEffect(() => {
-    const candidates = generateCandidateImages(currentCondition);
-    const imagePromises = candidates.map(src => 
-      new Promise<string | null>((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(src);
-        img.onerror = () => resolve(null);
-        img.src = src;
-      })
-    );
-    
-    Promise.all(imagePromises).then(results => {
-      const valid = results.filter(Boolean) as string[];
+    const loadValidImages = async () => {
+      const candidates = generateCandidateImages(currentCondition);
+      
+      // Check existence with HEAD requests (very fast)
+      const checks = await Promise.all(
+        candidates.map(async (src) => ({
+          src,
+          exists: await checkImageExists(src)
+        }))
+      );
+      
+      const valid = checks.filter(c => c.exists).map(c => c.src);
       setValidImages(valid);
-    });
+      
+      // Preload first 3 slides for instant presentation start
+      if (valid.length > 0) {
+        preloadImages(valid.slice(0, 3));
+      }
+    };
+    
+    loadValidImages();
   }, [currentCondition]);
+  
+  // Preload images
+  const preloadImages = (urls: string[]) => {
+    urls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+  };
 
   const conditions = [
     { id: 'adhd', name: 'ADHD', icon: '🧠' },
