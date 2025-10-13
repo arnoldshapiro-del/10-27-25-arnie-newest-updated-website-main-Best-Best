@@ -198,27 +198,13 @@ export default function AdhdEducation() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {validImages.map((src, idx) => (
-            <div 
-              key={src} 
-              className="relative group cursor-pointer hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden border border-border"
+            <LazyThumbnail
+              key={src}
+              src={src}
+              idx={idx}
+              conditionName={conditions.find(c => c.id === currentCondition)?.name || ''}
               onClick={() => openSlide(idx)}
-            >
-              <img 
-                src={src} 
-                alt={`${conditions.find(c => c.id === currentCondition)?.name} Education Slide ${idx + 1}`} 
-                loading="lazy" 
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                <Maximize className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
-                Slide {idx + 1}
-              </div>
-              <div className="absolute top-2 right-2 bg-blue-600/90 text-white px-2 py-1 rounded text-xs">
-                Click to present
-              </div>
-            </div>
+            />
           ))}
         </div>
 
