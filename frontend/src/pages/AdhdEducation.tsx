@@ -102,7 +102,12 @@ export default function AdhdEducation() {
 
   const nextSlide = () => {
     if (currentSlide !== null && currentSlide < validImages.length - 1) {
-      setCurrentSlide(currentSlide + 1);
+      const newSlide = currentSlide + 1;
+      setCurrentSlide(newSlide);
+      
+      // Preload next 2 slides for smooth navigation
+      const nextSlides = validImages.slice(newSlide + 1, newSlide + 3);
+      preloadImages(nextSlides);
     }
   };
 
