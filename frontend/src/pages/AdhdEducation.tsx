@@ -3,16 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download, ChevronLeft, ChevronRight, X, Maximize } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Optimized: Fast HEAD request to check if image exists (no download)
-const checkImageExists = async (url: string): Promise<boolean> => {
-  try {
-    const response = await fetch(url, { method: 'HEAD' });
-    return response.ok;
-  } catch {
-    return false;
-  }
-};
-
 // Generate candidate images for any condition
 const generateCandidateImages = (condition: string) => {
   const candidates = [];
