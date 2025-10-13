@@ -89,6 +89,10 @@ export default function AdhdEducation() {
   const openSlide = (index: number) => {
     setCurrentSlide(index);
     setIsFullscreen(true);
+    
+    // Preload next 2 slides for smooth navigation
+    const nextSlides = validImages.slice(index + 1, index + 3);
+    preloadImages(nextSlides);
   };
 
   const closeSlide = () => {
