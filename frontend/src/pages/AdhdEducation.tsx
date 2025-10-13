@@ -22,6 +22,82 @@ const generateCandidateImages = (condition: string) => {
   return candidates;
 };
 
+// Lazy-loaded thumbnail component with Intersection Observer
+const LazyThumbnail = ({ src, idx, conditionName, onClick }: {
+  src: string;
+  idx: number;
+  conditionName: string;
+  onClick: () => void;
+}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        rootMargin: '50px', // Start loading 50px before entering viewport
+        threshold: 0.01
+      }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={imgRef}
+      className="relative group cursor-pointer hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden border border-border bg-gray-100"
+      onClick={onClick}
+      style={{ minHeight: '200px' }}
+    >
+      {isVisible ? (
+        <>
+          <img
+            src={src}
+            alt={`${conditionName} Education Slide ${idx + 1}`}
+            className={`w-full h-auto transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            onLoad={() => setIsLoaded(true)}
+            loading="lazy"
+            decoding="async"
+          />
+          {!isLoaded && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="animate-pulse text-gray-400">Loading...</div>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+          <div className="text-gray-400">Slide {idx + 1}</div>
+        </div>
+      )}
+      
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
+        <Maximize className="h-8 w-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      <div className="absolute bottom-2 left-2 bg-black/70 text-white px-2 py-1 rounded text-xs">
+        Slide {idx + 1}
+      </div>
+      <div className="absolute top-2 right-2 bg-blue-600/90 text-white px-2 py-1 rounded text-xs">
+        Click to present
+      </div>
+    </div>
+  );
+};
+
 export default function AdhdEducation() {
   const [currentCondition, setCurrentCondition] = useState('adhd');
   const [validImages, setValidImages] = useState<string[]>([]);
