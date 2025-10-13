@@ -106,29 +106,51 @@ export default function AdhdEducation() {
   const [preloadedSlides, setPreloadedSlides] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
   
-  // Optimized: Use fast HEAD requests instead of loading full images
+  // Check which images exist (optimized with smaller initial check)
   useEffect(() => {
-    const loadValidImages = async () => {
-      const candidates = generateCandidateImages(currentCondition);
-      
-      // Check existence with HEAD requests (very fast)
-      const checks = await Promise.all(
-        candidates.map(async (src) => ({
-          src,
-          exists: await checkImageExists(src)
-        }))
+    const candidates = generateCandidateImages(currentCondition);
+    
+    // Check images in batches for faster initial load
+    const checkBatch = (urls: string[]) => {
+      return Promise.all(
+        urls.map(src => 
+          new Promise<string | null>((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(src);
+            img.onerror = () => resolve(null);
+            img.src = src;
+            // Timeout to prevent hanging
+            setTimeout(() => resolve(null), 2000);
+          })
+        )
       );
+    };
+    
+    // Check in batches for progressive loading
+    const loadInBatches = async () => {
+      const batchSize = 10;
+      const allValid: string[] = [];
       
-      const valid = checks.filter(c => c.exists).map(c => c.src);
-      setValidImages(valid);
+      for (let i = 0; i < candidates.length; i += batchSize) {
+        const batch = candidates.slice(i, i + batchSize);
+        const results = await checkBatch(batch);
+        const validBatch = results.filter(Boolean) as string[];
+        allValid.push(...validBatch);
+        
+        // Update UI progressively
+        setValidImages([...allValid]);
+        
+        // If we found no images in first batch, likely no more exist
+        if (i === 0 && validBatch.length === 0) break;
+      }
       
       // Preload first 3 slides for instant presentation start
-      if (valid.length > 0) {
-        preloadImages(valid.slice(0, 3));
+      if (allValid.length > 0) {
+        preloadImages(allValid.slice(0, 3));
       }
     };
     
-    loadValidImages();
+    loadInBatches();
   }, [currentCondition]);
   
   // Preload images
