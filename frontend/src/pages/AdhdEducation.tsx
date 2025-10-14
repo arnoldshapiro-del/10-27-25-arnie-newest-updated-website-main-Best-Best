@@ -96,20 +96,9 @@ export default function AdhdEducation() {
   const [preloadedSlides, setPreloadedSlides] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
   
-  // Map individual personality disorders to the main folder
-  const getFolderPath = (condition: string) => {
-    const personalityDisorders = [
-      'Antisocial-Personality-Disorder',
-      'Borderline-Personality-Disorder', 
-      'Narcissistic-Personality-Disorder'
-    ];
-    return personalityDisorders.includes(condition) ? 'Personality-Disorders' : condition;
-  };
-  
   // Check which images exist (optimized with smaller initial check)
   useEffect(() => {
-    const folderPath = getFolderPath(currentCondition);
-    const candidates = generateCandidateImages(folderPath);
+    const candidates = generateCandidateImages(currentCondition);
     
     // Check images in batches for faster initial load
     const checkBatch = (urls: string[]) => {
