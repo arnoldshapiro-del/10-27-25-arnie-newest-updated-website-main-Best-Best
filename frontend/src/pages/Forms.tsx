@@ -294,50 +294,8 @@ const Forms = () => {
           </div>
         </div>
 
-        {/* Privacy & Security */}
-        <Card className="bg-muted/50">
-          <CardContent className="p-8">
-            <div className="flex items-start gap-4">
-              <Shield className="h-8 w-8 text-primary flex-shrink-0" />
-              <div>
-                <h3 className="text-xl font-bold mb-4">Your Privacy & Security</h3>
-                <div className="grid md:grid-cols-2 gap-6 text-sm">
-                  <div>
-                    <h4 className="font-semibold mb-2">HIPAA Compliant</h4>
-                    <p className="text-muted-foreground">
-                      All forms and personal information are protected under HIPAA regulations. 
-                      Your data is encrypted and stored securely.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Confidential Information</h4>
-                    <p className="text-muted-foreground">
-                      Information shared on these forms is confidential and will only be 
-                      used for your treatment and care coordination.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Secure Transmission</h4>
-                    <p className="text-muted-foreground">
-                      Online form submissions use bank-level encryption to protect 
-                      your sensitive information during transmission.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Limited Access</h4>
-                    <p className="text-muted-foreground">
-                      Only authorized healthcare providers involved in your care 
-                      have access to your completed forms and medical information.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Contact for Help */}
-        <Card className="mt-12">
+        <Card className="mt-8">
           <CardContent className="p-8 text-center">
             <h3 className="text-xl font-bold mb-4">Need Help with Forms?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
