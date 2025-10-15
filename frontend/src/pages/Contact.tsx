@@ -1,55 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
-  MapPin, 
   Phone, 
   Mail, 
   Clock, 
-  Calendar,
   MessageSquare,
-  Shield,
-  AlertTriangle,
   Car,
   Bus,
   Accessibility
 } from "lucide-react";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 import BackButton from "@/components/BackButton";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    serviceType: '',
-    preferredContact: '',
-    message: '',
-    urgency: 'routine'
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Form Submitted",
-      description: "Thank you for your information. Please call our office to schedule your evaluation.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      serviceType: '',
-      preferredContact: '',
-      message: '',
-      urgency: 'routine'
-    });
-  };
 
   const contactInfo = [
     {
