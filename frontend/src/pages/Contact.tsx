@@ -128,68 +128,70 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Office Hours */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Clock className="h-5 w-5" />
-                  Office Hours
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  {officeHours.map((schedule, index) => (
-                    <div key={index} className="flex justify-between text-sm">
-                      <span className="font-medium">{schedule.day}</span>
-                      <span className="text-muted-foreground">{schedule.hours}</span>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Office Hours */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Clock className="h-6 w-6 text-primary" />
+                    Office Hours
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {officeHours.map((schedule, index) => (
+                      <div key={index} className="flex justify-between">
+                        <span className="font-semibold">{schedule.day}</span>
+                        <span className="text-muted-foreground">{schedule.hours}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
 
-            {/* Location & Accessibility */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Location & Accessibility</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Car className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-sm">
-                    <p className="font-semibold">Parking</p>
-                    <p className="text-muted-foreground">Free parking available on-site</p>
+              {/* Location & Accessibility */}
+              <Card className="hover:shadow-lg transition-shadow">
+                <CardHeader>
+                  <CardTitle className="text-xl">Location & Accessibility</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Car className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-base">Parking</p>
+                      <p className="text-muted-foreground">Free parking available on-site</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Bus className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-sm">
-                    <p className="font-semibold">Public Transportation</p>
-                    <p className="text-muted-foreground">Bus routes 15, 23, and 47 nearby</p>
+                  <div className="flex items-start gap-3">
+                    <Bus className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-base">Public Transportation</p>
+                      <p className="text-muted-foreground">Bus routes 15, 23, and 47 nearby</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Accessibility className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-sm">
-                    <p className="font-semibold">Accessibility</p>
-                    <p className="text-muted-foreground">Wheelchair accessible with elevator access</p>
+                  <div className="flex items-start gap-3">
+                    <Accessibility className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-base">Accessibility</p>
+                      <p className="text-muted-foreground">Wheelchair accessible with elevator access</p>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
 
             {/* Telehealth Option */}
-            <Card className="bg-primary/5 border-primary/20">
-              <CardContent className="p-6">
+            <Card className="bg-primary/5 border-primary/20 hover:shadow-lg transition-shadow mt-6">
+              <CardContent className="p-8">
                 <div className="flex items-start gap-4">
-                  <MessageSquare className="h-8 w-8 text-primary flex-shrink-0" />
+                  <MessageSquare className="h-10 w-10 text-primary flex-shrink-0" />
                   <div>
-                    <h3 className="font-bold mb-2">Telehealth Available</h3>
-                    <p className="text-sm text-muted-foreground mb-3">
+                    <h3 className="font-bold text-xl mb-2">Telehealth Available</h3>
+                    <p className="text-base text-muted-foreground mb-4">
                       Can't make it to our office? We offer secure video sessions 
                       from the comfort of your home.
                     </p>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline">
                       Learn About Telehealth
                     </Button>
                   </div>
