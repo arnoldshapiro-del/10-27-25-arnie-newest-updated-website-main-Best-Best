@@ -29,27 +29,20 @@ const About = () => {
 
       <div className="container max-w-6xl mx-auto px-4 py-16">
         {/* Doctor Profile Section */}
-        <div className="grid md:grid-cols-2 gap-12 mb-16">
-          <div>
-            <img 
-              src="/doctor-arnold-shapiro.jpg" 
-              alt="Dr. Arnold G. Shapiro" 
-              className="w-full h-96 object-cover rounded-lg shadow-lg"
-            />
-          </div>
-          <div className="space-y-6">
-            <h2 className="text-3xl font-bold">Meet Arnold G. Shapiro MD</h2>
-            <p className="text-muted-foreground leading-relaxed">
+        <div className="mb-16">
+          <div className="space-y-6 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center">Meet Arnold G. Shapiro MD</h2>
+            <p className="text-muted-foreground leading-relaxed text-center">
               Dr. Arnold G. Shapiro is a board-certified psychiatrist with extensive experience 
               in treating a wide range of mental health conditions. He is committed to providing 
               compassionate, evidence-based psychiatric care to help patients achieve mental wellness.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-center">
               Dr. Shapiro specializes in comprehensive psychiatric evaluation and treatment, 
               working with patients to develop personalized care plans that address their unique 
               needs and circumstances.
             </p>
-            <div className="space-y-2">
+            <div className="space-y-2 text-center">
               <p className="font-semibold">Practice Information:</p>
               <ul className="text-muted-foreground space-y-1">
                 <li>• Board Certified Psychiatrist</li>
@@ -57,6 +50,17 @@ const About = () => {
                 <li>• Personalized Treatment Plans</li>
               </ul>
             </div>
+          </div>
+        </div>
+
+        {/* Doctor Image - Large and Centered */}
+        <div className="mb-16 flex justify-center">
+          <div className="w-full max-w-2xl">
+            <img 
+              src="/doctor-arnold-shapiro.jpg" 
+              alt="Dr. Arnold G. Shapiro" 
+              className="w-full h-auto object-cover rounded-lg shadow-lg"
+            />
           </div>
         </div>
 
