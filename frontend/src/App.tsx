@@ -28,7 +28,6 @@ const App = () => (
           <Route path="/disorders" element={<Disorders />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/forms" element={<Forms />} />
-          <Route path="/patient-portal" element={<PatientPortal />} />
           <Route path="/screening" element={<Screening />} />
           <Route path="/slideshows" element={<AdhdEducation />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
