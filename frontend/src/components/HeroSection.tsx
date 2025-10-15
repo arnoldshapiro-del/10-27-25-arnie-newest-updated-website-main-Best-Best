@@ -10,7 +10,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Content */}
           <div className="space-y-8">
-            {/* Doctor Image */}
+            {/* Doctor Image above name */}
             <div className="flex justify-center lg:justify-start">
               <div className="rounded-2xl overflow-hidden shadow-large w-48 h-48">
                 <img 
@@ -23,12 +23,9 @@ const HeroSection = () => {
 
             {/* Title */}
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-2">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
                 Arnold G. Shapiro MD
               </h1>
-              <p className="text-xl text-muted-foreground">
-                Board Certified Psychiatrist
-              </p>
             </div>
 
             {/* Trust badges */}
