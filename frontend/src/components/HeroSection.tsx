@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Award, Heart, Users } from "lucide-react";
+import { Check, Award, Users } from "lucide-react";
 import happyFamilyImage from "@/assets/happy-family.jpg";
 
 const HeroSection = () => {
@@ -10,8 +10,29 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Content */}
           <div className="space-y-8">
+            {/* Doctor Image */}
+            <div className="flex justify-center lg:justify-start">
+              <div className="rounded-2xl overflow-hidden shadow-large w-48 h-48">
+                <img 
+                  src="/doctor-arnold-shapiro.jpg" 
+                  alt="Dr. Arnold G. Shapiro" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Title */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-2">
+                Arnold G. Shapiro MD
+              </h1>
+              <p className="text-xl text-muted-foreground">
+                Board Certified Psychiatrist
+              </p>
+            </div>
+
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
               <Badge variant="secondary" className="bg-trust/10 text-trust border-trust/20">
                 <Award className="w-4 h-4 mr-1" />
                 35+ Years Experience
@@ -24,11 +45,11 @@ const HeroSection = () => {
 
             {/* Main headline */}
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
                 Expert Psychiatry Care 
                 <span className="text-primary"> With Compassion</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Over 35 years of successful, caring treatment in Cincinnati and Fort Wright. 
                 Every patient is treated with equal respect, warmth, and understanding. 
                 We collaborate—exploring all options and deciding together on the best treatment plan.
@@ -71,6 +92,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium text-lg px-8 py-6"
+                onClick={() => window.location.href = '/contact'}
               >
                 Schedule Your Evaluation
               </Button>
@@ -78,6 +100,7 @@ const HeroSection = () => {
                 variant="outline" 
                 size="lg"
                 className="border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6"
+                onClick={() => window.location.href = '/services'}
               >
                 Learn About Our Approach
               </Button>
