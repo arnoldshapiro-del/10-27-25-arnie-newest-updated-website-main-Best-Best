@@ -9,7 +9,6 @@ import Services from "./pages/Services";
 import Disorders from "./pages/Disorders";
 import Contact from "./pages/Contact";
 import Forms from "./pages/Forms";
-import PatientPortal from "./pages/PatientPortal";
 import Screening from "./pages/Screening";
 import AdhdEducation from "./pages/AdhdEducation";
 import NotFound from "./pages/NotFound";
