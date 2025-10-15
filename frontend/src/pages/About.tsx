@@ -32,7 +32,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
             <img 
-              src={doctorProfile} 
+              src="/doctor-arnold-shapiro.jpg" 
               alt="Dr. Arnold G. Shapiro" 
               className="w-full h-96 object-cover rounded-lg shadow-lg"
             />
