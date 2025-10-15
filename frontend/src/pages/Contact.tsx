@@ -99,16 +99,16 @@ const Contact = () => {
 
       <div className="container max-w-6xl mx-auto px-4 py-16">
         {/* Emergency Notice */}
-        <div className="text-center mb-12 p-6 bg-card rounded-lg">
-          <p className="text-muted-foreground">
+        <div className="text-center mb-12 p-6 bg-card rounded-lg shadow-lg">
+          <p className="text-muted-foreground text-lg">
             For non-emergency concerns, call our office at (859) 341-7453. If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Schedule Your Evaluation</h2>
+        <div className="max-w-4xl mx-auto">
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h2 className="text-3xl font-bold text-center mb-8">Contact Information</h2>
             <Card>
               <CardContent className="p-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
