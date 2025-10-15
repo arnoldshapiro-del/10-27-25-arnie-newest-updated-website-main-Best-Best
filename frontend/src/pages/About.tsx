@@ -55,11 +55,11 @@ const About = () => {
 
         {/* Doctor Image - Large and Centered */}
         <div className="mb-16 flex justify-center">
-          <div className="w-full max-w-2xl">
+          <div className="w-full max-w-md md:max-w-lg">
             <img 
               src="/doctor-arnold-shapiro.jpg" 
-              alt="Dr. Arnold G. Shapiro" 
-              className="w-full h-auto object-cover rounded-lg shadow-lg"
+              alt="Portrait of Dr. Arnold G. Shapiro" 
+              className="w-full h-auto object-cover rounded-2xl shadow-md"
             />
           </div>
         </div>
