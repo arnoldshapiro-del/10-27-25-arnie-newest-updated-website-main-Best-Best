@@ -110,17 +110,17 @@ const Contact = () => {
           <div className="space-y-6">
             <h2 className="text-3xl font-bold text-center mb-8">Contact Information</h2>
             {/* Contact Methods */}
-            <div className="space-y-4">
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
               {contactInfo.map((info, index) => (
-                <Card key={index}>
-                  <CardContent className="p-4">
+                <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <info.icon className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                      <info.icon className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
                       <div>
-                        <h3 className="font-semibold">{info.title}</h3>
-                        <p className="text-sm font-medium">{info.primary}</p>
+                        <h3 className="font-bold text-lg mb-2">{info.title}</h3>
+                        <p className="text-base font-semibold text-primary mb-1">{info.primary}</p>
                         <p className="text-sm text-muted-foreground">{info.secondary}</p>
-                        <p className="text-xs text-muted-foreground mt-1">{info.description}</p>
+                        <p className="text-xs text-muted-foreground mt-2">{info.description}</p>
                       </div>
                     </div>
                   </CardContent>
