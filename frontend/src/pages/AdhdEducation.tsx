@@ -24,6 +24,12 @@ const LazyThumbnail = ({ src, idx, conditionName, onClick }: {
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Load first 12 thumbnails immediately for instant display
+    if (idx < 12) {
+      setIsVisible(true);
+      return;
+    }
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,8 +40,8 @@ const LazyThumbnail = ({ src, idx, conditionName, onClick }: {
         });
       },
       {
-        rootMargin: '50px', // Start loading 50px before entering viewport
-        threshold: 0.01
+        rootMargin: '200px', // Larger margin for aggressive preloading
+        threshold: 0
       }
     );
 
@@ -44,7 +50,7 @@ const LazyThumbnail = ({ src, idx, conditionName, onClick }: {
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [idx]);
 
   return (
     <div
