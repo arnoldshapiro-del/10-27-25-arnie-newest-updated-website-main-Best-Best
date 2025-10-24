@@ -172,9 +172,17 @@ export default function AdhdEducation() {
     };
   }, [currentCondition]);
   
-  // Preload images
+  // Preload images with link rel preload for faster browser caching
   const preloadImages = (urls: string[]) => {
     urls.forEach(url => {
+      // Use link preload for high priority
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = url;
+      document.head.appendChild(link);
+      
+      // Also trigger image load
       const img = new Image();
       img.src = url;
     });
