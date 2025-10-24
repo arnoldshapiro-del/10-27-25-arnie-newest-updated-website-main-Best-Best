@@ -96,67 +96,73 @@ export default function AdhdEducation() {
   const [preloadedSlides, setPreloadedSlides] = useState<Set<number>>(new Set());
   const observerRef = useRef<IntersectionObserver | null>(null);
   
-  // Check which images exist (optimized with smaller initial check)
+  // Ultra-fast image validation - parallel checking with early bailout
   useEffect(() => {
     const candidates = generateCandidateImages(currentCondition);
+    let cancelled = false;
     
-    // Check images in batches for faster initial load
+    // Fast parallel check - no timeout, fail fast
     const checkBatch = (urls: string[]) => {
       return Promise.all(
         urls.map(src => 
           new Promise<string | null>((resolve) => {
             const img = new Image();
-            img.onload = () => resolve(src);
-            img.onerror = () => resolve(null);
+            img.onload = () => !cancelled && resolve(src);
+            img.onerror = () => !cancelled && resolve(null);
             img.src = src;
-            // Timeout to prevent hanging
-            setTimeout(() => resolve(null), 2000);
           })
         )
       );
     };
     
-    // Check in batches for progressive loading
-    const loadInBatches = async () => {
-      const batchSize = 10;
+    // Process all in larger batches for speed
+    const loadFast = async () => {
+      const batchSize = 25; // Larger batches = faster processing
       const allValid: string[] = [];
       
       for (let i = 0; i < candidates.length; i += batchSize) {
+        if (cancelled) break;
+        
         const batch = candidates.slice(i, i + batchSize);
         const results = await checkBatch(batch);
         const validBatch = results.filter(Boolean) as string[];
         allValid.push(...validBatch);
         
-        // Sort numerically by slide number to ensure correct order
-        const sortedValid = [...allValid].sort((a, b) => {
+        // Early exit if no slides found in first batch
+        if (i === 0 && validBatch.length === 0) break;
+        
+        // Only sort and update on first batch or final
+        if (i === 0 || i + batchSize >= candidates.length) {
+          const sorted = [...allValid].sort((a, b) => {
+            const numA = parseInt(a.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+            const numB = parseInt(b.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
+            return numA - numB;
+          });
+          setValidImages(sorted);
+          
+          // Preload first 3 slides immediately on first batch
+          if (i === 0 && sorted.length > 0) {
+            preloadImages(sorted.slice(0, 3));
+          }
+        }
+      }
+      
+      // Final sorted update
+      if (!cancelled && allValid.length > 0) {
+        const finalSorted = [...allValid].sort((a, b) => {
           const numA = parseInt(a.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
           const numB = parseInt(b.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
           return numA - numB;
         });
-        
-        // Update UI progressively with sorted images
-        setValidImages(sortedValid);
-        
-        // If we found no images in first batch, likely no more exist
-        if (i === 0 && validBatch.length === 0) break;
-      }
-      
-      // Get final sorted list
-      const finalSorted = [...allValid].sort((a, b) => {
-        const numA = parseInt(a.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
-        const numB = parseInt(b.match(/Slide(\d+)\.PNG$/)?.[1] || '0');
-        return numA - numB;
-      });
-      
-      setValidImages(finalSorted);
-      
-      // Preload first 3 slides for instant presentation start
-      if (finalSorted.length > 0) {
-        preloadImages(finalSorted.slice(0, 3));
+        setValidImages(finalSorted);
       }
     };
     
-    loadInBatches();
+    loadFast();
+    
+    return () => {
+      cancelled = true;
+    };
   }, [currentCondition]);
   
   // Preload images
