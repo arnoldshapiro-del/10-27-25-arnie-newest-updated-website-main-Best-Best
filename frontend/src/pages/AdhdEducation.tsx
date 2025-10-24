@@ -64,10 +64,11 @@ const LazyThumbnail = ({ src, idx, conditionName, onClick }: {
           <img
             src={src}
             alt={`${conditionName} Education Slide ${idx + 1}`}
-            className={`w-full h-auto transition-opacity duration-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`w-full h-auto transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
             onLoad={() => setIsLoaded(true)}
-            loading="lazy"
+            loading={idx < 12 ? "eager" : "lazy"}
             decoding="async"
+            fetchpriority={idx < 4 ? "high" : "low"}
           />
           {!isLoaded && (
             <div className="absolute inset-0 flex items-center justify-center">
