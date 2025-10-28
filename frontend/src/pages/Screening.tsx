@@ -2756,6 +2756,18 @@ const Screening = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
         <div className="max-w-4xl mx-auto">
+          {/* Back to Assessments Button */}
+          <div className="mb-4">
+            <Button
+              onClick={returnToGrid}
+              variant="ghost"
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back to Assessments
+            </Button>
+          </div>
+          
           <Card className="mb-6">
             <CardHeader className="text-center">
               <div className="text-6xl mb-4">{assessment.icon}</div>
@@ -2799,15 +2811,6 @@ const Screening = () => {
                 >
                   <ArrowLeft className="h-4 w-4" />
                   Previous
-                </Button>
-                
-                <Button
-                  onClick={() => setShowCrisis(true)}
-                  variant="destructive"
-                  className="flex items-center gap-2"
-                >
-                  <AlertTriangle className="h-4 w-4" />
-                  Crisis Resources
                 </Button>
                 
                 <Button
