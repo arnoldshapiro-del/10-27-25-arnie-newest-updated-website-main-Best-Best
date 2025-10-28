@@ -1097,6 +1097,169 @@ const Screening = () => {
         { id: 'ocd_a11', text: 'Do you recognize that the obsessive-compulsive beliefs are definitely or probably not true (good insight)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'ocd_a12', text: 'Or do you think obsessive-compulsive beliefs are probably or definitely true (poor/absent insight)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
       ]
+    },
+    bipolar1_adult: {
+      id: 'bipolar1_adult',
+      title: 'Bipolar I Disorder (Adult)',
+      description: 'DSM-5 screening for manic episodes and mood cycling',
+      icon: '⚡',
+      stats: { questions: 15, minutes: '7-9', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'bp1_a1', text: 'Have you ever had a distinct period of abnormally and persistently elevated, expansive, or irritable mood lasting at least 1 week?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a2', text: 'During this period, did you have abnormally and persistently increased goal-directed activity or energy?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a3', text: 'During this mood disturbance, did you have inflated self-esteem or grandiosity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a4', text: 'Did you have decreased need for sleep (feeling rested after only 3 hours)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a5', text: 'Were you more talkative than usual or felt pressure to keep talking?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a6', text: 'Did you experience flight of ideas or racing thoughts?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a7', text: 'Were you easily distracted?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a8', text: 'Did you have increased goal-directed activity or psychomotor agitation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a9', text: 'Did you have excessive involvement in activities with a high potential for painful consequences (buying sprees, sexual indiscretions, foolish investments)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a10', text: 'Was the mood disturbance severe enough to cause marked impairment in functioning, necessitate hospitalization, or include psychotic features?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a11', text: 'Was the episode NOT due to the physiological effects of a substance or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a12', text: 'Have you also experienced periods of depression lasting at least 2 weeks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a13', text: 'During depressive periods, did you have depressed mood or loss of interest?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a14', text: 'Can the disturbance NOT be better explained by another disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp1_a15', text: 'Have these symptoms significantly impacted your life or relationships?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    bipolar2_adult: {
+      id: 'bipolar2_adult',
+      title: 'Bipolar II Disorder (Adult)',
+      description: 'DSM-5 screening for hypomanic and depressive episodes',
+      icon: '🌗',
+      stats: { questions: 18, minutes: '8-10', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'bp2_a1', text: 'Have you had a distinct period of abnormally and persistently elevated, expansive, or irritable mood lasting at least 4 consecutive days?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a2', text: 'During this period, did you have increased activity or energy?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a3', text: 'Did you have inflated self-esteem or grandiosity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a4', text: 'Did you have decreased need for sleep?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a5', text: 'Were you more talkative or felt pressure to keep talking?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a6', text: 'Did you experience flight of ideas or racing thoughts?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a7', text: 'Were you easily distracted?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a8', text: 'Did you have increased goal-directed activity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a9', text: 'Did you have excessive involvement in risky activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a10', text: 'Was this episode an unequivocal change in functioning that is uncharacteristic of you?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a11', text: 'Was the change in mood and functioning observable by others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a12', text: 'Was the episode NOT severe enough to cause marked impairment or require hospitalization, and there were no psychotic features?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a13', text: 'Have you experienced a period of at least 2 weeks with depressed mood or loss of interest?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a14', text: 'During this period, did you have at least 5 depressive symptoms (weight change, sleep problems, fatigue, worthlessness, concentration problems, etc.)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a15', text: 'Did these depressive symptoms cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a16', text: 'Are the episodes NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a17', text: 'Have you never had a full manic episode (which would make it Bipolar I instead)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bp2_a18', text: 'Can the symptoms NOT be better explained by another disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    alcohol_use: {
+      id: 'alcohol_use',
+      title: 'Alcohol Use Disorder (Adult)',
+      description: 'DSM-5 screening for problematic alcohol use patterns',
+      icon: '🍺',
+      stats: { questions: 13, minutes: '6-8', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'aud_a1', text: 'In the past 12 months, have you drunk alcohol in larger amounts or over a longer period than you intended?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a2', text: 'Have you had a persistent desire or unsuccessful efforts to cut down or control alcohol use?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a3', text: 'Have you spent a great deal of time obtaining, using, or recovering from alcohol?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a4', text: 'Have you had cravings or a strong desire or urge to use alcohol?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a5', text: 'Has recurrent alcohol use resulted in failure to fulfill major obligations at work, school, or home?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a6', text: 'Have you continued alcohol use despite having persistent or recurrent social or interpersonal problems caused or exacerbated by alcohol?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a7', text: 'Have you given up or reduced important social, occupational, or recreational activities because of alcohol use?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a8', text: 'Have you used alcohol in situations where it is physically hazardous?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a9', text: 'Have you continued alcohol use despite knowledge of having a persistent physical or psychological problem likely caused or exacerbated by alcohol?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a10', text: 'Have you needed markedly increased amounts of alcohol to achieve intoxication or desired effect (tolerance)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a11', text: 'Have you experienced withdrawal symptoms when alcohol effects wore off?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a12', text: 'Do you drink to relieve or avoid withdrawal symptoms?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'aud_a13', text: 'Has alcohol use significantly impacted your life, health, or relationships?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    opioid_use: {
+      id: 'opioid_use',
+      title: 'Opioid Use Disorder (Adult)',
+      description: 'DSM-5 screening for problematic opioid use patterns',
+      icon: '💊',
+      stats: { questions: 13, minutes: '6-8', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'oud_a1', text: 'In the past 12 months, have you taken opioids in larger amounts or over a longer period than intended?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a2', text: 'Have you had a persistent desire or unsuccessful efforts to cut down or control opioid use?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a3', text: 'Have you spent a great deal of time obtaining, using, or recovering from opioids?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a4', text: 'Have you had cravings or a strong desire or urge to use opioids?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a5', text: 'Has recurrent opioid use resulted in failure to fulfill major obligations?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a6', text: 'Have you continued opioid use despite persistent social or interpersonal problems?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a7', text: 'Have you given up important activities because of opioid use?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a8', text: 'Have you used opioids in physically hazardous situations?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a9', text: 'Have you continued opioid use despite knowledge of physical or psychological problems likely caused by opioids?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a10', text: 'Have you needed markedly increased amounts of opioids to achieve desired effect (tolerance)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a11', text: 'Have you experienced withdrawal symptoms when opioid effects wore off?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a12', text: 'Do you use opioids to relieve or avoid withdrawal symptoms?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'oud_a13', text: 'Has opioid use significantly impacted your life, health, or relationships?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    persistent_depressive: {
+      id: 'persistent_depressive',
+      title: 'Persistent Depressive Disorder (Dysthymia) (Adult)',
+      description: 'DSM-5 screening for chronic depressed mood lasting 2+ years',
+      icon: '☁️',
+      stats: { questions: 9, minutes: '5-7', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'pdd_a1', text: 'Have you had depressed mood for most of the day, for more days than not, for at least 2 years?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a2', text: 'During periods of depressed mood, have you had poor appetite or overeating?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a3', text: 'Have you had insomnia or hypersomnia?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a4', text: 'Have you had low energy or fatigue?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a5', text: 'Have you had low self-esteem?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a6', text: 'Have you had poor concentration or difficulty making decisions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a7', text: 'Have you felt hopeless?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a8', text: 'During the 2-year period, have you never been without these symptoms for more than 2 months at a time?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pdd_a9', text: 'Do these symptoms cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    borderline_personality: {
+      id: 'borderline_personality',
+      title: 'Borderline Personality Disorder (Adult)',
+      description: 'DSM-5 screening for unstable relationships, self-image, and emotions',
+      icon: '🎭',
+      stats: { questions: 11, minutes: '6-8', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'bpd_a1', text: 'Do you make frantic efforts to avoid real or imagined abandonment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a2', text: 'Do you have a pattern of unstable and intense interpersonal relationships alternating between extremes of idealization and devaluation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a3', text: 'Do you have an unstable self-image or sense of self?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a4', text: 'Do you engage in impulsivity in at least two areas that are potentially self-damaging (spending, sex, substance abuse, reckless driving, binge eating)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a5', text: 'Do you have recurrent suicidal behavior, gestures, threats, or self-mutilating behavior?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes', crisis: true }] },
+        { id: 'bpd_a6', text: 'Do you have instability of mood due to marked reactivity (intense episodic unhappiness, irritability, or anxiety usually lasting a few hours)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a7', text: 'Do you have chronic feelings of emptiness?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a8', text: 'Do you have inappropriate, intense anger or difficulty controlling anger?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a9', text: 'Do you have transient, stress-related paranoid thoughts or severe dissociative symptoms?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a10', text: 'Is this a pervasive pattern beginning by early adulthood and present in a variety of contexts?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'bpd_a11', text: 'Does this pattern cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    adhd_adult: {
+      id: 'adhd_adult',
+      title: 'Adult ADHD',
+      description: 'DSM-5 screening for attention and hyperactivity difficulties in adults',
+      icon: '🎯',
+      stats: { questions: 21, minutes: '8-10', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'adhd_ad1', text: 'Do you often fail to give close attention to details or make careless mistakes in work or activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad2', text: 'Do you often have difficulty sustaining attention in tasks or activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad3', text: 'Do you often not seem to listen when spoken to directly?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad4', text: 'Do you often not follow through on instructions and fail to finish work or duties?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad5', text: 'Do you often have difficulty organizing tasks and activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad6', text: 'Do you often avoid, dislike, or are reluctant to engage in tasks requiring sustained mental effort?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad7', text: 'Do you often lose things necessary for tasks or activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad8', text: 'Are you often easily distracted by extraneous stimuli?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad9', text: 'Are you often forgetful in daily activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad10', text: 'Do you often fidget with hands or feet or squirm in seat?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad11', text: 'Do you often leave your seat in situations when remaining seated is expected?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad12', text: 'Do you often feel restless?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad13', text: 'Do you often have difficulty engaging in leisure activities quietly?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad14', text: 'Are you often "on the go" or act as if "driven by a motor"?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad15', text: 'Do you often talk excessively?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad16', text: 'Do you often blurt out answers before questions have been completed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad17', text: 'Do you often have difficulty waiting your turn?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad18', text: 'Do you often interrupt or intrude on others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad19', text: 'Have several symptoms been present since before age 12?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad20', text: 'Are symptoms present in two or more settings?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'adhd_ad21', text: 'Do symptoms interfere with functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
