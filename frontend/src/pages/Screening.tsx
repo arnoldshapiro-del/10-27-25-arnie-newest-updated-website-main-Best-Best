@@ -1541,7 +1541,7 @@ const Screening = () => {
               </div>
               
               <div className="bg-orange-500 border-2 border-orange-300 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-white mb-4">Discuss Your Results with Dr. Shapiro</h3>
+                <h3 className="text-xl font-semibold text-white mb-4">Discuss Your Results with a Professional</h3>
                 <p className="mb-4 text-orange-100">Get professional interpretation of your screening results and personalized treatment recommendations.</p>
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Button className="bg-white text-orange-600 hover:bg-orange-50" asChild>
