@@ -1260,6 +1260,133 @@ const Screening = () => {
         { id: 'adhd_ad20', text: 'Are symptoms present in two or more settings?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'adhd_ad21', text: 'Do symptoms interfere with functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
       ]
+    },
+    specific_phobia: {
+      id: 'specific_phobia',
+      title: 'Specific Phobia',
+      description: 'DSM-5 screening for marked fear of specific objects or situations',
+      icon: '😖',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'sp_1', text: 'Do you experience marked fear or anxiety about a specific object or situation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_2', text: 'Does the phobic object or situation almost always provoke immediate fear or anxiety?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_3', text: 'Do you actively avoid the phobic object or situation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_4', text: 'Is your fear or anxiety out of proportion to the actual danger posed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_5', text: 'Has this fear, anxiety, or avoidance been persistent, typically lasting 6 months or more?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_6', text: 'Does this fear, anxiety, or avoidance cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_7', text: 'Is the fear, anxiety, or avoidance NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sp_8', text: 'Is the fear, anxiety, or avoidance NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    adjustment_disorder: {
+      id: 'adjustment_disorder',
+      title: 'Adjustment Disorder',
+      description: 'DSM-5 screening for emotional symptoms following a stressful life event',
+      icon: '🌊',
+      stats: { questions: 7, minutes: '3-5', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ad_1', text: 'Have you developed emotional or behavioral symptoms in response to an identifiable stressor within 3 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_2', text: 'Are your symptoms causing significant distress out of proportion to the severity of the stressor?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_3', text: 'Are your symptoms causing significant impairment in social, occupational, or other important areas?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_4', text: 'Do your symptoms NOT meet criteria for another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_5', text: 'Are your symptoms NOT merely an exacerbation of a preexisting mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_6', text: 'Do your symptoms NOT represent normal bereavement?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ad_7', text: 'Once the stressor has ended, do symptoms NOT persist for more than 6 additional months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    acute_stress_disorder: {
+      id: 'acute_stress_disorder',
+      title: 'Acute Stress Disorder',
+      description: 'DSM-5 screening for trauma symptoms within the first month after an event',
+      icon: '⚠️',
+      stats: { questions: 16, minutes: '7-9', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'asd_1', text: 'Have you been exposed to actual or threatened death, serious injury, or sexual violence?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_2', text: 'Do you experience recurrent, involuntary, and intrusive distressing memories of the event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_3', text: 'Do you have recurrent distressing dreams related to the event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_4', text: 'Do you experience dissociative reactions (flashbacks) where you feel as if the event were recurring?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_5', text: 'Do you experience intense or prolonged psychological distress when exposed to reminders?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_6', text: 'Do you have an inability to experience positive emotions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_7', text: 'Do you have an altered sense of reality (feeling dazed, time slowing)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_8', text: 'Are you unable to remember an important aspect of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_9', text: 'Do you make efforts to avoid distressing memories, thoughts, or feelings about the event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_10', text: 'Do you avoid external reminders (people, places, conversations) that arouse distressing memories?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_11', text: 'Do you experience sleep disturbance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_12', text: 'Do you experience irritable behavior and angry outbursts?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_13', text: 'Do you experience hypervigilance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_14', text: 'Do you have problems with concentration?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_15', text: 'Do you have an exaggerated startle response?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_16', text: 'Have these symptoms lasted 3 days to 1 month after trauma exposure?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    agoraphobia: {
+      id: 'agoraphobia',
+      title: 'Agoraphobia',
+      description: 'DSM-5 screening for fear of situations where escape might be difficult',
+      icon: '🏠',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ag_1', text: 'Do you experience marked fear or anxiety about using public transportation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_2', text: 'Do you experience marked fear or anxiety about being in open spaces?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_3', text: 'Do you experience marked fear or anxiety about being in enclosed places?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_4', text: 'Do you experience marked fear or anxiety about standing in line or being in a crowd?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_5', text: 'Do you experience marked fear or anxiety about being outside the home alone?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_6', text: 'Do you actively avoid these situations or require a companion?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_7', text: 'Has this fear, anxiety, or avoidance been persistent, typically lasting 6 months or more?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ag_8', text: 'Does this cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    insomnia_disorder: {
+      id: 'insomnia_disorder',
+      title: 'Insomnia Disorder',
+      description: 'DSM-5 screening for persistent difficulty falling or staying asleep',
+      icon: '😴',
+      stats: { questions: 9, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'in_1', text: 'Do you have difficulty initiating sleep?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_2', text: 'Do you have difficulty maintaining sleep?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_3', text: 'Do you wake up too early and cannot return to sleep?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_4', text: 'Does your sleep difficulty cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_5', text: 'Does your sleep difficulty occur at least 3 nights per week?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_6', text: 'Has your sleep difficulty been present for at least 3 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_7', text: 'Does the sleep difficulty occur despite adequate opportunity for sleep?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_8', text: 'Is the sleep disturbance NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'in_9', text: 'Is the sleep disturbance NOT better explained by another sleep disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    somatic_symptom_disorder: {
+      id: 'somatic_symptom_disorder',
+      title: 'Somatic Symptom Disorder',
+      description: 'DSM-5 screening for excessive focus on physical symptoms',
+      icon: '🤕',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ss_1', text: 'Do you have one or more somatic symptoms that are distressing or disrupt daily life?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_2', text: 'Do you have excessive thoughts about the seriousness of your symptoms?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_3', text: 'Do you experience persistently high anxiety about your health or symptoms?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_4', text: 'Do you devote excessive time and energy to your symptoms or health concerns?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_5', text: 'Although any somatic symptom may not be continuously present, has your state of being symptomatic been persistent (typically more than 6 months)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_6', text: 'Do your symptoms cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_7', text: 'Are your symptoms NOT intentionally produced or feigned?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ss_8', text: 'Do your concerns persist despite appropriate medical evaluation and reassurance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    illness_anxiety_disorder: {
+      id: 'illness_anxiety_disorder',
+      title: 'Illness Anxiety Disorder',
+      description: 'DSM-5 screening for preoccupation with having a serious illness',
+      icon: '🩺',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ia_1', text: 'Are you preoccupied with having or acquiring a serious illness?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_2', text: 'Are somatic symptoms not present or, if present, only mild in intensity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_3', text: 'Is there a high level of anxiety about your health?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_4', text: 'Do you perform excessive health-related behaviors (e.g., repeatedly checking your body)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_5', text: 'Do you exhibit maladaptive avoidance (e.g., avoiding doctor appointments or hospitals)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_6', text: 'Has your illness preoccupation been present for at least 6 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_7', text: 'Is your illness preoccupation NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ia_8', text: 'Does your preoccupation cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
