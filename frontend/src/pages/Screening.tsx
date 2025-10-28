@@ -999,6 +999,142 @@ const Screening = () => {
             ))}
           </div>
         </div>
+
+        {/* DSM-5 Disclaimer */}
+        <Alert className="mb-8 bg-yellow-50 border-yellow-300">
+          <AlertTriangle className="h-5 w-5 text-yellow-600" />
+          <AlertDescription>
+            <p className="font-semibold text-yellow-800 mb-2">Important Screening Information</p>
+            <p className="text-gray-700">
+              These are screening tools for educational purposes only. They do not replace professional clinical evaluation. 
+              For accurate diagnosis and treatment, schedule an appointment with Dr. Shapiro.
+            </p>
+          </AlertDescription>
+        </Alert>
+
+        {/* Adult DSM-5 Diagnostic Screenings */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">Adult DSM-5 Diagnostic Screenings</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[
+              { icon: '😔', title: 'Major Depressive Disorder', description: 'Screening for persistent sad mood and loss of interest in activities', questions: 11, time: '5-7' },
+              { icon: '😰', title: 'Generalized Anxiety Disorder', description: 'Screening for excessive worry and anxiety about various events', questions: 10, time: '4-6' },
+              { icon: '😱', title: 'Panic Disorder', description: 'Screening for recurrent unexpected panic attacks', questions: 16, time: '6-8' },
+              { icon: '😨', title: 'Social Anxiety Disorder', description: 'Screening for marked fear and avoidance of social situations', questions: 9, time: '4-6' },
+              { icon: '💥', title: 'Post-Traumatic Stress Disorder (PTSD)', description: 'Screening for trauma-related symptoms following a distressing event', questions: 24, time: '10-12' },
+              { icon: '🔄', title: 'Obsessive-Compulsive Disorder (OCD)', description: 'Screening for obsessive thoughts and compulsive behaviors', questions: 12, time: '6-8' },
+              { icon: '⚡', title: 'Bipolar I Disorder', description: 'Screening for manic episodes and mood cycling', questions: 15, time: '7-9' },
+              { icon: '🌗', title: 'Bipolar II Disorder', description: 'Screening for hypomanic and depressive episodes', questions: 18, time: '8-10' },
+              { icon: '🍺', title: 'Alcohol Use Disorder', description: 'Screening for problematic alcohol use patterns', questions: 13, time: '6-8' },
+              { icon: '💊', title: 'Opioid Use Disorder', description: 'Screening for problematic opioid use patterns', questions: 13, time: '6-8' },
+              { icon: '☁️', title: 'Persistent Depressive Disorder (Dysthymia)', description: 'Screening for chronic depressed mood lasting 2+ years', questions: 9, time: '5-7' },
+              { icon: '🎭', title: 'Borderline Personality Disorder', description: 'Screening for unstable relationships, self-image, and emotions', questions: 11, time: '6-8' },
+              { icon: '🎯', title: 'Adult ADHD', description: 'Screening for attention and hyperactivity difficulties in adults', questions: 21, time: '8-10' },
+              { icon: '😖', title: 'Specific Phobia', description: 'Screening for marked fear of specific objects or situations', questions: 8, time: '4-6' },
+              { icon: '🌊', title: 'Adjustment Disorder', description: 'Screening for emotional symptoms following a stressful life event', questions: 7, time: '3-5' },
+              { icon: '⚠️', title: 'Acute Stress Disorder', description: 'Screening for trauma symptoms within the first month after an event', questions: 16, time: '7-9' },
+              { icon: '🏠', title: 'Agoraphobia', description: 'Screening for fear of situations where escape might be difficult', questions: 8, time: '4-6' },
+              { icon: '😴', title: 'Insomnia Disorder', description: 'Screening for persistent difficulty falling or staying asleep', questions: 9, time: '4-6' },
+              { icon: '🤕', title: 'Somatic Symptom Disorder', description: 'Screening for excessive focus on physical symptoms', questions: 8, time: '4-6' },
+              { icon: '🩺', title: 'Illness Anxiety Disorder', description: 'Screening for preoccupation with having a serious illness', questions: 8, time: '4-6' }
+            ].map((item, index) => (
+              <Card 
+                key={`adult-${index}`}
+                className="cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-purple-200 hover:border-purple-400 bg-white"
+                onClick={() => {
+                  alert('This assessment is being finalized. Full questionnaire coming soon.');
+                }}
+              >
+                <CardHeader className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-t-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-4xl bg-purple-600 text-white p-3 rounded-lg">{item.icon}</div>
+                    <div className="flex-1">
+                      <CardTitle className="text-lg mb-2 text-purple-700">{item.title}</CardTitle>
+                      <p className="text-gray-600 text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between text-center pt-4 border-t border-purple-200">
+                    <div>
+                      <div className="font-bold text-purple-600">{item.questions}</div>
+                      <div className="text-xs text-gray-500">Questions</div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-purple-600">{item.time}</div>
+                      <div className="text-xs text-gray-500">Minutes</div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-orange-500">DSM-5</div>
+                      <div className="text-xs text-gray-500">Adult</div>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Child & Adolescent DSM-5 Diagnostic Screenings */}
+        <div className="mb-8">
+          <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">Child & Adolescent DSM-5 Diagnostic Screenings</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {[
+              { icon: '🎯', title: 'ADHD (Child/Adolescent)', description: 'Screening for attention-deficit/hyperactivity symptoms in youth', questions: 21, time: '8-10' },
+              { icon: '😤', title: 'Oppositional Defiant Disorder (ODD)', description: 'Screening for angry, defiant, and vindictive behavior patterns', questions: 11, time: '5-7' },
+              { icon: '🚫', title: 'Conduct Disorder', description: 'Screening for aggression, rule-breaking, and destructive behavior', questions: 18, time: '8-10' },
+              { icon: '👨‍👩‍👧', title: 'Separation Anxiety Disorder', description: 'Screening for excessive fear about separation from attachment figures', questions: 11, time: '5-7' },
+              { icon: '😨', title: 'Social Anxiety Disorder (Youth)', description: 'Screening for fear of social or performance situations in youth', questions: 9, time: '4-6' },
+              { icon: '😰', title: 'Generalized Anxiety Disorder (Youth)', description: 'Screening for excessive worry in children and adolescents', questions: 10, time: '4-6' },
+              { icon: '😔', title: 'Major Depressive Disorder (Youth)', description: 'Screening for persistent sad or irritable mood in youth', questions: 11, time: '5-7' },
+              { icon: '☁️', title: 'Persistent Depressive Disorder (Youth)', description: 'Screening for chronic depressed/irritable mood in youth (1+ year)', questions: 9, time: '5-7' },
+              { icon: '🧩', title: 'Autism Spectrum Disorder', description: 'Screening for social communication and behavior pattern differences', questions: 14, time: '7-9' },
+              { icon: '📚', title: 'Specific Learning Disorder', description: 'Screening for difficulties in reading, writing, or mathematics', questions: 12, time: '6-8' },
+              { icon: '🧠', title: 'Intellectual Disability', description: 'Screening for deficits in intellectual and adaptive functioning', questions: 10, time: '5-7' },
+              { icon: '💧', title: 'Enuresis', description: 'Screening for repeated urination in inappropriate places', questions: 6, time: '3-5' },
+              { icon: '🤐', title: 'Selective Mutism', description: 'Screening for consistent failure to speak in specific situations', questions: 7, time: '3-5' },
+              { icon: '💔', title: 'Reactive Attachment Disorder', description: 'Screening for emotionally withdrawn behavior toward caregivers', questions: 9, time: '4-6' },
+              { icon: '😡', title: 'Disruptive Mood Dysregulation Disorder', description: 'Screening for severe temper outbursts and persistent irritability', questions: 8, time: '4-6' },
+              { icon: '😱', title: 'Panic Disorder (Youth)', description: 'Screening for recurrent panic attacks in children/adolescents', questions: 16, time: '6-8' },
+              { icon: '🔄', title: 'OCD (Youth)', description: 'Screening for obsessions and compulsions in youth', questions: 12, time: '6-8' },
+              { icon: '💥', title: 'PTSD (Youth)', description: 'Screening for trauma-related symptoms in children/adolescents', questions: 20, time: '9-11' },
+              { icon: '🎪', title: "Tourette's Disorder", description: 'Screening for multiple motor and vocal tics', questions: 8, time: '4-6' },
+              { icon: '🚽', title: 'Encopresis', description: 'Screening for repeated passage of feces in inappropriate places', questions: 6, time: '3-5' }
+            ].map((item, index) => (
+              <Card 
+                key={`child-${index}`}
+                className="cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-green-200 hover:border-green-400 bg-white"
+                onClick={() => {
+                  alert('This assessment is being finalized. Full questionnaire coming soon.');
+                }}
+              >
+                <CardHeader className="bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="text-4xl bg-green-600 text-white p-3 rounded-lg">{item.icon}</div>
+                    <div className="flex-1">
+                      <CardTitle className="text-lg mb-2 text-green-700">{item.title}</CardTitle>
+                      <p className="text-gray-600 text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between text-center pt-4 border-t border-green-200">
+                    <div>
+                      <div className="font-bold text-green-600">{item.questions}</div>
+                      <div className="text-xs text-gray-500">Questions</div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-green-600">{item.time}</div>
+                      <div className="text-xs text-gray-500">Minutes</div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-orange-500">DSM-5</div>
+                      <div className="text-xs text-gray-500">Youth</div>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
         
         {/* Footer Disclaimer */}
         <Card className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-300">
