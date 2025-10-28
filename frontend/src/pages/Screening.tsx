@@ -2698,7 +2698,7 @@ const Screening = () => {
             
             <CardContent>
               {/* DSM-5 Disclaimer for new assessments */}
-              {['mdd_adult', 'gad_adult', 'panic_adult', 'adhd_child', 'mdd_youth', 'social_anxiety_adult', 'ptsd_adult', 'ocd_adult', 'bipolar1_adult', 'bipolar2_adult', 'alcohol_use', 'opioid_use', 'persistent_depressive', 'borderline_personality', 'adhd_adult', 'specific_phobia', 'adjustment_disorder', 'acute_stress_disorder', 'agoraphobia', 'insomnia_disorder', 'somatic_symptom_disorder', 'illness_anxiety_disorder'].includes(currentAssessment) && (
+              {['mdd_adult', 'gad_adult', 'panic_adult', 'adhd_child', 'mdd_youth', 'social_anxiety_adult', 'ptsd_adult', 'ocd_adult', 'bipolar1_adult', 'bipolar2_adult', 'alcohol_use', 'opioid_use', 'persistent_depressive', 'borderline_personality', 'adhd_adult', 'specific_phobia', 'adjustment_disorder', 'acute_stress_disorder', 'agoraphobia', 'insomnia_disorder', 'somatic_symptom_disorder', 'illness_anxiety_disorder', 'odd_youth', 'conduct_disorder', 'separation_anxiety_youth', 'social_anxiety_youth', 'gad_youth', 'persistent_depressive_youth', 'autism_youth', 'learning_disorder_youth', 'intellectual_disability_youth', 'enuresis_youth', 'selective_mutism_youth', 'reactive_attachment_youth', 'dmdd_youth', 'panic_youth', 'ocd_youth', 'ptsd_youth', 'tourettes_youth', 'encopresis_youth'].includes(currentAssessment) && (
                 <Alert className="mb-6 bg-yellow-50 border-yellow-300">
                   <AlertTriangle className="h-5 w-5 text-yellow-600" />
                   <AlertDescription>
