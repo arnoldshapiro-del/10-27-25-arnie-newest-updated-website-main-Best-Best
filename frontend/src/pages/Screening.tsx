@@ -1243,7 +1243,7 @@ const Screening = () => {
             'Symptoms suggest possible Severe Major Depressive Disorder',
             'Immediate professional evaluation is essential',
             'Evidence-based treatments are available',
-            'Call Dr. Shapiro immediately: (859) 341-7453'
+            'Call immediately for urgent evaluation: (859) 341-7453'
           ];
         }
       } else {
@@ -1286,7 +1286,7 @@ const Screening = () => {
             'Symptoms suggest possible Severe Generalized Anxiety Disorder',
             'Immediate professional evaluation is essential',
             'Treatment can significantly reduce anxiety',
-            'Call Dr. Shapiro immediately: (859) 341-7453'
+            'Call immediately for urgent evaluation: (859) 341-7453'
           ];
         }
       } else {
@@ -1321,7 +1321,7 @@ const Screening = () => {
             'Symptoms suggest Panic Disorder with severe symptoms',
             'Immediate professional evaluation is essential',
             'Effective treatments can dramatically reduce panic attacks',
-            'Call Dr. Shapiro immediately: (859) 341-7453'
+            'Call immediately for urgent evaluation: (859) 341-7453'
           ];
         }
       } else {
