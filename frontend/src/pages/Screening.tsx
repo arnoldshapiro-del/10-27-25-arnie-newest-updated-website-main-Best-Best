@@ -1888,6 +1888,91 @@ const Screening = () => {
         levelClass = 'bg-green-100 text-green-800 border-green-300';
         recommendations = ['Duration or setting criteria not met', 'Continue monitoring symptoms', 'Contact our office if symptoms worsen'];
       }
+    } else if (currentAssessment === 'specific_phobia') {
+      const hasRequired = responses.sp_5 && responses.sp_6 && responses.sp_7 && responses.sp_8;
+      if (hasRequired && totalScore >= 6) {
+        level = 'Specific Phobia suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Specific Phobia', 'Professional evaluation is strongly recommended', 'Exposure therapy is highly effective for specific phobias', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring phobic responses', 'Practice gradual exposure techniques', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'adjustment_disorder') {
+      const hasRequired = responses.ad_1 && (responses.ad_2 || responses.ad_3) && responses.ad_4 && responses.ad_5 && responses.ad_6 && responses.ad_7;
+      if (hasRequired) {
+        level = 'Adjustment Disorder suggested - professional evaluation recommended';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = ['Symptoms suggest possible Adjustment Disorder', 'Professional evaluation is recommended', 'Short-term therapy can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Normal stress response to life changes', 'Practice coping strategies and self-care', 'Contact our office if distress persists'];
+      }
+    } else if (currentAssessment === 'acute_stress_disorder') {
+      const hasRequired = responses.asd_1 && responses.asd_16;
+      const symptoms = [responses.asd_2, responses.asd_3, responses.asd_4, responses.asd_5, responses.asd_6, responses.asd_7, responses.asd_8, responses.asd_9, responses.asd_10, responses.asd_11, responses.asd_12, responses.asd_13, responses.asd_14, responses.asd_15].filter(Boolean).length;
+      
+      if (hasRequired && symptoms >= 9) {
+        level = 'Acute Stress Disorder suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Acute Stress Disorder', 'Immediate professional evaluation is essential', 'Early intervention can prevent PTSD development', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Acute Stress Disorder', 'Continue monitoring trauma-related symptoms', 'Practice grounding and coping techniques', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'agoraphobia') {
+      const fearCount = [responses.ag_1, responses.ag_2, responses.ag_3, responses.ag_4, responses.ag_5].filter(Boolean).length;
+      const hasRequired = responses.ag_6 && responses.ag_7 && responses.ag_8;
+      
+      if (fearCount >= 2 && hasRequired) {
+        level = 'Agoraphobia suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Agoraphobia', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy and exposure therapy are effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Agoraphobia', 'Continue monitoring situational fears', 'Practice gradual exposure to feared situations', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'insomnia_disorder') {
+      const hasSleepDifficulty = responses.in_1 || responses.in_2 || responses.in_3;
+      const hasRequired = responses.in_4 && responses.in_5 && responses.in_6 && responses.in_7 && responses.in_8 && responses.in_9;
+      
+      if (hasSleepDifficulty && hasRequired) {
+        level = 'Insomnia Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Insomnia Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy for insomnia (CBT-I) is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Insomnia Disorder', 'Continue monitoring sleep patterns', 'Practice good sleep hygiene', 'Contact our office if sleep problems persist'];
+      }
+    } else if (currentAssessment === 'somatic_symptom_disorder') {
+      const hasRequired = responses.ss_1 && (responses.ss_2 || responses.ss_3 || responses.ss_4) && responses.ss_5 && responses.ss_6 && responses.ss_7 && responses.ss_8;
+      
+      if (hasRequired) {
+        level = 'Somatic Symptom Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Somatic Symptom Disorder', 'Professional evaluation is strongly recommended', 'Treatment can help manage health anxiety and physical symptoms', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue appropriate medical care for physical symptoms', 'Monitor health anxiety levels', 'Contact our office if concerns persist'];
+      }
+    } else if (currentAssessment === 'illness_anxiety_disorder') {
+      const hasRequired = responses.ia_1 && responses.ia_2 && responses.ia_3 && (responses.ia_4 || responses.ia_5) && responses.ia_6 && responses.ia_7 && responses.ia_8;
+      
+      if (hasRequired) {
+        level = 'Illness Anxiety Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Illness Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy can effectively address health anxiety', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue appropriate medical care', 'Monitor anxiety about health concerns', 'Contact our office if preoccupation increases'];
+      }
     } else {
       // Basic scoring logic for other assessments
       const maxScore = assessments[currentAssessment].questions.length * 3;
