@@ -1253,7 +1253,7 @@ const Screening = () => {
           'Symptoms do not currently meet DSM-5 criteria for Major Depressive Disorder',
           'Continue monitoring your mood',
           'Practice self-care and stress management',
-          'Contact Dr. Shapiro if symptoms worsen'
+          'Contact our office if symptoms worsen'
         ];
       }
     } else if (currentAssessment === 'gad_adult') {
@@ -1296,7 +1296,7 @@ const Screening = () => {
           'Symptoms do not currently meet DSM-5 criteria for Generalized Anxiety Disorder',
           'Continue monitoring your anxiety levels',
           'Practice relaxation techniques',
-          'Contact Dr. Shapiro if symptoms worsen'
+          'Contact our office if symptoms worsen'
         ];
       }
     } else if (currentAssessment === 'panic_adult') {
@@ -1331,7 +1331,7 @@ const Screening = () => {
           'Symptoms do not currently meet DSM-5 criteria for Panic Disorder',
           'Continue monitoring panic symptoms',
           'Learn breathing and grounding techniques',
-          'Contact Dr. Shapiro if symptoms worsen'
+          'Contact our office if symptoms worsen'
         ];
       }
     } else if (currentAssessment === 'adhd_child') {
@@ -1375,7 +1375,7 @@ const Screening = () => {
           'Symptoms do not currently meet DSM-5 criteria for ADHD',
           'Duration or setting criteria not met',
           'Continue monitoring',
-          'Contact Dr. Shapiro if symptoms worsen'
+          'Contact our office if symptoms worsen'
         ];
       }
     } else {
@@ -1390,7 +1390,7 @@ const Screening = () => {
           'Your responses suggest minimal symptoms',
           'Continue practicing self-care',
           'Monitor symptoms over time',
-          'Contact Dr. Shapiro if symptoms worsen'
+          'Contact our office if symptoms worsen'
         ];
       } else if (percentage <= 60) {
         level = 'Moderate concern level';
