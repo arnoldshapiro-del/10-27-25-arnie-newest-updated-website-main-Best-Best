@@ -428,6 +428,603 @@ const Screening = () => {
           ]
         }
       ]
+    },
+    mdd_adult: {
+      id: 'mdd_adult',
+      title: 'Major Depressive Disorder (Adult)',
+      description: 'DSM-5 screening for persistent sad mood and loss of interest',
+      icon: '😔',
+      stats: { questions: 11, minutes: '5-7', rating: 'DSM-5 Adult' },
+      questions: [
+        {
+          id: 'mdd_a1',
+          text: 'Over the past 2 weeks, have you felt depressed, sad, empty, or hopeless most of the day, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a2',
+          text: 'Over the past 2 weeks, have you experienced markedly diminished interest or pleasure in all or almost all activities most of the day, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a3',
+          text: 'Have you experienced significant weight loss (when not dieting), weight gain, or changes in appetite nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a4',
+          text: 'Have you had insomnia or hypersomnia (sleeping too much) nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a5',
+          text: 'Have you experienced psychomotor agitation or retardation (feeling restless or slowed down) observable by others, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a6',
+          text: 'Have you felt fatigued or had loss of energy nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a7',
+          text: 'Have you felt worthless or experienced excessive or inappropriate guilt nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a8',
+          text: 'Have you had diminished ability to think or concentrate, or indecisiveness, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a9',
+          text: 'Have you had recurrent thoughts of death, recurrent suicidal ideation, or a suicide attempt?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes', crisis: true }
+          ]
+        },
+        {
+          id: 'mdd_a10',
+          text: 'Do these symptoms cause significant distress or impairment in social, occupational, or other important areas of functioning?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_a11',
+          text: 'Are these symptoms NOT due to substance use or another medical condition?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        }
+      ]
+    },
+    gad_adult: {
+      id: 'gad_adult',
+      title: 'Generalized Anxiety Disorder (Adult)',
+      description: 'DSM-5 screening for excessive worry and anxiety',
+      icon: '😰',
+      stats: { questions: 10, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        {
+          id: 'gad_a1',
+          text: 'Over the past 6 months, have you experienced excessive anxiety and worry about various events or activities, occurring more days than not?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a2',
+          text: 'Do you find it difficult to control your worry?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a3',
+          text: 'Have you felt restless, keyed up, or on edge?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a4',
+          text: 'Have you been easily fatigued?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a5',
+          text: 'Have you had difficulty concentrating or found your mind going blank?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a6',
+          text: 'Have you been irritable?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a7',
+          text: 'Have you experienced muscle tension?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a8',
+          text: 'Have you had sleep disturbance (difficulty falling or staying asleep, or restless sleep)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a9',
+          text: 'Does the anxiety, worry, or physical symptoms cause significant distress or impairment in functioning?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'gad_a10',
+          text: 'Is the disturbance NOT due to substances or another medical condition?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        }
+      ]
+    },
+    panic_adult: {
+      id: 'panic_adult',
+      title: 'Panic Disorder (Adult)',
+      description: 'DSM-5 screening for recurrent unexpected panic attacks',
+      icon: '😱',
+      stats: { questions: 16, minutes: '6-8', rating: 'DSM-5 Adult' },
+      questions: [
+        {
+          id: 'panic_a1',
+          text: 'Have you experienced recurrent unexpected panic attacks (abrupt surges of intense fear or discomfort)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a2',
+          text: 'During your worst attacks, did you experience palpitations, pounding heart, or accelerated heart rate?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a3',
+          text: 'Did you experience sweating?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a4',
+          text: 'Did you experience trembling or shaking?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a5',
+          text: 'Did you experience sensations of shortness of breath or smothering?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a6',
+          text: 'Did you experience feelings of choking?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a7',
+          text: 'Did you experience chest pain or discomfort?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a8',
+          text: 'Did you experience nausea or abdominal distress?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a9',
+          text: 'Did you feel dizzy, unsteady, light-headed, or faint?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a10',
+          text: 'Did you experience chills or heat sensations?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a11',
+          text: 'Did you experience numbness or tingling sensations?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a12',
+          text: 'Did you experience feelings of unreality or being detached from oneself?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a13',
+          text: 'Did you fear losing control or "going crazy"?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a14',
+          text: 'Did you fear dying?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a15',
+          text: 'For at least 1 month after attacks, have you had persistent concern about additional attacks or their consequences?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'panic_a16',
+          text: 'Are the panic attacks NOT due to substances or another medical condition?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        }
+      ]
+    },
+    adhd_child: {
+      id: 'adhd_child',
+      title: 'ADHD (Child/Adolescent)',
+      description: 'DSM-5 screening for attention-deficit/hyperactivity symptoms in youth',
+      icon: '🎯',
+      stats: { questions: 21, minutes: '8-10', rating: 'DSM-5 Youth' },
+      questions: [
+        {
+          id: 'adhd_c1',
+          text: 'Does the child often fail to give close attention to details or make careless mistakes?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c2',
+          text: 'Does the child often have difficulty sustaining attention in tasks or play?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c3',
+          text: 'Does the child often not seem to listen when spoken to directly?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c4',
+          text: 'Does the child often not follow through on instructions and fail to finish tasks?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c5',
+          text: 'Does the child often have difficulty organizing tasks and activities?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c6',
+          text: 'Does the child often avoid tasks requiring sustained mental effort?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c7',
+          text: 'Does the child often lose things necessary for tasks?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c8',
+          text: 'Is the child often easily distracted?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c9',
+          text: 'Is the child often forgetful in daily activities?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c10',
+          text: 'Does the child often fidget with hands/feet or squirm in seat?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c11',
+          text: 'Does the child often leave seat when remaining seated is expected?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c12',
+          text: 'Does the child often run about or climb inappropriately?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c13',
+          text: 'Is the child often unable to play quietly?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c14',
+          text: 'Is the child often "on the go" or acts as if "driven by a motor"?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c15',
+          text: 'Does the child often talk excessively?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c16',
+          text: 'Does the child often blurt out answers before questions are completed?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c17',
+          text: 'Does the child often have difficulty waiting their turn?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c18',
+          text: 'Does the child often interrupt or intrude on others?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c19',
+          text: 'Have several symptoms been present for at least 6 months?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c20',
+          text: 'Are symptoms present in two or more settings (home, school, etc.)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'adhd_c21',
+          text: 'Do symptoms interfere with social, academic, or occupational functioning?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        }
+      ]
+    },
+    mdd_youth: {
+      id: 'mdd_youth',
+      title: 'Major Depressive Disorder (Youth)',
+      description: 'DSM-5 screening for persistent sad or irritable mood in youth',
+      icon: '😔',
+      stats: { questions: 11, minutes: '5-7', rating: 'DSM-5 Youth' },
+      questions: [
+        {
+          id: 'mdd_y1',
+          text: 'Over the past 2 weeks, has the child/teen felt depressed, sad, empty, or irritable most of the day, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y2',
+          text: 'Over the past 2 weeks, has the child/teen lost interest or pleasure in activities they usually enjoy?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y3',
+          text: 'Has there been significant weight change or appetite change nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y4',
+          text: 'Has there been insomnia or sleeping too much nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y5',
+          text: 'Has there been psychomotor agitation or retardation observable by others, nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y6',
+          text: 'Has there been fatigue or loss of energy nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y7',
+          text: 'Has there been feelings of worthlessness or excessive guilt nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y8',
+          text: 'Has there been diminished ability to think, concentrate, or make decisions nearly every day?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y9',
+          text: 'Has there been recurrent thoughts of death or suicidal thoughts?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes', crisis: true }
+          ]
+        },
+        {
+          id: 'mdd_y10',
+          text: 'Do these symptoms cause significant distress or impairment in functioning?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'mdd_y11',
+          text: 'Are these symptoms NOT due to substance use or another medical condition?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        }
+      ]
     }
   };
 
