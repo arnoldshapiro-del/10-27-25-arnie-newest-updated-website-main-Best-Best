@@ -1025,6 +1025,78 @@ const Screening = () => {
           ]
         }
       ]
+    },
+    social_anxiety_adult: {
+      id: 'social_anxiety_adult',
+      title: 'Social Anxiety Disorder (Adult)',
+      description: 'DSM-5 screening for marked fear and avoidance of social situations',
+      icon: '😨',
+      stats: { questions: 9, minutes: '4-6', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'sa_a1', text: 'Do you experience marked fear or anxiety about social situations where you might be scrutinized by others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a2', text: 'Do you fear acting in a way that will be negatively evaluated (humiliated, embarrassed, rejected)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a3', text: 'Do social situations almost always provoke fear or anxiety?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a4', text: 'Do you avoid social situations or endure them with intense fear or anxiety?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a5', text: 'Is your fear or anxiety out of proportion to the actual threat posed by the social situation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a6', text: 'Has this fear, anxiety, or avoidance been persistent, typically lasting 6 months or more?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a7', text: 'Does this fear, anxiety, or avoidance cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a8', text: 'Is the fear, anxiety, or avoidance NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sa_a9', text: 'Is the fear, anxiety, or avoidance NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    ptsd_adult: {
+      id: 'ptsd_adult',
+      title: 'Post-Traumatic Stress Disorder (Adult)',
+      description: 'DSM-5 screening for trauma-related symptoms following a distressing event',
+      icon: '💥',
+      stats: { questions: 24, minutes: '10-12', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ptsd_a1', text: 'Have you been exposed to actual or threatened death, serious injury, or sexual violence?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a2', text: 'Do you experience recurrent, involuntary, and intrusive distressing memories of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a3', text: 'Do you have recurrent distressing dreams related to the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a4', text: 'Do you experience dissociative reactions (flashbacks) where you feel or act as if the traumatic event were recurring?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a5', text: 'Do you have intense or prolonged psychological distress when exposed to reminders of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a6', text: 'Do you have marked physiological reactions to reminders of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a7', text: 'Do you avoid or try to avoid distressing memories, thoughts, or feelings about the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a8', text: 'Do you avoid or try to avoid external reminders (people, places, conversations, activities, objects, situations) that arouse distressing memories?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a9', text: 'Are you unable to remember an important aspect of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a10', text: 'Do you have persistent and exaggerated negative beliefs about yourself, others, or the world?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a11', text: 'Do you have persistent distorted thoughts about the cause or consequences of the traumatic event that lead you to blame yourself or others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a12', text: 'Do you have a persistent negative emotional state (fear, horror, anger, guilt, shame)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a13', text: 'Have you markedly diminished interest or participation in significant activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a14', text: 'Do you feel detached or estranged from others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a15', text: 'Are you persistently unable to experience positive emotions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a16', text: 'Do you display irritable behavior and angry outbursts (with little or no provocation)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a17', text: 'Do you engage in reckless or self-destructive behavior?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a18', text: 'Are you hypervigilant (excessively alert or watchful)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a19', text: 'Do you have an exaggerated startle response?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a20', text: 'Do you have problems with concentration?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a21', text: 'Do you have sleep disturbance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a22', text: 'Have these symptoms persisted for more than 1 month?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a23', text: 'Do these symptoms cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsd_a24', text: 'Are these symptoms NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    ocd_adult: {
+      id: 'ocd_adult',
+      title: 'Obsessive-Compulsive Disorder (Adult)',
+      description: 'DSM-5 screening for obsessive thoughts and compulsive behaviors',
+      icon: '🔄',
+      stats: { questions: 12, minutes: '6-8', rating: 'DSM-5 Adult' },
+      questions: [
+        { id: 'ocd_a1', text: 'Do you have recurrent and persistent thoughts, urges, or images that are intrusive and unwanted?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a2', text: 'Do you attempt to ignore or suppress these thoughts, urges, or images, or to neutralize them with some other thought or action?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a3', text: 'Do you perform repetitive behaviors (hand washing, ordering, checking) or mental acts (praying, counting, repeating words)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a4', text: 'Are these behaviors or mental acts aimed at preventing or reducing anxiety or preventing some dreaded event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a5', text: 'Are these behaviors or mental acts clearly excessive or not connected in a realistic way with what they are designed to neutralize or prevent?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a6', text: 'Are the obsessions or compulsions time-consuming (take more than 1 hour per day)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a7', text: 'Do the obsessions or compulsions cause significant distress?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a8', text: 'Do the obsessions or compulsions cause impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a9', text: 'Are the symptoms NOT due to the physiological effects of a substance or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a10', text: 'Are the symptoms NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a11', text: 'Do you recognize that the obsessive-compulsive beliefs are definitely or probably not true (good insight)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocd_a12', text: 'Or do you think obsessive-compulsive beliefs are probably or definitely true (poor/absent insight)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
