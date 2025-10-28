@@ -2331,6 +2331,236 @@ const Screening = () => {
         levelClass = 'bg-green-100 text-green-800 border-green-300';
         recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue appropriate medical care', 'Monitor anxiety about health concerns', 'Contact our office if preoccupation increases'];
       }
+    } else if (currentAssessment === 'odd_youth') {
+      const symptoms = [responses.odd_1, responses.odd_2, responses.odd_3, responses.odd_4, responses.odd_5, responses.odd_6, responses.odd_7, responses.odd_8].filter(Boolean).length;
+      const hasRequired = responses.odd_9 && responses.odd_10 && responses.odd_11;
+      
+      if (symptoms >= 4 && hasRequired) {
+        level = 'Oppositional Defiant Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Oppositional Defiant Disorder', 'Professional evaluation is strongly recommended', 'Parent management training and family therapy are effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for ODD', 'Continue monitoring behavior patterns', 'Maintain consistent discipline and positive reinforcement', 'Contact our office if behaviors worsen'];
+      }
+    } else if (currentAssessment === 'conduct_disorder') {
+      const hasRequired = responses.cd_16 && responses.cd_17 && responses.cd_18;
+      
+      if (hasRequired && totalScore >= 3) {
+        level = 'Conduct Disorder suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Conduct Disorder', 'Immediate professional evaluation is essential', 'Early intervention is critical to prevent progression', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring behavior patterns', 'Maintain structure and supervision', 'Contact our office if concerning behaviors develop'];
+      }
+    } else if (currentAssessment === 'separation_anxiety_youth') {
+      const symptoms = [responses.sad_1, responses.sad_2, responses.sad_3, responses.sad_4, responses.sad_5, responses.sad_6, responses.sad_7, responses.sad_8].filter(Boolean).length;
+      const hasRequired = responses.sad_9 && responses.sad_10 && responses.sad_11;
+      
+      if (symptoms >= 3 && hasRequired) {
+        level = 'Separation Anxiety Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Separation Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring separation-related fears', 'Practice gradual separation in supportive ways', 'Contact our office if anxiety increases'];
+      }
+    } else if (currentAssessment === 'social_anxiety_youth') {
+      const hasRequired = responses.say_6 && responses.say_7 && responses.say_8 && responses.say_9;
+      
+      if (hasRequired && totalScore >= 6) {
+        level = 'Social Anxiety Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Social Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective for social anxiety', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring anxiety in social situations', 'Practice gradual exposure to social situations', 'Contact our office if anxiety worsens'];
+      }
+    } else if (currentAssessment === 'gad_youth') {
+      const hasRequired = responses.gady_1 && responses.gady_2 && responses.gady_9 && responses.gady_10;
+      const symptoms = [responses.gady_3, responses.gady_4, responses.gady_5, responses.gady_6, responses.gady_7, responses.gady_8].filter(Boolean).length;
+      
+      if (hasRequired && symptoms >= 1) {
+        level = 'Generalized Anxiety Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Generalized Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring worry and anxiety levels', 'Teach relaxation and coping skills', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'persistent_depressive_youth') {
+      const hasCore = responses.pddy_1 && responses.pddy_8 && responses.pddy_9;
+      const symptoms = [responses.pddy_2, responses.pddy_3, responses.pddy_4, responses.pddy_5, responses.pddy_6, responses.pddy_7].filter(Boolean).length;
+      
+      if (hasCore && symptoms >= 2) {
+        level = 'Persistent Depressive Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder in youth', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring mood over time', 'Maintain supportive environment and routines', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'autism_youth') {
+      const hasRequired = responses.asd_8 && responses.asd_9 && responses.asd_10 && responses.asd_11 && responses.asd_12;
+      
+      if (hasRequired) {
+        level = 'Autism Spectrum Disorder suggested - comprehensive professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Autism Spectrum Disorder', 'Comprehensive developmental evaluation is essential', 'Early intervention services can significantly improve outcomes', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Autism', 'Continue monitoring social and communication development', 'Contact our office if developmental concerns persist'];
+      }
+    } else if (currentAssessment === 'learning_disorder_youth') {
+      const hasRequired = responses.sld_8 && responses.sld_9 && responses.sld_10 && responses.sld_11 && responses.sld_12;
+      const difficulties = [responses.sld_1, responses.sld_2, responses.sld_3, responses.sld_4, responses.sld_5, responses.sld_6, responses.sld_7].filter(Boolean).length;
+      
+      if (hasRequired && difficulties >= 1) {
+        level = 'Specific Learning Disorder suggested - comprehensive evaluation recommended';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = ['Symptoms suggest possible Specific Learning Disorder', 'Comprehensive psychoeducational evaluation is recommended', 'Educational interventions and accommodations can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring academic progress', 'Provide additional support as needed', 'Contact our office if learning difficulties persist'];
+      }
+    } else if (currentAssessment === 'intellectual_disability_youth') {
+      const hasRequired = responses.id_1 && responses.id_4 && responses.id_8 && responses.id_9 && responses.id_10;
+      
+      if (hasRequired) {
+        level = 'Intellectual Disability suggested - comprehensive evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Intellectual Disability', 'Comprehensive cognitive and adaptive assessment is essential', 'Early support services can optimize development', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring developmental progress', 'Provide supportive environment', 'Contact our office if concerns persist'];
+      }
+    } else if (currentAssessment === 'enuresis_youth') {
+      const hasRequired = responses.enu_1 && responses.enu_2 && responses.enu_3 && responses.enu_4 && responses.enu_5 && responses.enu_6;
+      
+      if (hasRequired) {
+        level = 'Enuresis suggested - professional evaluation recommended';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = ['Symptoms suggest possible Enuresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring', 'Maintain supportive, non-punitive approach', 'Contact our office if symptoms persist'];
+      }
+    } else if (currentAssessment === 'selective_mutism_youth') {
+      const hasRequired = responses.sm_1 && responses.sm_2 && responses.sm_3 && responses.sm_4 && responses.sm_5 && responses.sm_6 && responses.sm_7;
+      
+      if (hasRequired) {
+        level = 'Selective Mutism suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Selective Mutism', 'Professional evaluation is strongly recommended', 'Behavioral therapy and gradual exposure are effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring speaking patterns', 'Provide supportive, low-pressure environment', 'Contact our office if mutism persists'];
+      }
+    } else if (currentAssessment === 'reactive_attachment_youth') {
+      const hasRequired = responses.rad_6 && responses.rad_7 && responses.rad_8 && responses.rad_9;
+      const symptoms = [responses.rad_1, responses.rad_2, responses.rad_3, responses.rad_4, responses.rad_5].filter(Boolean).length;
+      
+      if (hasRequired && symptoms >= 2) {
+        level = 'Reactive Attachment Disorder suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Reactive Attachment Disorder', 'Immediate professional evaluation is essential', 'Trauma-informed attachment therapy is recommended', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring attachment behaviors', 'Provide consistent, nurturing care', 'Contact our office if concerns persist'];
+      }
+    } else if (currentAssessment === 'dmdd_youth') {
+      const hasRequired = responses.dmdd_1 && responses.dmdd_2 && responses.dmdd_3 && responses.dmdd_4 && responses.dmdd_5 && responses.dmdd_6 && responses.dmdd_7 && responses.dmdd_8;
+      
+      if (hasRequired) {
+        level = 'Disruptive Mood Dysregulation Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Disruptive Mood Dysregulation Disorder', 'Professional evaluation is strongly recommended', 'Combination of therapy and medication can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring mood and behavior', 'Maintain consistent routines and structure', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'panic_youth') {
+      const hasQ1 = responses.py_1;
+      const symptoms = [responses.py_2, responses.py_3, responses.py_4, responses.py_5, responses.py_6, responses.py_7, responses.py_8, responses.py_9, responses.py_10, responses.py_11, responses.py_12, responses.py_13, responses.py_14].filter(Boolean).length;
+      const hasRequired = responses.py_15 && responses.py_16;
+      
+      if (hasQ1 && symptoms >= 4 && hasRequired) {
+        level = 'Panic Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Panic Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring panic symptoms', 'Teach breathing and grounding techniques', 'Contact our office if panic attacks increase'];
+      }
+    } else if (currentAssessment === 'ocd_youth') {
+      const hasObsessionsOrCompulsions = (responses.ocdy_1 && responses.ocdy_2) || (responses.ocdy_3 && responses.ocdy_4 && responses.ocdy_5);
+      const hasImpairment = responses.ocdy_6 || (responses.ocdy_7 && responses.ocdy_8);
+      const hasExclusions = responses.ocdy_9 && responses.ocdy_10;
+      
+      if (hasObsessionsOrCompulsions && hasImpairment && hasExclusions) {
+        level = 'OCD suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Obsessive-Compulsive Disorder in youth', 'Professional evaluation is strongly recommended', 'Exposure and Response Prevention therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for OCD', 'Continue monitoring obsessive or compulsive behaviors', 'Avoid reinforcing rituals', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'ptsd_youth') {
+      const hasTrauma = responses.ptsdy_1;
+      const intrusion = [responses.ptsdy_2, responses.ptsdy_3, responses.ptsdy_4, responses.ptsdy_5, responses.ptsdy_6].filter(Boolean).length >= 1;
+      const avoidance = [responses.ptsdy_7, responses.ptsdy_8].filter(Boolean).length >= 1;
+      const negative = [responses.ptsdy_9, responses.ptsdy_10, responses.ptsdy_11, responses.ptsdy_12, responses.ptsdy_13, responses.ptsdy_14].filter(Boolean).length >= 2;
+      const arousal = [responses.ptsdy_15, responses.ptsdy_16, responses.ptsdy_17, responses.ptsdy_18, responses.ptsdy_19, responses.ptsdy_20].filter(Boolean).length >= 2;
+      
+      if (hasTrauma && intrusion && avoidance && negative && arousal) {
+        level = 'PTSD suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder in youth', 'Immediate professional evaluation is essential', 'Trauma-focused therapy is highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet full DSM-5 criteria for PTSD', 'Consider trauma-focused therapy if distressed', 'Provide supportive, safe environment', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'tourettes_youth') {
+      const hasRequired = responses.td_1 && responses.td_2 && responses.td_3 && responses.td_4 && responses.td_5 && responses.td_6 && responses.td_7 && responses.td_8;
+      
+      if (hasRequired) {
+        level = "Tourette's Disorder suggested - professional evaluation strongly recommended";
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ["Symptoms suggest possible Tourette's Disorder", 'Professional evaluation is strongly recommended', 'Behavioral therapy and medication can be effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ["Symptoms do not currently meet DSM-5 criteria for Tourette's", 'Continue monitoring tics', 'Avoid drawing excessive attention to tics', 'Contact our office if tics increase in severity'];
+      }
+    } else if (currentAssessment === 'encopresis_youth') {
+      const hasRequired = responses.enc_1 && responses.enc_2 && responses.enc_3 && responses.enc_4 && responses.enc_5 && responses.enc_6;
+      
+      if (hasRequired) {
+        level = 'Encopresis suggested - professional evaluation recommended';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = ['Symptoms suggest possible Encopresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring', 'Maintain supportive, non-punitive approach', 'Contact our office if symptoms persist'];
+      }
     } else {
       // Basic scoring logic for other assessments
       const maxScore = assessments[currentAssessment].questions.length * 3;
