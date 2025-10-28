@@ -1869,7 +1869,7 @@ const Screening = () => {
               { icon: '👨‍👩‍👧', title: 'Separation Anxiety Disorder', description: 'Screening for excessive fear about separation from attachment figures', questions: 11, time: '5-7' },
               { icon: '😨', title: 'Social Anxiety Disorder (Youth)', description: 'Screening for fear of social or performance situations in youth', questions: 9, time: '4-6' },
               { icon: '😰', title: 'Generalized Anxiety Disorder (Youth)', description: 'Screening for excessive worry in children and adolescents', questions: 10, time: '4-6' },
-              { icon: '😔', title: 'Major Depressive Disorder (Youth)', description: 'Screening for persistent sad or irritable mood in youth', questions: 11, time: '5-7' },
+              { icon: '😔', title: 'Major Depressive Disorder (Youth)', description: 'Screening for persistent sad or irritable mood in youth', questions: 11, time: '5-7', id: 'mdd_youth' },
               { icon: '☁️', title: 'Persistent Depressive Disorder (Youth)', description: 'Screening for chronic depressed/irritable mood in youth (1+ year)', questions: 9, time: '5-7' },
               { icon: '🧩', title: 'Autism Spectrum Disorder', description: 'Screening for social communication and behavior pattern differences', questions: 14, time: '7-9' },
               { icon: '📚', title: 'Specific Learning Disorder', description: 'Screening for difficulties in reading, writing, or mathematics', questions: 12, time: '6-8' },
