@@ -1514,6 +1514,20 @@ const Screening = () => {
             </CardHeader>
             
             <CardContent>
+              {/* DSM-5 Disclaimer for new assessments */}
+              {['mdd_adult', 'gad_adult', 'panic_adult', 'adhd_child', 'mdd_youth'].includes(currentAssessment) && (
+                <Alert className="mb-6 bg-yellow-50 border-yellow-300">
+                  <AlertTriangle className="h-5 w-5 text-yellow-600" />
+                  <AlertDescription>
+                    <p className="font-semibold text-yellow-800 mb-2">Important Screening Disclaimer</p>
+                    <p className="text-gray-700">
+                      This is a screening tool only. Only qualified mental health professionals can provide formal diagnoses. 
+                      Please consult Dr. Shapiro or another licensed professional for comprehensive evaluation and diagnosis.
+                    </p>
+                  </AlertDescription>
+                </Alert>
+              )}
+
               <div className="bg-gray-50 p-6 rounded-lg mb-6">
                 <h3 className="text-xl font-semibold text-blue-800 mb-4">Personalized Recommendations</h3>
                 <ul className="space-y-3">
