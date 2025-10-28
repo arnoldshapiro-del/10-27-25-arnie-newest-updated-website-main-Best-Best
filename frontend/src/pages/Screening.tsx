@@ -2811,25 +2811,25 @@ const Screening = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
               { icon: '🎯', title: 'ADHD (Child/Adolescent)', description: 'Screening for attention-deficit/hyperactivity symptoms in youth', questions: 21, time: '8-10', id: 'adhd_child' },
-              { icon: '😤', title: 'Oppositional Defiant Disorder (ODD)', description: 'Screening for angry, defiant, and vindictive behavior patterns', questions: 11, time: '5-7' },
-              { icon: '🚫', title: 'Conduct Disorder', description: 'Screening for aggression, rule-breaking, and destructive behavior', questions: 18, time: '8-10' },
-              { icon: '👨‍👩‍👧', title: 'Separation Anxiety Disorder', description: 'Screening for excessive fear about separation from attachment figures', questions: 11, time: '5-7' },
-              { icon: '😨', title: 'Social Anxiety Disorder (Youth)', description: 'Screening for fear of social or performance situations in youth', questions: 9, time: '4-6' },
-              { icon: '😰', title: 'Generalized Anxiety Disorder (Youth)', description: 'Screening for excessive worry in children and adolescents', questions: 10, time: '4-6' },
+              { icon: '😤', title: 'Oppositional Defiant Disorder (ODD)', description: 'Screening for angry, defiant, and vindictive behavior patterns', questions: 11, time: '5-7', id: 'odd_youth' },
+              { icon: '🚫', title: 'Conduct Disorder', description: 'Screening for aggression, rule-breaking, and destructive behavior', questions: 18, time: '8-10', id: 'conduct_disorder' },
+              { icon: '👨‍👩‍👧', title: 'Separation Anxiety Disorder', description: 'Screening for excessive fear about separation from attachment figures', questions: 11, time: '5-7', id: 'separation_anxiety_youth' },
+              { icon: '😨', title: 'Social Anxiety Disorder (Youth)', description: 'Screening for fear of social or performance situations in youth', questions: 9, time: '4-6', id: 'social_anxiety_youth' },
+              { icon: '😰', title: 'Generalized Anxiety Disorder (Youth)', description: 'Screening for excessive worry in children and adolescents', questions: 10, time: '4-6', id: 'gad_youth' },
               { icon: '😔', title: 'Major Depressive Disorder (Youth)', description: 'Screening for persistent sad or irritable mood in youth', questions: 11, time: '5-7', id: 'mdd_youth' },
-              { icon: '☁️', title: 'Persistent Depressive Disorder (Youth)', description: 'Screening for chronic depressed/irritable mood in youth (1+ year)', questions: 9, time: '5-7' },
-              { icon: '🧩', title: 'Autism Spectrum Disorder', description: 'Screening for social communication and behavior pattern differences', questions: 14, time: '7-9' },
-              { icon: '📚', title: 'Specific Learning Disorder', description: 'Screening for difficulties in reading, writing, or mathematics', questions: 12, time: '6-8' },
-              { icon: '🧠', title: 'Intellectual Disability', description: 'Screening for deficits in intellectual and adaptive functioning', questions: 10, time: '5-7' },
-              { icon: '💧', title: 'Enuresis', description: 'Screening for repeated urination in inappropriate places', questions: 6, time: '3-5' },
-              { icon: '🤐', title: 'Selective Mutism', description: 'Screening for consistent failure to speak in specific situations', questions: 7, time: '3-5' },
-              { icon: '💔', title: 'Reactive Attachment Disorder', description: 'Screening for emotionally withdrawn behavior toward caregivers', questions: 9, time: '4-6' },
-              { icon: '😡', title: 'Disruptive Mood Dysregulation Disorder', description: 'Screening for severe temper outbursts and persistent irritability', questions: 8, time: '4-6' },
-              { icon: '😱', title: 'Panic Disorder (Youth)', description: 'Screening for recurrent panic attacks in children/adolescents', questions: 16, time: '6-8' },
-              { icon: '🔄', title: 'OCD (Youth)', description: 'Screening for obsessions and compulsions in youth', questions: 12, time: '6-8' },
-              { icon: '💥', title: 'PTSD (Youth)', description: 'Screening for trauma-related symptoms in children/adolescents', questions: 20, time: '9-11' },
-              { icon: '🎪', title: "Tourette's Disorder", description: 'Screening for multiple motor and vocal tics', questions: 8, time: '4-6' },
-              { icon: '🚽', title: 'Encopresis', description: 'Screening for repeated passage of feces in inappropriate places', questions: 6, time: '3-5' }
+              { icon: '☁️', title: 'Persistent Depressive Disorder (Youth)', description: 'Screening for chronic depressed/irritable mood in youth (1+ year)', questions: 9, time: '5-7', id: 'persistent_depressive_youth' },
+              { icon: '🧩', title: 'Autism Spectrum Disorder', description: 'Screening for social communication and behavior pattern differences', questions: 14, time: '7-9', id: 'autism_youth' },
+              { icon: '📚', title: 'Specific Learning Disorder', description: 'Screening for difficulties in reading, writing, or mathematics', questions: 12, time: '6-8', id: 'learning_disorder_youth' },
+              { icon: '🧠', title: 'Intellectual Disability', description: 'Screening for deficits in intellectual and adaptive functioning', questions: 10, time: '5-7', id: 'intellectual_disability_youth' },
+              { icon: '💧', title: 'Enuresis', description: 'Screening for repeated urination in inappropriate places', questions: 6, time: '3-5', id: 'enuresis_youth' },
+              { icon: '🤐', title: 'Selective Mutism', description: 'Screening for consistent failure to speak in specific situations', questions: 7, time: '3-5', id: 'selective_mutism_youth' },
+              { icon: '💔', title: 'Reactive Attachment Disorder', description: 'Screening for emotionally withdrawn behavior toward caregivers', questions: 9, time: '4-6', id: 'reactive_attachment_youth' },
+              { icon: '😡', title: 'Disruptive Mood Dysregulation Disorder', description: 'Screening for severe temper outbursts and persistent irritability', questions: 8, time: '4-6', id: 'dmdd_youth' },
+              { icon: '😱', title: 'Panic Disorder (Youth)', description: 'Screening for recurrent panic attacks in children/adolescents', questions: 16, time: '6-8', id: 'panic_youth' },
+              { icon: '🔄', title: 'OCD (Youth)', description: 'Screening for obsessions and compulsions in youth', questions: 12, time: '6-8', id: 'ocd_youth' },
+              { icon: '💥', title: 'PTSD (Youth)', description: 'Screening for trauma-related symptoms in children/adolescents', questions: 20, time: '9-11', id: 'ptsd_youth' },
+              { icon: '🎪', title: "Tourette's Disorder", description: 'Screening for multiple motor and vocal tics', questions: 8, time: '4-6', id: 'tourettes_youth' },
+              { icon: '🚽', title: 'Encopresis', description: 'Screening for repeated passage of feces in inappropriate places', questions: 6, time: '3-5', id: 'encopresis_youth' }
             ].map((item, index) => (
               <Card 
                 key={`child-${index}`}
