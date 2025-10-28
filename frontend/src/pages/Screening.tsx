@@ -1347,7 +1347,7 @@ const Screening = () => {
             'Symptoms suggest possible ADHD Combined Type',
             'Comprehensive evaluation is strongly recommended',
             'Treatment can significantly improve functioning',
-            'Call Dr. Shapiro for evaluation: (859) 341-7453'
+            'Call for professional evaluation: (859) 341-7453'
           ];
         } else if (inattentionCount >= 6 || hyperactivityCount >= 6) {
           level = 'ADHD suggested (Predominantly Inattentive or Hyperactive-Impulsive) - professional evaluation recommended';
