@@ -1365,7 +1365,7 @@ const Screening = () => {
             'Symptoms do not currently meet DSM-5 criteria for ADHD',
             'Continue monitoring attention and behavior',
             'Maintain structure and routines',
-            'Contact Dr. Shapiro if concerns persist'
+            'Contact our office if concerns persist'
           ];
         }
       } else {
