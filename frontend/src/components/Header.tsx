@@ -19,10 +19,6 @@ const Header = () => {
                 <Phone size={14} />
                 <span>(859) 341-7453</span>
               </a>
-              <a href="mailto:ashapiro@zoomtown.com" className="flex items-center space-x-2 hover:text-primary-glow transition-colors">
-                <Mail size={14} />
-                <span>ashapiro@zoomtown.com</span>
-              </a>
             </div>
             <div className="flex items-center space-x-2 text-xs">
               <MapPin size={14} />
