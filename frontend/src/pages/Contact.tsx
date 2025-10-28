@@ -28,13 +28,6 @@ const Contact = () => {
       primary: "(859) 341-7453",
       secondary: "1717 Dixie Highway, Suite 200",
       description: "Fort Wright, KY 41011"
-    },
-    {
-      icon: Mail,
-      title: "Please Call - Email Not Monitored",
-      primary: "arnold.shapiro@gmail.com",
-      secondary: "Email provided for reference only",
-      description: "For all questions, concerns, and requests please call our office"
     }
   ];
 
