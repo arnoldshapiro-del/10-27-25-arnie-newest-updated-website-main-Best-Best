@@ -1211,37 +1211,206 @@ const Screening = () => {
     let levelClass: string;
     let recommendations: string[];
     
-    // Basic scoring logic for demo purposes
-    const maxScore = assessments[currentAssessment].questions.length * 3;
-    const percentage = (totalScore / maxScore) * 100;
-    
-    if (percentage <= 30) {
-      level = 'Low concern level';
-      levelClass = 'bg-green-100 text-green-800 border-green-300';
-      recommendations = [
-        'Your responses suggest minimal symptoms',
-        'Continue practicing self-care',
-        'Monitor symptoms over time',
-        'Contact Dr. Shapiro if symptoms worsen'
-      ];
-    } else if (percentage <= 60) {
-      level = 'Moderate concern level';
-      levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-      recommendations = [
-        'Your responses suggest moderate symptoms',
-        'Consider discussing with Dr. Shapiro',
-        'Monitor symptoms closely',
-        'Practice healthy coping strategies'
-      ];
+    // DSM-5 specific scoring
+    if (currentAssessment === 'mdd_adult' || currentAssessment === 'mdd_youth') {
+      const hasQ1or2 = (responses.mdd_a1 || responses.mdd_y1 || responses.mdd_a2 || responses.mdd_y2);
+      const hasQ10 = (responses.mdd_a10 || responses.mdd_y10);
+      const hasQ11 = (responses.mdd_a11 || responses.mdd_y11);
+      
+      if (hasQ1or2 && hasQ10 && hasQ11 && totalScore >= 5) {
+        if (totalScore <= 6) {
+          level = 'Mild Major Depressive Disorder suggested - professional evaluation recommended';
+          levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+          recommendations = [
+            'Symptoms suggest possible Mild Major Depressive Disorder',
+            'Professional psychiatric evaluation is recommended',
+            'Early intervention can be highly effective',
+            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+          ];
+        } else if (totalScore <= 8) {
+          level = 'Moderate Major Depressive Disorder suggested - professional evaluation strongly recommended';
+          levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+          recommendations = [
+            'Symptoms suggest possible Moderate Major Depressive Disorder',
+            'Professional psychiatric evaluation is strongly recommended',
+            'Treatment options include therapy and/or medication',
+            'Call Dr. Shapiro today: (859) 341-7453'
+          ];
+        } else {
+          level = 'Severe Major Depressive Disorder suggested - immediate professional evaluation essential';
+          levelClass = 'bg-red-100 text-red-800 border-red-300';
+          recommendations = [
+            'Symptoms suggest possible Severe Major Depressive Disorder',
+            'Immediate professional evaluation is essential',
+            'Evidence-based treatments are available',
+            'Call Dr. Shapiro immediately: (859) 341-7453'
+          ];
+        }
+      } else {
+        level = 'Below diagnostic threshold - symptoms do not meet criteria for Major Depressive Disorder';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Symptoms do not currently meet DSM-5 criteria for Major Depressive Disorder',
+          'Continue monitoring your mood',
+          'Practice self-care and stress management',
+          'Contact Dr. Shapiro if symptoms worsen'
+        ];
+      }
+    } else if (currentAssessment === 'gad_adult') {
+      const hasRequired = responses.gad_a1 && responses.gad_a2 && responses.gad_a9 && responses.gad_a10;
+      const symptomCount = [responses.gad_a3, responses.gad_a4, responses.gad_a5, responses.gad_a6, responses.gad_a7, responses.gad_a8].filter(Boolean).length;
+      
+      if (hasRequired && symptomCount >= 3) {
+        if (totalScore <= 7) {
+          level = 'Mild Generalized Anxiety Disorder suggested - professional evaluation recommended';
+          levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+          recommendations = [
+            'Symptoms suggest possible Mild Generalized Anxiety Disorder',
+            'Professional evaluation is recommended',
+            'Cognitive-behavioral therapy is highly effective',
+            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+          ];
+        } else if (totalScore <= 9) {
+          level = 'Moderate Generalized Anxiety Disorder suggested - professional evaluation strongly recommended';
+          levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+          recommendations = [
+            'Symptoms suggest possible Moderate Generalized Anxiety Disorder',
+            'Professional evaluation is strongly recommended',
+            'Multiple effective treatments available',
+            'Call Dr. Shapiro today: (859) 341-7453'
+          ];
+        } else {
+          level = 'Severe Generalized Anxiety Disorder suggested - immediate professional evaluation essential';
+          levelClass = 'bg-red-100 text-red-800 border-red-300';
+          recommendations = [
+            'Symptoms suggest possible Severe Generalized Anxiety Disorder',
+            'Immediate professional evaluation is essential',
+            'Treatment can significantly reduce anxiety',
+            'Call Dr. Shapiro immediately: (859) 341-7453'
+          ];
+        }
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Symptoms do not currently meet DSM-5 criteria for Generalized Anxiety Disorder',
+          'Continue monitoring your anxiety levels',
+          'Practice relaxation techniques',
+          'Contact Dr. Shapiro if symptoms worsen'
+        ];
+      }
+    } else if (currentAssessment === 'panic_adult') {
+      const hasQ1 = responses.panic_a1;
+      const symptomCount = [responses.panic_a2, responses.panic_a3, responses.panic_a4, responses.panic_a5, responses.panic_a6, responses.panic_a7, responses.panic_a8, responses.panic_a9, responses.panic_a10, responses.panic_a11, responses.panic_a12, responses.panic_a13, responses.panic_a14].filter(Boolean).length;
+      const hasQ15and16 = responses.panic_a15 && responses.panic_a16;
+      
+      if (hasQ1 && symptomCount >= 4 && hasQ15and16) {
+        if (totalScore <= 10) {
+          level = 'Panic Disorder suggested - professional evaluation strongly recommended';
+          levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+          recommendations = [
+            'Symptoms suggest possible Panic Disorder',
+            'Professional evaluation is strongly recommended',
+            'Treatment is highly effective for panic symptoms',
+            'Call Dr. Shapiro today: (859) 341-7453'
+          ];
+        } else {
+          level = 'Panic Disorder with severe symptoms - immediate professional evaluation essential';
+          levelClass = 'bg-red-100 text-red-800 border-red-300';
+          recommendations = [
+            'Symptoms suggest Panic Disorder with severe symptoms',
+            'Immediate professional evaluation is essential',
+            'Effective treatments can dramatically reduce panic attacks',
+            'Call Dr. Shapiro immediately: (859) 341-7453'
+          ];
+        }
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Symptoms do not currently meet DSM-5 criteria for Panic Disorder',
+          'Continue monitoring panic symptoms',
+          'Learn breathing and grounding techniques',
+          'Contact Dr. Shapiro if symptoms worsen'
+        ];
+      }
+    } else if (currentAssessment === 'adhd_child') {
+      const hasRequired = responses.adhd_c19 && responses.adhd_c20 && responses.adhd_c21;
+      const inattentionCount = [responses.adhd_c1, responses.adhd_c2, responses.adhd_c3, responses.adhd_c4, responses.adhd_c5, responses.adhd_c6, responses.adhd_c7, responses.adhd_c8, responses.adhd_c9].filter(Boolean).length;
+      const hyperactivityCount = [responses.adhd_c10, responses.adhd_c11, responses.adhd_c12, responses.adhd_c13, responses.adhd_c14, responses.adhd_c15, responses.adhd_c16, responses.adhd_c17, responses.adhd_c18].filter(Boolean).length;
+      
+      if (hasRequired) {
+        if (inattentionCount >= 6 && hyperactivityCount >= 6) {
+          level = 'ADHD Combined Type suggested - professional evaluation strongly recommended';
+          levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+          recommendations = [
+            'Symptoms suggest possible ADHD Combined Type',
+            'Comprehensive evaluation is strongly recommended',
+            'Treatment can significantly improve functioning',
+            'Call Dr. Shapiro for evaluation: (859) 341-7453'
+          ];
+        } else if (inattentionCount >= 6 || hyperactivityCount >= 6) {
+          level = 'ADHD suggested (Predominantly Inattentive or Hyperactive-Impulsive) - professional evaluation recommended';
+          levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+          recommendations = [
+            inattentionCount >= 6 ? 'Symptoms suggest possible ADHD Predominantly Inattentive Type' : 'Symptoms suggest possible ADHD Predominantly Hyperactive-Impulsive Type',
+            'Professional evaluation is recommended',
+            'Early intervention can improve academic and social outcomes',
+            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+          ];
+        } else {
+          level = 'Below diagnostic threshold';
+          levelClass = 'bg-green-100 text-green-800 border-green-300';
+          recommendations = [
+            'Symptoms do not currently meet DSM-5 criteria for ADHD',
+            'Continue monitoring attention and behavior',
+            'Maintain structure and routines',
+            'Contact Dr. Shapiro if concerns persist'
+          ];
+        }
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Symptoms do not currently meet DSM-5 criteria for ADHD',
+          'Duration or setting criteria not met',
+          'Continue monitoring',
+          'Contact Dr. Shapiro if symptoms worsen'
+        ];
+      }
     } else {
-      level = 'High concern level';
-      levelClass = 'bg-red-100 text-red-800 border-red-300';
-      recommendations = [
-        'Your responses suggest significant symptoms',
-        'Strongly recommend evaluation with Dr. Shapiro',
-        'Consider immediate professional support',
-        'Treatment options may be beneficial'
-      ];
+      // Basic scoring logic for other assessments
+      const maxScore = assessments[currentAssessment].questions.length * 3;
+      const percentage = (totalScore / maxScore) * 100;
+      
+      if (percentage <= 30) {
+        level = 'Low concern level';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Your responses suggest minimal symptoms',
+          'Continue practicing self-care',
+          'Monitor symptoms over time',
+          'Contact Dr. Shapiro if symptoms worsen'
+        ];
+      } else if (percentage <= 60) {
+        level = 'Moderate concern level';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = [
+          'Your responses suggest moderate symptoms',
+          'Consider discussing with Dr. Shapiro',
+          'Monitor symptoms closely',
+          'Practice healthy coping strategies'
+        ];
+      } else {
+        level = 'High concern level';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = [
+          'Your responses suggest significant symptoms',
+          'Strongly recommend evaluation with Dr. Shapiro',
+          'Consider immediate professional support',
+          'Treatment options may be beneficial'
+        ];
+      }
     }
     
     return { score: totalScore, level, levelClass, recommendations };
