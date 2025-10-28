@@ -2314,13 +2314,13 @@ const Screening = () => {
               { icon: '☁️', title: 'Persistent Depressive Disorder (Dysthymia)', description: 'Screening for chronic depressed mood lasting 2+ years', questions: 9, time: '5-7', id: 'persistent_depressive' },
               { icon: '🎭', title: 'Borderline Personality Disorder', description: 'Screening for unstable relationships, self-image, and emotions', questions: 11, time: '6-8', id: 'borderline_personality' },
               { icon: '🎯', title: 'Adult ADHD', description: 'Screening for attention and hyperactivity difficulties in adults', questions: 21, time: '8-10', id: 'adhd_adult' },
-              { icon: '😖', title: 'Specific Phobia', description: 'Screening for marked fear of specific objects or situations', questions: 8, time: '4-6' },
-              { icon: '🌊', title: 'Adjustment Disorder', description: 'Screening for emotional symptoms following a stressful life event', questions: 7, time: '3-5' },
-              { icon: '⚠️', title: 'Acute Stress Disorder', description: 'Screening for trauma symptoms within the first month after an event', questions: 16, time: '7-9' },
-              { icon: '🏠', title: 'Agoraphobia', description: 'Screening for fear of situations where escape might be difficult', questions: 8, time: '4-6' },
-              { icon: '😴', title: 'Insomnia Disorder', description: 'Screening for persistent difficulty falling or staying asleep', questions: 9, time: '4-6' },
-              { icon: '🤕', title: 'Somatic Symptom Disorder', description: 'Screening for excessive focus on physical symptoms', questions: 8, time: '4-6' },
-              { icon: '🩺', title: 'Illness Anxiety Disorder', description: 'Screening for preoccupation with having a serious illness', questions: 8, time: '4-6' }
+              { icon: '😖', title: 'Specific Phobia', description: 'Screening for marked fear of specific objects or situations', questions: 8, time: '4-6', id: 'specific_phobia' },
+              { icon: '🌊', title: 'Adjustment Disorder', description: 'Screening for emotional symptoms following a stressful life event', questions: 7, time: '3-5', id: 'adjustment_disorder' },
+              { icon: '⚠️', title: 'Acute Stress Disorder', description: 'Screening for trauma symptoms within the first month after an event', questions: 16, time: '7-9', id: 'acute_stress_disorder' },
+              { icon: '🏠', title: 'Agoraphobia', description: 'Screening for fear of situations where escape might be difficult', questions: 8, time: '4-6', id: 'agoraphobia' },
+              { icon: '😴', title: 'Insomnia Disorder', description: 'Screening for persistent difficulty falling or staying asleep', questions: 9, time: '4-6', id: 'insomnia_disorder' },
+              { icon: '🤕', title: 'Somatic Symptom Disorder', description: 'Screening for excessive focus on physical symptoms', questions: 8, time: '4-6', id: 'somatic_symptom_disorder' },
+              { icon: '🩺', title: 'Illness Anxiety Disorder', description: 'Screening for preoccupation with having a serious illness', questions: 8, time: '4-6', id: 'illness_anxiety_disorder' }
             ].map((item, index) => (
               <Card 
                 key={`adult-${index}`}
