@@ -1888,7 +1888,11 @@ const Screening = () => {
                 key={`child-${index}`}
                 className="cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-green-200 hover:border-green-400 bg-white"
                 onClick={() => {
-                  alert('This assessment is being finalized. Full questionnaire coming soon.');
+                  if (item.id && assessments[item.id]) {
+                    startAssessment(item.id);
+                  } else {
+                    alert('This assessment is being finalized. Full questionnaire coming soon.');
+                  }
                 }}
               >
                 <CardHeader className="bg-gradient-to-br from-green-50 to-green-100 rounded-t-lg">
