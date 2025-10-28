@@ -1684,6 +1684,67 @@ const Screening = () => {
         { id: 'ocdy_11', text: 'Does the child recognize that the obsessions or compulsions are excessive or unreasonable?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'ocdy_12', text: 'Note: Children may not recognize the excessive nature of their symptoms', options: [{ value: 0, text: 'Understood' }, { value: 1, text: 'Understood' }] }
       ]
+    },
+    ptsd_youth: {
+      id: 'ptsd_youth',
+      title: 'PTSD (Youth)',
+      description: 'DSM-5 screening for trauma-related symptoms in children/adolescents',
+      icon: '💥',
+      stats: { questions: 20, minutes: '9-11', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'ptsdy_1', text: 'Has the child been exposed to actual or threatened death, serious injury, or sexual violence?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_2', text: 'Does the child experience recurrent, involuntary, and intrusive distressing memories of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_3', text: 'Does the child have recurrent distressing dreams related to the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_4', text: 'Does the child experience dissociative reactions (flashbacks)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_5', text: 'Does the child have intense or prolonged psychological distress when exposed to reminders?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_6', text: 'Does the child have marked physiological reactions to reminders of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_7', text: 'Does the child avoid or try to avoid distressing memories, thoughts, or feelings about the event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_8', text: 'Does the child avoid external reminders (people, places, conversations)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_9', text: 'Is the child unable to remember an important aspect of the traumatic event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_10', text: 'Does the child have persistent and exaggerated negative beliefs about themselves, others, or the world?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_11', text: 'Does the child have persistent negative emotional state (fear, horror, anger, guilt, shame)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_12', text: 'Does the child show markedly diminished interest or participation in activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_13', text: 'Does the child feel detached or estranged from others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_14', text: 'Is the child persistently unable to experience positive emotions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_15', text: 'Does the child show irritable behavior and angry outbursts?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_16', text: 'Does the child show reckless or self-destructive behavior?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_17', text: 'Does the child show hypervigilance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_18', text: 'Does the child have an exaggerated startle response?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_19', text: 'Does the child have problems with concentration?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ptsdy_20', text: 'Does the child experience sleep disturbance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    tourettes_youth: {
+      id: 'tourettes_youth',
+      title: "Tourette's Disorder",
+      description: 'DSM-5 screening for multiple motor and vocal tics',
+      icon: '🎪',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'td_1', text: 'Does the child have both multiple motor tics and one or more vocal tics?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_2', text: 'Have tics occurred many times a day, nearly every day or intermittently for more than a year?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_3', text: 'During the year, has there NOT been a tic-free period of more than 3 consecutive months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_4', text: 'Did the onset occur before age 18 years?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_5', text: 'Are the tics NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_6', text: 'Do the tics cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_7', text: 'Are motor tics sudden, rapid, recurrent, nonrhythmic movements?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'td_8', text: 'Are vocal tics sudden, rapid, recurrent, nonrhythmic vocalizations?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    encopresis_youth: {
+      id: 'encopresis_youth',
+      title: 'Encopresis',
+      description: 'DSM-5 screening for repeated passage of feces in inappropriate places',
+      icon: '🚽',
+      stats: { questions: 6, minutes: '3-5', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'enc_1', text: 'Does the child repeatedly pass feces into inappropriate places (clothing or floor)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enc_2', text: 'Does this occur at least once a month for at least 3 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enc_3', text: 'Is the child at least 4 years old (or equivalent developmental level)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enc_4', text: 'Is the behavior NOT due to substances or another medical condition (except constipation)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enc_5', text: 'Does the behavior cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enc_6', text: 'Are the episodes involuntary rather than intentional?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
