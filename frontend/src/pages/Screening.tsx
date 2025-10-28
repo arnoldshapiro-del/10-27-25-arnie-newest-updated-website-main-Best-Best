@@ -1397,7 +1397,7 @@ const Screening = () => {
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
         recommendations = [
           'Your responses suggest moderate symptoms',
-          'Consider discussing with Dr. Shapiro',
+          'Consider discussing with a mental health professional',
           'Monitor symptoms closely',
           'Practice healthy coping strategies'
         ];
