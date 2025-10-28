@@ -1225,7 +1225,7 @@ const Screening = () => {
             'Symptoms suggest possible Mild Major Depressive Disorder',
             'Professional psychiatric evaluation is recommended',
             'Early intervention can be highly effective',
-            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+            'Schedule professional consultation: (859) 341-7453'
           ];
         } else if (totalScore <= 8) {
           level = 'Moderate Major Depressive Disorder suggested - professional evaluation strongly recommended';
@@ -1268,7 +1268,7 @@ const Screening = () => {
             'Symptoms suggest possible Mild Generalized Anxiety Disorder',
             'Professional evaluation is recommended',
             'Cognitive-behavioral therapy is highly effective',
-            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+            'Schedule professional consultation: (859) 341-7453'
           ];
         } else if (totalScore <= 9) {
           level = 'Moderate Generalized Anxiety Disorder suggested - professional evaluation strongly recommended';
@@ -1356,7 +1356,7 @@ const Screening = () => {
             inattentionCount >= 6 ? 'Symptoms suggest possible ADHD Predominantly Inattentive Type' : 'Symptoms suggest possible ADHD Predominantly Hyperactive-Impulsive Type',
             'Professional evaluation is recommended',
             'Early intervention can improve academic and social outcomes',
-            'Schedule consultation with Dr. Shapiro: (859) 341-7453'
+            'Schedule professional consultation: (859) 341-7453'
           ];
         } else {
           level = 'Below diagnostic threshold';
