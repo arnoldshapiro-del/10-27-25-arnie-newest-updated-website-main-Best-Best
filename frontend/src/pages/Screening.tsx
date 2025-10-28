@@ -1822,7 +1822,11 @@ const Screening = () => {
                 key={`adult-${index}`}
                 className="cursor-pointer hover:shadow-xl transition-all duration-300 border-2 border-purple-200 hover:border-purple-400 bg-white"
                 onClick={() => {
-                  alert('This assessment is being finalized. Full questionnaire coming soon.');
+                  if (item.id && assessments[item.id]) {
+                    startAssessment(item.id);
+                  } else {
+                    alert('This assessment is being finalized. Full questionnaire coming soon.');
+                  }
                 }}
               >
                 <CardHeader className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-t-lg">
