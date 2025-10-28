@@ -1863,7 +1863,7 @@ const Screening = () => {
           <h2 className="text-3xl font-bold text-center mb-6 text-blue-800">Child & Adolescent DSM-5 Diagnostic Screenings</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
-              { icon: '🎯', title: 'ADHD (Child/Adolescent)', description: 'Screening for attention-deficit/hyperactivity symptoms in youth', questions: 21, time: '8-10' },
+              { icon: '🎯', title: 'ADHD (Child/Adolescent)', description: 'Screening for attention-deficit/hyperactivity symptoms in youth', questions: 21, time: '8-10', id: 'adhd_child' },
               { icon: '😤', title: 'Oppositional Defiant Disorder (ODD)', description: 'Screening for angry, defiant, and vindictive behavior patterns', questions: 11, time: '5-7' },
               { icon: '🚫', title: 'Conduct Disorder', description: 'Screening for aggression, rule-breaking, and destructive behavior', questions: 18, time: '8-10' },
               { icon: '👨‍👩‍👧', title: 'Separation Anxiety Disorder', description: 'Screening for excessive fear about separation from attachment figures', questions: 11, time: '5-7' },
