@@ -1781,7 +1781,7 @@ const Screening = () => {
             <p className="font-semibold text-yellow-800 mb-2">Important Screening Information</p>
             <p className="text-gray-700">
               These are screening tools for educational purposes only. They do not replace professional clinical evaluation. 
-              For accurate diagnosis and treatment, schedule an appointment with Dr. Shapiro.
+              For accurate diagnosis and treatment, schedule an appointment with a licensed professional.
             </p>
           </AlertDescription>
         </Alert>
