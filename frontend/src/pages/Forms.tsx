@@ -175,14 +175,6 @@ const Forms = () => {
                 <h3 className="font-bold mb-3">Submission Options:</h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
-                    <Mail className="h-4 w-4 text-blue-500" />
-                    Email: arnold.shapiro@gmail.com (reference only - please call)
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Upload className="h-4 w-4 text-blue-500" />
-                    Upload through patient portal
-                  </li>
-                  <li className="flex items-center gap-2">
                     <Printer className="h-4 w-4 text-blue-500" />
                     Bring completed paper forms
                   </li>
