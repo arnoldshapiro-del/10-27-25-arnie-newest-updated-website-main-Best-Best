@@ -1550,12 +1550,6 @@ const Screening = () => {
                       Call (859) 341-7453
                     </a>
                   </Button>
-                  <Button className="bg-blue-600 text-white hover:bg-blue-700" asChild>
-                    <a href="mailto:ashapiro@zoomtown.com?subject=Screening Results Discussion" className="flex items-center gap-2">
-                      <Mail className="h-4 w-4" />
-                      Email Dr. Shapiro
-                    </a>
-                  </Button>
                 </div>
               </div>
               
