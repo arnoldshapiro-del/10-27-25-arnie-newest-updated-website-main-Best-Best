@@ -1234,7 +1234,7 @@ const Screening = () => {
             'Symptoms suggest possible Moderate Major Depressive Disorder',
             'Professional psychiatric evaluation is strongly recommended',
             'Treatment options include therapy and/or medication',
-            'Call Dr. Shapiro today: (859) 341-7453'
+            'Call for professional evaluation: (859) 341-7453'
           ];
         } else {
           level = 'Severe Major Depressive Disorder suggested - immediate professional evaluation essential';
@@ -1277,7 +1277,7 @@ const Screening = () => {
             'Symptoms suggest possible Moderate Generalized Anxiety Disorder',
             'Professional evaluation is strongly recommended',
             'Multiple effective treatments available',
-            'Call Dr. Shapiro today: (859) 341-7453'
+            'Call for professional evaluation: (859) 341-7453'
           ];
         } else {
           level = 'Severe Generalized Anxiety Disorder suggested - immediate professional evaluation essential';
@@ -1312,7 +1312,7 @@ const Screening = () => {
             'Symptoms suggest possible Panic Disorder',
             'Professional evaluation is strongly recommended',
             'Treatment is highly effective for panic symptoms',
-            'Call Dr. Shapiro today: (859) 341-7453'
+            'Call for professional evaluation: (859) 341-7453'
           ];
         } else {
           level = 'Panic Disorder with severe symptoms - immediate professional evaluation essential';
