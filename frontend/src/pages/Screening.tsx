@@ -2110,7 +2110,7 @@ const Screening = () => {
             
             <CardContent>
               {/* DSM-5 Disclaimer for new assessments */}
-              {['mdd_adult', 'gad_adult', 'panic_adult', 'adhd_child', 'mdd_youth', 'social_anxiety_adult', 'ptsd_adult', 'ocd_adult', 'bipolar1_adult', 'bipolar2_adult', 'alcohol_use', 'opioid_use', 'persistent_depressive', 'borderline_personality', 'adhd_adult'].includes(currentAssessment) && (
+              {['mdd_adult', 'gad_adult', 'panic_adult', 'adhd_child', 'mdd_youth', 'social_anxiety_adult', 'ptsd_adult', 'ocd_adult', 'bipolar1_adult', 'bipolar2_adult', 'alcohol_use', 'opioid_use', 'persistent_depressive', 'borderline_personality', 'adhd_adult', 'specific_phobia', 'adjustment_disorder', 'acute_stress_disorder', 'agoraphobia', 'insomnia_disorder', 'somatic_symptom_disorder', 'illness_anxiety_disorder'].includes(currentAssessment) && (
                 <Alert className="mb-6 bg-yellow-50 border-yellow-300">
                   <AlertTriangle className="h-5 w-5 text-yellow-600" />
                   <AlertDescription>
