@@ -1387,6 +1387,91 @@ const Screening = () => {
         { id: 'ia_7', text: 'Is your illness preoccupation NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'ia_8', text: 'Does your preoccupation cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
       ]
+    },
+    odd_youth: {
+      id: 'odd_youth',
+      title: 'Oppositional Defiant Disorder (ODD)',
+      description: 'DSM-5 screening for angry, defiant, and vindictive behavior patterns in youth',
+      icon: '😤',
+      stats: { questions: 11, minutes: '5-7', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'odd_1', text: 'Does the child often lose temper?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_2', text: 'Is the child often touchy or easily annoyed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_3', text: 'Is the child often angry and resentful?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_4', text: 'Does the child often argue with authority figures or adults?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_5', text: 'Does the child often actively defy or refuse to comply with requests or rules?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_6', text: 'Does the child often deliberately annoy others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_7', text: 'Does the child often blame others for his or her mistakes or misbehavior?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_8', text: 'Has the child been spiteful or vindictive at least twice within the past 6 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_9', text: 'Have these behaviors persisted for at least 6 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_10', text: 'Do these behaviors cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'odd_11', text: 'Are these behaviors NOT occurring exclusively during a psychotic or mood disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    conduct_disorder: {
+      id: 'conduct_disorder',
+      title: 'Conduct Disorder',
+      description: 'DSM-5 screening for aggression, rule-breaking, and destructive behavior in youth',
+      icon: '🚫',
+      stats: { questions: 18, minutes: '8-10', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'cd_1', text: 'Does the child often bully, threaten, or intimidate others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_2', text: 'Does the child often initiate physical fights?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_3', text: 'Has the child used a weapon that can cause serious physical harm?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_4', text: 'Has the child been physically cruel to people?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_5', text: 'Has the child been physically cruel to animals?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_6', text: 'Has the child stolen while confronting a victim (e.g., mugging, armed robbery)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_7', text: 'Has the child forced someone into sexual activity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_8', text: 'Has the child deliberately set fires with intention of causing serious damage?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_9', text: 'Has the child deliberately destroyed others\' property (not by fire)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_10', text: 'Has the child broken into someone else\'s house, building, or car?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_11', text: 'Does the child often lie to obtain goods or favors or avoid obligations?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_12', text: 'Has the child stolen items without confronting a victim?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_13', text: 'Does the child often stay out at night despite parental prohibitions (before age 13)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_14', text: 'Has the child run away from home overnight at least twice?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_15', text: 'Does the child often skip school (before age 13)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_16', text: 'Do these behaviors cause significant impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_17', text: 'If age 18 or older, do criteria not meet for Antisocial Personality Disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'cd_18', text: 'Have at least 3 of these behaviors occurred in the past 12 months, with at least one in the past 6 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    separation_anxiety_youth: {
+      id: 'separation_anxiety_youth',
+      title: 'Separation Anxiety Disorder',
+      description: 'DSM-5 screening for excessive fear about separation from attachment figures',
+      icon: '👨‍👩‍👧',
+      stats: { questions: 11, minutes: '5-7', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'sad_1', text: 'Does the child show recurrent excessive distress when separation from home or major attachment figures occurs or is anticipated?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_2', text: 'Does the child show persistent and excessive worry about losing major attachment figures?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_3', text: 'Does the child show persistent and excessive worry that an untoward event will lead to separation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_4', text: 'Does the child persistently refuse or is reluctant to go out because of fear of separation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_5', text: 'Does the child show persistent and excessive fear or reluctance to be alone?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_6', text: 'Does the child persistently refuse or is reluctant to sleep away from home or without major attachment figure nearby?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_7', text: 'Does the child have repeated nightmares involving the theme of separation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_8', text: 'Does the child repeatedly complain of physical symptoms when separation occurs or is anticipated?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_9', text: 'Have these symptoms persisted for at least 4 weeks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_10', text: 'Do these symptoms cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sad_11', text: 'Is the disturbance NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    social_anxiety_youth: {
+      id: 'social_anxiety_youth',
+      title: 'Social Anxiety Disorder (Youth)',
+      description: 'DSM-5 screening for fear of social or performance situations in youth',
+      icon: '😨',
+      stats: { questions: 9, minutes: '4-6', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'say_1', text: 'Does the child experience marked fear or anxiety about social situations where they might be scrutinized?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_2', text: 'Does the child fear acting in a way that will be negatively evaluated?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_3', text: 'Do social situations almost always provoke fear or anxiety?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_4', text: 'Does the child avoid social situations or endure them with intense fear?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_5', text: 'Is the fear or anxiety out of proportion to the actual threat?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_6', text: 'Has this fear, anxiety, or avoidance been persistent, typically lasting 6 months or more?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_7', text: 'Does this cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_8', text: 'Is the fear, anxiety, or avoidance NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'say_9', text: 'Is the fear, anxiety, or avoidance NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
