@@ -1553,6 +1553,137 @@ const Screening = () => {
         { id: 'sld_11', text: 'Did difficulties begin during school-age years?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'sld_12', text: 'Are the learning difficulties NOT better explained by other disorders or external factors?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
       ]
+    },
+    intellectual_disability_youth: {
+      id: 'intellectual_disability_youth',
+      title: 'Intellectual Disability',
+      description: 'DSM-5 screening for deficits in intellectual and adaptive functioning',
+      icon: '🧠',
+      stats: { questions: 10, minutes: '5-7', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'id_1', text: 'Does the child have deficits in intellectual functions (reasoning, problem-solving, planning)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_2', text: 'Does the child have deficits in abstract thinking?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_3', text: 'Does the child have deficits in judgment and learning from experience?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_4', text: 'Are deficits confirmed by clinical assessment and standardized intelligence testing?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_5', text: 'Does the child have deficits in adaptive functioning in communication?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_6', text: 'Does the child have deficits in adaptive functioning in social participation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_7', text: 'Does the child have deficits in adaptive functioning in independent living?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_8', text: 'Do adaptive deficits result in failure to meet developmental and sociocultural standards?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_9', text: 'Do adaptive deficits limit functioning in one or more activities of daily life?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'id_10', text: 'Did intellectual and adaptive deficits onset during the developmental period?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    enuresis_youth: {
+      id: 'enuresis_youth',
+      title: 'Enuresis',
+      description: 'DSM-5 screening for repeated urination in inappropriate places',
+      icon: '💧',
+      stats: { questions: 6, minutes: '3-5', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'enu_1', text: 'Does the child repeatedly void urine into bed or clothes?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enu_2', text: 'Is the behavior clinically significant (at least twice a week for 3 consecutive months)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enu_3', text: 'Is the child at least 5 years old (or equivalent developmental level)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enu_4', text: 'Does the behavior cause significant distress or impairment?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enu_5', text: 'Is the behavior NOT due to a substance or medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'enu_6', text: 'Are the episodes involuntary rather than intentional?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    selective_mutism_youth: {
+      id: 'selective_mutism_youth',
+      title: 'Selective Mutism',
+      description: 'DSM-5 screening for consistent failure to speak in specific situations',
+      icon: '🤐',
+      stats: { questions: 7, minutes: '3-5', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'sm_1', text: 'Does the child consistently fail to speak in specific social situations where speaking is expected?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_2', text: 'Does the child speak in other situations?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_3', text: 'Does the disturbance interfere with educational or occupational achievement or social communication?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_4', text: 'Has the duration been at least 1 month (not limited to the first month of school)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_5', text: 'Is the failure to speak NOT due to lack of knowledge or comfort with language?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_6', text: 'Is the disturbance NOT better explained by a communication disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sm_7', text: 'Does the disturbance NOT occur exclusively during autism or psychotic disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    reactive_attachment_youth: {
+      id: 'reactive_attachment_youth',
+      title: 'Reactive Attachment Disorder',
+      description: 'DSM-5 screening for emotionally withdrawn behavior toward caregivers',
+      icon: '💔',
+      stats: { questions: 9, minutes: '4-6', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'rad_1', text: 'Does the child rarely or minimally seek comfort when distressed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_2', text: 'Does the child rarely or minimally respond to comfort when distressed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_3', text: 'Does the child show minimal social and emotional responsiveness to others?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_4', text: 'Does the child show limited positive affect?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_5', text: 'Does the child show unexplained episodes of irritability, sadness, or fearfulness during non-threatening interactions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_6', text: 'Has the child experienced a pattern of extremes of insufficient care (neglect, deprivation)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_7', text: 'Is the care pattern presumed to be responsible for the disturbed behavior?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_8', text: 'Does the child NOT meet criteria for autism spectrum disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'rad_9', text: 'Is the child\'s developmental age at least 9 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    dmdd_youth: {
+      id: 'dmdd_youth',
+      title: 'Disruptive Mood Dysregulation Disorder',
+      description: 'DSM-5 screening for severe temper outbursts and persistent irritability',
+      icon: '😡',
+      stats: { questions: 8, minutes: '4-6', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'dmdd_1', text: 'Does the child have severe recurrent temper outbursts that are grossly out of proportion?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_2', text: 'Are the temper outbursts inconsistent with developmental level?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_3', text: 'Do the temper outbursts occur, on average, three or more times per week?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_4', text: 'Is the mood between outbursts persistently irritable or angry most of the day, nearly every day?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_5', text: 'Have symptoms been present for 12 or more months, with no symptom-free period exceeding 3 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_6', text: 'Are symptoms present in at least two of three settings (home, school, with peers)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_7', text: 'Is the diagnosis appropriate for the child\'s age (between 6-18 years, with onset before age 10)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'dmdd_8', text: 'Are the symptoms NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    panic_youth: {
+      id: 'panic_youth',
+      title: 'Panic Disorder (Youth)',
+      description: 'DSM-5 screening for recurrent panic attacks in children/adolescents',
+      icon: '😱',
+      stats: { questions: 16, minutes: '6-8', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'py_1', text: 'Does the child experience recurrent unexpected panic attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_2', text: 'Palpitations or accelerated heart rate during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_3', text: 'Sweating during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_4', text: 'Trembling or shaking during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_5', text: 'Shortness of breath during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_6', text: 'Feelings of choking during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_7', text: 'Chest pain or discomfort during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_8', text: 'Nausea or abdominal distress during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_9', text: 'Feeling dizzy or faint during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_10', text: 'Chills or heat sensations during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_11', text: 'Numbness or tingling sensations during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_12', text: 'Feelings of unreality or detachment during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_13', text: 'Fear of losing control or going crazy during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_14', text: 'Fear of dying during attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_15', text: 'Does the child show persistent concern about additional attacks or their consequences?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'py_16', text: 'Does the child show maladaptive behavioral change related to the attacks?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    ocd_youth: {
+      id: 'ocd_youth',
+      title: 'OCD (Youth)',
+      description: 'DSM-5 screening for obsessions and compulsions in youth',
+      icon: '🔄',
+      stats: { questions: 12, minutes: '6-8', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'ocdy_1', text: 'Does the child have recurrent and persistent thoughts, urges, or images that are intrusive and unwanted?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_2', text: 'Does the child attempt to ignore or suppress these thoughts, urges, or images?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_3', text: 'Does the child perform repetitive behaviors or mental acts in response to obsessions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_4', text: 'Are the behaviors or mental acts aimed at reducing anxiety or preventing a dreaded situation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_5', text: 'Are the behaviors or mental acts excessive or not realistically connected to the feared event?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_6', text: 'Do the obsessions or compulsions take more than 1 hour per day?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_7', text: 'Do the obsessions or compulsions cause significant distress?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_8', text: 'Do the obsessions or compulsions significantly interfere with functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_9', text: 'Are the symptoms NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_10', text: 'Are the symptoms NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_11', text: 'Does the child recognize that the obsessions or compulsions are excessive or unreasonable?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'ocdy_12', text: 'Note: Children may not recognize the excessive nature of their symptoms', options: [{ value: 0, text: 'Understood' }, { value: 1, text: 'Understood' }] }
+      ]
     }
   };
 
