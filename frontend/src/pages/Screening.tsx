@@ -1472,6 +1472,87 @@ const Screening = () => {
         { id: 'say_8', text: 'Is the fear, anxiety, or avoidance NOT due to substances or another medical condition?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
         { id: 'say_9', text: 'Is the fear, anxiety, or avoidance NOT better explained by another mental disorder?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
       ]
+    },
+    gad_youth: {
+      id: 'gad_youth',
+      title: 'Generalized Anxiety Disorder (Youth)',
+      description: 'DSM-5 screening for excessive worry in children and adolescents',
+      icon: '😰',
+      stats: { questions: 10, minutes: '4-6', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'gady_1', text: 'Does the child experience excessive anxiety and worry about various events or activities?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_2', text: 'Does the child find it difficult to control the worry?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_3', text: 'Is the child restless or feeling keyed up or on edge?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_4', text: 'Is the child easily fatigued?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_5', text: 'Does the child have difficulty concentrating or mind going blank?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_6', text: 'Is the child irritable?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_7', text: 'Does the child have muscle tension?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_8', text: 'Does the child have sleep disturbance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_9', text: 'Have symptoms occurred more days than not for at least 6 months?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'gady_10', text: 'Do symptoms cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    persistent_depressive_youth: {
+      id: 'persistent_depressive_youth',
+      title: 'Persistent Depressive Disorder (Youth)',
+      description: 'DSM-5 screening for chronic depressed/irritable mood in youth (1+ year)',
+      icon: '☁️',
+      stats: { questions: 9, minutes: '5-7', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'pddy_1', text: 'Has the child had depressed or irritable mood for most of the day, more days than not, for at least one year?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_2', text: 'Does the child have poor appetite or overeating?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_3', text: 'Does the child have insomnia or hypersomnia?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_4', text: 'Does the child have low energy or fatigue?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_5', text: 'Does the child have low self-esteem?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_6', text: 'Does the child have poor concentration or difficulty making decisions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_7', text: 'Does the child feel hopeless?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_8', text: 'Has the child NOT been without symptoms for more than 2 months at a time?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'pddy_9', text: 'Do symptoms cause significant distress or impairment in functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    autism_youth: {
+      id: 'autism_youth',
+      title: 'Autism Spectrum Disorder',
+      description: 'DSM-5 screening for social communication and behavior pattern differences',
+      icon: '🧩',
+      stats: { questions: 14, minutes: '7-9', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'asd_1', text: 'Does the child have deficits in social-emotional reciprocity?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_2', text: 'Does the child have deficits in nonverbal communication behaviors used for social interaction?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_3', text: 'Does the child have deficits in developing, maintaining, and understanding relationships?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_4', text: 'Does the child show stereotyped or repetitive motor movements, use of objects, or speech?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_5', text: 'Does the child insist on sameness, inflexible adherence to routines, or ritualized patterns?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_6', text: 'Does the child have highly restricted, fixated interests that are abnormal in intensity or focus?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_7', text: 'Does the child show hyper- or hyporeactivity to sensory input?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_8', text: 'Were symptoms present in the early developmental period?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_9', text: 'Do symptoms cause significant impairment in current functioning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_10', text: 'Are these disturbances NOT better explained by intellectual disability?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_11', text: 'Does the child meet all 3 social communication criteria?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_12', text: 'Does the child meet at least 2 of the 4 restricted/repetitive behavior criteria?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_13', text: 'Is the child\'s language development delayed or atypical?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'asd_14', text: 'Does the child have difficulty with imaginative play appropriate to developmental level?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
+    },
+    learning_disorder_youth: {
+      id: 'learning_disorder_youth',
+      title: 'Specific Learning Disorder',
+      description: 'DSM-5 screening for difficulties in reading, writing, or mathematics',
+      icon: '📚',
+      stats: { questions: 12, minutes: '6-8', rating: 'DSM-5 Youth' },
+      questions: [
+        { id: 'sld_1', text: 'Does the child have difficulty with word reading accuracy?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_2', text: 'Does the child have difficulty with reading fluency or speed?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_3', text: 'Does the child have difficulty with reading comprehension?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_4', text: 'Does the child have difficulty with spelling accuracy?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_5', text: 'Does the child have difficulty with written expression (grammar, punctuation, organization)?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_6', text: 'Does the child have difficulty with number sense or calculation?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_7', text: 'Does the child have difficulty with mathematical reasoning?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_8', text: 'Have these difficulties persisted for at least 6 months despite interventions?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_9', text: 'Are academic skills substantially below expectations for age?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_10', text: 'Do difficulties significantly interfere with academic or occupational performance?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_11', text: 'Did difficulties begin during school-age years?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] },
+        { id: 'sld_12', text: 'Are the learning difficulties NOT better explained by other disorders or external factors?', options: [{ value: 0, text: 'No' }, { value: 1, text: 'Yes' }] }
+      ]
     }
   };
 
