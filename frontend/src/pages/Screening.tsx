@@ -1522,7 +1522,7 @@ const Screening = () => {
                     <p className="font-semibold text-yellow-800 mb-2">Important Screening Disclaimer</p>
                     <p className="text-gray-700">
                       This is a screening tool only. Only qualified mental health professionals can provide formal diagnoses. 
-                      Please consult Dr. Shapiro or another licensed professional for comprehensive evaluation and diagnosis.
+                      Please consult a licensed professional for comprehensive evaluation and diagnosis.
                     </p>
                   </AlertDescription>
                 </Alert>
