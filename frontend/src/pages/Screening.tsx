@@ -1798,8 +1798,8 @@ const Screening = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
               { icon: '😔', title: 'Major Depressive Disorder', description: 'Screening for persistent sad mood and loss of interest in activities', questions: 11, time: '5-7', id: 'mdd_adult' },
-              { icon: '😰', title: 'Generalized Anxiety Disorder', description: 'Screening for excessive worry and anxiety about various events', questions: 10, time: '4-6' },
-              { icon: '😱', title: 'Panic Disorder', description: 'Screening for recurrent unexpected panic attacks', questions: 16, time: '6-8' },
+              { icon: '😰', title: 'Generalized Anxiety Disorder', description: 'Screening for excessive worry and anxiety about various events', questions: 10, time: '4-6', id: 'gad_adult' },
+              { icon: '😱', title: 'Panic Disorder', description: 'Screening for recurrent unexpected panic attacks', questions: 16, time: '6-8', id: 'panic_adult' },
               { icon: '😨', title: 'Social Anxiety Disorder', description: 'Screening for marked fear and avoidance of social situations', questions: 9, time: '4-6' },
               { icon: '💥', title: 'Post-Traumatic Stress Disorder (PTSD)', description: 'Screening for trauma-related symptoms following a distressing event', questions: 24, time: '10-12' },
               { icon: '🔄', title: 'Obsessive-Compulsive Disorder (OCD)', description: 'Screening for obsessive thoughts and compulsive behaviors', questions: 12, time: '6-8' },
