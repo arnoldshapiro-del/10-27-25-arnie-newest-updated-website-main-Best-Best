@@ -1406,7 +1406,7 @@ const Screening = () => {
         levelClass = 'bg-red-100 text-red-800 border-red-300';
         recommendations = [
           'Your responses suggest significant symptoms',
-          'Strongly recommend evaluation with Dr. Shapiro',
+          'Strongly recommend professional evaluation',
           'Consider immediate professional support',
           'Treatment options may be beneficial'
         ];
