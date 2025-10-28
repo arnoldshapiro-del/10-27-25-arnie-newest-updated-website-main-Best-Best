@@ -23,13 +23,6 @@ const ContactSection = () => {
       action: "tel:859-341-7453"
     },
     {
-      icon: Mail,
-      title: "Email",
-      info: "arnold.shapiro@gmail.com",
-      description: "Secure, confidential communication",
-      action: "mailto:arnold.shapiro@gmail.com"
-    },
-    {
       icon: MapPin,
       title: "Locations",
       info: "Cincinnati, OH & Fort Wright, KY",
