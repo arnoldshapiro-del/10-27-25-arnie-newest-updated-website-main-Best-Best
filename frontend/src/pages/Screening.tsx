@@ -1613,6 +1613,154 @@ const Screening = () => {
           'Contact our office if symptoms worsen'
         ];
       }
+    } else if (currentAssessment === 'social_anxiety_adult') {
+      const hasRequired = responses.sa_a6 && responses.sa_a7 && responses.sa_a8 && responses.sa_a9;
+      if (hasRequired && totalScore >= 6) {
+        level = totalScore >= 8 ? 'Moderate to Severe Social Anxiety suggested - professional evaluation strongly recommended' : 'Mild Social Anxiety suggested - professional evaluation recommended';
+        levelClass = totalScore >= 8 ? 'bg-orange-100 text-orange-800 border-orange-300' : 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = [
+          `Symptoms suggest possible ${totalScore >= 8 ? 'Moderate to Severe' : 'Mild'} Social Anxiety Disorder`,
+          'Professional evaluation is recommended',
+          'Cognitive-behavioral therapy is highly effective for social anxiety',
+          'Call for professional evaluation: (859) 341-7453'
+        ];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring anxiety in social situations', 'Practice gradual exposure to feared situations', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'ptsd_adult') {
+      const hasQ1 = responses.ptsd_a1;
+      const hasRequired = responses.ptsd_a22 && responses.ptsd_a23 && responses.ptsd_a24;
+      const intrusion = [responses.ptsd_a2, responses.ptsd_a3, responses.ptsd_a4, responses.ptsd_a5, responses.ptsd_a6].filter(Boolean).length >= 1;
+      const avoidance = [responses.ptsd_a7, responses.ptsd_a8].filter(Boolean).length >= 1;
+      const negative = [responses.ptsd_a9, responses.ptsd_a10, responses.ptsd_a11, responses.ptsd_a12, responses.ptsd_a13, responses.ptsd_a14, responses.ptsd_a15].filter(Boolean).length >= 2;
+      const arousal = [responses.ptsd_a16, responses.ptsd_a17, responses.ptsd_a18, responses.ptsd_a19, responses.ptsd_a20, responses.ptsd_a21].filter(Boolean).length >= 2;
+      
+      if (hasQ1 && hasRequired && intrusion && avoidance && negative && arousal) {
+        level = 'PTSD suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder', 'Immediate professional evaluation is essential', 'Evidence-based trauma treatments are highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet full DSM-5 criteria for PTSD', 'Consider trauma-focused therapy if distressed', 'Monitor symptoms over time', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'ocd_adult') {
+      const hasObsessions = responses.ocd_a1 && responses.ocd_a2;
+      const hasCompulsions = responses.ocd_a3 && responses.ocd_a4 && responses.ocd_a5;
+      const hasTimeOrDistress = responses.ocd_a6 || (responses.ocd_a7 && responses.ocd_a8);
+      const hasExclusions = responses.ocd_a9 && responses.ocd_a10;
+      
+      if ((hasObsessions || hasCompulsions) && hasTimeOrDistress && hasExclusions) {
+        const insight = responses.ocd_a11 ? 'good' : 'poor';
+        level = `OCD with ${insight} insight suggested - ${insight === 'good' ? 'professional evaluation strongly' : 'immediate professional evaluation'} recommended`;
+        levelClass = insight === 'good' ? 'bg-orange-100 text-orange-800 border-orange-300' : 'bg-red-100 text-red-800 border-red-300';
+        recommendations = [`Symptoms suggest possible OCD with ${insight} insight`, insight === 'good' ? 'Professional evaluation is strongly recommended' : 'Immediate professional evaluation is essential', 'Exposure and Response Prevention therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for OCD', 'Continue monitoring obsessions or compulsions', 'Practice mindfulness and anxiety management', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'bipolar1_adult') {
+      const hasManic = responses.bp1_a1 && responses.bp1_a2;
+      const manicSymptoms = [responses.bp1_a3, responses.bp1_a4, responses.bp1_a5, responses.bp1_a6, responses.bp1_a7, responses.bp1_a8, responses.bp1_a9].filter(Boolean).length;
+      const hasImpairment = responses.bp1_a10;
+      const hasExclusion = responses.bp1_a11;
+      
+      if (hasManic && manicSymptoms >= 3 && hasImpairment && hasExclusion) {
+        level = 'Bipolar I Disorder suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Bipolar I Disorder', 'Immediate professional evaluation is essential', 'Mood stabilization treatments are highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Bipolar I', 'Continue monitoring mood episodes', 'Maintain regular sleep and routines', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'bipolar2_adult') {
+      const hasHypomanic = responses.bp2_a1 && responses.bp2_a2 && responses.bp2_a10 && responses.bp2_a11 && responses.bp2_a12;
+      const hypomanicSymptoms = [responses.bp2_a3, responses.bp2_a4, responses.bp2_a5, responses.bp2_a6, responses.bp2_a7, responses.bp2_a8, responses.bp2_a9].filter(Boolean).length >= 3;
+      const hasDepressive = responses.bp2_a13 && responses.bp2_a14 && responses.bp2_a15;
+      const hasExclusions = responses.bp2_a16 && responses.bp2_a17 && responses.bp2_a18;
+      
+      if (hasHypomanic && hypomanicSymptoms && hasDepressive && hasExclusions) {
+        level = 'Bipolar II Disorder suggested - immediate professional evaluation essential';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = ['Symptoms suggest possible Bipolar II Disorder', 'Immediate professional evaluation is essential', 'Treatment can stabilize mood and prevent episodes', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria for Bipolar II', 'Continue monitoring mood changes', 'Track mood patterns in a journal', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'alcohol_use' || currentAssessment === 'opioid_use') {
+      const substanceName = currentAssessment === 'alcohol_use' ? 'Alcohol' : 'Opioid';
+      if (totalScore >= 6) {
+        level = `Severe ${substanceName} Use Disorder suggested - immediate professional evaluation essential`;
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = [`Symptoms suggest possible Severe ${substanceName} Use Disorder`, 'Immediate professional evaluation is essential', 'Evidence-based addiction treatments are effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+      } else if (totalScore >= 4) {
+        level = `Moderate ${substanceName} Use Disorder suggested - professional evaluation strongly recommended`;
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = [`Symptoms suggest possible Moderate ${substanceName} Use Disorder`, 'Professional evaluation is strongly recommended', 'Treatment can prevent progression', 'Call for professional evaluation: (859) 341-7453'];
+      } else if (totalScore >= 2) {
+        level = `Mild ${substanceName} Use Disorder suggested - professional evaluation recommended`;
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = [`Symptoms suggest possible Mild ${substanceName} Use Disorder`, 'Professional evaluation is recommended', 'Early intervention is most effective', 'Schedule professional consultation: (859) 341-7453'];
+      } else {
+        level = `No ${substanceName} Use Disorder`;
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not meet criteria for substance use disorder', 'Continue healthy habits', 'Monitor substance use patterns', 'Contact our office if concerns develop'];
+      }
+    } else if (currentAssessment === 'persistent_depressive') {
+      const hasCore = responses.pdd_a1 && responses.pdd_a8 && responses.pdd_a9;
+      const symptoms = [responses.pdd_a2, responses.pdd_a3, responses.pdd_a4, responses.pdd_a5, responses.pdd_a6, responses.pdd_a7].filter(Boolean).length >= 2;
+      
+      if (hasCore && symptoms) {
+        level = 'Persistent Depressive Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder (Dysthymia)', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring mood over time', 'Practice self-care and stress management', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'borderline_personality') {
+      const symptoms = [responses.bpd_a1, responses.bpd_a2, responses.bpd_a3, responses.bpd_a4, responses.bpd_a5, responses.bpd_a6, responses.bpd_a7, responses.bpd_a8, responses.bpd_a9].filter(Boolean).length;
+      const hasContext = responses.bpd_a10 && responses.bpd_a11;
+      
+      if (symptoms >= 5 && hasContext) {
+        level = 'Borderline Personality Disorder suggested - professional evaluation strongly recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = ['Symptoms suggest possible Borderline Personality Disorder', 'Professional evaluation is strongly recommended', 'Dialectical Behavior Therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [`${symptoms} symptoms present - below diagnostic threshold of 5`, 'Continue monitoring emotional patterns', 'Practice emotion regulation skills', 'Contact our office if symptoms worsen'];
+      }
+    } else if (currentAssessment === 'adhd_adult') {
+      const hasRequired = responses.adhd_ad19 && responses.adhd_ad20 && responses.adhd_ad21;
+      const inattention = [responses.adhd_ad1, responses.adhd_ad2, responses.adhd_ad3, responses.adhd_ad4, responses.adhd_ad5, responses.adhd_ad6, responses.adhd_ad7, responses.adhd_ad8, responses.adhd_ad9].filter(Boolean).length;
+      const hyperactivity = [responses.adhd_ad10, responses.adhd_ad11, responses.adhd_ad12, responses.adhd_ad13, responses.adhd_ad14, responses.adhd_ad15, responses.adhd_ad16, responses.adhd_ad17, responses.adhd_ad18].filter(Boolean).length;
+      
+      if (hasRequired) {
+        if (inattention >= 5 && hyperactivity >= 5) {
+          level = 'ADHD Combined Type suggested - professional evaluation strongly recommended';
+          levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+          recommendations = ['Symptoms suggest possible ADHD Combined Type', 'Professional evaluation is strongly recommended', 'Multiple effective treatment options available', 'Call for professional evaluation: (859) 341-7453'];
+        } else if (inattention >= 5 || hyperactivity >= 5) {
+          level = `ADHD suggested (Predominantly ${inattention >= 5 ? 'Inattentive' : 'Hyperactive-Impulsive'}) - professional evaluation recommended`;
+          levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+          recommendations = [`Symptoms suggest possible ADHD Predominantly ${inattention >= 5 ? 'Inattentive' : 'Hyperactive-Impulsive'} Type`, 'Professional evaluation is recommended', 'Treatment can significantly improve functioning', 'Schedule professional consultation: (859) 341-7453'];
+        } else {
+          level = 'Below diagnostic threshold';
+          levelClass = 'bg-green-100 text-green-800 border-green-300';
+          recommendations = ['Symptoms do not currently meet DSM-5 criteria for ADHD', 'Continue monitoring attention and activity', 'Practice organizational strategies', 'Contact our office if concerns persist'];
+        }
+      } else {
+        level = 'Below diagnostic threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = ['Duration or setting criteria not met', 'Continue monitoring symptoms', 'Contact our office if symptoms worsen'];
+      }
     } else {
       // Basic scoring logic for other assessments
       const maxScore = assessments[currentAssessment].questions.length * 3;
