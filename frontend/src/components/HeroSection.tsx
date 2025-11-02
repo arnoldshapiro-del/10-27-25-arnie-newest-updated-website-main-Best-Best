@@ -76,15 +76,6 @@ const HeroSection = () => {
                   <Check className="w-4 h-4 text-healing-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground">Family-Like Environment</h3>
-                  <p className="text-muted-foreground">Treated exactly as I would treat my own family members</p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-healing rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Check className="w-4 h-4 text-healing-foreground" />
-                </div>
-                <div>
                   <h3 className="font-semibold text-foreground">Same-Day Response</h3>
                   <p className="text-muted-foreground">Extremely accessible - we get back to you almost always the same day</p>
                 </div>
