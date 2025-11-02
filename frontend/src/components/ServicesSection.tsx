@@ -154,11 +154,6 @@ const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6">
-                <Button variant="link" className="text-primary p-0 h-auto">
-                  Learn More
-                </Button>
-              </div>
             </CardContent>
           </Card>
 
