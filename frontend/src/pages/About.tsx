@@ -43,11 +43,11 @@ const About = () => {
               needs and circumstances.
             </p>
             <div className="space-y-2 text-center">
-              <p className="font-semibold">Practice Information:</p>
+              <p className="font-semibold"><strong>Practice Information:</strong></p>
               <ul className="text-muted-foreground space-y-1">
-                <li>• Board Certified Psychiatrist</li>
-                <li>• Comprehensive Psychiatric Evaluation</li>
-                <li>• Personalized Treatment Plans</li>
+                <li><strong>• Board Certified Psychiatrist</strong></li>
+                <li><strong>• Comprehensive Psychiatric Evaluation</strong></li>
+                <li><strong>• Personalized Treatment Plans</strong></li>
               </ul>
             </div>
           </div>
