@@ -122,72 +122,11 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Specialty Services */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-center mb-12">Specialty Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {specialtyServices.map((service, index) => (
-              <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-6">
-                  <service.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                  <h3 className="font-bold mb-3">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{service.description}</p>
-                  <Badge variant="outline" className="text-xs">
-                    {service.availability}
-                  </Badge>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Insurance & Payment */}
-        <Card className="mb-16">
-          <CardContent className="p-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Insurance & Payment</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-bold mb-4">Accepted Insurance Plans</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Blue Cross Blue Shield</li>
-                  <li>• Aetna</li>
-                  <li>• Cigna</li>
-                  <li>• UnitedHealthcare</li>
-                  <li>• Medicare</li>
-                  <li>• Medicaid</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold mb-4">Payment Options</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Insurance co-pays and deductibles</li>
-                  <li>• Self-pay rates available</li>
-                  <li>• Sliding scale fees for qualifying patients</li>
-                  <li>• HSA/FSA accepted</li>
-                  <li>• Payment plans available</li>
-                </ul>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Emergency Services */}
         <div className="text-center mb-16 p-6 bg-card rounded-lg">
           <p className="text-muted-foreground">
             For non-emergency concerns, call our office at (859) 341-7453. If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
           </p>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Contact us today to schedule your initial consultation and take the first 
-            step toward better mental health.
-          </p>
-          <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            Schedule Appointment
-          </Button>
         </div>
       </div>
     </div>
