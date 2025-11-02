@@ -95,7 +95,7 @@ const Services = () => {
         {/* Main Services */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-12">Core Services</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="h-full hover:shadow-lg transition-shadow">
                 <CardHeader>
