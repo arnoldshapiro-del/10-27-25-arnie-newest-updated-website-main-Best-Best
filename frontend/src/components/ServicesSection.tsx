@@ -58,7 +58,7 @@ const ServicesSection = () => {
     "Genetic Testing with GeneSight",
     "Family Therapy",
     "Play Therapy for young children",
-    "Medication Management",
+    "15-30 minutes",
     "Treatment Planning",
     "Psychological Education",
     "Crisis Intervention"
