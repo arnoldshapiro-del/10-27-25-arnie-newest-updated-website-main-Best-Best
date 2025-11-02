@@ -205,27 +205,6 @@ const ContactSection = () => {
                 ))}
               </div>
             </div>
-
-            {/* Final CTA */}
-            <Card className="bg-gradient-to-br from-warm-accent/5 to-primary/5 border-warm-accent/20">
-              <CardContent className="p-8 text-center">
-                <CheckCircle className="w-12 h-12 text-healing mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-4">
-                  Ready to Begin?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Schedule your comprehensive evaluation today and take the first step 
-                  toward better mental health.
-                </p>
-                <Button 
-                  size="lg" 
-                  className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium w-full"
-                >
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Schedule Your Evaluation
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
