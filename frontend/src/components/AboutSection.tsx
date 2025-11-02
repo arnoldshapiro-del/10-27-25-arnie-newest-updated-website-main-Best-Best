@@ -124,7 +124,7 @@ const AboutSection = () => {
                   </div>
                   <blockquote className="text-muted-foreground italic">
                     "There's no 'one-size-fits-all' approach. Together, we'll map out the treatment plan 
-                    that fits your unique situation and life. If something isn't working, we adjust. 
+                    that fits your unique situation and circumstances. If something isn't working, we adjust. 
                     If you need backup plans, we create them. You're never alone in this journey."
                   </blockquote>
                   <div className="text-sm text-foreground font-medium">— Dr. Arnold G. Shapiro</div>
