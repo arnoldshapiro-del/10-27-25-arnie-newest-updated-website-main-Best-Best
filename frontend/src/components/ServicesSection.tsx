@@ -100,10 +100,10 @@ const ServicesSection = () => {
         <div className="text-center mb-16">
           <Badge variant="secondary" className="bg-trust/10 text-trust border-trust/20 mb-4">
             <Stethoscope className="w-4 h-4 mr-1" />
-            Our Services
+            Conditions We Specialize
           </Badge>
           <h2 className="text-4xl font-bold text-foreground mb-6">
-            Our Services
+            Conditions We Specialize
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We specialize in outpatient treatment of many psychiatric disorders in children, families, and adults. Our 
