@@ -99,18 +99,6 @@ const About = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Start Your Journey?</h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Take the first step towards better mental health. Schedule a consultation 
-            to discuss how we can help you achieve your wellness goals.
-          </p>
-          <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            Schedule Your Evaluation
-          </Button>
-        </div>
       </div>
     </div>
   );
