@@ -7,7 +7,7 @@ import BackButton from "@/components/BackButton";
 const About = () => {
   const achievements = [
     { icon: Award, title: "Board Certified", desc: "American Board of Psychiatry" },
-    { icon: Users, title: "15+ Years", desc: "Clinical Experience" },
+    { icon: Users, title: "35+ Years", desc: "Clinical Experience" },
     { icon: Clock, title: "24/7 Support", desc: "Crisis Intervention" },
     { icon: Heart, title: "Compassionate Care", desc: "Patient-Centered Approach" }
   ];
