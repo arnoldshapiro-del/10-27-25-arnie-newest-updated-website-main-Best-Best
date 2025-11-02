@@ -27,20 +27,6 @@ const Services = () => {
       features: ["Cognitive Behavioral Therapy", "Psychodynamic Therapy", "Solution-Focused Therapy"]
     },
     {
-      icon: Users,
-      title: "Group Therapy",
-      description: "Connect with others facing similar challenges in a supportive environment.",
-      duration: "90 minutes",
-      features: ["Anxiety Support Groups", "Depression Support", "Trauma Recovery Groups"]
-    },
-    {
-      icon: Heart,
-      title: "Couples Therapy",
-      description: "Strengthen your relationship with evidence-based interventions.",
-      duration: "75 minutes",
-      features: ["Communication Skills", "Conflict Resolution", "Intimacy Building"]
-    },
-    {
       icon: MessageSquare,
       title: "Family Therapy",
       description: "Address family dynamics and improve communication patterns.",
