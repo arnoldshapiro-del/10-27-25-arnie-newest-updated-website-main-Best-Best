@@ -81,25 +81,6 @@ const HeroSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* Call to action */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg" 
-                className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium text-lg px-8 py-6"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Schedule Your Evaluation
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6"
-                onClick={() => window.location.href = '/services'}
-              >
-                Learn About Our Approach
-              </Button>
-            </div>
           </div>
 
           {/* Right column - Family Image */}
