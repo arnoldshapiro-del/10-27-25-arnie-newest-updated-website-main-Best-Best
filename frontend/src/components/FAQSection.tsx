@@ -22,10 +22,6 @@ const faqData = [
   {
     question: "Are Our Services Suitable for Individuals at All Stages of Life?",
     answer: "Yes, our services cater to individuals at various stages of their lives. Dr. Shapiro has extensive experience working with children, adolescents, and adults. Our unique approach to psychiatry is adaptable, allowing us to customize treatments and techniques to meet your individual needs and aspirations, whether you are navigating childhood challenges, adolescent transitions, or adult life circumstances."
-  },
-  {
-    question: "What About Insurance and Payment Options?",
-    answer: "We accept various insurance plans and offer different payment options. Visa and MasterCard are honored. For detailed information about insurance coverage and payment plans, please contact our office team at one of our locations: Cincinnati at 513-794-8777 or Fort Wright at 859-341-7453."
   }
 ];
 
