@@ -82,7 +82,7 @@ const Services = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">Our Services</Badge>
+          <Badge variant="outline" className="mb-4 text-base">Our Services</Badge>
           <h1 className="text-4xl font-bold mb-6">Comprehensive Mental Health Care</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             We offer a full range of psychiatric and psychological services to meet 
