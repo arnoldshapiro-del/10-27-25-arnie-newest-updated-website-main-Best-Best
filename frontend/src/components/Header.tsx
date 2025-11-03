@@ -134,42 +134,42 @@ const Header = () => {
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/services' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Services
+                Our Services
               </Link>
               <Link 
                 to="/disorders" 
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/disorders' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Disorders
+                Conditions We Treat
               </Link>
               <Link 
                 to="/screening" 
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/screening' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Free Screening
+                Free Screening Tools
               </Link>
               <Link 
                 to="/slideshows" 
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/slideshows' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Slideshows
+                Educational Slideshows
               </Link>
               <Link 
                 to="/contact" 
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/contact' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact
+                Contact Us
               </Link>
               <Link 
                 to="/forms" 
                 className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/forms' ? 'text-primary font-bold' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Forms
+                Downloadable Forms
               </Link>
               <Button 
                 variant="default" 
