@@ -30,7 +30,7 @@ const Services = () => {
       icon: MessageSquare,
       title: "Family Therapy",
       description: "Address family dynamics and improve communication patterns.",
-      duration: "75 minutes",
+      duration: "45-60 minutes",
       features: ["Family Systems Therapy", "Parent-Child Therapy", "Blended Family Support"]
     },
     {
