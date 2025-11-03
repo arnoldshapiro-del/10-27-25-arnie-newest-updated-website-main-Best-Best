@@ -8,40 +8,23 @@ const AboutSection = () => {
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left column - Image and credentials */}
+          {/* Left column - Dr. Shapiro's Image */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="w-full max-w-md mx-auto">
+              <div className="w-full max-w-lg mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-large">
                   <img 
-                    src="/assets/doctor-profile-new.jpg" 
-                    alt="Dr. Arnold G. Shapiro - Experienced Psychiatrist" 
+                    src="/doctor-arnold-shapiro.jpg" 
+                    alt="Dr. Arnold G. Shapiro" 
                     className="w-full h-auto object-cover"
+                    loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
                 </div>
-              </div>
-              
-              {/* Credentials badge */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                <Card className="bg-card shadow-medium border-border">
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-trust/10 rounded-full flex items-center justify-center">
-                        <GraduationCap className="w-5 h-5 text-trust" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-foreground">Board Certified</div>
-                        <div className="text-sm text-muted-foreground">Psychiatrist</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
               </div>
             </div>
 
-            {/* Key stats */}
-            <div className="grid grid-cols-2 gap-4 pt-8">
+            {/* Key stats below picture */}
+            <div className="grid grid-cols-2 gap-4">
               <Card className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-primary mb-2">35+</div>
