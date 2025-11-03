@@ -130,7 +130,7 @@ const Forms = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">Patient Forms</Badge>
+          <Badge variant="outline" className="mb-4 text-base">Patient Forms</Badge>
           <h1 className="text-4xl font-bold mb-6">Forms & Documents</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Download and complete the necessary forms before your appointment to 
