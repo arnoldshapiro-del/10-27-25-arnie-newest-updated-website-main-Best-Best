@@ -111,9 +111,9 @@ const HeroSection = () => {
           <div className="relative flex items-center justify-center">
             <div className="rounded-2xl overflow-hidden shadow-large">
               <img 
-                src="/assets/family-photo.png" 
-                alt="Happy family - Caring for Cincinnati Families Since 1989" 
-                className="w-full h-full object-cover"
+                src={happyFamilyImage} 
+                alt="Happy loving family" 
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
