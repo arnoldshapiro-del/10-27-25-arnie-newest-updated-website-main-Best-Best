@@ -3110,7 +3110,7 @@ const Screening = () => {
             </p>
             <div className="mt-4 text-xs text-blue-200">
               © 2024 Dr. Arnold G. Shapiro MD - Mental Health Screening Center. All rights reserved. | 
-              🔒 HIPAA Compliant | 🏥 Board-Certified Psychiatrist | 📍 Cincinnati, OH & Fort Wright, KY
+              🏥 Board-Certified Psychiatrist | 📍 Cincinnati, OH & Fort Wright, KY
             </div>
           </CardContent>
         </Card>
