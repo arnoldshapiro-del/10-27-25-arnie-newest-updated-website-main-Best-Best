@@ -6,7 +6,6 @@ import {
   Clock, 
   MessageSquare,
   Car,
-  Bus,
   Accessibility
 } from "lucide-react";
 import BackButton from "@/components/BackButton";
