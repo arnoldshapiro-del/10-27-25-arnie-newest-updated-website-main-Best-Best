@@ -43,7 +43,7 @@ const Contact = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">Contact Us</Badge>
+          <Badge variant="outline" className="mb-4 text-base">Contact Us</Badge>
           <h1 className="text-4xl font-bold mb-6">Contact us</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to take the first step? We're here to help you on your journey 
