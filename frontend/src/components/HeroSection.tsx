@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Award, Heart, Users } from "lucide-react";
+import happyFamilyImage from "@/assets/happy-family.jpg";
 
 const HeroSection = () => {
   return (
