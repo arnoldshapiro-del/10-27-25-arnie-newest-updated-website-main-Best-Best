@@ -85,10 +85,10 @@ const Disorders = () => {
     },
     {
       icon: Activity,
-      title: "Eating Disorders",
-      description: "Anorexia, bulimia, binge eating disorder, and related conditions.",
-      symptoms: ["Distorted body image", "Restrictive eating", "Binge episodes", "Weight preoccupation"],
-      treatments: ["Nutritional counseling", "Family therapy", "CBT", "Medical monitoring"],
+      title: "Panic Disorders",
+      description: "Anxiety disorder marked by recurrent unexpected panic attacks",
+      symptoms: ["Sudden episodes of intense fear or discomfort", "Palpitations or pounding of the heart", "Sweating, trembling, chills or hot flashes", "Shortness of breath or chest pain and others"],
+      treatments: ["CBT", "Exposure therapy", "Antidepressant medications", "Benzodiazepines and beta blockers"],
       color: "from-pink-500/20 to-pink-600/20"
     }
   ];

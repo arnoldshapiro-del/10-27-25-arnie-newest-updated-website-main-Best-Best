@@ -2852,9 +2852,6 @@ const Screening = () => {
             </p>
             
             <div className="flex justify-center gap-4 mt-6 flex-wrap">
-              <Badge className="bg-orange-500 text-white px-4 py-2 hover:bg-orange-600">
-                🏥 HIPAA Compliant
-              </Badge>
               <Badge className="bg-white text-blue-700 px-4 py-2">
                 🔒 Completely Confidential
               </Badge>
@@ -2868,14 +2865,12 @@ const Screening = () => {
           </CardHeader>
           
           <CardContent className="bg-white">
-            {/* HIPAA Notice */}
+            {/* Privacy Notice */}
             <Alert className="bg-blue-50 border-blue-300 mb-6">
               <Shield className="h-5 w-5 text-blue-600" />
               <AlertDescription>
-                <h3 className="font-semibold text-blue-700 mb-3">Your Privacy is Protected</h3>
-                <p className="mb-4 text-gray-700">
-                  <strong>HIPAA Compliance:</strong> All screening tools are completely confidential and comply with HIPAA privacy regulations. 
-                  No personal health information is stored without your explicit consent.
+                <p className="text-gray-700">
+                  These screening tools are for your information only you can see the results. None of your information is collected or stored.
                 </p>
               </AlertDescription>
             </Alert>
