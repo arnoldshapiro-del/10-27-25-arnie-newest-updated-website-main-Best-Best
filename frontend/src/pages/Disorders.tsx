@@ -120,7 +120,7 @@ const Disorders = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">Conditions We Treat</Badge>
+          <Badge variant="outline" className="mb-4 text-base">Conditions We Treat</Badge>
           <h1 className="text-4xl font-bold mb-6">Mental Health Disorders</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             We provide specialized treatment for a wide range of mental health conditions 
