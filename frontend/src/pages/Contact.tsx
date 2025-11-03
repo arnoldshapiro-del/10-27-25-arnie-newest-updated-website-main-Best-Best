@@ -115,13 +115,6 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Bus className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-base">Public Transportation</p>
-                      <p className="text-muted-foreground">Bus routes 15, 23, and 47 nearby</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
                     <Accessibility className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold text-base">Accessibility</p>
@@ -139,13 +132,10 @@ const Contact = () => {
                   <MessageSquare className="h-10 w-10 text-primary flex-shrink-0" />
                   <div>
                     <h3 className="font-bold text-xl mb-2">Telehealth Available</h3>
-                    <p className="text-base text-muted-foreground mb-4">
+                    <p className="text-base text-muted-foreground">
                       Can't make it to our office? We offer secure video sessions 
                       from the comfort of your home.
                     </p>
-                    <Button variant="outline">
-                      Learn About Telehealth
-                    </Button>
                   </div>
                 </div>
               </CardContent>
