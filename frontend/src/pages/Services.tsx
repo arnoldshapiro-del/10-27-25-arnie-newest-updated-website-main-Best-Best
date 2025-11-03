@@ -44,7 +44,7 @@ const Services = () => {
       icon: Stethoscope,
       title: "Psychiatric Evaluation",
       description: "Comprehensive assessment to determine the best treatment approach.",
-      duration: "90 minutes",
+      duration: "For adults: 60 minutes with therapist, then 60 minutes with Dr. Shapiro (total 120 minutes). For children: 60 minutes parents with therapist, then 60 minutes child with therapist, then 60 minutes child and parents with Dr. Shapiro (total 180 minutes)",
       features: ["Diagnostic Assessment", "Treatment Planning", "Risk Assessment"]
     }
   ];
