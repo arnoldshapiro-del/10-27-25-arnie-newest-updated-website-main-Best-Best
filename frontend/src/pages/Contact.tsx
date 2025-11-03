@@ -31,10 +31,7 @@ const Contact = () => {
   ];
 
   const officeHours = [
-    { day: "Monday - Thursday", hours: "8:00 AM - 7:00 PM" },
-    { day: "Friday", hours: "8:00 AM - 5:00 PM" },
-    { day: "Saturday", hours: "9:00 AM - 2:00 PM" },
-    { day: "Sunday", hours: "Closed (Emergency line available)" }
+    { day: "Monday - Friday", hours: "9:00 AM - 6:00 PM" }
   ];
 
   return (
