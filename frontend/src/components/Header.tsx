@@ -60,37 +60,37 @@ const Header = () => {
               to="/services" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/services' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              Services
+              Our Services
             </Link>
             <Link 
               to="/disorders" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/disorders' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              Disorders
+              Conditions We Treat
             </Link>
             <Link 
               to="/screening" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/screening' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              📋 Free Screening
+              📋 Free Screening Tools
             </Link>
             <Link 
               to="/slideshows" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/slideshows' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              📊 Slideshows
+              📊 Educational Slideshows
             </Link>
             <Link 
               to="/contact" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/contact' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              Contact
+              Contact Us
             </Link>
             <Link 
               to="/forms" 
               className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/forms' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
-              Forms
+              Downloadable Forms
             </Link>
             <Button 
               variant="default" 
