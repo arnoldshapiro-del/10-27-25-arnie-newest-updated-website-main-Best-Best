@@ -11,7 +11,7 @@ const AboutSection = () => {
           {/* Left column - Dr. Shapiro's Image */}
           <div className="space-y-8">
             <div className="relative">
-              <div className="w-full max-w-lg mx-auto">
+              <div className="w-full max-w-xl mx-auto">
                 <div className="relative rounded-2xl overflow-hidden shadow-large">
                   <img 
                     src="/doctor-arnold-shapiro.jpg" 
