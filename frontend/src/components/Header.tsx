@@ -43,59 +43,59 @@ const Header = () => {
           </Link>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             <Link 
               to="/" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               Home
             </Link>
             <Link 
               to="/about" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/about' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/about' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               About Dr. Shapiro
             </Link>
             <Link 
               to="/services" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/services' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/services' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               Our Services
             </Link>
             <Link 
               to="/disorders" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/disorders' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/disorders' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               Conditions We Treat
             </Link>
             <Link 
               to="/screening" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/screening' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/screening' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               📋 Free Screening Tools
             </Link>
             <Link 
               to="/slideshows" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/slideshows' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/slideshows' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               📊 Educational Slideshows
             </Link>
             <Link 
               to="/contact" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/contact' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/contact' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               Contact Us
             </Link>
             <Link 
               to="/forms" 
-              className={`text-foreground hover:text-primary transition-colors font-medium ${pathname === '/forms' ? 'text-primary border-b-2 border-primary' : ''}`}
+              className={`text-foreground hover:text-primary transition-colors text-sm lg:text-base ${pathname === '/forms' ? 'text-primary border-b-2 border-primary' : ''}`}
             >
               Downloadable Forms
             </Link>
             <Button 
               variant="default" 
               size="lg"
-              className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium"
+              className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium ml-2 lg:ml-4"
               asChild
             >
               <Link to="/contact">Schedule Your Evaluation</Link>
