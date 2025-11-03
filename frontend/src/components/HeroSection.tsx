@@ -9,8 +9,34 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Content */}
           <div className="space-y-8">
+            {/* Main headline */}
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground leading-tight">
+                Expert Psychiatry Care 
+                <span className="text-primary"> With Compassion</span>
+              </h2>
+            </div>
+
+            {/* Doctor name */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+                Arnold G. Shapiro MD
+              </h1>
+            </div>
+
+            {/* Doctor portrait */}
+            <div className="w-full flex justify-center lg:justify-start">
+              <img
+                src="/doctor-arnold-shapiro.jpg"
+                alt="Portrait of Dr. Arnold G. Shapiro"
+                className="rounded-2xl shadow-md w-48 md:w-64 lg:w-80 h-auto object-cover"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
               <Badge variant="secondary" className="bg-trust/10 text-trust border-trust/20">
                 <Award className="w-4 h-4 mr-1" />
                 35+ Years Experience
@@ -21,13 +47,9 @@ const HeroSection = () => {
               </Badge>
             </div>
 
-            {/* Main headline */}
+            {/* Main content */}
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Expert Psychiatry Care 
-                <span className="text-primary"> With Compassion</span>
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg text-muted-foreground leading-relaxed">
                 Over 35 years of successful, caring treatment in Cincinnati and Fort Wright. 
                 Every patient is treated with equal respect, warmth, and understanding. 
                 We collaborate—exploring all options and deciding together on the best treatment plan.
