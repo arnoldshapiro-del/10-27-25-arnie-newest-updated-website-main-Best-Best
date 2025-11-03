@@ -18,7 +18,7 @@ const About = () => {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
-          <Badge variant="outline" className="mb-4">About Our Practice</Badge>
+          <Badge variant="outline" className="mb-4 text-base">About Our Practice</Badge>
           <h1 className="text-4xl font-bold mb-6">Arnold G. Shapiro MD</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Dedicated to providing compassionate, evidence-based psychiatric care 
