@@ -233,33 +233,6 @@ const Disorders = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Self-Assessment CTA */}
-        <Card className="bg-primary/5 border-primary/20 mb-16">
-          <CardContent className="p-8 text-center">
-            <Brain className="h-12 w-12 mx-auto mb-4 text-primary" />
-            <h2 className="text-2xl font-bold mb-4">Not Sure Where to Start?</h2>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Take our confidential mental health screening to help identify areas where 
-              you might benefit from professional support.
-            </p>
-            <Button size="lg" variant="outline">
-              Take Free Assessment
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Take the Next Step?</h2>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Don't let mental health challenges hold you back. Professional help is available, 
-            and recovery is possible. Contact us today to schedule your evaluation.
-          </p>
-          <Button size="lg" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            Get Help Now
-          </Button>
-        </div>
       </div>
     </div>
   );
