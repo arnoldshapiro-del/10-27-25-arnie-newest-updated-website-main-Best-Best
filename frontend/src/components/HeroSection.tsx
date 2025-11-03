@@ -56,7 +56,7 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Key differentiators - ONLY 2 BULLETS (Family-Like Environment REMOVED) */}
+            {/* Key differentiators */}
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-healing rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -65,6 +65,15 @@ const HeroSection = () => {
                 <div>
                   <h3 className="font-semibold text-foreground">Collaborative Treatment Approach</h3>
                   <p className="text-muted-foreground">We discuss pros and cons of all treatment options and decide together</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-6 h-6 bg-healing rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <Check className="w-4 h-4 text-healing-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground">Family-Like Environment</h3>
+                  <p className="text-muted-foreground">Caring setting as we work toward your long-term wellness</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
