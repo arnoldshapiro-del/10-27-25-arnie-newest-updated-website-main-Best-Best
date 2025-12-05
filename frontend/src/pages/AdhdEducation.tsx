@@ -422,6 +422,9 @@ export default function AdhdEducation() {
           </p>
         </div>
       </div>
-    </main>
+      </main>
+      <EmergencyDisclaimer />
+      <Footer />
+    </>
   );
 }
