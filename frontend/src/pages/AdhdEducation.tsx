@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download, ChevronLeft, ChevronRight, X, Maximize } from "lucide-react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // Generate candidate images for any condition
 const generateCandidateImages = (condition: string) => {
