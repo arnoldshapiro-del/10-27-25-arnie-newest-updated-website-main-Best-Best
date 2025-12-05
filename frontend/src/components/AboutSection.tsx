@@ -15,7 +15,7 @@ const AboutSection = () => {
                 <div className="relative rounded-2xl overflow-hidden shadow-large">
                   <img 
                     src="/doctor-arnold-shapiro.jpg" 
-                    alt="Dr. Arnold G. Shapiro" 
+                    alt="Dr. Arnold G. Shapiro, board-certified psychiatrist in Cincinnati Ohio and Northern Kentucky" 
                     className="w-full h-auto object-cover"
                     loading="eager"
                   />
