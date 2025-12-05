@@ -17,7 +17,12 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <BackButton />
+      <SEO 
+        title="About Dr. Arnold G. Shapiro MD - Board Certified Psychiatrist"
+        description="Meet Dr. Arnold G. Shapiro, a board-certified psychiatrist with 35+ years of experience providing compassionate, personalized psychiatric care in Cincinnati, OH and Fort Wright, KY."
+        path="/about"
+      />
+      <Header />
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
