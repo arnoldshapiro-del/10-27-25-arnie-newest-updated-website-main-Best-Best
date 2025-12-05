@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
+import Header from "@/components/Header";
+import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const MDDPage = () => {
   const [showTreatmentResistant, setShowTreatmentResistant] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <>
+      <SEO 
+        title="Major Depressive Disorder Treatment Guide - Dr. Shapiro | Cincinnati & Fort Wright"
+        description="Comprehensive medication treatment guide for Major Depressive Disorder (MDD). Learn about symptoms, treatment options, and expert care from Dr. Arnold G. Shapiro."
+        path="/major-depressive-disorder"
+      />
+      <Header />
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Header */}
         <div className="mb-8">
