@@ -108,6 +108,8 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
+      <EmergencyDisclaimer />
+      <Footer />
     </div>
   );
 };
