@@ -38,7 +38,12 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <BackButton />
+      <SEO 
+        title="Contact Dr. Shapiro - Schedule Your Psychiatric Evaluation | Cincinnati & Fort Wright"
+        description="Contact Dr. Arnold G. Shapiro for compassionate psychiatric care. Two convenient locations in Cincinnati, OH (513-794-8777) and Fort Wright, KY (859-341-7453). Same-day response to calls."
+        path="/contact"
+      />
+      <Header />
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
