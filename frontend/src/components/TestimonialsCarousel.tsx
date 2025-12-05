@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [slidesToShow, setSlidesToShow] = useState(3);
 
   const testimonials = [
     {
@@ -50,69 +51,90 @@ const TestimonialsCarousel = () => {
     }
   ];
 
+  // Responsive slides calculation
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSlidesToShow(1); // Mobile: 1 testimonial
+      } else if (window.innerWidth < 1024) {
+        setSlidesToShow(2); // Tablet: 2 testimonials
+      } else {
+        setSlidesToShow(3); // Desktop: 3 testimonials
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Auto-scroll functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Change slide every 5 seconds
+      setCurrentIndex((prevIndex) => {
+        const maxIndex = testimonials.length - slidesToShow;
+        return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+      });
+    }, 5500); // Change slide every 5.5 seconds
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, testimonials.length]);
+  }, [isAutoPlaying, testimonials.length, slidesToShow]);
 
   const goToNext = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const maxIndex = testimonials.length - slidesToShow;
+      return prevIndex >= maxIndex ? 0 : prevIndex + 1;
+    });
   };
 
   const goToPrevious = () => {
     setIsAutoPlaying(false);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
+    setCurrentIndex((prevIndex) => {
+      const maxIndex = testimonials.length - slidesToShow;
+      return prevIndex === 0 ? maxIndex : prevIndex - 1;
+    });
   };
 
-  const goToSlide = (index: number) => {
-    setIsAutoPlaying(false);
-    setCurrentIndex(index);
-  };
+  const slideWidth = 100 / slidesToShow;
+  const maxDots = testimonials.length - slidesToShow + 1;
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-12">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold mb-4">What Our Patients Say</h2>
-        <p className="text-muted-foreground">Real experiences from real patients</p>
+    <div className="w-full max-w-7xl mx-auto px-4 py-16 bg-background">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Patients Say</h2>
+        <p className="text-muted-foreground text-lg">Real experiences from Cincinnati and Northern Kentucky patients</p>
       </div>
 
-      <div className="relative">
+      <div className="relative px-12">
         {/* Carousel Container */}
         <div className="overflow-hidden">
           <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            className="flex transition-transform duration-700 ease-in-out"
+            style={{ transform: `translateX(-${currentIndex * slideWidth}%)` }}
           >
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index} 
-                className="w-full flex-shrink-0 px-4"
+                className="px-3"
+                style={{ minWidth: `${slideWidth}%` }}
               >
-                <Card className="bg-card hover:shadow-lg transition-shadow min-h-[250px] flex items-center">
-                  <CardContent className="p-8 text-center">
-                    <Quote className="h-8 w-8 text-primary mx-auto mb-4 opacity-50" />
-                    <p className="text-lg text-foreground mb-4 italic">
-                      "{testimonial.text}"
-                    </p>
-                    <div className="flex items-center justify-center">
-                      <div className="h-px w-12 bg-primary/30 mr-3" />
-                      <span className="text-sm text-muted-foreground font-medium">
+                <Card className="bg-card hover:shadow-xl transition-all duration-300 h-full border-2 hover:border-primary/50">
+                  <CardContent className="p-6 md:p-8 flex flex-col justify-between h-full min-h-[280px]">
+                    <div>
+                      <Quote className="h-8 w-8 text-primary mx-auto mb-4 opacity-60" />
+                      <p className="text-base md:text-lg text-foreground mb-6 italic leading-relaxed">
+                        "{testimonial.text}"
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-center pt-4 border-t border-border">
+                      <div className="h-px w-8 bg-primary/30 mr-2" />
+                      <span className="text-sm text-muted-foreground font-semibold">
                         {testimonial.author}
                       </span>
-                      <div className="h-px w-12 bg-primary/30 ml-3" />
+                      <div className="h-px w-8 bg-primary/30 ml-2" />
                     </div>
                   </CardContent>
                 </Card>
@@ -125,33 +147,38 @@ const TestimonialsCarousel = () => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground"
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground z-10 h-12 w-12"
           onClick={goToPrevious}
+          aria-label="Previous testimonials"
         >
           <ChevronLeft className="h-6 w-6" />
         </Button>
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground"
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-background shadow-lg hover:bg-primary hover:text-primary-foreground z-10 h-12 w-12"
           onClick={goToNext}
+          aria-label="Next testimonials"
         >
           <ChevronRight className="h-6 w-6" />
         </Button>
       </div>
 
       {/* Dots Navigation */}
-      <div className="flex justify-center gap-2 mt-6">
-        {testimonials.map((_, index) => (
+      <div className="flex justify-center gap-2 mt-8">
+        {Array.from({ length: maxDots }).map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all ${
+            onClick={() => {
+              setIsAutoPlaying(false);
+              setCurrentIndex(index);
+            }}
+            className={`h-2.5 rounded-full transition-all duration-300 ${
               index === currentIndex 
-                ? 'w-8 bg-primary' 
-                : 'w-2 bg-primary/30 hover:bg-primary/50'
+                ? 'w-10 bg-primary' 
+                : 'w-2.5 bg-primary/30 hover:bg-primary/50'
             }`}
-            aria-label={`Go to testimonial ${index + 1}`}
+            aria-label={`Go to testimonial group ${index + 1}`}
           />
         ))}
       </div>
