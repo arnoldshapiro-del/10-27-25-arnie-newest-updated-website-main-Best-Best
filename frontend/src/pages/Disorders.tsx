@@ -120,8 +120,8 @@ const Disorders = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Mental Health Conditions We Treat - Dr. Shapiro | Cincinnati & Fort Wright"
-        description="Expert treatment for anxiety, depression, bipolar disorder, PTSD, ADHD, OCD, eating disorders, substance use disorders, and more. Board certified psychiatrist serving Cincinnati, OH and Fort Wright, KY."
+        title="Conditions We Treat | ADHD, Bipolar, OCD, Anxiety | Dr. Shapiro Cincinnati"
+        description="Expert psychiatric treatment for ADHD, anxiety disorders, depression, bipolar disorder, OCD, PTSD, Tourette syndrome, and other mental health conditions. Serving Cincinnati, OH and Northern Kentucky."
         path="/disorders"
       />
       <Header />
