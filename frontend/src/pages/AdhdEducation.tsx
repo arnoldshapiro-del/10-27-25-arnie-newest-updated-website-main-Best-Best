@@ -253,8 +253,15 @@ export default function AdhdEducation() {
   };
 
   return (
-    <main className="min-h-screen bg-background p-6">
-      <div className="container max-w-6xl mx-auto">
+    <>
+      <SEO 
+        title="Educational Slideshows - Mental Health Education | Dr. Shapiro"
+        description="Access comprehensive educational slideshows about ADHD, depression, anxiety, and other mental health conditions from Dr. Arnold G. Shapiro, board-certified psychiatrist."
+        path="/slideshows"
+      />
+      <Header />
+      <main className="min-h-screen bg-background p-6">
+        <div className="container max-w-6xl mx-auto">
         <div className="mb-6">
           <Link to="/">
             <Button variant="outline" className="flex items-center gap-2">
