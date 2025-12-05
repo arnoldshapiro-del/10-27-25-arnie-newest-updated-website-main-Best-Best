@@ -3126,7 +3126,10 @@ const Screening = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+      <EmergencyDisclaimer />
+      <Footer />
+    </>
   );
 };
 
