@@ -2833,8 +2833,15 @@ const Screening = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4">
-      <div className="max-w-7xl mx-auto">
+    <>
+      <SEO 
+        title="Free Mental Health Screening Tools - Arnold G. Shapiro MD | Cincinnati & Fort Wright"
+        description="Take confidential, evidence-based mental health screening assessments for depression, anxiety, ADHD, bipolar disorder, PTSD, and more. Developed by board-certified psychiatrist Dr. Arnold G. Shapiro."
+        path="/screening"
+      />
+      <Header />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4">
+        <div className="max-w-7xl mx-auto">
         {/* Hero Section */}
         <Card className="mb-8 border-2 border-blue-200">
           <CardHeader className="text-center bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-t-lg">
