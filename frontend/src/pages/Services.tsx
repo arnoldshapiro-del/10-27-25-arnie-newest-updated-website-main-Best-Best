@@ -81,7 +81,12 @@ const Services = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <BackButton />
+      <SEO 
+        title="Psychiatric Services - Arnold G. Shapiro MD | Cincinnati & Fort Wright"
+        description="Comprehensive mental health services including individual therapy, family therapy, medication management, psychiatric evaluation, and crisis intervention. Serving Cincinnati, OH and Fort Wright, KY."
+        path="/services"
+      />
+      <Header />
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
