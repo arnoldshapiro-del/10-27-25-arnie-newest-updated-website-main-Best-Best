@@ -130,8 +130,8 @@ const Forms = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Patient Forms & Documents - Arnold G. Shapiro MD | Cincinnati & Fort Wright"
-        description="Download new patient intake forms, insurance information forms, medical history questionnaires, and mental health assessment forms before your appointment with Dr. Shapiro."
+        title="Patient Forms | New Patient Intake | Dr. Shapiro Psychiatry Cincinnati"
+        description="Download patient intake forms, medical history questionnaires, and mental health assessment forms for Dr. Arnold Shapiro's psychiatric practice in Cincinnati and Northern Kentucky."
         path="/forms"
       />
       <Header />
