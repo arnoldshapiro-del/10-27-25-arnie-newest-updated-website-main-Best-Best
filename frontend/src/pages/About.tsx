@@ -66,7 +66,7 @@ const About = () => {
           <div className="w-full max-w-md md:max-w-lg">
             <img 
               src="/doctor-arnold-shapiro.jpg" 
-              alt="Portrait of Dr. Arnold G. Shapiro" 
+              alt="Dr. Arnold G. Shapiro, MD - Board-certified child and adult psychiatrist serving Cincinnati and Northern Kentucky" 
               className="w-full h-auto object-cover rounded-2xl shadow-md"
             />
           </div>
