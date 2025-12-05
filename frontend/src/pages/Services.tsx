@@ -82,8 +82,8 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Psychiatric Services - Arnold G. Shapiro MD | Cincinnati & Fort Wright"
-        description="Comprehensive mental health services including individual therapy, family therapy, medication management, psychiatric evaluation, and crisis intervention. Serving Cincinnati, OH and Fort Wright, KY."
+        title="Psychiatric Services | ADHD, Anxiety, Depression Treatment | Cincinnati Psychiatrist"
+        description="Comprehensive psychiatric services including medication management, therapy, and our unique three-part evaluation. Treating ADHD, anxiety, depression, bipolar disorder, and more in Cincinnati & NKY."
         path="/services"
       />
       <Header />
