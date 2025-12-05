@@ -362,7 +362,10 @@ const MDDPage = () => {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+      <EmergencyDisclaimer />
+      <Footer />
+    </>
   );
 };
 
