@@ -2,7 +2,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Heart } from "lucide-react";
-import BackButton from "@/components/BackButton";
+import Header from "@/components/Header";
+import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const About = () => {
   const achievements = [
