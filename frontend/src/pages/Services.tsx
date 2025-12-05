@@ -15,7 +15,10 @@ import {
   Phone,
   Video
 } from "lucide-react";
-import BackButton from "@/components/BackButton";
+import Header from "@/components/Header";
+import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
+import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const Services = () => {
   const services = [
