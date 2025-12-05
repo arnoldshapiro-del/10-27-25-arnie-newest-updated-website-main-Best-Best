@@ -91,7 +91,7 @@ const HeroSection = () => {
             <div className="rounded-2xl overflow-hidden shadow-large">
               <img 
                 src={happyFamilyImage} 
-                alt="Happy loving family" 
+                alt="Happy family receiving compassionate psychiatric care from Dr. Arnold Shapiro in Cincinnati Ohio" 
                 className="w-full h-auto object-cover"
               />
             </div>
