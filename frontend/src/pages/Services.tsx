@@ -137,6 +137,8 @@ const Services = () => {
           </p>
         </div>
       </div>
+      <EmergencyDisclaimer />
+      <Footer />
     </div>
   );
 };
