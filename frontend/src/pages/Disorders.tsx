@@ -242,6 +242,8 @@ const Disorders = () => {
           </CardContent>
         </Card>
       </div>
+      <EmergencyDisclaimer />
+      <Footer />
     </div>
   );
 };
