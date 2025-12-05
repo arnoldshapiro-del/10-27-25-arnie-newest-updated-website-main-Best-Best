@@ -163,48 +163,52 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Image and Testimonials */}
-          <div className="space-y-8">
-            {/* Image */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-large">
-                <img 
-                  src="/assets/patient-success.jpg" 
-                  alt="Happy patients showing successful treatment outcomes" 
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
-              </div>
-            </div>
+          {/* Right Column - Contact Cards */}
+          <div className="space-y-6">
+            {/* Quick Contact Card */}
+            <Card className="bg-primary/5 border-primary/20">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-4">Quick Contact</h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Cincinnati Office</p>
+                      <a href="tel:513-794-8777" className="text-foreground font-semibold hover:text-primary">
+                        (513) 794-8777
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <div>
+                      <p className="text-sm text-muted-foreground">Fort Wright Office</p>
+                      <a href="tel:859-341-7453" className="text-foreground font-semibold hover:text-primary">
+                        (859) 341-7453
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
-            {/* Testimonials */}
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">What Our Patients Say</h3>
-              <div className="space-y-6">
-                {testimonials.map((testimonial, index) => (
-                  <Card key={index} className="bg-card border-border">
-                    <CardContent className="p-6">
-                      <div className="flex items-start space-x-3">
-                        <Quote className="w-5 h-5 text-healing flex-shrink-0 mt-1" />
-                        <div>
-                          <blockquote className="text-muted-foreground italic mb-3">
-                            "{testimonial.text}"
-                          </blockquote>
-                          <div className="flex items-center space-x-1">
-                            <div className="flex space-x-1">
-                              {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="w-4 h-4 text-warm-accent fill-current" />
-                              ))}
-                            </div>
-                            <span className="text-sm text-muted-foreground ml-2">- {testimonial.author}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
+            {/* Office Hours Card */}
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-primary" />
+                  Office Hours
+                </h3>
+                <div className="space-y-2">
+                  {officeHours.map((schedule, index) => (
+                    <div key={index} className="flex justify-between">
+                      <span className="font-medium">{schedule.day}</span>
+                      <span className="text-muted-foreground">{schedule.hours}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
