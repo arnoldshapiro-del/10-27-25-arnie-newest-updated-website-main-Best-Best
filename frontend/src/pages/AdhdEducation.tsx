@@ -255,8 +255,8 @@ export default function AdhdEducation() {
   return (
     <>
       <SEO 
-        title="Educational Slideshows - Mental Health Education | Dr. Shapiro"
-        description="Access comprehensive educational slideshows about ADHD, depression, anxiety, and other mental health conditions from Dr. Arnold G. Shapiro, board-certified psychiatrist."
+        title="Mental Health Education Slideshows | ADHD, Depression Info | Dr. Shapiro"
+        description="Comprehensive educational slideshows about ADHD, depression, anxiety, bipolar disorder, and other mental health conditions from board-certified psychiatrist Dr. Arnold Shapiro in Cincinnati."
         path="/slideshows"
       />
       <Header />
