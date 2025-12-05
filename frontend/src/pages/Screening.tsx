@@ -2835,8 +2835,8 @@ const Screening = () => {
   return (
     <>
       <SEO 
-        title="Free Mental Health Screening Tools - Arnold G. Shapiro MD | Cincinnati & Fort Wright"
-        description="Take confidential, evidence-based mental health screening assessments for depression, anxiety, ADHD, bipolar disorder, PTSD, and more. Developed by board-certified psychiatrist Dr. Arnold G. Shapiro."
+        title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety Tests | Cincinnati"
+        description="Free, confidential mental health screening tools for ADHD, depression, anxiety, bipolar disorder, OCD, PTSD, and more. Evidence-based assessments from Dr. Arnold Shapiro, Cincinnati psychiatrist."
         path="/screening"
       />
       <Header />
