@@ -313,6 +313,8 @@ const Forms = () => {
           </CardContent>
         </Card>
       </div>
+      <EmergencyDisclaimer />
+      <Footer />
     </div>
   );
 };
