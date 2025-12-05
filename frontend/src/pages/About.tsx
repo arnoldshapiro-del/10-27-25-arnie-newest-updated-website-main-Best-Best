@@ -18,8 +18,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="About Dr. Arnold G. Shapiro MD - Board Certified Psychiatrist"
-        description="Meet Dr. Arnold G. Shapiro, a board-certified psychiatrist with 35+ years of experience providing compassionate, personalized psychiatric care in Cincinnati, OH and Fort Wright, KY."
+        title="About Dr. Arnold Shapiro | Board-Certified Psychiatrist | Cincinnati & NKY"
+        description="Meet Dr. Arnold Shapiro, a board-certified psychiatrist with decades of experience treating children, adolescents, and adults in Cincinnati and Northern Kentucky. Unique three-part evaluation system."
         path="/about"
       />
       <Header />
