@@ -150,6 +150,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <EmergencyDisclaimer />
+      <Footer />
     </div>
   );
 };
