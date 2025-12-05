@@ -119,7 +119,12 @@ const Disorders = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <BackButton />
+      <SEO 
+        title="Mental Health Conditions We Treat - Dr. Shapiro | Cincinnati & Fort Wright"
+        description="Expert treatment for anxiety, depression, bipolar disorder, PTSD, ADHD, OCD, eating disorders, substance use disorders, and more. Board certified psychiatrist serving Cincinnati, OH and Fort Wright, KY."
+        path="/disorders"
+      />
+      <Header />
       {/* Header */}
       <div className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
