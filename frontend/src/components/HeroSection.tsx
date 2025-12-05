@@ -25,13 +25,12 @@ const HeroSection = () => {
             {/* Main headline */}
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-                Expert Psychiatry Care 
-                <span className="text-primary"> With Compassion</span>
+                Cincinnati's Trusted 
+                <span className="text-primary"> Child & Adult Psychiatrist</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Over 35 years of successful, caring treatment in Cincinnati and Fort Wright. 
-                Every patient is treated with equal respect, warmth, and understanding. 
-                We collaborate—exploring all options and deciding together on the best treatment plan.
+                Dr. Arnold Shapiro provides expert psychiatric care for ADHD, anxiety, depression, bipolar disorder, and OCD in Cincinnati, OH and Northern Kentucky. 
+                Over 35 years of compassionate treatment with same-day response to your questions.
               </p>
             </div>
 
