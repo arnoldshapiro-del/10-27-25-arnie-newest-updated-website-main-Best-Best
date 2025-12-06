@@ -174,8 +174,8 @@ const ContactSection = () => {
                     <Phone className="h-5 w-5 text-primary" />
                     <div>
                       <p className="text-sm text-muted-foreground">Cincinnati Office</p>
-                      <a href="tel:513-794-8777" className="text-foreground font-semibold hover:text-primary">
-                        (513) 794-8777
+                      <a href="tel:859-341-7453" className="text-foreground font-semibold hover:text-primary">
+                        (859) 341-7453
                       </a>
                     </div>
                   </div>
