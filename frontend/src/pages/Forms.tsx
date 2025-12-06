@@ -133,6 +133,7 @@ const Forms = () => {
         title="Patient Forms | New Patient Intake | Dr. Shapiro Psychiatry Cincinnati"
         description="Download patient intake forms, medical history questionnaires, and mental health assessment forms for Dr. Arnold Shapiro's psychiatric practice in Cincinnati and Northern Kentucky."
         path="/forms"
+        includeAnalytics={false}
       />
       <Header />
       {/* Header */}
