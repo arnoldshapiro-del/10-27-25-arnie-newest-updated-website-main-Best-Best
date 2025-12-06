@@ -133,9 +133,15 @@ const Index = () => {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
           "opens": "09:00",
           "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "09:00",
+          "closes": "12:00"
         }
       ],
       "medicalSpecialty": ["Psychiatry", "Child and Adolescent Psychiatry"]
@@ -163,9 +169,15 @@ const Index = () => {
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
           "opens": "09:00",
           "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "09:00",
+          "closes": "12:00"
         }
       ],
       "medicalSpecialty": ["Psychiatry", "Child and Adolescent Psychiatry"]
