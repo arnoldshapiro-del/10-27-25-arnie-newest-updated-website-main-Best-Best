@@ -204,7 +204,7 @@ const Index = () => {
           "name": "Where are Dr. Shapiro's offices located?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Dr. Shapiro has two convenient locations: Cincinnati Office at 8280 Montgomery Road, Suite 304, Cincinnati, OH 45236 (phone: 513-794-8777), and Fort Wright Office at 1717 Dixie Highway, Suite 200, Fort Wright, KY 41011 (phone: 859-341-7453)."
+            "text": "Dr. Shapiro has two convenient locations: Cincinnati Office at 8280 Montgomery Road, Suite 304, Cincinnati, OH 45236, and Fort Wright Office at 1717 Dixie Highway, Suite 200, Fort Wright, KY 41011. Call (859) 341-7453 to schedule an appointment at either location."
           }
         },
         {
