@@ -40,7 +40,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Contact Us | Schedule Appointment | Dr. Shapiro Psychiatrist Cincinnati"
-        description="Schedule your psychiatric evaluation with Dr. Arnold Shapiro. Two convenient locations: Cincinnati (513-794-8777) and Fort Wright, KY (859-341-7453). Same-day response. Now accepting new patients."
+        description="Schedule your psychiatric evaluation with Dr. Arnold Shapiro. Two convenient locations in Cincinnati and Fort Wright, KY. Call (859) 341-7453. Same-day response. Now accepting new patients."
         path="/contact"
       />
       <Header />
