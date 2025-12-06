@@ -236,7 +236,7 @@ const Index = () => {
           "name": "What should I do in a psychiatric emergency?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room immediately. For the national mental health crisis line, call or text 988."
+            "text": "If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room immediately."
           }
         }
       ]
