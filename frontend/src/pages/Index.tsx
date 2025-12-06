@@ -247,7 +247,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO 
         title="Dr. Arnold Shapiro, MD | Adult & Child Psychiatrist | Cincinnati OH & Northern Kentucky"
-        description="Dr. Arnold Shapiro, MD - Board-certified adult and child psychiatrist serving Cincinnati, OH and Northern Kentucky. Expert treatment for ADHD, anxiety, depression, bipolar disorder, OCD. Two convenient locations. Same-day responses. Call (513) 794-8777 or (859) 341-7453."
+        description="Dr. Arnold Shapiro, MD - Board-certified adult and child psychiatrist serving Cincinnati, OH and Northern Kentucky. Expert treatment for ADHD, anxiety, depression, bipolar disorder, OCD. Two convenient locations. Same-day responses. Call (859) 341-7453."
         path="/"
         schema={schemas}
       />
