@@ -129,7 +129,7 @@ const Index = () => {
         "latitude": "39.2062",
         "longitude": "-84.3656"
       },
-      "telephone": "+1-513-794-8777",
+      "telephone": "+1-859-341-7453",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
