@@ -19,7 +19,7 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Cincinnati Office",
-      primary: "(513) 794-8777",
+      primary: "(859) 341-7453",
       secondary: "8280 Montgomery Road, Suite 304",
       description: "Cincinnati, OH 45236"
     },
