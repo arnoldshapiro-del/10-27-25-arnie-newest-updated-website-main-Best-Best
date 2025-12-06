@@ -228,7 +228,7 @@ const Index = () => {
           "name": "Is Dr. Shapiro accepting new patients?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Dr. Shapiro is accepting new patients at both the Cincinnati and Fort Wright locations. Call (513) 794-8777 for the Cincinnati office or (859) 341-7453 for the Fort Wright office to schedule an appointment."
+            "text": "Yes, Dr. Shapiro is accepting new patients at both the Cincinnati and Fort Wright locations. Call (859) 341-7453 to schedule an appointment at either office."
           }
         },
         {
