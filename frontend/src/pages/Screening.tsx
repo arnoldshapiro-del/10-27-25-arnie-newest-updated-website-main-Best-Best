@@ -2838,6 +2838,7 @@ const Screening = () => {
         title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety Tests | Cincinnati"
         description="Free, confidential mental health screening tools for ADHD, depression, anxiety, bipolar disorder, OCD, PTSD, and more. Evidence-based assessments from Dr. Arnold Shapiro, Cincinnati psychiatrist."
         path="/screening"
+        includeAnalytics={false}
       />
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4">
