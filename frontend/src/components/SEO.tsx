@@ -5,9 +5,10 @@ interface SEOProps {
   description: string;
   path?: string;
   schema?: object | object[];
+  includeAnalytics?: boolean;
 }
 
-const SEO = ({ title, description, path = '', schema }: SEOProps) => {
+const SEO = ({ title, description, path = '', schema, includeAnalytics = true }: SEOProps) => {
   const siteUrl = window.location.origin;
   const fullUrl = `${siteUrl}${path}`;
   const siteName = "Dr. Arnold Shapiro Psychiatry";
@@ -34,6 +35,21 @@ const SEO = ({ title, description, path = '', schema }: SEOProps) => {
       
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
+
+      {/* Google Analytics 4 */}
+      {includeAnalytics && (
+        <>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-44WMW5WXBW"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-44WMW5WXBW');
+            `}
+          </script>
+        </>
+      )}
 
       {/* Schema Markup */}
       {schema && (
