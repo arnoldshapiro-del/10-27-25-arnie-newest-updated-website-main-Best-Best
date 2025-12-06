@@ -101,7 +101,7 @@ const Index = () => {
           "addressCountry": "US"
         }
       ],
-      "telephone": ["+1-513-794-8777", "+1-859-341-7453"],
+      "telephone": ["+1-859-341-7453"],
       "priceRange": "$$",
       "isAcceptingNewPatients": true,
       "hasCredential": {
