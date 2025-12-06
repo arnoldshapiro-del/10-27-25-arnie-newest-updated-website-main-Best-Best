@@ -38,9 +38,8 @@ const ContactSection = () => {
   ];
 
   const officeHours = [
-    { day: "Monday - Friday", hours: "9:00 AM - 5:00 PM" },
-    { day: "Saturday", hours: "By Appointment" },
-    { day: "Sunday", hours: "Emergency Only" }
+    { day: "Monday - Thursday", hours: "9:00 AM - 5:00 PM" },
+    { day: "Friday", hours: "9:00 AM - 12:00 PM" }
   ];
 
   const testimonials = [
