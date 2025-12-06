@@ -58,8 +58,9 @@ const Footer = () => {
               <p>Arnold G. Shapiro MD</p>
               <p>Board Certified Psychiatrist</p>
               <p className="pt-2 text-xs">
-                Office Hours: Monday - Friday<br />
-                9:00 AM - 6:00 PM
+                Office Hours:<br />
+                Monday - Thursday: 9:00 AM - 5:00 PM<br />
+                Friday: 9:00 AM - 12:00 PM
               </p>
             </div>
           </div>
