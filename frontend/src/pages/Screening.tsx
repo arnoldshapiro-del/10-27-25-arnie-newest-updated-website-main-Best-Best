@@ -814,13 +814,103 @@ const Screening = () => {
     autism: {
       id: 'autism',
       title: 'Autism Spectrum Assessment (AQ-10)',
-      description: 'Screening for autism spectrum traits in adults and adolescents',
+      description: 'Autism Spectrum Quotient - 10 item screening. For each question, select the response that best describes you.',
       icon: '🧩',
       stats: { questions: 10, minutes: '4-5', rating: 'Comprehensive' },
       questions: [
         {
           id: 'autism_1',
           text: 'I often notice small sounds when others do not',
+          options: [
+            { value: 0, text: 'Definitely disagree' },
+            { value: 0, text: 'Slightly disagree' },
+            { value: 1, text: 'Slightly agree' },
+            { value: 1, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_2',
+          text: 'I usually concentrate more on the whole picture, rather than the small details',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_3',
+          text: 'I find it easy to do more than one thing at once',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_4',
+          text: 'If there is an interruption, I can switch back to what I was doing very quickly',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_5',
+          text: 'I find it easy to \'read between the lines\' when someone is talking to me',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_6',
+          text: 'I know how to tell if someone listening to me is getting bored',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_7',
+          text: 'When I\'m reading a story, I find it difficult to work out the characters\' intentions',
+          options: [
+            { value: 0, text: 'Definitely disagree' },
+            { value: 0, text: 'Slightly disagree' },
+            { value: 1, text: 'Slightly agree' },
+            { value: 1, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_8',
+          text: 'I like to collect information about categories of things (e.g., types of car, types of bird, types of train, types of plant, etc.)',
+          options: [
+            { value: 0, text: 'Definitely disagree' },
+            { value: 0, text: 'Slightly disagree' },
+            { value: 1, text: 'Slightly agree' },
+            { value: 1, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_9',
+          text: 'I find it easy to work out what someone is thinking or feeling just by looking at their face',
+          options: [
+            { value: 1, text: 'Definitely disagree' },
+            { value: 1, text: 'Slightly disagree' },
+            { value: 0, text: 'Slightly agree' },
+            { value: 0, text: 'Definitely agree' }
+          ]
+        },
+        {
+          id: 'autism_10',
+          text: 'I find it difficult to work out people\'s intentions',
           options: [
             { value: 0, text: 'Definitely disagree' },
             { value: 0, text: 'Slightly disagree' },
