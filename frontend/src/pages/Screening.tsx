@@ -794,7 +794,7 @@ const Screening = () => {
     ocd: {
       id: 'ocd',
       title: 'OCD Screening (Y-BOCS)',
-      description: 'Yale-Brown Obsessive Compulsive Scale screening',
+      description: 'Yale-Brown Obsessive Compulsive Scale. This questionnaire asks about obsessions and compulsions.',
       icon: '🔄',
       stats: { questions: 10, minutes: '5-7', rating: 'Detailed' },
       questions: [
@@ -803,10 +803,109 @@ const Screening = () => {
           text: 'Time occupied by obsessive thoughts: How much of your time is occupied by obsessive thoughts?',
           options: [
             { value: 0, text: 'None' },
-            { value: 1, text: 'Less than 1 hour per day' },
-            { value: 2, text: '1 to 3 hours per day' },
-            { value: 3, text: '3 to 8 hours per day' },
-            { value: 4, text: 'More than 8 hours per day' }
+            { value: 1, text: 'Less than 1 hour per day (Mild)' },
+            { value: 2, text: '1 to 3 hours per day (Moderate)' },
+            { value: 3, text: '3 to 8 hours per day (Severe)' },
+            { value: 4, text: 'More than 8 hours per day (Extreme)' }
+          ]
+        },
+        {
+          id: 'ocd_2',
+          text: 'Interference from obsessive thoughts: How much do your obsessive thoughts interfere with your social or work functioning?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild, slight interference' },
+            { value: 2, text: 'Moderate, definite interference' },
+            { value: 3, text: 'Severe, substantial impairment' },
+            { value: 4, text: 'Extreme, incapacitating' }
+          ]
+        },
+        {
+          id: 'ocd_3',
+          text: 'Distress from obsessive thoughts: How much distress do your obsessive thoughts cause you?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild, infrequent distress' },
+            { value: 2, text: 'Moderate, disturbing but manageable' },
+            { value: 3, text: 'Severe, very disturbing' },
+            { value: 4, text: 'Extreme, near constant disabling distress' }
+          ]
+        },
+        {
+          id: 'ocd_4',
+          text: 'Resistance against obsessions: How much effort do you make to resist the obsessive thoughts?',
+          options: [
+            { value: 0, text: 'Make an effort to always resist' },
+            { value: 1, text: 'Try to resist most of the time' },
+            { value: 2, text: 'Make some effort to resist' },
+            { value: 3, text: 'Yield to all obsessions without attempting to control them' },
+            { value: 4, text: 'Completely and willingly yield to all obsessions' }
+          ]
+        },
+        {
+          id: 'ocd_5',
+          text: 'Control over obsessive thoughts: How much control do you have over your obsessive thoughts?',
+          options: [
+            { value: 0, text: 'Complete control' },
+            { value: 1, text: 'Much control, usually able to stop' },
+            { value: 2, text: 'Moderate control, sometimes able to stop' },
+            { value: 3, text: 'Little control, rarely successful in stopping' },
+            { value: 4, text: 'No control, experienced as completely involuntary' }
+          ]
+        },
+        {
+          id: 'ocd_6',
+          text: 'Time spent performing compulsive behaviors: How much time do you spend performing compulsive behaviors?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Less than 1 hour per day (Mild)' },
+            { value: 2, text: '1 to 3 hours per day (Moderate)' },
+            { value: 3, text: '3 to 8 hours per day (Severe)' },
+            { value: 4, text: 'More than 8 hours per day (Extreme)' }
+          ]
+        },
+        {
+          id: 'ocd_7',
+          text: 'Interference from compulsive behaviors: How much do your compulsive behaviors interfere with your social or work functioning?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild, slight interference' },
+            { value: 2, text: 'Moderate, definite interference' },
+            { value: 3, text: 'Severe, substantial impairment' },
+            { value: 4, text: 'Extreme, incapacitating' }
+          ]
+        },
+        {
+          id: 'ocd_8',
+          text: 'Distress from compulsive behaviors: How anxious would you become if prevented from performing your compulsive behaviors?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild, only slightly anxious' },
+            { value: 2, text: 'Moderate, manageable anxiety' },
+            { value: 3, text: 'Severe, prominent and very disturbing' },
+            { value: 4, text: 'Extreme, incapacitating distress' }
+          ]
+        },
+        {
+          id: 'ocd_9',
+          text: 'Resistance against compulsions: How much effort do you make to resist the compulsions?',
+          options: [
+            { value: 0, text: 'Make an effort to always resist' },
+            { value: 1, text: 'Try to resist most of the time' },
+            { value: 2, text: 'Make some effort to resist' },
+            { value: 3, text: 'Yield to almost all compulsions without attempting to control them' },
+            { value: 4, text: 'Completely and willingly yield to all compulsions' }
+          ]
+        },
+        {
+          id: 'ocd_10',
+          text: 'Control over compulsive behavior: How much control do you have over your compulsive behaviors?',
+          options: [
+            { value: 0, text: 'Complete control' },
+            { value: 1, text: 'Much control, usually able to control with some effort' },
+            { value: 2, text: 'Moderate control, sometimes able to control' },
+            { value: 3, text: 'Little control, rarely successful' },
+            { value: 4, text: 'No control, experienced as completely involuntary' }
           ]
         }
       ]
