@@ -5145,8 +5145,8 @@ const Screening = () => {
   return (
     <>
       <SEO 
-        title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety Tests | Cincinnati"
-        description="Free, confidential mental health screening tools for ADHD, depression, anxiety, bipolar disorder, OCD, PTSD, and more. Evidence-based assessments from Dr. Arnold Shapiro, Cincinnati psychiatrist."
+        title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety Tests"
+        description="Free, confidential mental health screening tools for ADHD, depression, anxiety, bipolar disorder, OCD, PTSD, and more. Evidence-based clinical assessments."
         path="/screening"
         includeAnalytics={false}
       />
