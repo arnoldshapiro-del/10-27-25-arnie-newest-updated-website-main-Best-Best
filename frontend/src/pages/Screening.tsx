@@ -2186,12 +2186,36 @@ const Screening = () => {
     borderline: {
       id: 'borderline',
       title: 'Borderline Personality (MSI-BPD)',
-      description: 'McLean Screening Instrument for Borderline Personality Disorder',
+      description: 'McLean Screening Instrument for Borderline Personality Disorder. Have you experienced the following over most of your life? Answer YES or NO.',
       icon: '💔',
       stats: { questions: 10, minutes: '5-6', rating: 'BPD Focus' },
       questions: [
         {
           id: 'bpd_1',
+          text: 'Have any of your closest relationships been troubled by a lot of arguments or repeated breakups?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_2',
+          text: 'Have you deliberately hurt yourself physically (e.g., punched yourself, cut yourself, burned yourself)? How about made a suicide attempt?',
+          options: [
+            { value: 0, text: 'No', crisis: false },
+            { value: 1, text: 'Yes', crisis: true }
+          ]
+        },
+        {
+          id: 'bpd_3',
+          text: 'Have you had at least two other problems with impulsivity (e.g., eating binges, spending sprees, drinking too much, verbal outbursts)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_4',
           text: 'Have you been extremely moody?',
           options: [
             { value: 0, text: 'No' },
@@ -2199,11 +2223,51 @@ const Screening = () => {
           ]
         },
         {
-          id: 'bpd_7',
-          text: 'Have you tried to hurt or kill yourself or threatened to do so?',
+          id: 'bpd_5',
+          text: 'Have you felt very angry a lot of the time? How about often acted in an angry or sarcastic manner?',
           options: [
-            { value: 0, text: 'No', crisis: false },
-            { value: 1, text: 'Yes', crisis: true }
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_6',
+          text: 'Have you often been distrustful of other people?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_7',
+          text: 'Have you frequently felt unreal or as if things around you were unreal?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_8',
+          text: 'Have you chronically felt empty?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_9',
+          text: 'Have you often felt that you had no idea of who you are or that you have no identity?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bpd_10',
+          text: 'Have you made desperate efforts to avoid feeling abandoned or being abandoned (e.g., repeatedly called someone to reassure yourself that he or she still cared, begged them not to leave you, clung to them physically)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
           ]
         }
       ]
