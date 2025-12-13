@@ -1503,13 +1503,112 @@ const Screening = () => {
     stress: {
       id: 'stress',
       title: 'Stress Assessment (PSS-10)',
-      description: 'Perceived Stress Scale for stress level evaluation',
+      description: 'Perceived Stress Scale. The questions ask you about your feelings and thoughts DURING THE LAST MONTH.',
       icon: '⚡',
       stats: { questions: 10, minutes: '4-5', rating: 'Stress Focus' },
       questions: [
         {
           id: 'stress_1',
           text: 'In the last month, how often have you been upset because of something that happened unexpectedly?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Fairly Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_2',
+          text: 'In the last month, how often have you felt that you were unable to control the important things in your life?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Fairly Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_3',
+          text: 'In the last month, how often have you felt nervous and "stressed"?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Fairly Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_4',
+          text: 'In the last month, how often have you felt confident about your ability to handle your personal problems?',
+          options: [
+            { value: 4, text: 'Never' },
+            { value: 3, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 1, text: 'Fairly Often' },
+            { value: 0, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_5',
+          text: 'In the last month, how often have you felt that things were going your way?',
+          options: [
+            { value: 4, text: 'Never' },
+            { value: 3, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 1, text: 'Fairly Often' },
+            { value: 0, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_6',
+          text: 'In the last month, how often have you found that you could not cope with all the things that you had to do?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Fairly Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_7',
+          text: 'In the last month, how often have you been able to control irritations in your life?',
+          options: [
+            { value: 4, text: 'Never' },
+            { value: 3, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 1, text: 'Fairly Often' },
+            { value: 0, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_8',
+          text: 'In the last month, how often have you felt that you were on top of things?',
+          options: [
+            { value: 4, text: 'Never' },
+            { value: 3, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 1, text: 'Fairly Often' },
+            { value: 0, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_9',
+          text: 'In the last month, how often have you been angered because of things that were outside of your control?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Almost Never' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Fairly Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'stress_10',
+          text: 'In the last month, how often have you felt difficulties were piling up so high that you could not overcome them?',
           options: [
             { value: 0, text: 'Never' },
             { value: 1, text: 'Almost Never' },
