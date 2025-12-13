@@ -5083,8 +5083,6 @@ const Screening = () => {
               <div className="text-6xl mb-4">{assessment.icon}</div>
               <CardTitle className="text-3xl text-blue-800 mb-2">{assessment.title}</CardTitle>
               <p className="text-gray-600 mb-4">{assessment.description}</p>
-              <Progress value={progress} className="w-full mb-2" />
-              <p className="text-sm text-gray-600">Question {currentQuestionIndex + 1} of {assessment.questions.length}</p>
             </CardHeader>
             
             <CardContent>
