@@ -2944,10 +2944,16 @@ const Screening = () => {
                 </div>
               </div>
               
-              <div className="text-center mt-6">
-                <Button onClick={returnToGrid} variant="outline" size="lg">
-                  Take Another Assessment
-                </Button>
+              <div className="text-center mt-6 space-y-4">
+                <div className="flex flex-wrap gap-4 justify-center">
+                  <Button onClick={downloadPDF} className="bg-blue-600 hover:bg-blue-700 text-white" size="lg">
+                    <Download className="h-4 w-4 mr-2" />
+                    Download PDF Report
+                  </Button>
+                  <Button onClick={returnToGrid} variant="outline" size="lg">
+                    Take Another Assessment
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
