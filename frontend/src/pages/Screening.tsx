@@ -5451,7 +5451,7 @@ const Screening = () => {
         </div>
         
         {/* Footer Disclaimer */}
-        <Card className="mt-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-300">
+        <Card className="mt-8 mb-8 bg-gradient-to-r from-blue-600 to-blue-700 text-white border-2 border-blue-300">
           <CardContent className="text-center py-6">
             <p className="text-sm text-blue-100 mb-2">
               <strong className="text-white">Medical Disclaimer:</strong> These screening tools are for informational purposes only and do not constitute medical advice or diagnosis.
@@ -5467,8 +5467,12 @@ const Screening = () => {
         </Card>
       </div>
       </div>
-      <EmergencyDisclaimer />
-      <Footer />
+      <div className="mt-8">
+        <EmergencyDisclaimer />
+      </div>
+      <div className="mt-6 border-t border-gray-200">
+        <Footer />
+      </div>
     </>
   );
 };
