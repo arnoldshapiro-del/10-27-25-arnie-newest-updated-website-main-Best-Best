@@ -1,123 +1,43 @@
 // Edinburgh Postnatal Depression Scale (EPDS) Implementation
 const questions = [
-  {
-    text: "I have been able to laugh and see the funny side of things",
-    options: [
-      "As much as I always could",
-      "Not quite so much now",
-      "Definitely not so much now",
-      "Not at all"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have looked forward with enjoyment to things",
-    options: [
-      "As much as I ever did",
-      "Rather less than I used to",
-      "Definitely less than I used to",
-      "Hardly at all"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have blamed myself unnecessarily when things went wrong",
-    options: [
-      "No, never",
-      "Not very often",
-      "Yes, some of the time",
-      "Yes, most of the time"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have been anxious or worried for no good reason",
-    options: [
-      "No, not at all",
-      "Hardly ever",
-      "Yes, sometimes",
-      "Yes, very often"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have felt scared or panicky for no very good reason",
-    options: [
-      "No, not at all",
-      "No, not much",
-      "Yes, sometimes",
-      "Yes, quite a lot"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "Things have been getting on top of me",
-    options: [
-      "No, I have been coping as well as ever",
-      "No, most of the time I have coped quite well",
-      "Yes, sometimes I haven't been coping as well as usual",
-      "Yes, most of the time I haven't been able to cope at all"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have been so unhappy that I have had difficulty sleeping",
-    options: [
-      "No, not at all",
-      "Not very often",
-      "Yes, sometimes",
-      "Yes, most of the time"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have felt sad or miserable",
-    options: [
-      "No, not at all",
-      "Not very often",
-      "Yes, quite often",
-      "Yes, most of the time"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "I have been so unhappy that I have been crying",
-    options: [
-      "No, never",
-      "Only occasionally",
-      "Yes, quite often",
-      "Yes, most of the time"
-    ],
-    scores: [0, 1, 2, 3]
-  },
-  {
-    text: "The thought of harming myself has occurred to me",
-    options: [
-      "Never",
-      "Hardly ever",
-      "Sometimes",
-      "Yes, quite often"
-    ],
-    scores: [0, 1, 2, 3],
-    crisis: true
-  }
+  "I have been able to laugh and see the funny side of things",
+  "I have looked forward with enjoyment to things",
+  "I have blamed myself unnecessarily when things went wrong",
+  "I have been anxious or worried for no good reason",
+  "I have felt scared or panicky for no very good reason",
+  "Things have been getting on top of me",
+  "I have been so unhappy that I have had difficulty sleeping",
+  "I have felt sad or miserable",
+  "I have been so unhappy that I have been crying",
+  "The thought of harming myself has occurred to me"
 ];
+
+const optionSets = [
+  ["As much as I always could", "Not quite so much now", "Definitely not so much now", "Not at all"],
+  ["As much as I ever did", "Rather less than I used to", "Definitely less than I used to", "Hardly at all"],
+  ["Yes, most of the time", "Yes, some of the time", "Not very often", "No, never"],
+  ["Yes, very often", "Yes, sometimes", "Hardly ever", "No, not at all"],
+  ["Yes, quite a lot", "Yes, sometimes", "No, not much", "No, not at all"],
+  ["Yes, most of the time", "Yes, sometimes", "No, hardly ever", "No, never"],
+  ["Yes, most of the time", "Yes, sometimes", "Not very often", "No, not at all"],
+  ["Yes, most of the time", "Yes, quite often", "Not very often", "No, not at all"],
+  ["Yes, most of the time", "Yes, quite often", "Only occasionally", "No, never"],
+  ["Yes, quite often", "Sometimes", "Hardly ever", "Never"]
+];
+
+const reverseScore = [0, 1]; // Questions 1, 2 are reverse scored
+let currentScore = 0;
+let currentLevel = "";
 
 function renderForm() {
   const formDiv = document.getElementById('form');
-  let html = '<p><strong>Please choose the answer that comes closest to how you have felt in the past 7 days:</strong></p>';
+  let html = '<p><strong>In the past 7 days:</strong></p>';
   
   questions.forEach((question, index) => {
-    html += `<div class="card">
-      <p><strong>${index + 1}. ${question.text}</strong></p>`;
-    
-    question.options.forEach((option, optIndex) => {
-      html += `<label style="display:block;margin:8px 0;">
-        <input type="radio" name="q${index}" value="${question.scores[optIndex]}" style="margin-right:8px;">
-        ${option}
-      </label>`;
+    html += `<div class="card"><p><strong>${index + 1}. ${question}</strong></p>`;
+    optionSets[index].forEach((option, optIndex) => {
+      html += `<label style="display:block;margin:8px 0;"><input type="radio" name="q${index}" value="${optIndex}" style="margin-right:8px;">${option}</label>`;
     });
-    
     html += '</div>';
   });
   
@@ -127,19 +47,16 @@ function renderForm() {
 function calculateResults() {
   let score = 0;
   let answered = 0;
-  let suicidalThoughts = false;
+  let selfHarmRisk = false;
   
   for (let i = 0; i < questions.length; i++) {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
     if (selected) {
-      const value = parseInt(selected.value);
-      score += value;
+      let val = parseInt(selected.value);
+      if (reverseScore.includes(i)) val = 3 - val;
+      score += val;
       answered++;
-      
-      // Check for suicidal thoughts (question 10)
-      if (i === 9 && value > 0) {
-        suicidalThoughts = true;
-      }
+      if (i === 9 && parseInt(selected.value) < 3) selfHarmRisk = true;
     }
   }
   
@@ -148,32 +65,32 @@ function calculateResults() {
     return;
   }
   
+  currentScore = score;
   let level, color, recommendation;
   
-  if (score <= 9) {
-    level = "Low risk for postpartum depression";
+  if (score < 9) {
+    level = "Low likelihood of depression";
     color = "#10b981";
-    recommendation = "Your responses suggest low risk for postpartum depression. Continue self-care and monitor your mood.";
+    recommendation = "Your responses suggest low likelihood of postnatal depression. Continue self-care and monitoring.";
   } else if (score <= 12) {
-    level = "Possible postpartum depression";
+    level = "Possible depression";
     color = "#f59e0b";
-    recommendation = "Your responses suggest possible postpartum depression. Consider discussing your feelings with a mental health professional.";
+    recommendation = "Your responses suggest possible postnatal depression. Consider discussing with your healthcare provider.";
   } else {
-    level = "Likely postpartum depression";
+    level = "Probable depression";
     color = "#ef4444";
-    recommendation = "Your responses suggest likely postpartum depression. Strongly recommend immediate evaluation with a mental health professional.";
+    recommendation = "Your responses suggest probable postnatal depression. Please contact your healthcare provider for evaluation.";
   }
   
+  currentLevel = level;
+  
   let crisisAlert = '';
-  if (suicidalThoughts) {
-    crisisAlert = `
-      <div class="banner" style="background:#fee2e2;border:2px solid #fecaca;margin-bottom:16px;">
-        <strong>⚠️ CRISIS ALERT:</strong> You indicated thoughts of self-harm. Please reach out for immediate help:
-        <br><strong>Crisis Lifeline: Call or Text 988</strong>
-        <br><strong>Emergency: Call 911</strong>
-        
-      </div>
-    `;
+  if (selfHarmRisk) {
+    crisisAlert = `<div class="banner" style="background:#fee2e2;border:2px solid #fecaca;margin-bottom:16px;">
+      <strong>⚠️ IMPORTANT:</strong> You indicated thoughts of self-harm. Please reach out for help:
+      <br><strong>Crisis Lifeline: Call or Text 988</strong>
+      <br><strong>Postpartum Support: 1-800-944-4773</strong>
+    </div>`;
   }
   
   const resultDiv = document.getElementById('out');
@@ -184,14 +101,84 @@ function calculateResults() {
       <p><strong>Total Score: ${score}/30</strong></p>
       <p><strong>Assessment: ${level}</strong></p>
       <p>${recommendation}</p>
-      <div style="margin-top:16px;">
-        
+      <div style="margin-top:20px; text-align:center;">
+        <button onclick="downloadPDF()" style="background-color: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">📥 Download PDF Report</button>
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis.</p>
     </div>
   `;
+}
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const title = "Postpartum Depression Screening (EPDS) Results";
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, 210, 40, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(18);
+  doc.setFont('helvetica', 'bold');
+  doc.text(title, 105, 18, { align: 'center' });
+  doc.setFontSize(12);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Date: ' + today, 105, 32, { align: 'center' });
+  
+  doc.setTextColor(0, 0, 0);
+  let yPos = 55;
+  doc.setFillColor(240, 249, 255);
+  doc.setDrawColor(37, 99, 235);
+  doc.roundedRect(20, yPos, 170, 30, 3, 3, 'FD');
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Total Score: ' + currentScore + '/30', 105, yPos + 12, { align: 'center' });
+  doc.setFontSize(12);
+  doc.text('Assessment: ' + currentLevel, 105, yPos + 24, { align: 'center' });
+  
+  yPos = 100;
+  doc.setFontSize(14);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Your Responses:', 20, yPos);
+  yPos += 10;
+  
+  doc.setFontSize(10);
+  questions.forEach((question, index) => {
+    if (yPos > 270) { doc.addPage(); yPos = 20; }
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const answer = selected ? optionSets[index][parseInt(selected.value)] : 'Not answered';
+    doc.setFont('helvetica', 'bold');
+    const qLines = doc.splitTextToSize((index + 1) + '. ' + question, 170);
+    doc.text(qLines, 20, yPos);
+    yPos += qLines.length * 5;
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(37, 99, 235);
+    doc.text('   Answer: "' + answer + '"', 20, yPos);
+    doc.setTextColor(0, 0, 0);
+    yPos += 8;
+  });
+  
+  if (yPos > 250) { doc.addPage(); yPos = 20; }
+  yPos += 10;
+  doc.setFillColor(254, 243, 199);
+  doc.roundedRect(20, yPos, 170, 20, 3, 3, 'F');
+  doc.setFontSize(9);
+  doc.setTextColor(146, 64, 14);
+  doc.text('DISCLAIMER: This screening tool is for informational purposes only and is not a diagnosis.', 105, yPos + 8, { align: 'center' });
+  doc.text('Please consult a licensed mental health professional for proper evaluation.', 105, yPos + 14, { align: 'center' });
+  
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(8);
+    doc.setTextColor(128, 128, 128);
+    doc.text('Mental Health Screening Assessment - Confidential', 105, 290, { align: 'center' });
+    doc.text('Page ' + i + ' of ' + pageCount, 190, 290, { align: 'right' });
+  }
+  
+  doc.save('Postpartum_EPDS_Results_' + new Date().toISOString().split('T')[0] + '.pdf');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
