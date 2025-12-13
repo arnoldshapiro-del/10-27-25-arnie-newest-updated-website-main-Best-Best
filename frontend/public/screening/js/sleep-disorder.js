@@ -96,7 +96,7 @@ function calculateResults() {
       <p><strong>Assessment: ${level}</strong></p>
       <p>${recommendation}</p>
       <div style="margin-top:16px;">
-        <a href="tel:859-341-7453" class="cta">Call Dr. Shapiro: (859) 341-7453</a>
+        
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
