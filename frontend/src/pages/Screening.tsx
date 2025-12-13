@@ -49,7 +49,7 @@ const Screening = () => {
     adhd: {
       id: 'adhd',
       title: 'ADHD Assessment (ASRS-18)',
-      description: 'Comprehensive screening for Attention-Deficit/Hyperactivity Disorder in adults and teens',
+      description: 'Adult ADHD Self-Report Scale. How often do you have trouble with the following:',
       icon: '🧠',
       stats: { questions: 18, minutes: '5-7', rating: 'Most Popular' },
       questions: [
@@ -78,6 +78,171 @@ const Screening = () => {
         {
           id: 'adhd_3',
           text: 'How often do you have problems remembering appointments or obligations?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_4',
+          text: 'When you have a task that requires a lot of thought, how often do you avoid or delay getting started?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_5',
+          text: 'How often do you fidget or squirm with your hands or feet when you have to sit down for a long time?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_6',
+          text: 'How often do you feel overly active and compelled to do things, like you were driven by a motor?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_7',
+          text: 'How often do you make careless mistakes when you have to work on a boring or difficult project?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_8',
+          text: 'How often do you have difficulty keeping your attention when you are doing boring or repetitive work?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_9',
+          text: 'How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_10',
+          text: 'How often do you misplace or have difficulty finding things at home or at work?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_11',
+          text: 'How often are you distracted by activity or noise around you?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_12',
+          text: 'How often do you leave your seat in meetings or other situations in which you are expected to remain seated?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_13',
+          text: 'How often do you feel restless or fidgety?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_14',
+          text: 'How often do you have difficulty unwinding and relaxing when you have time to yourself?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_15',
+          text: 'How often do you find yourself talking too much when you are in social situations?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_16',
+          text: 'When you\'re in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_17',
+          text: 'How often do you have difficulty waiting your turn in situations when turn taking is required?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Rarely' },
+            { value: 2, text: 'Sometimes' },
+            { value: 3, text: 'Often' },
+            { value: 4, text: 'Very Often' }
+          ]
+        },
+        {
+          id: 'adhd_18',
+          text: 'How often do you interrupt others when they are busy?',
           options: [
             { value: 0, text: 'Never' },
             { value: 1, text: 'Rarely' },
