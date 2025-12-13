@@ -1562,19 +1562,85 @@ const Screening = () => {
     panic: {
       id: 'panic',
       title: 'Panic Disorder Screening (PDSS)',
-      description: 'Panic Disorder Severity Scale assessment',
+      description: 'Panic Disorder Severity Scale. For each item, select the answer that best describes your experience during the PAST WEEK.',
       icon: '💨',
       stats: { questions: 7, minutes: '4-5', rating: 'Panic Focus' },
       questions: [
         {
           id: 'panic_1',
-          text: 'How many panic attacks did you have during the past week?',
+          text: 'How many panic attacks did you have during the week?',
           options: [
-            { value: 0, text: '0' },
-            { value: 1, text: '1' },
-            { value: 2, text: '2' },
-            { value: 3, text: '3' },
-            { value: 4, text: '4 or more' }
+            { value: 0, text: 'No panic attacks' },
+            { value: 1, text: 'Mild: 1-2 attacks' },
+            { value: 2, text: 'Moderate: 3-4 attacks' },
+            { value: 3, text: 'Severe: More than 4 attacks' },
+            { value: 4, text: 'Extreme: Panic attacks occurred daily' }
+          ]
+        },
+        {
+          id: 'panic_2',
+          text: 'If you had any panic attacks during the past week, how distressing (uncomfortable, frightening) were they while they were happening?',
+          options: [
+            { value: 0, text: 'Not at all distressing' },
+            { value: 1, text: 'Mildly distressing' },
+            { value: 2, text: 'Moderately distressing' },
+            { value: 3, text: 'Severely distressing' },
+            { value: 4, text: 'Extremely distressing' }
+          ]
+        },
+        {
+          id: 'panic_3',
+          text: 'During the past week, how much have you worried or felt anxious about when your next panic attack would occur or about fears related to the attacks?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Occasionally or only mildly' },
+            { value: 2, text: 'Frequently or moderately' },
+            { value: 3, text: 'Very often or to a very disturbing degree' },
+            { value: 4, text: 'Nearly constantly and to a disabling extent' }
+          ]
+        },
+        {
+          id: 'panic_4',
+          text: 'During the past week, were there any places or situations you avoided or felt afraid of because of fear of having a panic attack?',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild: occasional avoidance' },
+            { value: 2, text: 'Moderate: noticeable avoidance but manageable' },
+            { value: 3, text: 'Severe: substantial avoidance, marked lifestyle changes' },
+            { value: 4, text: 'Extreme: pervasive avoidance, unable to function' }
+          ]
+        },
+        {
+          id: 'panic_5',
+          text: 'During the past week, were there any activities you avoided or felt afraid of because they caused physical sensations like those you feel during panic attacks?',
+          options: [
+            { value: 0, text: 'No fear or avoidance' },
+            { value: 1, text: 'Mild: occasional fear/avoidance' },
+            { value: 2, text: 'Moderate: noticeable fear/avoidance but manageable' },
+            { value: 3, text: 'Severe: substantial fear/avoidance, marked lifestyle changes' },
+            { value: 4, text: 'Extreme: pervasive fear/avoidance, unable to function' }
+          ]
+        },
+        {
+          id: 'panic_6',
+          text: 'During the past week, how much did panic and limited symptom attacks, worry about attacks, and fear of situations and activities because of attacks interfere with your ability to work or carry out your responsibilities at home?',
+          options: [
+            { value: 0, text: 'No interference' },
+            { value: 1, text: 'Mild interference' },
+            { value: 2, text: 'Moderate interference' },
+            { value: 3, text: 'Severe interference' },
+            { value: 4, text: 'Extreme, incapacitating interference' }
+          ]
+        },
+        {
+          id: 'panic_7',
+          text: 'During the past week, how much did panic attacks, limited symptom attacks, worry about attacks, and fear of situations and activities because of attacks interfere with your social life?',
+          options: [
+            { value: 0, text: 'No interference' },
+            { value: 1, text: 'Mild interference' },
+            { value: 2, text: 'Moderate interference' },
+            { value: 3, text: 'Severe interference' },
+            { value: 4, text: 'Extreme, incapacitating interference' }
           ]
         }
       ]
