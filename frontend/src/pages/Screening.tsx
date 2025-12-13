@@ -4897,8 +4897,35 @@ const Screening = () => {
       const dateStr = new Date().toISOString().split('T')[0];
       const fileName = `${safeTitle}_Results_${dateStr}.pdf`;
       
-      doc.save(fileName);
-      console.log('PDF downloaded successfully:', fileName);
+      // Try multiple methods to download/display the PDF
+      try {
+        // Method 1: Try direct save (works in most browsers)
+        doc.save(fileName);
+        console.log('PDF downloaded successfully:', fileName);
+      } catch (saveError) {
+        console.log('Direct save failed, trying blob method:', saveError);
+        
+        // Method 2: Open PDF in new tab using blob URL (works in sandboxed environments)
+        const pdfBlob = doc.output('blob');
+        const blobUrl = URL.createObjectURL(pdfBlob);
+        const newWindow = window.open(blobUrl, '_blank');
+        
+        if (newWindow) {
+          console.log('PDF opened in new tab');
+        } else {
+          // Method 3: Create download link and click it
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = fileName;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          console.log('PDF download triggered via link');
+        }
+        
+        // Clean up blob URL after a delay
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+      }
       
     } catch (error) {
       console.error('Error generating PDF:', error);
