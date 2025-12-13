@@ -3953,7 +3953,7 @@ const Screening = () => {
             'Symptoms suggest possible Mild Major Depressive Disorder',
             'Professional psychiatric evaluation is recommended',
             'Early intervention can be highly effective',
-            'Schedule professional consultation: (859) 341-7453'
+            'Consider scheduling a professional consultation'
           ];
         } else if (totalScore <= 8) {
           level = 'Moderate Major Depressive Disorder suggested - professional evaluation strongly recommended';
@@ -3962,7 +3962,7 @@ const Screening = () => {
             'Symptoms suggest possible Moderate Major Depressive Disorder',
             'Professional psychiatric evaluation is strongly recommended',
             'Treatment options include therapy and/or medication',
-            'Call for professional evaluation: (859) 341-7453'
+            'Consider scheduling a professional evaluation'
           ];
         } else {
           level = 'Severe Major Depressive Disorder suggested - immediate professional evaluation essential';
@@ -3971,7 +3971,7 @@ const Screening = () => {
             'Symptoms suggest possible Severe Major Depressive Disorder',
             'Immediate professional evaluation is essential',
             'Evidence-based treatments are available',
-            'Call immediately for urgent evaluation: (859) 341-7453'
+            'Please seek professional evaluation as soon as possible'
           ];
         }
       } else {
@@ -3996,7 +3996,7 @@ const Screening = () => {
             'Symptoms suggest possible Mild Generalized Anxiety Disorder',
             'Professional evaluation is recommended',
             'Cognitive-behavioral therapy is highly effective',
-            'Schedule professional consultation: (859) 341-7453'
+            'Consider scheduling a professional consultation'
           ];
         } else if (totalScore <= 9) {
           level = 'Moderate Generalized Anxiety Disorder suggested - professional evaluation strongly recommended';
@@ -4005,7 +4005,7 @@ const Screening = () => {
             'Symptoms suggest possible Moderate Generalized Anxiety Disorder',
             'Professional evaluation is strongly recommended',
             'Multiple effective treatments available',
-            'Call for professional evaluation: (859) 341-7453'
+            'Consider scheduling a professional evaluation'
           ];
         } else {
           level = 'Severe Generalized Anxiety Disorder suggested - immediate professional evaluation essential';
@@ -4014,7 +4014,7 @@ const Screening = () => {
             'Symptoms suggest possible Severe Generalized Anxiety Disorder',
             'Immediate professional evaluation is essential',
             'Treatment can significantly reduce anxiety',
-            'Call immediately for urgent evaluation: (859) 341-7453'
+            'Please seek professional evaluation as soon as possible'
           ];
         }
       } else {
@@ -4040,7 +4040,7 @@ const Screening = () => {
             'Symptoms suggest possible Panic Disorder',
             'Professional evaluation is strongly recommended',
             'Treatment is highly effective for panic symptoms',
-            'Call for professional evaluation: (859) 341-7453'
+            'Consider scheduling a professional evaluation'
           ];
         } else {
           level = 'Panic Disorder with severe symptoms - immediate professional evaluation essential';
@@ -4049,7 +4049,7 @@ const Screening = () => {
             'Symptoms suggest Panic Disorder with severe symptoms',
             'Immediate professional evaluation is essential',
             'Effective treatments can dramatically reduce panic attacks',
-            'Call immediately for urgent evaluation: (859) 341-7453'
+            'Please seek professional evaluation as soon as possible'
           ];
         }
       } else {
@@ -4075,7 +4075,7 @@ const Screening = () => {
             'Symptoms suggest possible ADHD Combined Type',
             'Comprehensive evaluation is strongly recommended',
             'Treatment can significantly improve functioning',
-            'Call for professional evaluation: (859) 341-7453'
+            'Consider scheduling a professional evaluation'
           ];
         } else if (inattentionCount >= 6 || hyperactivityCount >= 6) {
           level = 'ADHD suggested (Predominantly Inattentive or Hyperactive-Impulsive) - professional evaluation recommended';
@@ -4084,7 +4084,7 @@ const Screening = () => {
             inattentionCount >= 6 ? 'Symptoms suggest possible ADHD Predominantly Inattentive Type' : 'Symptoms suggest possible ADHD Predominantly Hyperactive-Impulsive Type',
             'Professional evaluation is recommended',
             'Early intervention can improve academic and social outcomes',
-            'Schedule professional consultation: (859) 341-7453'
+            'Consider scheduling a professional consultation'
           ];
         } else {
           level = 'Below diagnostic threshold';
@@ -4115,7 +4115,7 @@ const Screening = () => {
           `Symptoms suggest possible ${totalScore >= 8 ? 'Moderate to Severe' : 'Mild'} Social Anxiety Disorder`,
           'Professional evaluation is recommended',
           'Cognitive-behavioral therapy is highly effective for social anxiety',
-          'Call for professional evaluation: (859) 341-7453'
+          'Consider scheduling a professional evaluation'
         ];
       } else {
         level = 'Below diagnostic threshold';
@@ -4133,7 +4133,7 @@ const Screening = () => {
       if (hasQ1 && hasRequired && intrusion && avoidance && negative && arousal) {
         level = 'PTSD suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder', 'Immediate professional evaluation is essential', 'Evidence-based trauma treatments are highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder', 'Immediate professional evaluation is essential', 'Evidence-based trauma treatments are highly effective', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4149,7 +4149,7 @@ const Screening = () => {
         const insight = responses.ocd_a11 ? 'good' : 'poor';
         level = `OCD with ${insight} insight suggested - ${insight === 'good' ? 'professional evaluation strongly' : 'immediate professional evaluation'} recommended`;
         levelClass = insight === 'good' ? 'bg-orange-100 text-orange-800 border-orange-300' : 'bg-red-100 text-red-800 border-red-300';
-        recommendations = [`Symptoms suggest possible OCD with ${insight} insight`, insight === 'good' ? 'Professional evaluation is strongly recommended' : 'Immediate professional evaluation is essential', 'Exposure and Response Prevention therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = [`Symptoms suggest possible OCD with ${insight} insight`, insight === 'good' ? 'Professional evaluation is strongly recommended' : 'Immediate professional evaluation is essential', 'Exposure and Response Prevention therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4164,7 +4164,7 @@ const Screening = () => {
       if (hasManic && manicSymptoms >= 3 && hasImpairment && hasExclusion) {
         level = 'Bipolar I Disorder suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Bipolar I Disorder', 'Immediate professional evaluation is essential', 'Mood stabilization treatments are highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Bipolar I Disorder', 'Immediate professional evaluation is essential', 'Mood stabilization treatments are highly effective', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4179,7 +4179,7 @@ const Screening = () => {
       if (hasHypomanic && hypomanicSymptoms && hasDepressive && hasExclusions) {
         level = 'Bipolar II Disorder suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Bipolar II Disorder', 'Immediate professional evaluation is essential', 'Treatment can stabilize mood and prevent episodes', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Bipolar II Disorder', 'Immediate professional evaluation is essential', 'Treatment can stabilize mood and prevent episodes', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4190,15 +4190,15 @@ const Screening = () => {
       if (totalScore >= 6) {
         level = `Severe ${substanceName} Use Disorder suggested - immediate professional evaluation essential`;
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = [`Symptoms suggest possible Severe ${substanceName} Use Disorder`, 'Immediate professional evaluation is essential', 'Evidence-based addiction treatments are effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = [`Symptoms suggest possible Severe ${substanceName} Use Disorder`, 'Immediate professional evaluation is essential', 'Evidence-based addiction treatments are effective', 'Please seek professional evaluation as soon as possible'];
       } else if (totalScore >= 4) {
         level = `Moderate ${substanceName} Use Disorder suggested - professional evaluation strongly recommended`;
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = [`Symptoms suggest possible Moderate ${substanceName} Use Disorder`, 'Professional evaluation is strongly recommended', 'Treatment can prevent progression', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = [`Symptoms suggest possible Moderate ${substanceName} Use Disorder`, 'Professional evaluation is strongly recommended', 'Treatment can prevent progression', 'Consider scheduling a professional evaluation'];
       } else if (totalScore >= 2) {
         level = `Mild ${substanceName} Use Disorder suggested - professional evaluation recommended`;
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-        recommendations = [`Symptoms suggest possible Mild ${substanceName} Use Disorder`, 'Professional evaluation is recommended', 'Early intervention is most effective', 'Schedule professional consultation: (859) 341-7453'];
+        recommendations = [`Symptoms suggest possible Mild ${substanceName} Use Disorder`, 'Professional evaluation is recommended', 'Early intervention is most effective', 'Consider scheduling a professional consultation'];
       } else {
         level = `No ${substanceName} Use Disorder`;
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4211,7 +4211,7 @@ const Screening = () => {
       if (hasCore && symptoms) {
         level = 'Persistent Depressive Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder (Dysthymia)', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder (Dysthymia)', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4224,7 +4224,7 @@ const Screening = () => {
       if (symptoms >= 5 && hasContext) {
         level = 'Borderline Personality Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Borderline Personality Disorder', 'Professional evaluation is strongly recommended', 'Dialectical Behavior Therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Borderline Personality Disorder', 'Professional evaluation is strongly recommended', 'Dialectical Behavior Therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4239,11 +4239,11 @@ const Screening = () => {
         if (inattention >= 5 && hyperactivity >= 5) {
           level = 'ADHD Combined Type suggested - professional evaluation strongly recommended';
           levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-          recommendations = ['Symptoms suggest possible ADHD Combined Type', 'Professional evaluation is strongly recommended', 'Multiple effective treatment options available', 'Call for professional evaluation: (859) 341-7453'];
+          recommendations = ['Symptoms suggest possible ADHD Combined Type', 'Professional evaluation is strongly recommended', 'Multiple effective treatment options available', 'Consider scheduling a professional evaluation'];
         } else if (inattention >= 5 || hyperactivity >= 5) {
           level = `ADHD suggested (Predominantly ${inattention >= 5 ? 'Inattentive' : 'Hyperactive-Impulsive'}) - professional evaluation recommended`;
           levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-          recommendations = [`Symptoms suggest possible ADHD Predominantly ${inattention >= 5 ? 'Inattentive' : 'Hyperactive-Impulsive'} Type`, 'Professional evaluation is recommended', 'Treatment can significantly improve functioning', 'Schedule professional consultation: (859) 341-7453'];
+          recommendations = [`Symptoms suggest possible ADHD Predominantly ${inattention >= 5 ? 'Inattentive' : 'Hyperactive-Impulsive'} Type`, 'Professional evaluation is recommended', 'Treatment can significantly improve functioning', 'Consider scheduling a professional consultation'];
         } else {
           level = 'Below diagnostic threshold';
           levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4259,7 +4259,7 @@ const Screening = () => {
       if (hasRequired && totalScore >= 6) {
         level = 'Specific Phobia suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Specific Phobia', 'Professional evaluation is strongly recommended', 'Exposure therapy is highly effective for specific phobias', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Specific Phobia', 'Professional evaluation is strongly recommended', 'Exposure therapy is highly effective for specific phobias', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4270,7 +4270,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Adjustment Disorder suggested - professional evaluation recommended';
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-        recommendations = ['Symptoms suggest possible Adjustment Disorder', 'Professional evaluation is recommended', 'Short-term therapy can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Adjustment Disorder', 'Professional evaluation is recommended', 'Short-term therapy can be very effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4283,7 +4283,7 @@ const Screening = () => {
       if (hasRequired && symptoms >= 9) {
         level = 'Acute Stress Disorder suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Acute Stress Disorder', 'Immediate professional evaluation is essential', 'Early intervention can prevent PTSD development', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Acute Stress Disorder', 'Immediate professional evaluation is essential', 'Early intervention can prevent PTSD development', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4296,7 +4296,7 @@ const Screening = () => {
       if (fearCount >= 2 && hasRequired) {
         level = 'Agoraphobia suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Agoraphobia', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy and exposure therapy are effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Agoraphobia', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy and exposure therapy are effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4309,7 +4309,7 @@ const Screening = () => {
       if (hasSleepDifficulty && hasRequired) {
         level = 'Insomnia Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Insomnia Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy for insomnia (CBT-I) is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Insomnia Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy for insomnia (CBT-I) is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4321,7 +4321,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Somatic Symptom Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Somatic Symptom Disorder', 'Professional evaluation is strongly recommended', 'Treatment can help manage health anxiety and physical symptoms', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Somatic Symptom Disorder', 'Professional evaluation is strongly recommended', 'Treatment can help manage health anxiety and physical symptoms', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4333,7 +4333,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Illness Anxiety Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Illness Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy can effectively address health anxiety', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Illness Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy can effectively address health anxiety', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4346,7 +4346,7 @@ const Screening = () => {
       if (symptoms >= 4 && hasRequired) {
         level = 'Oppositional Defiant Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Oppositional Defiant Disorder', 'Professional evaluation is strongly recommended', 'Parent management training and family therapy are effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Oppositional Defiant Disorder', 'Professional evaluation is strongly recommended', 'Parent management training and family therapy are effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4358,7 +4358,7 @@ const Screening = () => {
       if (hasRequired && totalScore >= 3) {
         level = 'Conduct Disorder suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Conduct Disorder', 'Immediate professional evaluation is essential', 'Early intervention is critical to prevent progression', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Conduct Disorder', 'Immediate professional evaluation is essential', 'Early intervention is critical to prevent progression', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4371,7 +4371,7 @@ const Screening = () => {
       if (symptoms >= 3 && hasRequired) {
         level = 'Separation Anxiety Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Separation Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Separation Anxiety Disorder', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4383,7 +4383,7 @@ const Screening = () => {
       if (hasRequired && totalScore >= 6) {
         level = 'Social Anxiety Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Social Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective for social anxiety', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Social Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective for social anxiety', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4396,7 +4396,7 @@ const Screening = () => {
       if (hasRequired && symptoms >= 1) {
         level = 'Generalized Anxiety Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Generalized Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Generalized Anxiety Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4409,7 +4409,7 @@ const Screening = () => {
       if (hasCore && symptoms >= 2) {
         level = 'Persistent Depressive Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder in youth', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Persistent Depressive Disorder in youth', 'Professional evaluation is strongly recommended', 'Long-term treatment can significantly improve quality of life', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4421,7 +4421,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Autism Spectrum Disorder suggested - comprehensive professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Autism Spectrum Disorder', 'Comprehensive developmental evaluation is essential', 'Early intervention services can significantly improve outcomes', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Autism Spectrum Disorder', 'Comprehensive developmental evaluation is essential', 'Early intervention services can significantly improve outcomes', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4434,7 +4434,7 @@ const Screening = () => {
       if (hasRequired && difficulties >= 1) {
         level = 'Specific Learning Disorder suggested - comprehensive evaluation recommended';
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-        recommendations = ['Symptoms suggest possible Specific Learning Disorder', 'Comprehensive psychoeducational evaluation is recommended', 'Educational interventions and accommodations can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Specific Learning Disorder', 'Comprehensive psychoeducational evaluation is recommended', 'Educational interventions and accommodations can be very effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4446,7 +4446,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Intellectual Disability suggested - comprehensive evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Intellectual Disability', 'Comprehensive cognitive and adaptive assessment is essential', 'Early support services can optimize development', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Intellectual Disability', 'Comprehensive cognitive and adaptive assessment is essential', 'Early support services can optimize development', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4458,7 +4458,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Enuresis suggested - professional evaluation recommended';
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-        recommendations = ['Symptoms suggest possible Enuresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Enuresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4470,7 +4470,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Selective Mutism suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Selective Mutism', 'Professional evaluation is strongly recommended', 'Behavioral therapy and gradual exposure are effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Selective Mutism', 'Professional evaluation is strongly recommended', 'Behavioral therapy and gradual exposure are effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4483,7 +4483,7 @@ const Screening = () => {
       if (hasRequired && symptoms >= 2) {
         level = 'Reactive Attachment Disorder suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Reactive Attachment Disorder', 'Immediate professional evaluation is essential', 'Trauma-informed attachment therapy is recommended', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Reactive Attachment Disorder', 'Immediate professional evaluation is essential', 'Trauma-informed attachment therapy is recommended', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4495,7 +4495,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Disruptive Mood Dysregulation Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Disruptive Mood Dysregulation Disorder', 'Professional evaluation is strongly recommended', 'Combination of therapy and medication can be very effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Disruptive Mood Dysregulation Disorder', 'Professional evaluation is strongly recommended', 'Combination of therapy and medication can be very effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4509,7 +4509,7 @@ const Screening = () => {
       if (hasQ1 && symptoms >= 4 && hasRequired) {
         level = 'Panic Disorder suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Panic Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Panic Disorder in youth', 'Professional evaluation is strongly recommended', 'Cognitive-behavioral therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4523,7 +4523,7 @@ const Screening = () => {
       if (hasObsessionsOrCompulsions && hasImpairment && hasExclusions) {
         level = 'OCD suggested - professional evaluation strongly recommended';
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ['Symptoms suggest possible Obsessive-Compulsive Disorder in youth', 'Professional evaluation is strongly recommended', 'Exposure and Response Prevention therapy is highly effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Obsessive-Compulsive Disorder in youth', 'Professional evaluation is strongly recommended', 'Exposure and Response Prevention therapy is highly effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4539,7 +4539,7 @@ const Screening = () => {
       if (hasTrauma && intrusion && avoidance && negative && arousal) {
         level = 'PTSD suggested - immediate professional evaluation essential';
         levelClass = 'bg-red-100 text-red-800 border-red-300';
-        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder in youth', 'Immediate professional evaluation is essential', 'Trauma-focused therapy is highly effective', 'Call immediately for urgent evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Post-Traumatic Stress Disorder in youth', 'Immediate professional evaluation is essential', 'Trauma-focused therapy is highly effective', 'Please seek professional evaluation as soon as possible'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4551,7 +4551,7 @@ const Screening = () => {
       if (hasRequired) {
         level = "Tourette's Disorder suggested - professional evaluation strongly recommended";
         levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
-        recommendations = ["Symptoms suggest possible Tourette's Disorder", 'Professional evaluation is strongly recommended', 'Behavioral therapy and medication can be effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ["Symptoms suggest possible Tourette's Disorder", 'Professional evaluation is strongly recommended', 'Behavioral therapy and medication can be effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
@@ -4563,7 +4563,7 @@ const Screening = () => {
       if (hasRequired) {
         level = 'Encopresis suggested - professional evaluation recommended';
         levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
-        recommendations = ['Symptoms suggest possible Encopresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Call for professional evaluation: (859) 341-7453'];
+        recommendations = ['Symptoms suggest possible Encopresis', 'Professional evaluation is recommended to rule out medical causes', 'Behavioral interventions are often effective', 'Consider scheduling a professional evaluation'];
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
