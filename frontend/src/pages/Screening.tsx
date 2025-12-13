@@ -4952,16 +4952,6 @@ const Screening = () => {
                     <p className="text-sm text-gray-600 mt-1">24/7 crisis support via text</p>
                   </CardContent>
                 </Card>
-                
-                <Card className="bg-white">
-                  <CardContent className="p-4 text-center">
-                    <h4 className="font-semibold text-red-600 mb-2">Call Our Office</h4>
-                    <a href="tel:859-341-7453" className="text-red-600 font-bold text-lg hover:underline">
-                      📞 (859) 341-7453
-                    </a>
-                    <p className="text-sm text-gray-600 mt-1">Same-day response for urgent concerns</p>
-                  </CardContent>
-                </Card>
               </div>
               
               <div className="flex gap-4 justify-center">
