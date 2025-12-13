@@ -91,7 +91,7 @@ const Screening = () => {
     depression: {
       id: 'depression',
       title: 'Depression Screening (PHQ-9)',
-      description: 'Patient Health Questionnaire-9 for depression symptoms over the last 2 weeks',
+      description: 'Patient Health Questionnaire-9 for depression symptoms. Over the last 2 weeks, how often have you been bothered by any of the following problems?',
       icon: '🌧️',
       stats: { questions: 9, minutes: '3-4', rating: 'Clinical Standard' },
       questions: [
@@ -106,8 +106,78 @@ const Screening = () => {
           ]
         },
         {
+          id: 'dep_2',
+          text: 'Feeling down, depressed, or hopeless',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_3',
+          text: 'Trouble falling or staying asleep, or sleeping too much',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_4',
+          text: 'Feeling tired or having little energy',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_5',
+          text: 'Poor appetite or overeating',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_6',
+          text: 'Feeling bad about yourself — or that you are a failure or have let yourself or your family down',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_7',
+          text: 'Trouble concentrating on things, such as reading the newspaper or watching television',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'dep_8',
+          text: 'Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
           id: 'dep_9',
-          text: 'Thoughts that you would be better off dead, or thoughts of hurting yourself in some way',
+          text: 'Thoughts that you would be better off dead or of hurting yourself in some way',
           options: [
             { value: 0, text: 'Not at all', crisis: false },
             { value: 1, text: 'Several days', crisis: true },
