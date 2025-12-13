@@ -1377,7 +1377,7 @@ const Screening = () => {
     sleep: {
       id: 'sleep',
       title: 'Sleep Disorder Screening (ISI)',
-      description: 'Insomnia Severity Index for sleep problems assessment',
+      description: 'Insomnia Severity Index. Please rate the CURRENT (i.e., LAST 2 WEEKS) SEVERITY of your insomnia problem(s).',
       icon: '😴',
       stats: { questions: 7, minutes: '3-4', rating: 'Sleep Focus' },
       questions: [
@@ -1390,6 +1390,72 @@ const Screening = () => {
             { value: 2, text: 'Moderate' },
             { value: 3, text: 'Severe' },
             { value: 4, text: 'Very Severe' }
+          ]
+        },
+        {
+          id: 'sleep_2',
+          text: 'Difficulty staying asleep',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild' },
+            { value: 2, text: 'Moderate' },
+            { value: 3, text: 'Severe' },
+            { value: 4, text: 'Very Severe' }
+          ]
+        },
+        {
+          id: 'sleep_3',
+          text: 'Problem waking up too early',
+          options: [
+            { value: 0, text: 'None' },
+            { value: 1, text: 'Mild' },
+            { value: 2, text: 'Moderate' },
+            { value: 3, text: 'Severe' },
+            { value: 4, text: 'Very Severe' }
+          ]
+        },
+        {
+          id: 'sleep_4',
+          text: 'How SATISFIED/dissatisfied are you with your CURRENT sleep pattern?',
+          options: [
+            { value: 0, text: 'Very Satisfied' },
+            { value: 1, text: 'Satisfied' },
+            { value: 2, text: 'Moderately Satisfied' },
+            { value: 3, text: 'Dissatisfied' },
+            { value: 4, text: 'Very Dissatisfied' }
+          ]
+        },
+        {
+          id: 'sleep_5',
+          text: 'How NOTICEABLE to others do you think your sleeping problem is in terms of impairing the quality of your life?',
+          options: [
+            { value: 0, text: 'Not at all Noticeable' },
+            { value: 1, text: 'A Little' },
+            { value: 2, text: 'Somewhat' },
+            { value: 3, text: 'Much' },
+            { value: 4, text: 'Very Much Noticeable' }
+          ]
+        },
+        {
+          id: 'sleep_6',
+          text: 'How WORRIED/distressed are you about your current sleep problem?',
+          options: [
+            { value: 0, text: 'Not at all Worried' },
+            { value: 1, text: 'A Little' },
+            { value: 2, text: 'Somewhat' },
+            { value: 3, text: 'Much' },
+            { value: 4, text: 'Very Much Worried' }
+          ]
+        },
+        {
+          id: 'sleep_7',
+          text: 'To what extent do you consider your sleep problem to INTERFERE with your daily functioning (e.g., daytime fatigue, ability to function at work/daily chores, concentration, memory, mood, etc.)?',
+          options: [
+            { value: 0, text: 'Not at all Interfering' },
+            { value: 1, text: 'A Little' },
+            { value: 2, text: 'Somewhat' },
+            { value: 3, text: 'Much' },
+            { value: 4, text: 'Very Much Interfering' }
           ]
         }
       ]
