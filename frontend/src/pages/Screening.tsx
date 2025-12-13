@@ -434,16 +434,130 @@ const Screening = () => {
     bipolar: {
       id: 'bipolar',
       title: 'Bipolar Disorder Screening (MDQ)',
-      description: 'Mood Disorder Questionnaire for bipolar symptoms',
+      description: 'Mood Disorder Questionnaire. Has there ever been a period of time when you were not your usual self and...',
       icon: '🎭',
-      stats: { questions: 13, minutes: '5-7', rating: 'Mood Focus' },
+      stats: { questions: 15, minutes: '5-7', rating: 'Mood Focus' },
       questions: [
         {
           id: 'bipolar_1',
-          text: 'You felt so good or so hyper that other people thought you were not your normal self?',
+          text: 'You felt so good or so hyper that other people thought you were not your normal self or you were so hyper that you got into trouble?',
           options: [
             { value: 0, text: 'No' },
             { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_2',
+          text: 'You were so irritable that you shouted at people or started fights or arguments?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_3',
+          text: 'You felt much more self-confident than usual?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_4',
+          text: 'You got much less sleep than usual and found you didn\'t really miss it?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_5',
+          text: 'You were much more talkative or spoke much faster than usual?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_6',
+          text: 'Thoughts raced through your head or you couldn\'t slow your mind down?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_7',
+          text: 'You were so easily distracted by things around you that you had trouble concentrating or staying on track?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_8',
+          text: 'You had much more energy than usual?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_9',
+          text: 'You were much more active or did many more things than usual?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_10',
+          text: 'You were much more social or outgoing than usual, for example, you telephoned friends in the middle of the night?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_11',
+          text: 'You were much more interested in sex than usual?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_12',
+          text: 'You did things that were unusual for you or that other people might have thought were excessive, foolish, or risky?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_13',
+          text: 'Spending money got you or your family into trouble?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_14',
+          text: 'If you checked YES to more than one of the above, have several of these ever happened during the same period of time?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'bipolar_15',
+          text: 'How much of a problem did any of these cause you — like being unable to work; having family, money or legal troubles; getting into arguments or fights?',
+          options: [
+            { value: 0, text: 'No Problem' },
+            { value: 1, text: 'Minor Problem' },
+            { value: 2, text: 'Moderate Problem' },
+            { value: 3, text: 'Serious Problem' }
           ]
         }
       ]
