@@ -4567,7 +4567,105 @@ const Screening = () => {
       } else {
         level = 'Below diagnostic threshold';
         levelClass = 'bg-green-100 text-green-800 border-green-300';
-        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring', 'Maintain supportive, non-punitive approach', 'Contact our office if symptoms persist'];
+        recommendations = ['Symptoms do not currently meet DSM-5 criteria', 'Continue monitoring', 'Maintain supportive, non-punitive approach', 'Contact a mental health professional if symptoms persist'];
+      }
+    } else if (currentAssessment === 'panic') {
+      // PDSS Scoring: Sum all 7 items, Range: 0-28
+      // 0-1 = None/minimal, 2-5 = Borderline, 6-9 = Slightly ill, 10-13 = Moderately ill, 14-28 = Markedly to severely ill
+      // Clinical cutoff: ≥8 suggests clinically significant panic disorder
+      if (totalScore <= 1) {
+        level = 'None to Minimal - No significant panic symptoms';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Your responses indicate minimal or no panic symptoms',
+          'Continue practicing stress management techniques',
+          'Maintain healthy lifestyle habits',
+          'Contact a mental health professional if symptoms develop'
+        ];
+      } else if (totalScore <= 5) {
+        level = 'Borderline - Mild panic symptoms present';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = [
+          'Your responses indicate borderline panic symptoms',
+          'Consider learning relaxation and breathing techniques',
+          'Monitor symptoms over the coming weeks',
+          'Professional consultation may be helpful'
+        ];
+      } else if (totalScore <= 9) {
+        level = 'Slightly Ill - Notable panic symptoms';
+        levelClass = 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        recommendations = [
+          'Your responses suggest notable panic symptoms',
+          'Professional evaluation is recommended',
+          'Cognitive-behavioral therapy can be very effective',
+          'Consider scheduling a mental health consultation'
+        ];
+      } else if (totalScore <= 13) {
+        level = 'Moderately Ill - Clinically significant panic disorder likely';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = [
+          'Your score suggests clinically significant panic disorder',
+          'Professional evaluation is strongly recommended',
+          'Effective treatments including therapy and medication are available',
+          'Please consider seeking professional support soon'
+        ];
+      } else {
+        level = 'Markedly to Severely Ill - Significant panic disorder indicated';
+        levelClass = 'bg-red-100 text-red-800 border-red-300';
+        recommendations = [
+          'Your score indicates marked to severe panic disorder',
+          'Professional evaluation is essential',
+          'Evidence-based treatments can provide significant relief',
+          'Please prioritize seeking professional mental health support'
+        ];
+      }
+    } else if (currentAssessment === 'borderline') {
+      // MSI-BPD Scoring: Count "Yes" responses, Range: 0-10
+      // Clinical cutoff: ≥7 "Yes" responses suggests probable BPD
+      // 0-6: Below clinical threshold, 7-10: Positive screen
+      if (totalScore <= 6) {
+        level = 'Below Clinical Threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Your responses are below the clinical threshold for borderline personality',
+          'Continue practicing healthy coping strategies',
+          'Maintain supportive relationships',
+          'Contact a mental health professional if you have concerns'
+        ];
+      } else {
+        level = 'Positive Screen - Further evaluation recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = [
+          'Your score suggests features consistent with borderline personality disorder',
+          'This screening is not a diagnosis - professional evaluation is recommended',
+          'Dialectical Behavior Therapy (DBT) is highly effective for BPD',
+          'Please consider scheduling a comprehensive evaluation with a mental health professional'
+        ];
+      }
+    } else if (currentAssessment === 'psychosis') {
+      // PRIME Scoring: Sum all 12 items, Range: 0-72
+      // Clinical cutoff: ≥24 suggests elevated psychosis risk
+      // Alternative: Count items rated ≥5 ("Somewhat Agree" or "Definitely Agree"). If 2+ items ≥5, consider positive screen.
+      const highItems = Object.values(responses).filter(val => val >= 5).length;
+      
+      if (totalScore < 24 && highItems < 2) {
+        level = 'Low Risk - Below clinical threshold';
+        levelClass = 'bg-green-100 text-green-800 border-green-300';
+        recommendations = [
+          'Your responses are below the clinical threshold for psychosis risk',
+          'Continue monitoring any unusual experiences',
+          'Maintain healthy sleep and stress management habits',
+          'Contact a mental health professional if concerns arise'
+        ];
+      } else {
+        level = 'Elevated Risk - Professional evaluation recommended';
+        levelClass = 'bg-orange-100 text-orange-800 border-orange-300';
+        recommendations = [
+          'Your score suggests elevated risk that warrants further evaluation',
+          'This screening is not a diagnosis - professional assessment is important',
+          'Early intervention services can be very beneficial',
+          'Please consider scheduling an evaluation with a mental health professional'
+        ];
       }
     } else {
       // Basic scoring logic for other assessments
