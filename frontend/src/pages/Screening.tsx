@@ -5428,11 +5428,11 @@ const Screening = () => {
               <strong className="text-white">Medical Disclaimer:</strong> These screening tools are for informational purposes only and do not constitute medical advice or diagnosis.
             </p>
             <p className="text-sm text-blue-100">
-              Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.
+              Please consult with a qualified healthcare provider for proper evaluation and treatment.
             </p>
             <div className="mt-4 text-xs text-blue-200">
-              © 2024 Dr. Arnold G. Shapiro MD - Mental Health Screening Center. All rights reserved. | 
-              🏥 Board-Certified Psychiatrist | 📍 Cincinnati, OH & Fort Wright, KY
+              © 2024 Mental Health Screening Center. All rights reserved. | 
+              🏥 Evidence-Based Assessments
             </div>
           </CardContent>
         </Card>
