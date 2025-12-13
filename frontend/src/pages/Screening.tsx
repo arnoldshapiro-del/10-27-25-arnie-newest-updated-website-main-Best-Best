@@ -2613,6 +2613,208 @@ const Screening = () => {
     setShowCrisis(false);
   };
 
+  const downloadPDF = () => {
+    if (!currentAssessment) return;
+    
+    const assessment = assessments[currentAssessment];
+    const results = calculateResults();
+    const doc = new jsPDF();
+    
+    // Set up colors
+    const primaryColor: [number, number, number] = [37, 99, 235]; // Blue
+    const secondaryColor: [number, number, number] = [249, 115, 22]; // Orange
+    const textColor: [number, number, number] = [31, 41, 55]; // Dark gray
+    
+    // Header with gradient effect (simulated with rectangles)
+    doc.setFillColor(37, 99, 235);
+    doc.rect(0, 0, 210, 40, 'F');
+    doc.setFillColor(59, 130, 246);
+    doc.rect(0, 30, 210, 10, 'F');
+    
+    // Logo/Icon
+    doc.setFontSize(32);
+    doc.setTextColor(255, 255, 255);
+    doc.text(assessment.icon, 20, 25);
+    
+    // Title
+    doc.setFontSize(20);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Assessment Results', 45, 20);
+    
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text(assessment.title, 45, 30);
+    
+    // Date
+    doc.setFontSize(10);
+    const today = new Date().toLocaleDateString('en-US', { 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    doc.text(`Date: ${today}`, 150, 20);
+    
+    // Reset to normal text color
+    doc.setTextColor(...textColor);
+    
+    // Score Box
+    let yPos = 55;
+    doc.setFillColor(37, 99, 235);
+    doc.roundedRect(20, yPos, 170, 25, 3, 3, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(16);
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Your Score: ${results.score}`, 105, yPos + 10, { align: 'center' });
+    doc.setFontSize(14);
+    doc.text(`${results.level}`, 105, yPos + 19, { align: 'center' });
+    
+    // Questions and Answers Section
+    yPos += 35;
+    doc.setTextColor(...textColor);
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Your Responses', 20, yPos);
+    
+    yPos += 10;
+    
+    // Create table data
+    const tableData = assessment.questions.map((question, index) => {
+      const response = responses[question.id];
+      const selectedOption = question.options.find(opt => opt.value === response);
+      return [
+        `Q${index + 1}`,
+        question.text,
+        selectedOption ? selectedOption.text : 'Not answered'
+      ];
+    });
+    
+    autoTable(doc, {
+      startY: yPos,
+      head: [['#', 'Question', 'Your Answer']],
+      body: tableData,
+      theme: 'striped',
+      headStyles: {
+        fillColor: [37, 99, 235],
+        textColor: [255, 255, 255],
+        fontSize: 11,
+        fontStyle: 'bold',
+        halign: 'left'
+      },
+      bodyStyles: {
+        fontSize: 9,
+        textColor: [31, 41, 55]
+      },
+      columnStyles: {
+        0: { cellWidth: 15, halign: 'center', fontStyle: 'bold' },
+        1: { cellWidth: 110 },
+        2: { cellWidth: 55 }
+      },
+      alternateRowStyles: {
+        fillColor: [243, 244, 246]
+      },
+      margin: { left: 20, right: 20 }
+    });
+    
+    // Get the final Y position after the table
+    const finalY = (doc as any).lastAutoTable.finalY || yPos + 50;
+    
+    // Add new page if needed for recommendations
+    if (finalY > 240) {
+      doc.addPage();
+      yPos = 20;
+    } else {
+      yPos = finalY + 15;
+    }
+    
+    // Recommendations Section
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...primaryColor);
+    doc.text('Personalized Recommendations', 20, yPos);
+    
+    yPos += 10;
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...textColor);
+    
+    results.recommendations.forEach((rec, index) => {
+      const lines = doc.splitTextToSize(`• ${rec}`, 170);
+      if (yPos + (lines.length * 7) > 280) {
+        doc.addPage();
+        yPos = 20;
+      }
+      doc.text(lines, 25, yPos);
+      yPos += lines.length * 7;
+    });
+    
+    // Add new page for footer info
+    if (yPos > 240) {
+      doc.addPage();
+      yPos = 20;
+    } else {
+      yPos += 15;
+    }
+    
+    // Important Notice Box
+    doc.setFillColor(254, 243, 199);
+    doc.setDrawColor(251, 191, 36);
+    doc.setLineWidth(1);
+    doc.roundedRect(20, yPos, 170, 30, 3, 3, 'FD');
+    
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(146, 64, 14);
+    doc.text('Important Screening Disclaimer', 25, yPos + 8);
+    
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    const disclaimerText = doc.splitTextToSize(
+      'This is a screening tool only. Only qualified mental health professionals can provide formal diagnoses. Please consult a licensed professional for comprehensive evaluation and diagnosis.',
+      160
+    );
+    doc.text(disclaimerText, 25, yPos + 15);
+    
+    yPos += 40;
+    
+    // Contact Information Box
+    doc.setFillColor(249, 115, 22);
+    doc.roundedRect(20, yPos, 170, 35, 3, 3, 'F');
+    
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(255, 255, 255);
+    doc.text('Schedule a Professional Consultation', 105, yPos + 10, { align: 'center' });
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Dr. Arnold G. Shapiro, MD - Board Certified Psychiatrist', 105, yPos + 18, { align: 'center' });
+    doc.text('Cincinnati, OH & Fort Wright, KY', 105, yPos + 25, { align: 'center' });
+    
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(11);
+    doc.text('Call: (859) 341-7453', 105, yPos + 32, { align: 'center' });
+    
+    // Footer
+    const pageCount = doc.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(107, 114, 128);
+      doc.setFont('helvetica', 'normal');
+      doc.text(
+        'This assessment was generated by Dr. Shapiro Psychiatry - Confidential & Private',
+        105,
+        290,
+        { align: 'center' }
+      );
+      doc.text(`Page ${i} of ${pageCount}`, 190, 290, { align: 'right' });
+    }
+    
+    // Save the PDF
+    const fileName = `${assessment.title.replace(/[^a-z0-9]/gi, '_')}_Results_${new Date().toISOString().split('T')[0]}.pdf`;
+    doc.save(fileName);
+  };
+
   if (showCrisis) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
