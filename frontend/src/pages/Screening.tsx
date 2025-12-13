@@ -190,13 +190,73 @@ const Screening = () => {
     anxiety: {
       id: 'anxiety',
       title: 'Anxiety Assessment (GAD-7)',
-      description: 'Generalized Anxiety Disorder assessment for anxiety symptoms over the last 2 weeks',
+      description: 'Generalized Anxiety Disorder-7 assessment. Over the last 2 weeks, how often have you been bothered by the following problems?',
       icon: '😰',
       stats: { questions: 7, minutes: '3-4', rating: 'Comprehensive' },
       questions: [
         {
           id: 'anx_1',
           text: 'Feeling nervous, anxious, or on edge',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_2',
+          text: 'Not being able to stop or control worrying',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_3',
+          text: 'Worrying too much about different things',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_4',
+          text: 'Trouble relaxing',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_5',
+          text: 'Being so restless that it\'s hard to sit still',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_6',
+          text: 'Becoming easily annoyed or irritable',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Several days' },
+            { value: 2, text: 'More than half the days' },
+            { value: 3, text: 'Nearly every day' }
+          ]
+        },
+        {
+          id: 'anx_7',
+          text: 'Feeling afraid as if something awful might happen',
           options: [
             { value: 0, text: 'Not at all' },
             { value: 1, text: 'Several days' },
