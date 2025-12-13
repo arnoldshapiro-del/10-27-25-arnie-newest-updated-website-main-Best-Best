@@ -923,13 +923,45 @@ const Screening = () => {
     eating: {
       id: 'eating',
       title: 'Eating Disorder Screening (SCOFF)',
-      description: 'Quick screening for eating disorder symptoms',
+      description: 'SCOFF questionnaire for eating disorder risk. Answer yes or no to each question.',
       icon: '🍽️',
       stats: { questions: 5, minutes: '2-3', rating: 'Quick Screen' },
       questions: [
         {
           id: 'eat_1',
           text: 'Do you make yourself Sick because you feel uncomfortably full?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'eat_2',
+          text: 'Do you worry you have lost Control over how much you eat?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'eat_3',
+          text: 'Have you recently lost more than One stone (14 pounds) in a three-month period?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'eat_4',
+          text: 'Do you believe yourself to be Fat when others say you are too thin?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'eat_5',
+          text: 'Would you say that Food dominates your life?',
           options: [
             { value: 0, text: 'No' },
             { value: 1, text: 'Yes' }
