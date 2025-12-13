@@ -1686,7 +1686,7 @@ const Screening = () => {
     postpartum: {
       id: 'postpartum',
       title: 'Postpartum Depression (EPDS)',
-      description: 'Edinburgh Postnatal Depression Scale for new mothers',
+      description: 'Edinburgh Postnatal Depression Scale. As you are pregnant or have recently had a baby, we would like to know how you are feeling. Please select the answer that comes closest to how you have felt IN THE PAST 7 DAYS, not just how you feel today.',
       icon: '👶',
       stats: { questions: 10, minutes: '4-6', rating: 'Maternal Health' },
       questions: [
@@ -1698,6 +1698,86 @@ const Screening = () => {
             { value: 1, text: 'Not quite so much now' },
             { value: 2, text: 'Definitely not so much now' },
             { value: 3, text: 'Not at all' }
+          ]
+        },
+        {
+          id: 'post_2',
+          text: 'I have looked forward with enjoyment to things',
+          options: [
+            { value: 0, text: 'As much as I ever did' },
+            { value: 1, text: 'Rather less than I used to' },
+            { value: 2, text: 'Definitely less than I used to' },
+            { value: 3, text: 'Hardly at all' }
+          ]
+        },
+        {
+          id: 'post_3',
+          text: 'I have blamed myself unnecessarily when things went wrong',
+          options: [
+            { value: 3, text: 'Yes, most of the time' },
+            { value: 2, text: 'Yes, some of the time' },
+            { value: 1, text: 'Not very often' },
+            { value: 0, text: 'No, never' }
+          ]
+        },
+        {
+          id: 'post_4',
+          text: 'I have been anxious or worried for no good reason',
+          options: [
+            { value: 0, text: 'No, not at all' },
+            { value: 1, text: 'Hardly ever' },
+            { value: 2, text: 'Yes, sometimes' },
+            { value: 3, text: 'Yes, very often' }
+          ]
+        },
+        {
+          id: 'post_5',
+          text: 'I have felt scared or panicky for no very good reason',
+          options: [
+            { value: 3, text: 'Yes, quite a lot' },
+            { value: 2, text: 'Yes, sometimes' },
+            { value: 1, text: 'No, not much' },
+            { value: 0, text: 'No, not at all' }
+          ]
+        },
+        {
+          id: 'post_6',
+          text: 'Things have been getting on top of me',
+          options: [
+            { value: 3, text: 'Yes, most of the time I haven\'t been able to cope at all' },
+            { value: 2, text: 'Yes, sometimes I haven\'t been coping as well as usual' },
+            { value: 1, text: 'No, most of the time I have coped quite well' },
+            { value: 0, text: 'No, I have been coping as well as ever' }
+          ]
+        },
+        {
+          id: 'post_7',
+          text: 'I have been so unhappy that I have had difficulty sleeping',
+          options: [
+            { value: 3, text: 'Yes, most of the time' },
+            { value: 2, text: 'Yes, sometimes' },
+            { value: 1, text: 'Not very often' },
+            { value: 0, text: 'No, not at all' }
+          ]
+        },
+        {
+          id: 'post_8',
+          text: 'I have felt sad or miserable',
+          options: [
+            { value: 3, text: 'Yes, most of the time' },
+            { value: 2, text: 'Yes, quite often' },
+            { value: 1, text: 'Not very often' },
+            { value: 0, text: 'No, not at all' }
+          ]
+        },
+        {
+          id: 'post_9',
+          text: 'I have been so unhappy that I have been crying',
+          options: [
+            { value: 3, text: 'Yes, most of the time' },
+            { value: 2, text: 'Yes, quite often' },
+            { value: 1, text: 'Only occasionally' },
+            { value: 0, text: 'No, never' }
           ]
         },
         {
