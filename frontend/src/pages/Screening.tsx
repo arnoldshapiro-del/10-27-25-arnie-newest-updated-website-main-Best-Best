@@ -2275,18 +2275,164 @@ const Screening = () => {
     psychosis: {
       id: 'psychosis',
       title: 'Psychosis Risk Screening (PRIME)',
-      description: 'PRIME Screen for early psychosis risk assessment',
+      description: 'PRIME Screen for early psychosis risk assessment. Please indicate how much you agree or disagree with each statement about experiences you may have had.',
       icon: '🌀',
       stats: { questions: 12, minutes: '5-7', rating: 'Psychosis Focus' },
       questions: [
         {
           id: 'psych_1',
-          text: 'I think that I have felt that there are odd or unusual things going on that I can\'t explain',
+          text: 'I think that I have felt that there are odd or unusual things going on that I can\'t explain.',
           options: [
-            { value: 0, text: 'Definitely disagree' },
-            { value: 1, text: 'Somewhat disagree' },
-            { value: 2, text: 'Somewhat agree' },
-            { value: 3, text: 'Definitely agree' }
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_2',
+          text: 'I think that I might be able to predict the future.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_3',
+          text: 'I may have felt that there could possibly be something interrupting or controlling my thoughts, feelings, or actions.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_4',
+          text: 'I have had the experience of doing something differently because of my superstitions.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_5',
+          text: 'I think that I may get confused at times whether something I experience or perceive may be real or may be just part of my imagination or dreams.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_6',
+          text: 'I have thought that it might be possible that other people can read my mind, or that I can read others\' minds.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_7',
+          text: 'I wonder if people may be planning to hurt me or even may be hurting me.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_8',
+          text: 'I believe that I have special natural or supernatural gifts beyond my talents and natural strengths.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_9',
+          text: 'I think I may hear my own thoughts being said out loud.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_10',
+          text: 'I have been concerned that I might be "going crazy."',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_11',
+          text: 'I think that I may sometimes feel that something is happening to my body or the way I see things and hear things.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
+          ]
+        },
+        {
+          id: 'psych_12',
+          text: 'I have thought that I might feel like my mind is "playing tricks" on me.',
+          options: [
+            { value: 0, text: 'Definitely Disagree' },
+            { value: 1, text: 'Somewhat Disagree' },
+            { value: 2, text: 'Slightly Disagree' },
+            { value: 3, text: 'Not Sure' },
+            { value: 4, text: 'Slightly Agree' },
+            { value: 5, text: 'Somewhat Agree' },
+            { value: 6, text: 'Definitely Agree' }
           ]
         }
       ]
