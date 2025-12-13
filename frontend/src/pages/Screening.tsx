@@ -5088,6 +5088,40 @@ const Screening = () => {
             </CardHeader>
             
             <CardContent>
+              {/* Navigation Header with Arrows */}
+              <div className="flex items-center justify-between mb-6 bg-gray-50 rounded-lg p-3">
+                <Button
+                  onClick={previousQuestion}
+                  variant="outline"
+                  disabled={currentQuestionIndex === 0}
+                  className="flex items-center gap-2 h-12 w-12 p-0 rounded-full border-2 border-blue-300 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-30"
+                  title="Previous Question"
+                >
+                  <ArrowLeft className="h-6 w-6 text-blue-600" />
+                </Button>
+                
+                <div className="text-center">
+                  <span className="text-lg font-bold text-blue-800">
+                    Question {currentQuestionIndex + 1} of {assessment.questions.length}
+                  </span>
+                  <Progress value={progress} className="w-48 mt-2" />
+                </div>
+                
+                <Button
+                  onClick={() => {
+                    if (currentQuestionIndex < assessment.questions.length - 1 && responses[currentQuestion.id] !== undefined) {
+                      setCurrentQuestionIndex(prev => prev + 1);
+                    }
+                  }}
+                  variant="outline"
+                  disabled={currentQuestionIndex === assessment.questions.length - 1 || responses[currentQuestion.id] === undefined}
+                  className="flex items-center gap-2 h-12 w-12 p-0 rounded-full border-2 border-blue-300 hover:border-blue-500 hover:bg-blue-50 disabled:opacity-30"
+                  title="Next Question"
+                >
+                  <ArrowRight className="h-6 w-6 text-blue-600" />
+                </Button>
+              </div>
+              
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-6">{currentQuestion.text}</h3>
                 <RadioGroup
@@ -5112,7 +5146,8 @@ const Screening = () => {
                 </RadioGroup>
               </div>
               
-              <div className="flex justify-between items-center">
+              {/* Bottom Navigation */}
+              <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                 <Button
                   onClick={previousQuestion}
                   variant="outline"
@@ -5125,7 +5160,7 @@ const Screening = () => {
                 
                 <Button
                   onClick={nextQuestion}
-                  className="bg-orange-500 hover:bg-orange-600 text-white flex items-center gap-2"
+                  className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2"
                 >
                   {currentQuestionIndex === assessment.questions.length - 1 ? 'Complete Assessment' : 'Next'}
                   <ArrowRight className="h-4 w-4" />
