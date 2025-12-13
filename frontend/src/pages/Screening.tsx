@@ -5169,8 +5169,8 @@ const Screening = () => {
               Professional Mental Health Screening Tools
             </CardTitle>
             <p className="text-xl text-blue-100 max-w-4xl mx-auto">
-              Take the first step toward better mental health with our comprehensive, HIPAA-compliant screening assessments. 
-              Developed by Dr. Arnold G. Shapiro, board-certified psychiatrist with 35+ years of experience serving Cincinnati and Fort Wright.
+              Take the first step toward better mental health with our comprehensive, evidence-based screening assessments. 
+              Clinically validated tools to help you understand your mental health.
             </p>
             
             <div className="flex justify-center gap-4 mt-6 flex-wrap">
