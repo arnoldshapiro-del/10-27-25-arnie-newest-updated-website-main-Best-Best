@@ -2931,28 +2931,43 @@ const Screening = () => {
                 </ul>
               </div>
               
-              <div className="bg-orange-500 border-2 border-orange-300 p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-white mb-4">Discuss Your Results with a Professional</h3>
-                <p className="mb-4 text-orange-100">Get professional interpretation of your screening results and personalized treatment recommendations.</p>
+              <div className="text-center mt-8 space-y-6">
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <Button className="bg-white text-orange-600 hover:bg-orange-50" asChild>
-                    <a href="tel:859-341-7453" className="flex items-center gap-2">
-                      <Phone className="h-4 w-4" />
-                      Call (859) 341-7453
-                    </a>
-                  </Button>
-                </div>
-              </div>
-              
-              <div className="text-center mt-6 space-y-4">
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <Button onClick={downloadPDF} className="bg-blue-600 hover:bg-blue-700 text-white" size="lg">
-                    <Download className="h-4 w-4 mr-2" />
+                  <Button onClick={downloadPDF} className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg" size="lg">
+                    <Download className="h-5 w-5 mr-2" />
                     Download PDF Report
                   </Button>
-                  <Button onClick={returnToGrid} variant="outline" size="lg">
+                  <Button onClick={returnToGrid} variant="outline" size="lg" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50">
                     Take Another Assessment
                   </Button>
+                </div>
+                
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
+                  <h4 className="font-semibold text-blue-900 mb-3 flex items-center justify-center gap-2">
+                    <Download className="h-4 w-4" />
+                    How to Save Your Report
+                  </h4>
+                  <ol className="text-left text-sm text-gray-700 space-y-2">
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold text-blue-600">1.</span>
+                      <span>Click "Download PDF Report" above</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold text-blue-600">2.</span>
+                      <span>Your browser will download the file automatically</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold text-blue-600">3.</span>
+                      <span>Look for it in your Downloads folder</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-bold text-blue-600">4.</span>
+                      <span>Save it somewhere you can find it later</span>
+                    </li>
+                  </ol>
+                  <p className="text-xs text-gray-600 mt-4 text-center italic">
+                    This report is for your personal use. No information has been collected or stored.
+                  </p>
                 </div>
               </div>
             </CardContent>
