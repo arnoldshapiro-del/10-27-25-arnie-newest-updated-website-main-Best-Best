@@ -286,13 +286,222 @@ const Screening = () => {
     ptsd: {
       id: 'ptsd',
       title: 'PTSD Screening (PCL-5)',
-      description: 'Post-Traumatic Stress Disorder assessment',
+      description: 'PTSD Checklist for DSM-5. In the past month, how much were you bothered by:',
       icon: '🛡️',
       stats: { questions: 20, minutes: '8-10', rating: 'Trauma Focus' },
       questions: [
         {
           id: 'ptsd_1',
-          text: 'Repeated, disturbing, and unwanted memories of the stressful experience',
+          text: 'Repeated, disturbing, and unwanted memories of the stressful experience?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_2',
+          text: 'Repeated, disturbing dreams of the stressful experience?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_3',
+          text: 'Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_4',
+          text: 'Feeling very upset when something reminded you of the stressful experience?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_5',
+          text: 'Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_6',
+          text: 'Avoiding memories, thoughts, or feelings related to the stressful experience?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_7',
+          text: 'Avoiding external reminders of the stressful experience (for example, people, places, conversations, activities, objects, or situations)?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_8',
+          text: 'Trouble remembering important parts of the stressful experience?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_9',
+          text: 'Having strong negative beliefs about yourself, other people, or the world (for example, having thoughts such as: I am bad, there is something seriously wrong with me, no one can be trusted, the world is completely dangerous)?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_10',
+          text: 'Blaming yourself or someone else for the stressful experience or what happened after it?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_11',
+          text: 'Having strong negative feelings such as fear, horror, anger, guilt, or shame?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_12',
+          text: 'Loss of interest in activities that you used to enjoy?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_13',
+          text: 'Feeling distant or cut off from other people?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_14',
+          text: 'Trouble experiencing positive feelings (for example, being unable to feel happiness or have loving feelings for people close to you)?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_15',
+          text: 'Irritable behavior, angry outbursts, or acting aggressively?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_16',
+          text: 'Taking too many risks or doing things that could cause you harm?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_17',
+          text: 'Being "superalert" or watchful or on guard?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_18',
+          text: 'Feeling jumpy or easily startled?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_19',
+          text: 'Having difficulty concentrating?',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'A little bit' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Quite a bit' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'ptsd_20',
+          text: 'Trouble falling or staying asleep?',
           options: [
             { value: 0, text: 'Not at all' },
             { value: 1, text: 'A little bit' },
