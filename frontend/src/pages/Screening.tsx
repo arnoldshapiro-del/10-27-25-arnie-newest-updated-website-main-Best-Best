@@ -229,16 +229,404 @@ const Screening = () => {
         }
       ]
     },
-    substance: {
-      id: 'substance',
-      title: 'Substance Use Screening (CAGE-AID)',
-      description: 'Assessment for alcohol and drug use concerns',
-      icon: '🚫',
-      stats: { questions: 4, minutes: '2-3', rating: 'Quick Screen' },
+    audit: {
+      id: 'audit',
+      title: 'Alcohol Use Screening (AUDIT)',
+      description: 'WHO Alcohol Use Disorders Identification Test - Screen for hazardous or harmful alcohol use',
+      icon: '🍺',
+      stats: { questions: 10, minutes: '3-5', rating: 'Comprehensive' },
       questions: [
         {
-          id: 'sub_1',
-          text: 'Have you ever felt you ought to Cut down on your drinking or drug use?',
+          id: 'audit_1',
+          text: 'How often do you have a drink containing alcohol?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Monthly or less' },
+            { value: 2, text: '2-4 times a month' },
+            { value: 3, text: '2-3 times a week' },
+            { value: 4, text: '4 or more times a week' }
+          ]
+        },
+        {
+          id: 'audit_2',
+          text: 'How many drinks containing alcohol do you have on a typical day when you are drinking?',
+          options: [
+            { value: 0, text: '1 or 2' },
+            { value: 1, text: '3 or 4' },
+            { value: 2, text: '5 or 6' },
+            { value: 3, text: '7 to 9' },
+            { value: 4, text: '10 or more' }
+          ]
+        },
+        {
+          id: 'audit_3',
+          text: 'How often do you have six or more drinks on one occasion?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_4',
+          text: 'How often during the last year have you found that you were not able to stop drinking once you had started?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_5',
+          text: 'How often during the last year have you failed to do what was normally expected of you because of drinking?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_6',
+          text: 'How often during the last year have you needed a first drink in the morning to get yourself going after a heavy drinking session?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_7',
+          text: 'How often during the last year have you had a feeling of guilt or remorse after drinking?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_8',
+          text: 'How often during the last year have you been unable to remember what happened the night before because of your drinking?',
+          options: [
+            { value: 0, text: 'Never' },
+            { value: 1, text: 'Less than monthly' },
+            { value: 2, text: 'Monthly' },
+            { value: 3, text: 'Weekly' },
+            { value: 4, text: 'Daily or almost daily' }
+          ]
+        },
+        {
+          id: 'audit_9',
+          text: 'Have you or someone else been injured because of your drinking?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 2, text: 'Yes, but not in the last year' },
+            { value: 4, text: 'Yes, during the last year' }
+          ]
+        },
+        {
+          id: 'audit_10',
+          text: 'Has a relative, friend, doctor, or other health care worker been concerned about your drinking or suggested you cut down?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 2, text: 'Yes, but not in the last year' },
+            { value: 4, text: 'Yes, during the last year' }
+          ]
+        }
+      ]
+    },
+    dast10: {
+      id: 'dast10',
+      title: 'Drug Use Screening (DAST-10)',
+      description: 'Drug Abuse Screening Test - Screen for drug abuse or dependence. The following questions concern information about your potential involvement with drugs, excluding alcohol and tobacco, during the past 12 months.',
+      icon: '💊',
+      stats: { questions: 10, minutes: '3-4', rating: 'Comprehensive' },
+      questions: [
+        {
+          id: 'dast_1',
+          text: 'Have you used drugs other than those required for medical reasons?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_2',
+          text: 'Do you abuse more than one drug at a time?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_3',
+          text: 'Are you always able to stop using drugs when you want to?',
+          options: [
+            { value: 0, text: 'Yes' },
+            { value: 1, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_4',
+          text: 'Have you had blackouts or flashbacks as a result of drug use?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_5',
+          text: 'Do you ever feel bad or guilty about your drug use?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_6',
+          text: 'Does your spouse (or parents) ever complain about your involvement with drugs?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_7',
+          text: 'Have you neglected your family because of your use of drugs?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_8',
+          text: 'Have you engaged in illegal activities in order to obtain drugs?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_9',
+          text: 'Have you ever experienced withdrawal symptoms (felt sick) when you stopped taking drugs?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        },
+        {
+          id: 'dast_10',
+          text: 'Have you had medical problems as a result of your drug use (e.g., memory loss, hepatitis, convulsions, bleeding)?',
+          options: [
+            { value: 1, text: 'Yes' },
+            { value: 0, text: 'No' }
+          ]
+        }
+      ]
+    },
+    phq15: {
+      id: 'phq15',
+      title: 'Physical Symptoms Screening (PHQ-15)',
+      description: 'Patient Health Questionnaire - Screen for somatic symptom severity. During the past 4 weeks, how much have you been bothered by any of the following problems?',
+      icon: '🤕',
+      stats: { questions: 15, minutes: '4-5', rating: 'Comprehensive' },
+      questions: [
+        {
+          id: 'phq15_1',
+          text: 'Stomach pain',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_2',
+          text: 'Back pain',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_3',
+          text: 'Pain in your arms, legs, or joints (knees, hips, etc.)',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_4',
+          text: 'Menstrual cramps or other problems with your periods (WOMEN ONLY)',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_5',
+          text: 'Headaches',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_6',
+          text: 'Chest pain',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_7',
+          text: 'Dizziness',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_8',
+          text: 'Fainting spells',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_9',
+          text: 'Feeling your heart pound or race',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_10',
+          text: 'Shortness of breath',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_11',
+          text: 'Pain or problems during sexual intercourse',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_12',
+          text: 'Constipation, loose bowels, or diarrhea',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_13',
+          text: 'Nausea, gas, or indigestion',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_14',
+          text: 'Feeling tired or having low energy',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        },
+        {
+          id: 'phq15_15',
+          text: 'Trouble sleeping',
+          options: [
+            { value: 0, text: 'Not bothered at all' },
+            { value: 1, text: 'Bothered a little' },
+            { value: 2, text: 'Bothered a lot' }
+          ]
+        }
+      ]
+    },
+    pcptsd5: {
+      id: 'pcptsd5',
+      title: 'Quick PTSD Screen (PC-PTSD-5)',
+      description: 'Primary Care PTSD Screen for DSM-5 - Brief PTSD screening',
+      icon: '🛡️',
+      stats: { questions: 6, minutes: '2-3', rating: 'Quick Screen' },
+      questions: [
+        {
+          id: 'pcptsd_trauma',
+          text: 'Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. For example: a serious accident or fire, a physical or sexual assault or abuse, an earthquake or flood, a war, seeing someone be killed or seriously injured, or having a loved one die through homicide or suicide. Have you ever experienced this kind of event?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'pcptsd_1',
+          text: 'In the past month, have you had nightmares about the event(s) or thought about the event(s) when you did not want to?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'pcptsd_2',
+          text: 'In the past month, have you tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'pcptsd_3',
+          text: 'In the past month, have you been constantly on guard, watchful, or easily startled?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'pcptsd_4',
+          text: 'In the past month, have you felt numb or detached from people, activities, or your surroundings?',
+          options: [
+            { value: 0, text: 'No' },
+            { value: 1, text: 'Yes' }
+          ]
+        },
+        {
+          id: 'pcptsd_5',
+          text: 'In the past month, have you felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?',
           options: [
             { value: 0, text: 'No' },
             { value: 1, text: 'Yes' }
