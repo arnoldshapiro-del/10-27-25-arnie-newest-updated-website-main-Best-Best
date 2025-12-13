@@ -22,7 +22,8 @@ const questions = [
 
 const options = ["Never", "Rarely", "Sometimes", "Often", "Very Often"];
 
-let responses = {};
+let currentScore = 0;
+let currentLevel = "";
 
 function renderForm() {
   const formDiv = document.getElementById('form');
@@ -62,6 +63,7 @@ function calculateResults() {
     return;
   }
   
+  currentScore = score;
   let level, color, recommendation;
   
   if (score <= 24) {
@@ -78,6 +80,8 @@ function calculateResults() {
     recommendation = "Your responses suggest significant ADHD symptoms. Strongly recommend evaluation with a mental health professional for proper assessment and treatment options.";
   }
   
+  currentLevel = level;
+  
   const resultDiv = document.getElementById('out');
   resultDiv.innerHTML = `
     <div class="card" style="border-left: 4px solid ${color};">
@@ -85,14 +89,111 @@ function calculateResults() {
       <p><strong>Total Score: ${score}/72</strong></p>
       <p><strong>Assessment: ${level}</strong></p>
       <p>${recommendation}</p>
-      <div style="margin-top:16px;">
-        
+      <div style="margin-top:20px; text-align:center;">
+        <button onclick="downloadPDF()" style="background-color: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">
+          📥 Download PDF Report
+        </button>
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
       <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
+}
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  
+  const title = "ADHD Screening (ASRS-18) Results";
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  
+  // Header
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, 210, 40, 'F');
+  
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(20);
+  doc.setFont('helvetica', 'bold');
+  doc.text(title, 105, 18, { align: 'center' });
+  
+  doc.setFontSize(12);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Date: ' + today, 105, 32, { align: 'center' });
+  
+  // Score section
+  doc.setTextColor(0, 0, 0);
+  let yPos = 55;
+  
+  doc.setFillColor(240, 249, 255);
+  doc.setDrawColor(37, 99, 235);
+  doc.roundedRect(20, yPos, 170, 30, 3, 3, 'FD');
+  
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Total Score: ' + currentScore + '/72', 105, yPos + 12, { align: 'center' });
+  
+  doc.setFontSize(12);
+  doc.text('Assessment: ' + currentLevel, 105, yPos + 24, { align: 'center' });
+  
+  // Questions and answers
+  yPos = 100;
+  doc.setFontSize(14);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Your Responses:', 20, yPos);
+  yPos += 10;
+  
+  doc.setFontSize(10);
+  questions.forEach((question, index) => {
+    if (yPos > 270) {
+      doc.addPage();
+      yPos = 20;
+    }
+    
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const answer = selected ? options[parseInt(selected.value)] : 'Not answered';
+    const points = selected ? parseInt(selected.value) : 0;
+    
+    doc.setFont('helvetica', 'bold');
+    const qLines = doc.splitTextToSize((index + 1) + '. ' + question, 170);
+    doc.text(qLines, 20, yPos);
+    yPos += qLines.length * 5;
+    
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(37, 99, 235);
+    doc.text('   Answer: "' + answer + '" (' + points + ' points)', 20, yPos);
+    doc.setTextColor(0, 0, 0);
+    yPos += 8;
+  });
+  
+  // Disclaimer
+  if (yPos > 250) {
+    doc.addPage();
+    yPos = 20;
+  }
+  yPos += 10;
+  
+  doc.setFillColor(254, 243, 199);
+  doc.roundedRect(20, yPos, 170, 20, 3, 3, 'F');
+  
+  doc.setFontSize(9);
+  doc.setFont('helvetica', 'normal');
+  doc.setTextColor(146, 64, 14);
+  doc.text('DISCLAIMER: This screening tool is for informational purposes only and is not a diagnosis.', 105, yPos + 8, { align: 'center' });
+  doc.text('Please consult a licensed mental health professional for proper evaluation.', 105, yPos + 14, { align: 'center' });
+  
+  // Footer on all pages
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(8);
+    doc.setTextColor(128, 128, 128);
+    doc.text('Mental Health Screening Assessment - Confidential', 105, 290, { align: 'center' });
+    doc.text('Page ' + i + ' of ' + pageCount, 190, 290, { align: 'right' });
+  }
+  
+  // Save
+  doc.save('ADHD_Screening_Results_' + new Date().toISOString().split('T')[0] + '.pdf');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
