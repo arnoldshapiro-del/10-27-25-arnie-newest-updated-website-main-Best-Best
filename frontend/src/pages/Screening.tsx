@@ -326,6 +326,70 @@ const Screening = () => {
         }
       ]
     },
+    dar5: {
+      id: 'dar5',
+      title: 'Anger Screening (DAR-5)',
+      description: 'Dimensions of Anger Reactions - Screen for problematic anger',
+      icon: '😡',
+      stats: { questions: 5, minutes: '2-3', rating: 'Quick Screen' },
+      questions: [
+        {
+          id: 'dar5_1',
+          text: 'Felt angry, irritated, or frustrated from getting angry at people or situations?',
+          options: [
+            { value: 1, text: 'None or almost none of the time' },
+            { value: 2, text: 'A little of the time' },
+            { value: 3, text: 'Some of the time' },
+            { value: 4, text: 'Most of the time' },
+            { value: 5, text: 'All or almost all of the time' }
+          ]
+        },
+        {
+          id: 'dar5_2',
+          text: 'Got really mad about something and found it hard to calm down?',
+          options: [
+            { value: 1, text: 'None or almost none of the time' },
+            { value: 2, text: 'A little of the time' },
+            { value: 3, text: 'Some of the time' },
+            { value: 4, text: 'Most of the time' },
+            { value: 5, text: 'All or almost all of the time' }
+          ]
+        },
+        {
+          id: 'dar5_3',
+          text: 'Stayed angry for a long time after something made you mad?',
+          options: [
+            { value: 1, text: 'None or almost none of the time' },
+            { value: 2, text: 'A little of the time' },
+            { value: 3, text: 'Some of the time' },
+            { value: 4, text: 'Most of the time' },
+            { value: 5, text: 'All or almost all of the time' }
+          ]
+        },
+        {
+          id: 'dar5_4',
+          text: 'Wanted to hit, push, or hurt someone when you got angry?',
+          options: [
+            { value: 1, text: 'None or almost none of the time' },
+            { value: 2, text: 'A little of the time' },
+            { value: 3, text: 'Some of the time' },
+            { value: 4, text: 'Most of the time' },
+            { value: 5, text: 'All or almost all of the time' }
+          ]
+        },
+        {
+          id: 'dar5_5',
+          text: 'Found that your anger prevented you from getting along with people as well as you would have liked?',
+          options: [
+            { value: 1, text: 'None or almost none of the time' },
+            { value: 2, text: 'A little of the time' },
+            { value: 3, text: 'Some of the time' },
+            { value: 4, text: 'Most of the time' },
+            { value: 5, text: 'All or almost all of the time' }
+          ]
+        }
+      ]
+    },
     postpartum: {
       id: 'postpartum',
       title: 'Postpartum Depression (EPDS)',
