@@ -326,25 +326,6 @@ const Screening = () => {
         }
       ]
     },
-    anger: {
-      id: 'anger',
-      title: 'Anger Assessment (STAXI-2)',
-      description: 'State-Trait Anger Expression Inventory for anger management',
-      icon: '😡',
-      stats: { questions: 10, minutes: '4-5', rating: 'Anger Focus' },
-      questions: [
-        {
-          id: 'anger_1',
-          text: 'I am quick tempered',
-          options: [
-            { value: 0, text: 'Almost Never' },
-            { value: 1, text: 'Sometimes' },
-            { value: 2, text: 'Often' },
-            { value: 3, text: 'Almost Always' }
-          ]
-        }
-      ]
-    },
     postpartum: {
       id: 'postpartum',
       title: 'Postpartum Depression (EPDS)',
