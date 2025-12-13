@@ -1480,21 +1480,230 @@ const Screening = () => {
         }
       ]
     },
-    social_anxiety: {
-      id: 'social_anxiety',
-      title: 'Social Anxiety Screening (SPIN)',
-      description: 'Social Phobia Inventory for social anxiety symptoms',
+    sias: {
+      id: 'sias',
+      title: 'Social Anxiety Assessment (SIAS)',
+      description: 'Social Interaction Anxiety Scale. For each item, please indicate the degree to which you feel the statement is characteristic or true of you.',
       icon: '👥',
-      stats: { questions: 17, minutes: '6-8', rating: 'Social Focus' },
+      stats: { questions: 20, minutes: '6-8', rating: 'Social Focus' },
       questions: [
         {
-          id: 'social_1',
-          text: 'I am afraid of people in authority',
+          id: 'sias_1',
+          text: 'I get nervous if I have to speak with someone in authority (teacher, boss).',
           options: [
             { value: 0, text: 'Not at all' },
-            { value: 1, text: 'A little bit' },
+            { value: 1, text: 'Slightly' },
             { value: 2, text: 'Moderately' },
-            { value: 3, text: 'Quite a bit' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_2',
+          text: 'I have difficulty making eye contact with others.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_3',
+          text: 'I become tense if I have to talk about myself or my feelings.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_4',
+          text: 'I find it difficult to mix comfortably with the people I work with.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_5',
+          text: 'I find it easy to make friends my own age.',
+          options: [
+            { value: 4, text: 'Not at all' },
+            { value: 3, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 1, text: 'Very' },
+            { value: 0, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_6',
+          text: 'I tense up if I meet an acquaintance in the street.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_7',
+          text: 'When mixing socially, I am uncomfortable.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_8',
+          text: 'I feel tense if I am alone with just one other person.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_9',
+          text: 'I am at ease meeting people at parties, etc.',
+          options: [
+            { value: 4, text: 'Not at all' },
+            { value: 3, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 1, text: 'Very' },
+            { value: 0, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_10',
+          text: 'I have difficulty talking with other people.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_11',
+          text: 'I find it easy to think of things to talk about.',
+          options: [
+            { value: 4, text: 'Not at all' },
+            { value: 3, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 1, text: 'Very' },
+            { value: 0, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_12',
+          text: 'I worry about expressing myself in case I appear awkward.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_13',
+          text: 'I find it difficult to disagree with another\'s point of view.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_14',
+          text: 'I have difficulty talking to attractive persons of the opposite sex.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_15',
+          text: 'I find myself worrying that I won\'t know what to say in social situations.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_16',
+          text: 'I am nervous mixing with people I don\'t know well.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_17',
+          text: 'I feel I\'ll say something embarrassing when talking.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_18',
+          text: 'When mixing in a group, I find myself worrying I will be ignored.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_19',
+          text: 'I am tense mixing in a group.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
+            { value: 4, text: 'Extremely' }
+          ]
+        },
+        {
+          id: 'sias_20',
+          text: 'I am unsure whether to greet someone I know only slightly.',
+          options: [
+            { value: 0, text: 'Not at all' },
+            { value: 1, text: 'Slightly' },
+            { value: 2, text: 'Moderately' },
+            { value: 3, text: 'Very' },
             { value: 4, text: 'Extremely' }
           ]
         }
