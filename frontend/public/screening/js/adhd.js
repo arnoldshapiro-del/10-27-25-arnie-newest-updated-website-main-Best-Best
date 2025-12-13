@@ -67,15 +67,15 @@ function calculateResults() {
   if (score <= 24) {
     level = "Low likelihood of ADHD";
     color = "#10b981";
-    recommendation = "Your responses suggest a low likelihood of ADHD. Continue monitoring your symptoms and consult Dr. Shapiro if symptoms worsen.";
+    recommendation = "Your responses suggest a low likelihood of ADHD. Continue monitoring your symptoms and consult a mental health professional if symptoms worsen.";
   } else if (score <= 36) {
     level = "Moderate likelihood of ADHD";
     color = "#f59e0b";
-    recommendation = "Your responses suggest possible ADHD symptoms. Consider scheduling an evaluation with Dr. Shapiro to discuss your symptoms.";
+    recommendation = "Your responses suggest possible ADHD symptoms. Consider scheduling an evaluation with a mental health professional to discuss your symptoms.";
   } else {
     level = "High likelihood of ADHD";
     color = "#ef4444";
-    recommendation = "Your responses suggest significant ADHD symptoms. Strongly recommend evaluation with Dr. Shapiro for proper assessment and treatment options.";
+    recommendation = "Your responses suggest significant ADHD symptoms. Strongly recommend evaluation with a mental health professional for proper assessment and treatment options.";
   }
   
   const resultDiv = document.getElementById('out');
@@ -90,7 +90,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

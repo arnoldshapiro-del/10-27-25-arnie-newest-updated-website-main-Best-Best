@@ -157,11 +157,11 @@ function calculateResults() {
   } else if (score <= 12) {
     level = "Possible postpartum depression";
     color = "#f59e0b";
-    recommendation = "Your responses suggest possible postpartum depression. Consider discussing your feelings with Dr. Shapiro.";
+    recommendation = "Your responses suggest possible postpartum depression. Consider discussing your feelings with a mental health professional.";
   } else {
     level = "Likely postpartum depression";
     color = "#ef4444";
-    recommendation = "Your responses suggest likely postpartum depression. Strongly recommend immediate evaluation with Dr. Shapiro.";
+    recommendation = "Your responses suggest likely postpartum depression. Strongly recommend immediate evaluation with a mental health professional.";
   }
   
   let crisisAlert = '';
@@ -189,7 +189,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

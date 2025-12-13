@@ -50,11 +50,11 @@ function calculateResults() {
   if (score >= 2) {
     level = "Positive screen for eating disorder";
     color = "#ef4444";
-    recommendation = "Your responses suggest possible eating disorder symptoms. Strongly recommend evaluation with Dr. Shapiro for comprehensive assessment and treatment options.";
+    recommendation = "Your responses suggest possible eating disorder symptoms. Strongly recommend evaluation with a mental health professional for comprehensive assessment and treatment options.";
   } else {
     level = "Low likelihood of eating disorder";
     color = "#10b981";
-    recommendation = "Your responses suggest a low likelihood of eating disorder. Continue maintaining healthy eating habits and consult Dr. Shapiro if concerns develop.";
+    recommendation = "Your responses suggest a low likelihood of eating disorder. Continue maintaining healthy eating habits and consult a mental health professional if concerns develop.";
   }
   
   const resultDiv = document.getElementById('out');
@@ -69,7 +69,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

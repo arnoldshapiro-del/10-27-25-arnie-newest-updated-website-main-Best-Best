@@ -49,11 +49,11 @@ function calculateResults() {
   if (score >= 2) {
     level = "Positive screen for substance use disorder";
     color = "#ef4444";
-    recommendation = "Your responses suggest possible substance use concerns. Strongly recommend evaluation with Dr. Shapiro for assessment and treatment options.";
+    recommendation = "Your responses suggest possible substance use concerns. Strongly recommend evaluation with a mental health professional for assessment and treatment options.";
   } else if (score === 1) {
     level = "Some substance use concerns";
     color = "#f59e0b";
-    recommendation = "Your responses suggest some substance use concerns. Consider discussing your use patterns with Dr. Shapiro.";
+    recommendation = "Your responses suggest some substance use concerns. Consider discussing your use patterns with a mental health professional.";
   } else {
     level = "Low likelihood of substance use disorder";
     color = "#10b981";
@@ -72,7 +72,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

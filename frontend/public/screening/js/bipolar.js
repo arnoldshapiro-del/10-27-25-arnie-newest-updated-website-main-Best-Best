@@ -99,15 +99,15 @@ function calculateResults() {
   if (isPositive) {
     level = "Positive screen for bipolar disorder";
     color = "#ef4444";
-    recommendation = "Your responses suggest possible bipolar disorder. This screening indicates you should discuss these symptoms with Dr. Shapiro for comprehensive evaluation and potential treatment options.";
+    recommendation = "Your responses suggest possible bipolar disorder. This screening indicates you should discuss these symptoms with a mental health professional for comprehensive evaluation and potential treatment options.";
   } else if (score >= 7 && samePeriodValue === 1) {
     level = "Possible bipolar symptoms";
     color = "#f97316";
-    recommendation = "Your responses suggest some manic/hypomanic symptoms. Consider discussing these experiences with Dr. Shapiro to determine if further evaluation is needed.";
+    recommendation = "Your responses suggest some manic/hypomanic symptoms. Consider discussing these experiences with a mental health professional to determine if further evaluation is needed.";
   } else {
     level = "Low likelihood of bipolar disorder";
     color = "#10b981";
-    recommendation = "Your responses suggest a low likelihood of bipolar disorder. Continue monitoring your mood patterns and consult Dr. Shapiro if you experience significant mood changes.";
+    recommendation = "Your responses suggest a low likelihood of bipolar disorder. Continue monitoring your mood patterns and consult a mental health professional if you experience significant mood changes.";
   }
   
   const resultDiv = document.getElementById('out');
@@ -124,7 +124,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

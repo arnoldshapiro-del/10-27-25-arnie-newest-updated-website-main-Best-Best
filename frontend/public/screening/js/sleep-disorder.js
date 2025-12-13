@@ -77,15 +77,15 @@ function calculateResults() {
   } else if (score <= 14) {
     level = "Subthreshold insomnia";
     color = "#f59e0b";
-    recommendation = "Your responses suggest mild sleep difficulties. Consider discussing sleep habits with Dr. Shapiro.";
+    recommendation = "Your responses suggest mild sleep difficulties. Consider discussing sleep habits with a mental health professional.";
   } else if (score <= 21) {
     level = "Clinical insomnia (moderate severity)";
     color = "#f97316";
-    recommendation = "Your responses suggest moderate insomnia. Recommend evaluation with Dr. Shapiro for treatment options.";
+    recommendation = "Your responses suggest moderate insomnia. Recommend evaluation with a mental health professional for treatment options.";
   } else {
     level = "Clinical insomnia (severe)";
     color = "#ef4444";
-    recommendation = "Your responses suggest severe insomnia. Strongly recommend immediate evaluation with Dr. Shapiro.";
+    recommendation = "Your responses suggest severe insomnia. Strongly recommend immediate evaluation with a mental health professional.";
   }
   
   const resultDiv = document.getElementById('out');
@@ -100,7 +100,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

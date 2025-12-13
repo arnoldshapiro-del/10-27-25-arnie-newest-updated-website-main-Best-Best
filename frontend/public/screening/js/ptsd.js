@@ -71,11 +71,11 @@ function calculateResults() {
   } else if (score < 45) {
     level = "Possible PTSD symptoms";
     color = "#f59e0b";
-    recommendation = "Your responses suggest possible PTSD symptoms. Consider discussing your experiences with Dr. Shapiro for further evaluation.";
+    recommendation = "Your responses suggest possible PTSD symptoms. Consider discussing your experiences with a mental health professional for further evaluation.";
   } else {
     level = "High likelihood of PTSD";
     color = "#ef4444";
-    recommendation = "Your responses suggest significant PTSD symptoms. Strongly recommend evaluation with Dr. Shapiro for comprehensive assessment and treatment options.";
+    recommendation = "Your responses suggest significant PTSD symptoms. Strongly recommend evaluation with a mental health professional for comprehensive assessment and treatment options.";
   }
   
   const resultDiv = document.getElementById('out');
@@ -90,7 +90,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }

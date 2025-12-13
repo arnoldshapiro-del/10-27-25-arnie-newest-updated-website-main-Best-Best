@@ -67,19 +67,19 @@ function calculateResults() {
   } else if (score <= 9) {
     level = "Mild depression";
     color = "#f59e0b";
-    recommendation = "Your responses suggest mild depression symptoms. Consider discussing your mood with Dr. Shapiro.";
+    recommendation = "Your responses suggest mild depression symptoms. Consider discussing your mood with a mental health professional.";
   } else if (score <= 14) {
     level = "Moderate depression";
     color = "#f97316";
-    recommendation = "Your responses suggest moderate depression symptoms. Recommend evaluation with Dr. Shapiro for treatment options.";
+    recommendation = "Your responses suggest moderate depression symptoms. Recommend evaluation with a mental health professional for treatment options.";
   } else if (score <= 19) {
     level = "Moderately severe depression";
     color = "#ef4444";
-    recommendation = "Your responses suggest moderately severe depression. Strongly recommend immediate evaluation with Dr. Shapiro.";
+    recommendation = "Your responses suggest moderately severe depression. Strongly recommend immediate evaluation with a mental health professional.";
   } else {
     level = "Severe depression";
     color = "#dc2626";
-    recommendation = "Your responses suggest severe depression. Please contact Dr. Shapiro immediately for urgent evaluation and treatment.";
+    recommendation = "Your responses suggest severe depression. Please contact a mental health professional immediately for urgent evaluation and treatment.";
   }
   
   let crisisAlert = '';
@@ -107,7 +107,7 @@ function calculateResults() {
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with Dr. Arnold G. Shapiro or another qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider or another qualified healthcare provider for proper evaluation and treatment.</p>
     </div>
   `;
 }
