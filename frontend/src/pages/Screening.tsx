@@ -6,11 +6,13 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { ArrowLeft, ArrowRight, Phone, Mail, Calendar, AlertTriangle, Shield, CheckCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, Mail, Calendar, AlertTriangle, Shield, CheckCircle, Download } from "lucide-react";
 import Header from "@/components/Header";
 import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
 
 interface Question {
   id: string;
