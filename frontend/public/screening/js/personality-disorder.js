@@ -1,38 +1,31 @@
-// Personality Disorder Questionnaire (PDQ-4) Screening Implementation
+// Personality Disorder Screening Implementation
 const questions = [
-  "I have always been a loner",
-  "I often feel empty inside",
-  "I have trouble making decisions",
-  "I worry a lot about being abandoned or rejected",
-  "My relationships are very intense and unstable",
-  "I often feel like I don't know who I really am",
-  "I have trouble controlling my anger",
-  "I often feel suspicious of other people",
-  "I have a hard time trusting people",
-  "I often feel like people are out to get me",
-  "I need to be the center of attention",
-  "I think I'm better than most people",
-  "I have trouble feeling empathy for others",
-  "I often manipulate others to get what I want",
-  "I avoid social situations because I'm afraid of being criticized"
+  "I tend to have difficulty trusting other people",
+  "I often feel uncomfortable in social situations",
+  "I have unusual thoughts or beliefs that others find strange",
+  "I tend to have intense and unstable relationships",
+  "I often seek attention from others",
+  "I feel that I am superior to most people",
+  "I tend to avoid social activities due to fear of criticism",
+  "I have difficulty making decisions without reassurance from others",
+  "I am preoccupied with orderliness, perfectionism, and control",
+  "I often act impulsively without considering consequences"
 ];
+
+const options = ["Not at all", "A little bit", "Moderately", "Quite a bit", "Extremely"];
+let currentScore = 0;
+let currentLevel = "";
 
 function renderForm() {
   const formDiv = document.getElementById('form');
-  let html = '<p><strong>Please indicate whether each statement is true or false for you:</strong></p>';
+  let html = '<p><strong>Please indicate how much each statement applies to you:</strong></p>';
   
   questions.forEach((question, index) => {
-    html += `<div class="card">
-      <p><strong>${index + 1}. ${question}</strong></p>
-      <label style="display:block;margin:8px 0;">
-        <input type="radio" name="q${index}" value="1" style="margin-right:8px;">
-        True
-      </label>
-      <label style="display:block;margin:8px 0;">
-        <input type="radio" name="q${index}" value="0" style="margin-right:8px;">
-        False
-      </label>
-    </div>`;
+    html += `<div class="card"><p><strong>${index + 1}. ${question}</strong></p>`;
+    options.forEach((option, optIndex) => {
+      html += `<label style="display:block;margin:8px 0;"><input type="radio" name="q${index}" value="${optIndex}" style="margin-right:8px;">${option}</label>`;
+    });
+    html += '</div>';
   });
   
   formDiv.innerHTML = html;
@@ -44,10 +37,7 @@ function calculateResults() {
   
   for (let i = 0; i < questions.length; i++) {
     const selected = document.querySelector(`input[name="q${i}"]:checked`);
-    if (selected) {
-      score += parseInt(selected.value);
-      answered++;
-    }
+    if (selected) { score += parseInt(selected.value); answered++; }
   }
   
   if (answered < questions.length) {
@@ -55,37 +45,111 @@ function calculateResults() {
     return;
   }
   
+  currentScore = score;
   let level, color, recommendation;
   
-  if (score <= 3) {
-    level = "Low likelihood of personality disorder";
+  if (score <= 10) {
+    level = "Low likelihood of personality disorder traits";
     color = "#10b981";
-    recommendation = "Your responses suggest low likelihood of personality disorder traits. Continue healthy relationship patterns.";
-  } else if (score <= 6) {
-    level = "Some personality disorder traits";
+    recommendation = "Your responses suggest low likelihood of personality disorder traits. Continue healthy coping strategies.";
+  } else if (score <= 20) {
+    level = "Some personality concerns";
     color = "#f59e0b";
-    recommendation = "Your responses suggest some personality traits that may benefit from discussion with a mental health professional.";
+    recommendation = "Your responses suggest some personality-related concerns. Consider discussing with a mental health professional.";
   } else {
-    level = "Significant personality disorder traits";
+    level = "Elevated personality concerns";
     color = "#ef4444";
-    recommendation = "Your responses suggest significant personality traits. Recommend comprehensive evaluation with a mental health professional.";
+    recommendation = "Your responses suggest elevated personality concerns. Recommend comprehensive evaluation with a mental health professional.";
   }
+  
+  currentLevel = level;
   
   const resultDiv = document.getElementById('out');
   resultDiv.innerHTML = `
     <div class="card" style="border-left: 4px solid ${color};">
       <h2>Your Results</h2>
-      <p><strong>Total Score: ${score}/15</strong></p>
+      <p><strong>Total Score: ${score}/40</strong></p>
       <p><strong>Assessment: ${level}</strong></p>
       <p>${recommendation}</p>
-      <div style="margin-top:16px;">
-        
+      <div style="margin-top:20px; text-align:center;">
+        <button onclick="downloadPDF()" style="background-color: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">📥 Download PDF Report</button>
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
-      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis. Please consult with a qualified healthcare provider for proper evaluation and treatment.</p>
+      <p><strong>Disclaimer:</strong> This screening tool is for educational purposes only and does not constitute a medical diagnosis.</p>
     </div>
   `;
+}
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  const title = "Personality Disorder Screening Results";
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  
+  doc.setFillColor(37, 99, 235);
+  doc.rect(0, 0, 210, 40, 'F');
+  doc.setTextColor(255, 255, 255);
+  doc.setFontSize(20);
+  doc.setFont('helvetica', 'bold');
+  doc.text(title, 105, 18, { align: 'center' });
+  doc.setFontSize(12);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Date: ' + today, 105, 32, { align: 'center' });
+  
+  doc.setTextColor(0, 0, 0);
+  let yPos = 55;
+  doc.setFillColor(240, 249, 255);
+  doc.setDrawColor(37, 99, 235);
+  doc.roundedRect(20, yPos, 170, 30, 3, 3, 'FD');
+  doc.setFontSize(16);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Total Score: ' + currentScore + '/40', 105, yPos + 12, { align: 'center' });
+  doc.setFontSize(12);
+  doc.text('Assessment: ' + currentLevel, 105, yPos + 24, { align: 'center' });
+  
+  yPos = 100;
+  doc.setFontSize(14);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Your Responses:', 20, yPos);
+  yPos += 10;
+  
+  doc.setFontSize(10);
+  questions.forEach((question, index) => {
+    if (yPos > 270) { doc.addPage(); yPos = 20; }
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    const answer = selected ? options[parseInt(selected.value)] : 'Not answered';
+    const points = selected ? parseInt(selected.value) : 0;
+    doc.setFont('helvetica', 'bold');
+    const qLines = doc.splitTextToSize((index + 1) + '. ' + question, 170);
+    doc.text(qLines, 20, yPos);
+    yPos += qLines.length * 5;
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(37, 99, 235);
+    doc.text('   Answer: "' + answer + '" (' + points + ' points)', 20, yPos);
+    doc.setTextColor(0, 0, 0);
+    yPos += 8;
+  });
+  
+  if (yPos > 250) { doc.addPage(); yPos = 20; }
+  yPos += 10;
+  doc.setFillColor(254, 243, 199);
+  doc.roundedRect(20, yPos, 170, 20, 3, 3, 'F');
+  doc.setFontSize(9);
+  doc.setTextColor(146, 64, 14);
+  doc.text('DISCLAIMER: This screening tool is for informational purposes only and is not a diagnosis.', 105, yPos + 8, { align: 'center' });
+  doc.text('Please consult a licensed mental health professional for proper evaluation.', 105, yPos + 14, { align: 'center' });
+  
+  const pageCount = doc.getNumberOfPages();
+  for (let i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.setFontSize(8);
+    doc.setTextColor(128, 128, 128);
+    doc.text('Mental Health Screening Assessment - Confidential', 105, 290, { align: 'center' });
+    doc.text('Page ' + i + ' of ' + pageCount, 190, 290, { align: 'right' });
+  }
+  
+  doc.save('Personality_Disorder_Results_' + new Date().toISOString().split('T')[0] + '.pdf');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
