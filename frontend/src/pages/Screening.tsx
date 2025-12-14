@@ -4897,35 +4897,36 @@ const Screening = () => {
       const dateStr = new Date().toISOString().split('T')[0];
       const fileName = `${safeTitle}_Results_${dateStr}.pdf`;
       
-      // Try multiple methods to download/display the PDF
-      try {
-        // Method 1: Try direct save (works in most browsers)
-        doc.save(fileName);
-        console.log('PDF downloaded successfully:', fileName);
-      } catch (saveError) {
-        console.log('Direct save failed, trying blob method:', saveError);
-        
-        // Method 2: Open PDF in new tab using blob URL (works in sandboxed environments)
-        const pdfBlob = doc.output('blob');
-        const blobUrl = URL.createObjectURL(pdfBlob);
-        const newWindow = window.open(blobUrl, '_blank');
-        
-        if (newWindow) {
-          console.log('PDF opened in new tab');
-        } else {
-          // Method 3: Create download link and click it
-          const link = document.createElement('a');
-          link.href = blobUrl;
-          link.download = fileName;
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          console.log('PDF download triggered via link');
-        }
-        
-        // Clean up blob URL after a delay
-        setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+      // Use blob URL method - works in sandboxed environments
+      const pdfBlob = doc.output('blob');
+      const blobUrl = URL.createObjectURL(pdfBlob);
+      
+      // Method 1: Try to open in new tab
+      const newWindow = window.open(blobUrl, '_blank');
+      
+      if (!newWindow) {
+        // Method 2: If popup blocked, create download link
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = fileName;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        console.log('PDF download triggered via link');
       }
+      
+      // Also try direct save as backup (might work on deployed site)
+      try {
+        doc.save(fileName);
+      } catch (e) {
+        console.log('Direct save not available');
+      }
+      
+      // Clean up blob URL after delay
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+      
+      console.log('PDF generated:', fileName);
       
     } catch (error) {
       console.error('Error generating PDF:', error);
