@@ -5056,7 +5056,7 @@ const Screening = () => {
                   <ol className="text-left text-sm text-gray-700 space-y-2">
                     <li className="flex items-start gap-2">
                       <span className="font-bold text-blue-600">1.</span>
-                      <span>Click "Download PDF Report" above</span>
+                      <span>Click "View PDF Report" above to see your results</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-bold text-blue-600">2.</span>
