@@ -4892,24 +4892,38 @@ const Screening = () => {
         doc.text(`Page ${i} of ${pageCount}`, 190, 290, { align: 'right' });
       }
       
-      // ===== SAVE THE PDF =====
+      // ===== DISPLAY THE PDF =====
       const safeTitle = assessment.title.replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, '_');
       const dateStr = new Date().toISOString().split('T')[0];
       const fileName = `${safeTitle}_Results_${dateStr}.pdf`;
       
-      // Generate PDF as base64 data URI - won't be blocked by popup blockers
+      // Instead of downloading, embed PDF in an iframe on the page
       const pdfBase64 = doc.output('datauristring');
       
-      // Create a link and trigger download
-      const link = document.createElement('a');
-      link.href = pdfBase64;
-      link.download = fileName;
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Create a modal/container to display the PDF
+      const modal = document.createElement('div');
+      modal.id = 'pdf-viewer-modal';
+      modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;display:flex;flex-direction:column;align-items:center;padding:20px;';
       
-      console.log('PDF download triggered:', fileName);
+      const closeBtn = document.createElement('button');
+      closeBtn.textContent = '✕ Close';
+      closeBtn.style.cssText = 'background:#fff;border:none;padding:10px 20px;margin-bottom:10px;cursor:pointer;border-radius:5px;font-size:16px;';
+      closeBtn.onclick = () => modal.remove();
+      
+      const instructions = document.createElement('p');
+      instructions.textContent = 'Right-click on the PDF and select "Save as..." to download';
+      instructions.style.cssText = 'color:#fff;margin-bottom:10px;font-size:14px;';
+      
+      const iframe = document.createElement('iframe');
+      iframe.src = pdfBase64;
+      iframe.style.cssText = 'width:90%;height:85%;border:none;background:#fff;';
+      
+      modal.appendChild(closeBtn);
+      modal.appendChild(instructions);
+      modal.appendChild(iframe);
+      document.body.appendChild(modal);
+      
+      console.log('PDF displayed in viewer:', fileName);
       
     } catch (error) {
       console.error('Error generating PDF:', error);
