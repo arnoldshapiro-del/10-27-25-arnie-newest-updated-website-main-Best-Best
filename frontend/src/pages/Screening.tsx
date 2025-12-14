@@ -5041,7 +5041,7 @@ const Screening = () => {
                 <div className="flex flex-wrap gap-4 justify-center">
                   <Button onClick={downloadPDF} className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg" size="lg">
                     <Download className="h-5 w-5 mr-2" />
-                    Download PDF Report
+                    View PDF Report
                   </Button>
                   <Button onClick={returnToGrid} variant="outline" size="lg" className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50">
                     Take Another Assessment
