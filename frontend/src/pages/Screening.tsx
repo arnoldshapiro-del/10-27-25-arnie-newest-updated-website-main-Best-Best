@@ -4897,36 +4897,19 @@ const Screening = () => {
       const dateStr = new Date().toISOString().split('T')[0];
       const fileName = `${safeTitle}_Results_${dateStr}.pdf`;
       
-      // Use blob URL method - works in sandboxed environments
-      const pdfBlob = doc.output('blob');
-      const blobUrl = URL.createObjectURL(pdfBlob);
+      // Generate PDF as base64 data URI - won't be blocked by popup blockers
+      const pdfBase64 = doc.output('datauristring');
       
-      // Method 1: Try to open in new tab
-      const newWindow = window.open(blobUrl, '_blank');
+      // Create a link and trigger download
+      const link = document.createElement('a');
+      link.href = pdfBase64;
+      link.download = fileName;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
       
-      if (!newWindow) {
-        // Method 2: If popup blocked, create download link
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = fileName;
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        console.log('PDF download triggered via link');
-      }
-      
-      // Also try direct save as backup (might work on deployed site)
-      try {
-        doc.save(fileName);
-      } catch (e) {
-        console.log('Direct save not available');
-      }
-      
-      // Clean up blob URL after delay
-      setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
-      
-      console.log('PDF generated:', fileName);
+      console.log('PDF download triggered:', fileName);
       
     } catch (error) {
       console.error('Error generating PDF:', error);
