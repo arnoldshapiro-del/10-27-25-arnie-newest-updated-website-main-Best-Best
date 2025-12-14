@@ -178,7 +178,34 @@ function downloadPDF() {
     doc.text('Page ' + i + ' of ' + pageCount, 190, 290, { align: 'right' });
   }
   
-  doc.save('Postpartum_EPDS_Results_' + new Date().toISOString().split('T')[0] + '.pdf');
+  // Use blob URL method - works in sandboxed environments
+  var pdfBlob = doc.output('blob');
+  var blobUrl = URL.createObjectURL(pdfBlob);
+  var fileName = 'postpartum-depression_Results_' + new Date().toISOString().split('T')[0] + '.pdf';
+
+  // Try to open in new tab
+  var newWindow = window.open(blobUrl, '_blank');
+
+  if (!newWindow) {
+    // If popup blocked, create download link
+    var link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = fileName;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Also try direct save as backup
+  try {
+    doc.save(fileName);
+  } catch (e) {
+    console.log('Direct save not available');
+  }
+
+  // Clean up
+  setTimeout(function() { URL.revokeObjectURL(blobUrl); }, 30000);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
