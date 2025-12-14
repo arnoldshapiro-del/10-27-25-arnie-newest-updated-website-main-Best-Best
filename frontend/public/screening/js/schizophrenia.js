@@ -77,7 +77,7 @@ function calculateResults() {
       <p><strong>Assessment: ${level}</strong></p>
       <p>${recommendation}</p>
       <div style="margin-top:20px; text-align:center;">
-        <button onclick="downloadPDF()" style="background-color: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">📥 Download PDF Report</button>
+        <button onclick="downloadPDF()" style="background-color: #2563eb; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 600;">📄 View PDF Report</button>
       </div>
     </div>
     <div class="small" style="margin-top:16px;">
@@ -154,20 +154,33 @@ function downloadPDF() {
     doc.text('Page ' + i + ' of ' + pageCount, 190, 290, { align: 'right' });
   }
   
-  // Generate PDF as base64 data URI
+  // Instead of downloading, embed PDF in an iframe on the page
   var pdfBase64 = doc.output('datauristring');
-  var fileName = 'schizophrenia_Results_' + new Date().toISOString().split('T')[0] + '.pdf';
 
-  // Create a link and trigger download
-  var link = document.createElement('a');
-  link.href = pdfBase64;
-  link.download = fileName;
-  link.style.display = 'none';
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  // Create a modal/container to display the PDF
+  var modal = document.createElement('div');
+  modal.id = 'pdf-viewer-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:10000;display:flex;flex-direction:column;align-items:center;padding:20px;';
 
-  console.log('PDF download triggered:', fileName);
+  var closeBtn = document.createElement('button');
+  closeBtn.textContent = '✕ Close';
+  closeBtn.style.cssText = 'background:#fff;border:none;padding:10px 20px;margin-bottom:10px;cursor:pointer;border-radius:5px;font-size:16px;';
+  closeBtn.onclick = function() { modal.remove(); };
+
+  var instructions = document.createElement('p');
+  instructions.textContent = 'Right-click on the PDF and select "Save as..." to download';
+  instructions.style.cssText = 'color:#fff;margin-bottom:10px;font-size:14px;';
+
+  var iframe = document.createElement('iframe');
+  iframe.src = pdfBase64;
+  iframe.style.cssText = 'width:90%;height:85%;border:none;background:#fff;';
+
+  modal.appendChild(closeBtn);
+  modal.appendChild(instructions);
+  modal.appendChild(iframe);
+  document.body.appendChild(modal);
+
+  console.log('PDF displayed in viewer');
 }
 
 document.addEventListener('DOMContentLoaded', function() {
