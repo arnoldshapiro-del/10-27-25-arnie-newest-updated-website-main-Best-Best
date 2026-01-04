@@ -8,10 +8,56 @@ interface SEOProps {
   includeAnalytics?: boolean;
 }
 
+// Global Physician Schema for all pages
+const globalPhysicianSchema = {
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Arnold Shapiro, MD - Adult and Child Psychiatry",
+  "description": "Board-certified psychiatrist specializing in ADHD, anxiety, depression, bipolar disorder, and OCD treatment for adults and children in Cincinnati, Ohio and Northern Kentucky.",
+  "url": "https://www.arnoldshapiromd.com",
+  "telephone": "+1-859-341-7453",
+  "medicalSpecialty": ["Psychiatry", "Child and Adolescent Psychiatry"],
+  "availableService": ["ADHD Treatment", "Anxiety Treatment", "Depression Treatment", "Bipolar Disorder Treatment", "OCD Treatment"],
+  "priceRange": "$$",
+  "location": [
+    {
+      "@type": "MedicalClinic",
+      "name": "Arnold Shapiro, MD - Fort Wright Office",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1717 Dixie Hwy",
+        "addressLocality": "Fort Wright",
+        "addressRegion": "KY",
+        "postalCode": "41017",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-859-341-7453"
+    },
+    {
+      "@type": "MedicalClinic",
+      "name": "Arnold Shapiro, MD - Cincinnati Office",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8280 Montgomery Rd",
+        "addressLocality": "Cincinnati",
+        "addressRegion": "OH",
+        "postalCode": "45236",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-859-341-7453"
+    }
+  ]
+};
+
 const SEO = ({ title, description, path = '', schema, includeAnalytics = true }: SEOProps) => {
   const siteUrl = window.location.origin;
   const fullUrl = `${siteUrl}${path}`;
   const siteName = "Dr. Arnold Shapiro Psychiatry";
+
+  // Combine global schema with page-specific schema
+  const allSchemas = schema 
+    ? (Array.isArray(schema) ? [globalPhysicianSchema, ...schema] : [globalPhysicianSchema, schema])
+    : [globalPhysicianSchema];
 
   return (
     <Helmet>
@@ -51,20 +97,12 @@ const SEO = ({ title, description, path = '', schema, includeAnalytics = true }:
         </>
       )}
 
-      {/* Schema Markup */}
-      {schema && (
-        Array.isArray(schema) ? (
-          schema.map((s, index) => (
-            <script key={index} type="application/ld+json">
-              {JSON.stringify(s)}
-            </script>
-          ))
-        ) : (
-          <script type="application/ld+json">
-            {JSON.stringify(schema)}
-          </script>
-        )
-      )}
+      {/* Schema Markup - Global + Page-specific */}
+      {allSchemas.map((s, index) => (
+        <script key={index} type="application/ld+json">
+          {JSON.stringify(s)}
+        </script>
+      ))}
     </Helmet>
   );
 };
