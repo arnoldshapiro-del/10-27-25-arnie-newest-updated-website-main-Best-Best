@@ -14,4 +14,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.shapirospsychiatry.com/sitemap.xml
+Sitemap: https://www.arnoldshapiromd.com/sitemap.xml
