@@ -198,8 +198,8 @@ const Index = () => {
       <ServicesSection />
       <ApproachSection />
       <TestimonialsCarousel />
-      <FAQSection />
       <ContactSection />
+      <FAQSection />
       <EmergencyDisclaimer />
       <Footer />
     </div>
