@@ -16,6 +16,14 @@ const globalPhysicianSchema = {
   "description": "Board-certified psychiatrist specializing in ADHD, anxiety, depression, bipolar disorder, and OCD treatment for adults and children in Cincinnati, Ohio and Northern Kentucky.",
   "url": "https://www.arnoldshapiromd.com",
   "telephone": "+1-859-341-7453",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1717 Dixie Hwy",
+    "addressLocality": "Fort Wright",
+    "addressRegion": "KY",
+    "postalCode": "41017",
+    "addressCountry": "US"
+  },
   "medicalSpecialty": ["Psychiatry", "Child and Adolescent Psychiatry"],
   "availableService": ["ADHD Treatment", "Anxiety Treatment", "Depression Treatment", "Bipolar Disorder Treatment", "OCD Treatment"],
   "priceRange": "$$",
