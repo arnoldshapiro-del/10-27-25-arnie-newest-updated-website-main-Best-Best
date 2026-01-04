@@ -29,7 +29,7 @@ const faqData = [
     answer: "Absolutely. Dr. Shapiro always includes parents in appointments for children and teenagers. Even with older teens, he encourages parent involvement because gathering information from both the teenager and parents leads to much better care. When teens have separate therapy sessions, confidentiality is maintained unless there's a safety concern, and teens know this from the start. Dr. Shapiro is very flexible and encourages complete parent involvement because he knows how important it is for families to work together."
   },
   {
-    question: "Will I feel like a zombie or too tired on medication?",
+    question: "Will I feel too tired on medication?",
     answer: "Dr. Shapiro promises you will feel exactly like your normal self. If any medication makes you too tired or causes uncomfortable side effects, he tells you not to wait until your next appointment. He explains how to safely stop the medication and asks you to contact the office. The goal is always to help you feel better while still feeling like yourself. You will never stay on a medication that makes you uncomfortable."
   },
   {
