@@ -127,13 +127,36 @@ const Forms = () => {
     }
   ];
 
+  // Forms Page Schema
+  const formsSchemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.arnoldshapiromd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Patient Forms",
+          "item": "https://www.arnoldshapiromd.com/forms"
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Patient Forms | New Patient Intake | Dr. Shapiro Psychiatry Cincinnati"
-        description="Download patient intake forms, medical history questionnaires, and mental health assessment forms for Dr. Arnold Shapiro's psychiatric practice in Cincinnati and Northern Kentucky."
+        title="Patient Forms | New Patient Intake Forms | Dr. Shapiro Psychiatry Cincinnati"
+        description="Download new patient intake forms, medical history questionnaires, and mental health screening forms. Complete before your first psychiatric appointment with Dr. Shapiro in Cincinnati or Fort Wright."
         path="/forms"
-        includeAnalytics={false}
+        schema={formsSchemas}
+        keywords="patient intake forms, psychiatric forms, new patient forms, mental health questionnaire, depression screening form, anxiety screening form, ADHD assessment form, Cincinnati psychiatrist forms"
       />
       <Header />
       {/* Header */}
