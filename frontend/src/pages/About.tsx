@@ -15,12 +15,183 @@ const About = () => {
     { icon: Heart, title: "Compassionate Care", desc: "Patient-Centered Approach" }
   ];
 
+  // Comprehensive Physician Schema for About Page
+  const aboutPageSchemas = [
+    // Detailed IndividualPhysician Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "@id": "https://www.arnoldshapiromd.com/about#physician",
+      "name": "Arnold G. Shapiro, MD",
+      "givenName": "Arnold",
+      "familyName": "Shapiro",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "MD",
+      "jobTitle": "Board-Certified Psychiatrist",
+      "description": "Dr. Arnold G. Shapiro is a board-certified psychiatrist with over 35 years of experience specializing in child, adolescent, and adult psychiatry. He is known for his compassionate, thorough three-part evaluation system and personalized treatment approach.",
+      "url": "https://www.arnoldshapiromd.com/about",
+      "image": "https://www.arnoldshapiromd.com/doctor-arnold-shapiro.jpg",
+      "telephone": "+1-859-341-7453",
+      
+      // Medical Specialties
+      "medicalSpecialty": [
+        "Psychiatry",
+        "Adult Psychiatry",
+        "Child and Adolescent Psychiatry"
+      ],
+      
+      // NPI Number placeholder - Update with actual NPI
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "NPI",
+        "value": "[NPI_NUMBER_PLACEHOLDER]"
+      },
+      
+      // Board Certifications
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Board Certification",
+          "name": "Board Certified in Psychiatry",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "American Board of Psychiatry and Neurology",
+            "alternateName": "ABPN",
+            "url": "https://www.abpn.com"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Medical Degree",
+          "name": "Doctor of Medicine (MD)",
+          "educationalLevel": "Doctoral"
+        }
+      ],
+      
+      // Comprehensive conditions treated
+      "knowsAbout": [
+        "ADHD (Attention Deficit Hyperactivity Disorder)",
+        "Depression (Major Depressive Disorder)",
+        "Anxiety Disorders",
+        "Generalized Anxiety Disorder (GAD)",
+        "Bipolar Disorder",
+        "OCD (Obsessive-Compulsive Disorder)",
+        "Panic Disorder",
+        "Tourette Syndrome",
+        "Insomnia",
+        "Autism Spectrum Disorder (ASD)",
+        "PTSD (Post-Traumatic Stress Disorder)",
+        "Social Anxiety Disorder",
+        "Mood Disorders",
+        "Oppositional Defiant Disorder",
+        "Medication Management",
+        "Psychiatric Evaluation"
+      ],
+      
+      // Services Offered
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Comprehensive Psychiatric Evaluation",
+          "description": "Three-part evaluation system for thorough diagnosis"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Medication Management"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Individual Therapy"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Family Therapy"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Telepsychiatry"
+        }
+      ],
+      
+      // Practice Details
+      "isAcceptingNewPatients": true,
+      "priceRange": "$$",
+      
+      // Two Office Locations
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1717 Dixie Highway, Suite 200",
+          "addressLocality": "Fort Wright",
+          "addressRegion": "KY",
+          "postalCode": "41011",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "8280 Montgomery Road, Suite 304",
+          "addressLocality": "Cincinnati",
+          "addressRegion": "OH",
+          "postalCode": "45236",
+          "addressCountry": "US"
+        }
+      ],
+      
+      // Work Location
+      "workLocation": [
+        {
+          "@type": "MedicalClinic",
+          "name": "Dr. Arnold Shapiro Psychiatry - Fort Wright",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1717 Dixie Highway, Suite 200",
+            "addressLocality": "Fort Wright",
+            "addressRegion": "KY",
+            "postalCode": "41011"
+          }
+        },
+        {
+          "@type": "MedicalClinic",
+          "name": "Dr. Arnold Shapiro Psychiatry - Cincinnati",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "8280 Montgomery Road, Suite 304",
+            "addressLocality": "Cincinnati",
+            "addressRegion": "OH",
+            "postalCode": "45236"
+          }
+        }
+      ]
+    },
+    // Breadcrumb for About page
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.arnoldshapiromd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Dr. Shapiro",
+          "item": "https://www.arnoldshapiromd.com/about"
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="About Dr. Arnold Shapiro | Board-Certified Psychiatrist | Cincinnati & NKY"
-        description="Meet Dr. Arnold Shapiro, a board-certified psychiatrist with decades of experience treating children, adolescents, and adults in Cincinnati and Northern Kentucky. Unique three-part evaluation system."
+        title="About Dr. Arnold Shapiro, MD | Board-Certified Psychiatrist | Cincinnati & NKY"
+        description="Meet Dr. Arnold Shapiro, MD - board-certified psychiatrist with 35+ years experience treating ADHD, anxiety, depression, bipolar disorder. Unique three-part evaluation system. Cincinnati & Fort Wright offices."
         path="/about"
+        schema={aboutPageSchemas}
+        keywords="Dr. Arnold Shapiro, Arnold Shapiro MD, board certified psychiatrist, psychiatrist Cincinnati, psychiatrist Fort Wright, child psychiatrist, adult psychiatrist, ADHD specialist, anxiety specialist, depression treatment"
       />
       <Header />
       {/* Header */}
