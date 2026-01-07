@@ -5202,10 +5202,38 @@ const Screening = () => {
   return (
     <>
       <SEO 
-        title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety Tests"
-        description="Free, confidential mental health screening tools for ADHD, depression, anxiety, bipolar disorder, OCD, PTSD, and more. Evidence-based clinical assessments."
+        title="Free Mental Health Screening Tools | ADHD, Depression, Anxiety, OCD Tests | Dr. Shapiro"
+        description="Free, confidential mental health screening tools: ADHD (ASRS-18), depression (PHQ-9), anxiety (GAD-7), bipolar (MDQ), OCD, PTSD tests. Evidence-based assessments. Cincinnati psychiatrist."
         path="/screening"
-        includeAnalytics={false}
+        keywords="free mental health screening, ADHD test, depression screening, anxiety test, PHQ-9, GAD-7, bipolar screening, OCD assessment, PTSD checklist, mental health assessment, free psychiatric screening"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Mental Health Screening Tools",
+            "description": "Free, confidential, evidence-based mental health screening assessments for ADHD, depression, anxiety, bipolar disorder, OCD, and PTSD.",
+            "url": "https://www.arnoldshapiromd.com/screening",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "provider": {
+              "@type": "Physician",
+              "name": "Arnold Shapiro, MD"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.arnoldshapiromd.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Screening Tools", "item": "https://www.arnoldshapiromd.com/screening" }
+            ]
+          }
+        ]}
       />
       <Header />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4">
