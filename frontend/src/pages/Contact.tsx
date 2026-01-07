@@ -37,12 +37,128 @@ const Contact = () => {
     { day: "Friday", hours: "9:00 AM - 12:00 PM" }
   ];
 
+  // Contact Page Schemas
+  const contactSchemas = [
+    // LocalBusiness Schema for Contact Page
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://www.arnoldshapiromd.com/contact#localbusiness",
+      "name": "Arnold Shapiro, MD - Adult and Child Psychiatry",
+      "description": "Board-certified psychiatrist serving Cincinnati, Ohio and Northern Kentucky. Accepting new patients.",
+      "url": "https://www.arnoldshapiromd.com/contact",
+      "telephone": "+1-859-341-7453",
+      "priceRange": "$$",
+      "image": "https://www.arnoldshapiromd.com/doctor-arnold-shapiro.jpg",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1717 Dixie Highway, Suite 200",
+          "addressLocality": "Fort Wright",
+          "addressRegion": "KY",
+          "postalCode": "41011",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "8280 Montgomery Road, Suite 304",
+          "addressLocality": "Cincinnati",
+          "addressRegion": "OH",
+          "postalCode": "45236",
+          "addressCountry": "US"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "39.062",
+        "longitude": "-84.538"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Friday"],
+          "opens": "09:00",
+          "closes": "12:00"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-859-341-7453",
+        "contactType": "Appointments",
+        "availableLanguage": "English",
+        "areaServed": ["Cincinnati", "Fort Wright", "Northern Kentucky", "Greater Cincinnati"]
+      },
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Free Parking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Wheelchair Accessible",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Elevator Access",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Telehealth Available",
+          "value": true
+        }
+      ]
+    },
+    // ContactPage Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Dr. Arnold Shapiro, MD",
+      "description": "Contact information, office locations, and hours for Dr. Arnold Shapiro's psychiatry practice in Cincinnati and Fort Wright.",
+      "url": "https://www.arnoldshapiromd.com/contact",
+      "mainEntity": {
+        "@type": "Physician",
+        "name": "Arnold Shapiro, MD",
+        "telephone": "+1-859-341-7453"
+      }
+    },
+    // Breadcrumb Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.arnoldshapiromd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://www.arnoldshapiromd.com/contact"
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Contact Us | Schedule Appointment | Dr. Shapiro Psychiatrist Cincinnati"
-        description="Schedule your psychiatric evaluation with Dr. Arnold Shapiro. Two convenient locations in Cincinnati and Fort Wright, KY. Call (859) 341-7453. Same-day response. Now accepting new patients."
+        title="Contact Dr. Shapiro | Schedule Appointment | Cincinnati & Fort Wright Psychiatrist"
+        description="Schedule your psychiatric appointment with Dr. Arnold Shapiro, MD. Two locations: Cincinnati, OH & Fort Wright, KY. Call (859) 341-7453. Accepting new patients. Telehealth available."
         path="/contact"
+        schema={contactSchemas}
+        keywords="schedule psychiatrist appointment, Cincinnati psychiatrist contact, Fort Wright psychiatrist, psychiatrist phone number, psychiatric appointment Cincinnati, Dr. Shapiro contact, mental health appointment"
       />
       <Header />
       {/* Header */}
