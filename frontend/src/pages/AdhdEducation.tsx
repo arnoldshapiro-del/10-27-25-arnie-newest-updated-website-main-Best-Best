@@ -195,6 +195,7 @@ export default function AdhdEducation() {
   const conditions = [
     { id: 'adhd', name: 'ADHD', icon: '🧠' },
     { id: 'Generalized-Anxiety-Disorder', name: 'Generalized Anxiety Disorder', icon: '😟' },
+    { id: 'Bipolar-Disorder', name: 'Bipolar Disorder', icon: '🎢' },
     { id: 'Autism Spectrum Disorder', name: 'Autism Spectrum Disorder', icon: '🧩' },
     { id: 'PTSD', name: 'PTSD', icon: '🛡️' },
     { id: 'ocd', name: 'OCD', icon: '🔄' },
