@@ -117,12 +117,221 @@ const Disorders = () => {
     }
   ];
 
+  // Comprehensive MedicalTherapy schemas for each condition
+  const conditionSchemas = [
+    // ADHD Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "ADHD Treatment",
+      "alternateName": ["Attention Deficit Hyperactivity Disorder Treatment", "ADD Treatment"],
+      "description": "Comprehensive treatment for ADHD including medication management, behavioral therapy, and skills training for children, adolescents, and adults.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "ADHD (Attention Deficit Hyperactivity Disorder)"
+      },
+      "howPerformed": "Stimulant medications, non-stimulant medications, behavioral therapy, parent training, and educational accommodations",
+      "procedureType": "Therapeutic",
+      "provider": {
+        "@type": "Physician",
+        "name": "Dr. Arnold Shapiro, MD"
+      }
+    },
+    // Depression Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Depression Treatment",
+      "alternateName": ["Major Depressive Disorder Treatment", "MDD Treatment", "Clinical Depression Treatment"],
+      "description": "Evidence-based treatment for depression including psychotherapy, antidepressant medications, and holistic approaches.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Depression (Major Depressive Disorder)"
+      },
+      "howPerformed": "Antidepressant medications, cognitive behavioral therapy, interpersonal therapy, and lifestyle modifications",
+      "procedureType": "Therapeutic"
+    },
+    // Anxiety Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Anxiety Disorders Treatment",
+      "alternateName": "Anxiety Treatment",
+      "description": "Comprehensive treatment for all anxiety disorders including generalized anxiety, social anxiety, and phobias.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Anxiety Disorders"
+      },
+      "howPerformed": "Anti-anxiety medications, SSRIs, cognitive behavioral therapy, exposure therapy",
+      "procedureType": "Therapeutic"
+    },
+    // GAD Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Generalized Anxiety Disorder Treatment",
+      "alternateName": "GAD Treatment",
+      "description": "Specialized treatment for generalized anxiety disorder with chronic, excessive worry.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Generalized Anxiety Disorder (GAD)"
+      },
+      "howPerformed": "SSRIs, SNRIs, buspirone, cognitive behavioral therapy, relaxation techniques",
+      "procedureType": "Therapeutic"
+    },
+    // Bipolar Disorder Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Bipolar Disorder Treatment",
+      "alternateName": ["Manic Depression Treatment", "Bipolar I Treatment", "Bipolar II Treatment"],
+      "description": "Comprehensive treatment for bipolar disorder including mood stabilization and psychotherapy.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Bipolar Disorder"
+      },
+      "howPerformed": "Mood stabilizers (lithium, valproate), atypical antipsychotics, psychotherapy, lifestyle management",
+      "procedureType": "Therapeutic"
+    },
+    // OCD Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "OCD Treatment",
+      "alternateName": ["Obsessive-Compulsive Disorder Treatment", "Obsessive Compulsive Disorder Treatment"],
+      "description": "Specialized treatment for OCD using exposure and response prevention therapy and medication.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "OCD (Obsessive-Compulsive Disorder)"
+      },
+      "howPerformed": "SSRIs, exposure and response prevention (ERP), cognitive behavioral therapy",
+      "procedureType": "Therapeutic"
+    },
+    // Panic Disorder Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Panic Disorder Treatment",
+      "alternateName": "Panic Attack Treatment",
+      "description": "Treatment for panic disorder including medication and therapy to reduce panic attacks.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Panic Disorder"
+      },
+      "howPerformed": "SSRIs, benzodiazepines, cognitive behavioral therapy, breathing techniques",
+      "procedureType": "Therapeutic"
+    },
+    // Tourette Syndrome Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Tourette Syndrome Treatment",
+      "alternateName": ["Tourette's Syndrome Treatment", "Tic Disorder Treatment"],
+      "description": "Treatment for Tourette syndrome and tic disorders including medication and behavioral interventions.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Tourette Syndrome"
+      },
+      "howPerformed": "Antipsychotics, alpha-2 agonists, habit reversal training, comprehensive behavioral intervention for tics",
+      "procedureType": "Therapeutic"
+    },
+    // Insomnia Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Insomnia Treatment",
+      "alternateName": ["Sleep Disorder Treatment", "Chronic Insomnia Treatment"],
+      "description": "Treatment for insomnia and sleep disorders including CBT-I and medication.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Insomnia"
+      },
+      "howPerformed": "Cognitive behavioral therapy for insomnia (CBT-I), sleep hygiene education, medication when appropriate",
+      "procedureType": "Therapeutic"
+    },
+    // Autism Spectrum Disorder Treatment Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalTherapy",
+      "name": "Autism Spectrum Disorder Treatment",
+      "alternateName": ["ASD Treatment", "Autism Treatment"],
+      "description": "Comprehensive treatment approach for autism spectrum disorder including behavioral interventions and family support.",
+      "relevantSpecialty": {
+        "@type": "MedicalSpecialty",
+        "name": "Psychiatry"
+      },
+      "indication": {
+        "@type": "MedicalIndication",
+        "name": "Autism Spectrum Disorder (ASD)"
+      },
+      "howPerformed": "Behavioral therapy, social skills training, occupational therapy, medication for co-occurring conditions",
+      "procedureType": "Therapeutic"
+    },
+    // Breadcrumb Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.arnoldshapiromd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Conditions We Treat",
+          "item": "https://www.arnoldshapiromd.com/disorders"
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Conditions We Treat | ADHD, Bipolar, OCD, Anxiety | Dr. Shapiro Cincinnati"
-        description="Expert psychiatric treatment for ADHD, anxiety disorders, depression, bipolar disorder, OCD, PTSD, Tourette syndrome, and other mental health conditions. Serving Cincinnati, OH and Northern Kentucky."
+        title="Conditions We Treat | ADHD, Bipolar, OCD, Anxiety, Depression | Cincinnati Psychiatrist"
+        description="Expert psychiatric treatment for ADHD (Attention Deficit Hyperactivity Disorder), anxiety, depression, bipolar disorder, OCD (Obsessive-Compulsive Disorder), panic disorder, Tourette syndrome, insomnia, and autism. Dr. Shapiro - Cincinnati & NKY."
         path="/disorders"
+        schema={conditionSchemas}
+        keywords="ADHD treatment Cincinnati, anxiety treatment, depression treatment, bipolar disorder treatment, OCD treatment, panic disorder treatment, Tourette syndrome treatment, insomnia treatment, autism treatment, mental health conditions, psychiatrist Cincinnati"
       />
       <Header />
       {/* Header */}
