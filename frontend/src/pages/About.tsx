@@ -44,7 +44,7 @@ const About = () => {
       "identifier": {
         "@type": "PropertyValue",
         "propertyID": "NPI",
-        "value": "[NPI_NUMBER_PLACEHOLDER]"
+        "value": "1568508158"
       },
       
       // Board Certifications
