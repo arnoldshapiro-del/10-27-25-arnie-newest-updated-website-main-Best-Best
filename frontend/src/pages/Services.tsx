@@ -79,12 +79,99 @@ const Services = () => {
     }
   ];
 
+  // Service Page Schemas
+  const serviceSchemas = [
+    // MedicalBusiness/Service Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Arnold Shapiro, MD - Psychiatric Services",
+      "description": "Comprehensive psychiatric services including psychiatric evaluation, medication management, individual therapy, family therapy, and telepsychiatry.",
+      "url": "https://www.arnoldshapiromd.com/services",
+      "telephone": "+1-859-341-7453",
+      "priceRange": "$$",
+      "medicalSpecialty": ["Psychiatry", "Child and Adolescent Psychiatry"],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Psychiatric Evaluation",
+          "description": "Comprehensive three-part evaluation including detailed history, diagnostic assessment, and personalized treatment planning.",
+          "procedureType": "Diagnostic",
+          "howPerformed": "Three-part evaluation: therapist assessment, patient evaluation, and comprehensive review with Dr. Shapiro"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Medication Management",
+          "description": "Expert psychiatric medication evaluation, prescribing, and ongoing monitoring for optimal results.",
+          "procedureType": "Therapeutic"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Individual Therapy",
+          "description": "One-on-one therapy sessions including CBT, psychodynamic therapy, and solution-focused approaches.",
+          "procedureType": "Therapeutic"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Family Therapy",
+          "description": "Family systems therapy to improve communication and address family dynamics.",
+          "procedureType": "Therapeutic"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Telepsychiatry",
+          "description": "Secure video appointments from the comfort of your home.",
+          "procedureType": "Therapeutic"
+        }
+      ],
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "1717 Dixie Highway, Suite 200",
+          "addressLocality": "Fort Wright",
+          "addressRegion": "KY",
+          "postalCode": "41011",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "8280 Montgomery Road, Suite 304",
+          "addressLocality": "Cincinnati",
+          "addressRegion": "OH",
+          "postalCode": "45236",
+          "addressCountry": "US"
+        }
+      ]
+    },
+    // Breadcrumb Schema
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.arnoldshapiromd.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://www.arnoldshapiromd.com/services"
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Psychiatric Services | ADHD, Anxiety, Depression Treatment | Cincinnati Psychiatrist"
-        description="Comprehensive psychiatric services including medication management, therapy, and our unique three-part evaluation. Treating ADHD, anxiety, depression, bipolar disorder, and more in Cincinnati & NKY."
+        title="Psychiatric Services | Evaluation, Therapy, Medication Management | Dr. Shapiro Cincinnati"
+        description="Comprehensive psychiatric services: three-part evaluation, medication management, individual & family therapy, telepsychiatry. Treating ADHD, anxiety, depression, bipolar, OCD. Cincinnati & Fort Wright, KY."
         path="/services"
+        schema={serviceSchemas}
+        keywords="psychiatric services Cincinnati, psychiatric evaluation, medication management, individual therapy, family therapy, telepsychiatry, telehealth psychiatry, ADHD evaluation, anxiety treatment, depression treatment, Cincinnati psychiatrist services"
       />
       <Header />
       {/* Header */}
