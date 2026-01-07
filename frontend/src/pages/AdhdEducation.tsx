@@ -256,9 +256,37 @@ export default function AdhdEducation() {
   return (
     <>
       <SEO 
-        title="Mental Health Education Slideshows | ADHD, Depression Info | Dr. Shapiro"
-        description="Comprehensive educational slideshows about ADHD, depression, anxiety, bipolar disorder, and other mental health conditions from board-certified psychiatrist Dr. Arnold Shapiro in Cincinnati."
+        title="Mental Health Education | ADHD, Bipolar, Anxiety Slideshows | Dr. Shapiro Cincinnati"
+        description="Free educational slideshows about ADHD, bipolar disorder, anxiety, depression, and autism from Dr. Arnold Shapiro, board-certified psychiatrist. Learn about symptoms, diagnosis, and treatment options."
         path="/slideshows"
+        keywords="ADHD education, bipolar disorder information, anxiety education, mental health slideshows, psychiatry education, ADHD symptoms, bipolar symptoms, autism education, mental health information"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "EducationalOccupationalProgram",
+            "name": "Mental Health Education Slideshows",
+            "description": "Educational slideshows about ADHD, bipolar disorder, anxiety, depression, autism, and other mental health conditions.",
+            "url": "https://www.arnoldshapiromd.com/slideshows",
+            "provider": {
+              "@type": "Physician",
+              "name": "Arnold Shapiro, MD"
+            },
+            "educationalProgramMode": "online",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.arnoldshapiromd.com/" },
+              { "@type": "ListItem", "position": 2, "name": "Education", "item": "https://www.arnoldshapiromd.com/slideshows" }
+            ]
+          }
+        ]}
       />
       <Header />
       <main className="min-h-screen bg-background p-6">
