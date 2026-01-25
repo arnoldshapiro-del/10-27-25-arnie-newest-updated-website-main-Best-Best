@@ -538,7 +538,7 @@ export default function Trichotillomania() {
                 
                 <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                   <p>
-                    If you struggle with pulling your hair, you're not alone—and you're not "crazy." 
+                    If you struggle with pulling your hair, you&apos;re not alone—and you&apos;re not &quot;crazy.&quot; 
                     Trichotillomania is a <strong className="text-foreground">real neurobiological condition</strong> that 
                     affects 1-2% of the population. With proper treatment, you can regain control and 
                     find relief from this often misunderstood disorder.
