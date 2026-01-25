@@ -85,7 +85,7 @@ const Disorders = () => {
       symptoms: ["Obsessive thoughts", "Compulsive behaviors", "Anxiety", "Time-consuming rituals"],
       treatments: ["Exposure therapy", "CBT", "Medication", "Mindfulness techniques"],
       color: "from-indigo-500/20 to-indigo-600/20",
-      link: null
+      link: "/ocd"
     },
     {
       icon: Moon,
