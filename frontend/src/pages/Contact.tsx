@@ -6,7 +6,8 @@ import {
   Clock, 
   MessageSquare,
   Car,
-  Accessibility
+  Accessibility,
+  CreditCard
 } from "lucide-react";
 import Header from "@/components/Header";
 import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
