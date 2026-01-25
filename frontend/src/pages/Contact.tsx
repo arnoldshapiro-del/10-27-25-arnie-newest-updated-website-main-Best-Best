@@ -157,7 +157,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-xl mb-2">Telehealth Available</h3>
                     <p className="text-base text-muted-foreground">
-                      Can't make it to our office? We offer secure video sessions 
+                      Can&apos;t make it to our office? We offer secure video sessions 
                       from the comfort of your home.
                     </p>
                   </div>
