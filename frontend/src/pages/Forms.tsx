@@ -176,7 +176,7 @@ const Forms = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
-                    Bring a valid ID and insurance card
+                    Bring a valid photo ID
                   </li>
                 </ul>
               </div>
