@@ -20,6 +20,7 @@ import Autism from "./pages/Autism";
 import SeasonalAffectiveDisorder from "./pages/SeasonalAffectiveDisorder";
 import OCD from "./pages/OCD";
 import SocialAnxiety from "./pages/SocialAnxiety";
+import BipolarDisorder from "./pages/BipolarDisorder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
