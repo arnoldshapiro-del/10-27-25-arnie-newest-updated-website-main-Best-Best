@@ -204,12 +204,16 @@ export default function ADHD() {
       answer: "ADHD medications have been extensively studied and are considered safe when properly prescribed and monitored. Dr. Shapiro carefully evaluates each patient, starts with low doses, and monitors closely for side effects. We discuss all medication options and their risk/benefit profiles with families."
     },
     {
+      question: "Do I really need medicine for ADHD?",
+      answer: "You don't NEED medicine—but your life could be easier, better, more enjoyable. Medicine is a tool, not a crutch. And you're always in control. If we try a medication and you don't like how it makes you feel, give it 2-3 days. If you're still uncomfortable, stop it and call us. We'll figure out what happened and try something else. My commitment: We keep working together until you're dramatically better."
+    },
+    {
       question: "Can ADHD be treated without medication?",
-      answer: "Yes, behavioral therapy, organizational strategies, and lifestyle changes can help manage ADHD symptoms, especially in mild cases. However, for moderate to severe ADHD, research shows the best outcomes typically come from combining medication with behavioral approaches. We tailor treatment to each individual's needs and preferences."
+      answer: "Yes! There's more than one way to solve problems in life. Medicine is one option. Therapy is another. Lifestyle changes, accommodations at work or school, family support—these all matter. We'll discuss ALL your options and decide together what makes sense for YOU. Dr. Shapiro will never push you toward something you're not comfortable with."
     },
     {
       question: "How long does ADHD treatment take?",
-      answer: "ADHD is typically a lifelong condition that requires ongoing management. The good news is that with proper treatment, most people see significant improvement within weeks to months. Treatment plans evolve over time as needs change. Regular follow-ups ensure continued success."
+      answer: "ADHD is typically a lifelong condition that requires ongoing management. The good news is that with proper treatment, most people see significant improvement within weeks to months. Dr. Shapiro's goal isn't just to get you 'stable'—it's to get you dramatically better. Treatment plans evolve over time as needs change."
     },
     {
       question: "What are your payment options?",
