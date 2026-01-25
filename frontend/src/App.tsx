@@ -17,6 +17,7 @@ import Anxiety from "./pages/Anxiety";
 import Depression from "./pages/Depression";
 import Insomnia from "./pages/Insomnia";
 import Autism from "./pages/Autism";
+import SeasonalAffectiveDisorder from "./pages/SeasonalAffectiveDisorder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
