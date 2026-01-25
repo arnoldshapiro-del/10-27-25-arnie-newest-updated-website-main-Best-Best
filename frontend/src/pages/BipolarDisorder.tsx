@@ -128,7 +128,7 @@ const bipolarSchema = [
 ];
 
 export default function BipolarDisorder() {
-  const [openFaq, setOpenFaq] = useState(null as number | null);
+  const [openFaq, setOpenFaq] = useState(null);
 
   // Bipolar Types
   const bipolarTypes = [
