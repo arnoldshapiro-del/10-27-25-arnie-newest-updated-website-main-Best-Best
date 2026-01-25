@@ -440,14 +440,14 @@ export default function Autism() {
                   <div className="space-y-6 text-foreground text-lg leading-relaxed">
                     <p>
                       Placeholder: Autism is a neurodevelopmental difference that affects how people perceive the world, 
-                      communicate, and interact with others. It&apos;s called a "spectrum" because it presents very differently 
-                      from person to person—there&apos;s no single "type" of autistic person.
+                      communicate, and interact with others. It&apos;s called a &quot;spectrum&quot; because it presents very differently 
+                      from person to person—there&apos;s no single &quot;type&quot; of autistic person.
                     </p>
                     
                     <div className="bg-teal-50 border-l-4 border-teal-500 p-6 rounded-r-lg">
                       <p className="text-teal-800">
                         Placeholder: <strong>Autism is not a disease to be cured—it&apos;s a different way of being.</strong> Many 
-                        autistic people describe it as having a different "operating system." Our goal is to help you 
+                        autistic people describe it as having a different &quot;operating system.&quot; Our goal is to help you 
                         understand yourself, address any challenges, and leverage your strengths.
                       </p>
                     </div>
