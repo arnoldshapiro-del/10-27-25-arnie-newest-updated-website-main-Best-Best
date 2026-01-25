@@ -76,7 +76,7 @@ const Disorders = () => {
       symptoms: ["Social challenges", "Communication differences", "Repetitive behaviors", "Sensory sensitivities"],
       treatments: ["Behavioral interventions", "Social skills training", "Occupational therapy", "Family support"],
       color: "from-teal-500/20 to-teal-600/20",
-      link: null
+      link: "/autism"
     },
     {
       icon: AlertTriangle,
