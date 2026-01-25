@@ -99,7 +99,7 @@ const ContactSection = () => {
             <span className="text-primary"> Healing Journey?</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Contact us today to schedule your comprehensive evaluation. We're here to help you 
+            Contact us today to schedule your comprehensive evaluation. We&apos;re here to help you 
             every step of the way with compassionate, professional care.
           </p>
         </div>
