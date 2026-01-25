@@ -1370,7 +1370,7 @@ export default function Trichotillomania() {
                 Take the First Step
               </h2>
               <p className="text-xl text-muted-foreground mb-4">
-                You Don't Have to Live This Way
+                You Don&apos;t Have to Live This Way
               </p>
               <p className="text-lg text-muted-foreground mb-8">
                 Trichotillomania can feel overwhelming and isolating. You may have struggled for years, hiding your 
