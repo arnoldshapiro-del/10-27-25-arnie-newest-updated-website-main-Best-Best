@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Clock, Heart } from "lucide-react";
 import Header from "@/components/Header";
+import TreatmentPhilosophySection from "@/components/TreatmentPhilosophySection";
 import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
