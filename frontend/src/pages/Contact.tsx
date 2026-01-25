@@ -52,7 +52,7 @@ const Contact = () => {
           <Badge variant="outline" className="mb-4 text-base">Contact Us</Badge>
           <h1 className="text-4xl font-bold mb-6">Contact us</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to take the first step? We're here to help you on your journey 
+            Ready to take the first step? We&apos;re here to help you on your journey 
             to better mental health. Reach out today.
           </p>
         </div>
@@ -62,7 +62,7 @@ const Contact = () => {
         {/* Emergency Notice */}
         <div className="text-center mb-12 p-6 bg-card rounded-lg shadow-lg">
           <p className="text-muted-foreground text-lg">
-            For non-emergency concerns, call our office at (859) 341-7453. If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
+            For non-emergency concerns, call our office at (859) 341-7453. If you&apos;re experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
           </p>
         </div>
 
