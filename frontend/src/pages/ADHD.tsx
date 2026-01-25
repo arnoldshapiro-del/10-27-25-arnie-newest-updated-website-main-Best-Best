@@ -494,7 +494,7 @@ export default function ADHD() {
           </div>
         </section>
 
-        {/* Our Evaluation Process */}
+        {/* Our Thorough Evaluation Process */}
         <section className="py-16 bg-gradient-calm">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -503,35 +503,133 @@ export default function ADHD() {
                 Our Process
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                How We Diagnose ADHD
+                Our Thorough Evaluation Process
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Accurate diagnosis is crucial for effective treatment. Our comprehensive three-part evaluation 
-                ensures we understand your unique situation and rule out other conditions.
+                Comprehensive Assessment That Finds Real Answers
               </p>
             </div>
+
+            {/* Finding the Complete Picture Callout */}
+            <div className="max-w-4xl mx-auto mb-12">
+              <div className="bg-primary/10 border-l-4 border-primary rounded-r-lg p-6">
+                <h3 className="text-xl font-bold text-primary mb-2">&quot;Finding the Complete Picture&quot;</h3>
+                <p className="text-foreground italic">
+                  &quot;We don&apos;t just treat symptoms—we find the real answers. Many patients who come to us thinking 
+                  they have one condition actually have two, three, or more. Getting the complete picture changes everything.&quot;
+                </p>
+              </div>
+            </div>
             
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {evaluationSteps.map((step, index) => (
-                <div key={index} className="relative">
-                  <Card className="bg-card border-border h-full">
-                    <CardHeader>
-                      <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xl font-bold mb-4">
-                        {step.step}
-                      </div>
-                      <CardTitle className="text-xl">{step.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{step.description}</p>
-                    </CardContent>
-                  </Card>
-                  {index < 2 && (
-                    <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2">
-                      <ChevronRight className="w-8 h-8 text-muted-foreground/30" />
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Adults Section */}
+              <Card className="bg-card border-border">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <GraduationCap className="w-6 h-6 text-purple-600" />
                     </div>
-                  )}
-                </div>
-              ))}
+                    <div>
+                      <CardTitle className="text-xl text-purple-700">For Adults</CardTitle>
+                      <p className="text-sm text-muted-foreground">Approximately 2 Hours Total</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-foreground">
+                    Your evaluation begins with a <strong>one-hour session</strong> with our licensed professional counselor, 
+                    who conducts a comprehensive assessment. She then extensively reviews her findings with Dr. Shapiro, 
+                    who takes detailed notes.
+                  </p>
+                  <p className="text-foreground">
+                    You&apos;ll then meet directly with Dr. Shapiro for approximately <strong>one hour</strong>. He&apos;ll share 
+                    what he&apos;s learned, ask you to clarify anything important, and discuss his diagnostic findings.
+                  </p>
+                  
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 my-4">
+                    <p className="text-blue-800 font-semibold mb-2">Here&apos;s what makes us different:</p>
+                    <p className="text-blue-700 text-sm">
+                      We don&apos;t just look for what you think you might have. If you come to us saying &quot;I think I have ADHD,&quot; 
+                      we evaluate for <em>everything</em>—mood disorders, anxiety, OCD, and other conditions that can look like 
+                      ADHD or co-exist with it. Many patients have 2, 3, or even 5 conditions that need to be addressed together.
+                    </p>
+                  </div>
+                  
+                  <p className="text-foreground">
+                    Dr. Shapiro will explain all your treatment options—because there&apos;s more than one way to address these 
+                    challenges. You&apos;ll decide together what feels right for you. If medication is part of your plan, he&apos;ll 
+                    explain exactly how it works, what side effects to watch for, and how to handle them.
+                  </p>
+                  
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                    <p className="text-amber-800 font-semibold text-sm">Dr. Shapiro&apos;s Guidance:</p>
+                    <p className="text-amber-700 italic">&quot;If you&apos;re uncomfortable with a medication for 2-3 days, stop it and call us.&quot;</p>
+                  </div>
+                  
+                  <p className="text-foreground mt-4">
+                    You&apos;ll continue with <strong>monthly appointments</strong> until you&apos;re dramatically better—not just 
+                    &quot;stable,&quot; but <em>thriving</em>.
+                  </p>
+                </CardContent>
+              </Card>
+
+              {/* Children & Teenagers Section */}
+              <Card className="bg-card border-border">
+                <CardHeader className="pb-4">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Users className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl text-blue-700">For Children & Teenagers</CardTitle>
+                      <p className="text-sm text-muted-foreground">Approximately 3 Hours Total</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-foreground">
+                    We take extra care with young patients. The process begins with a <strong>one-hour meeting</strong> between 
+                    parents and our licensed counselor, followed by a separate <strong>one-hour session</strong> where the 
+                    counselor meets with your child or teenager. Rating scales are collected from parents, teachers, and 
+                    sometimes the child.
+                  </p>
+                  
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 my-4">
+                    <p className="text-blue-800 font-semibold mb-2">Our counselor is trained to look for everything:</p>
+                    <p className="text-blue-700 text-sm">
+                      Not just ADHD—anxiety, depression, OCD, mood disorders, learning differences—we evaluate comprehensively 
+                      because conditions often overlap and proper diagnosis changes everything.
+                    </p>
+                  </div>
+                  
+                  <p className="text-foreground">
+                    After the counselor extensively reviews all findings with Dr. Shapiro (he takes pages of notes), you&apos;ll 
+                    have a <strong>one-hour family meeting</strong> with Dr. Shapiro. Parents AND the child attend together.
+                  </p>
+                  
+                  <p className="text-foreground">
+                    Dr. Shapiro shares his findings, asks clarifying questions, and explains any diagnoses—sometimes one 
+                    condition, sometimes several. He&apos;ll discuss all treatment options, always emphasizing: 
+                    <em>&quot;There&apos;s more than one way to solve problems in life.&quot;</em>
+                  </p>
+                  
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4 my-4">
+                    <p className="text-green-800 font-semibold mb-1">Your child is included in these decisions.</p>
+                    <p className="text-green-700 text-sm">
+                      We only move forward with what the whole family is comfortable with.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
+                    <p className="text-amber-800 font-semibold text-sm">Dr. Shapiro&apos;s Guidance:</p>
+                    <p className="text-amber-700 italic">&quot;If the medicine makes you uncomfortable for 2-3 days, stop it and call us.&quot;</p>
+                  </div>
+                  
+                  <p className="text-foreground mt-4">
+                    <strong>Monthly appointments</strong> continue until your child is dramatically better.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
