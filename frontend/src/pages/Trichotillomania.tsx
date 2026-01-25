@@ -1082,7 +1082,7 @@ export default function Trichotillomania() {
                       <p className="mt-6 text-red-800 font-medium bg-white/50 p-4 rounded-lg">
                         <strong>This is why expertise matters:</strong> Many patients have been tried on 
                         ineffective medications for years before finding a specialist who understands 
-                        trichotillomania's unique neurobiology.
+                        trichotillomania&apos;s unique neurobiology.
                       </p>
                     </CardContent>
                   </Card>
