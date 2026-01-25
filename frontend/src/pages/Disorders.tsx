@@ -104,6 +104,15 @@ const Disorders = () => {
       treatments: ["CBT", "Exposure therapy", "Antidepressant medications", "Benzodiazepines and beta blockers"],
       color: "from-pink-500/20 to-pink-600/20",
       link: null
+    },
+    {
+      icon: Moon,
+      title: "Seasonal Affective Disorder",
+      description: "Depression that follows a seasonal pattern, typically worsening in fall/winter.",
+      symptoms: ["Winter depression", "Fatigue and oversleeping", "Carbohydrate cravings", "Social withdrawal"],
+      treatments: ["Light therapy", "Medication", "CBT-SAD", "Lifestyle changes"],
+      color: "from-amber-500/20 to-amber-600/20",
+      link: "/seasonal-affective-disorder"
     }
   ];
 
