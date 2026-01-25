@@ -171,7 +171,7 @@ const Disorders = () => {
                     </ul>
                   </div>
                   
-                  <div>
+                  <div className="mb-4">
                     <h4 className="font-semibold text-sm mb-2">Treatment Options:</h4>
                     <ul className="text-xs text-muted-foreground space-y-1">
                       {disorder.treatments.map((treatment, idx) => (
@@ -179,6 +179,15 @@ const Disorders = () => {
                       ))}
                     </ul>
                   </div>
+
+                  {disorder.link && (
+                    <Link to={disorder.link}>
+                      <Button variant="outline" size="sm" className="w-full mt-2 group">
+                        Learn More About {disorder.title}
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
+                  )}
                 </CardContent>
               </Card>
             ))}
