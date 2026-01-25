@@ -756,7 +756,7 @@ export default function ADHD() {
                 Ready to Take Control of Your ADHD?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Don't let ADHD hold you or your child back. Schedule a comprehensive evaluation 
+                Don&apos;t let ADHD hold you or your child back. Schedule a comprehensive evaluation 
                 with Dr. Shapiro and start your journey to better focus, organization, and success.
               </p>
               
