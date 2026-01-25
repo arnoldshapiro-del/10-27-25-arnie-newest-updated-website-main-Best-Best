@@ -85,30 +85,11 @@ const About = () => {
             </Card>
           ))}
         </div>
-
-        {/* Philosophy Section */}
-        <Card className="mb-16">
-          <CardContent className="p-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Our Philosophy</h2>
-            <div className="max-w-3xl mx-auto space-y-4 text-muted-foreground">
-              <p>
-                Mental health is just as important as physical health. Every individual deserves 
-                access to quality psychiatric care that respects their unique circumstances, 
-                cultural background, and personal goals.
-              </p>
-              <p>
-                We believe in the power of the therapeutic relationship and work collaboratively 
-                with our patients to develop treatment plans that are both effective and sustainable. 
-                Our approach integrates the latest research with time-tested therapeutic techniques.
-              </p>
-              <p>
-                Recovery is possible, and hope is always within reach. We're here to support 
-                you every step of the way on your journey to mental wellness.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
+
+      {/* Treatment Philosophy Section */}
+      <TreatmentPhilosophySection />
+
       <EmergencyDisclaimer />
       <Footer />
     </div>
