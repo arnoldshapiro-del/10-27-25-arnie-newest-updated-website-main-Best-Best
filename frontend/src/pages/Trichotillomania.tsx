@@ -954,7 +954,7 @@ export default function Trichotillomania() {
                       </div>
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-teal-800">We use evidence-based behavioral approaches, not just "talk therapy"</span>
+                        <span className="text-teal-800">We use evidence-based behavioral approaches, not just &quot;talk therapy&quot;</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
