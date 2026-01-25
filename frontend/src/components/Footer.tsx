@@ -46,6 +46,7 @@ const Footer = () => {
                 <div className="text-muted-foreground">
                   <p>1717 Dixie Highway, Suite 200</p>
                   <p>Fort Wright, KY 41011</p>
+                  <p className="text-primary text-xs mt-1 font-medium">Just 5 minutes from downtown Cincinnati</p>
                 </div>
               </div>
             </div>
