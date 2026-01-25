@@ -709,7 +709,7 @@ export default function Trichotillomania() {
                         </li>
                         <li className="flex items-start gap-2">
                           <ChevronRight className="w-4 h-4 mt-1 flex-shrink-0" />
-                          <span>Believing you should be able to "just stop"</span>
+                          <span>Believing you should be able to &quot;just stop&quot;</span>
                         </li>
                       </ul>
                       <p className="font-semibold mt-4 text-amber-900 bg-white/50 p-3 rounded-lg">
