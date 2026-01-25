@@ -185,6 +185,7 @@ const ContactSection = () => {
                       <a href="tel:859-341-7453" className="text-foreground font-semibold hover:text-primary">
                         (859) 341-7453
                       </a>
+                      <p className="text-xs text-primary font-medium">Just 5 minutes from downtown Cincinnati</p>
                     </div>
                   </div>
                 </div>
