@@ -989,7 +989,7 @@ export default function Trichotillomania() {
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 <strong>Important Note:</strong> No medication is FDA-approved specifically for trichotillomania. 
-                All prescribing is "off-label." This is why expertise matters—you need a psychiatrist who knows the research.
+                All prescribing is &quot;off-label.&quot; This is why expertise matters—you need a psychiatrist who knows the research.
               </p>
             </div>
             
