@@ -352,8 +352,8 @@ export default function Autism() {
                 </p>
                 
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Placeholder: Whether you're a parent wondering about your child, or an adult who has always felt 
-                  "different," getting the right answers changes everything. We provide comprehensive autism 
+                  Placeholder: Whether you&apos;re a parent wondering about your child, or an adult who has always felt 
+                  &quot;different,&quot; getting the right answers changes everything. We provide comprehensive autism 
                   evaluation for all ages—including adults who may have been missed or misdiagnosed for years.
                 </p>
                 
