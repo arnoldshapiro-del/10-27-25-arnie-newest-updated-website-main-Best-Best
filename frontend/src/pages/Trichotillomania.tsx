@@ -909,7 +909,7 @@ export default function Trichotillomania() {
                 Treatment Approach
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Trichotillomania requires a comprehensive, individualized approach. There is no single "magic bullet"—the 
+                Trichotillomania requires a comprehensive, individualized approach. There is no single &quot;magic bullet&quot;—the 
                 most effective treatment combines behavioral therapy with targeted medication when needed.
               </p>
             </div>
