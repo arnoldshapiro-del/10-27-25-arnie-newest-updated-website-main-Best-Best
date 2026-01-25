@@ -1066,7 +1066,7 @@ export default function Trichotillomania() {
                     <CardContent className="p-6">
                       <h4 className="text-lg font-semibold text-red-900 mb-4 flex items-center gap-2">
                         <XCircle className="w-5 h-5" />
-                        Medications That DON'T Work (and Why)
+                        Medications That DON&apos;T Work (and Why)
                       </h4>
                       <div className="space-y-4">
                         {ineffectiveMeds.map((med, index) => (
