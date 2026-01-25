@@ -197,6 +197,7 @@ const Index = () => {
       <Header />
       <HeroSection />
       <EvaluationProcessSection />
+      <TreatmentPhilosophySection />
       <AboutSection />
       <ServicesSection />
       <ApproachSection />
