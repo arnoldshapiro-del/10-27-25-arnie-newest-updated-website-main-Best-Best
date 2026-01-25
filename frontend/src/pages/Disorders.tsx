@@ -58,7 +58,7 @@ const Disorders = () => {
       symptoms: ["Mood swings", "Manic episodes", "Depressive episodes", "Energy changes"],
       treatments: ["Mood stabilizers", "Therapy", "Lifestyle management", "Support groups"],
       color: "from-orange-500/20 to-orange-600/20",
-      link: null
+      link: "/bipolar-disorder"
     },
     {
       icon: Shield,
