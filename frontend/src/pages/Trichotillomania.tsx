@@ -643,7 +643,7 @@ export default function Trichotillomania() {
                           You Are Not Alone
                         </h4>
                         <p className="text-green-800">
-                          Trichotillomania affects approximately <strong>0.5% to 2% of the population</strong>—that's 
+                          Trichotillomania affects approximately <strong>0.5% to 2% of the population</strong>—that&apos;s 
                           millions of people. It typically begins in late childhood or early adolescence, often around 
                           ages 10-13, though it can start at any age. Women are affected more often than men, though 
                           this may partly reflect who seeks treatment.
