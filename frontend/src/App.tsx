@@ -23,6 +23,7 @@ import SocialAnxiety from "./pages/SocialAnxiety";
 import BipolarDisorder from "./pages/BipolarDisorder";
 import Trichotillomania from "./pages/Trichotillomania";
 import PostpartumDepression from "./pages/PostpartumDepression";
+import DMDD from "./pages/DMDD";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
