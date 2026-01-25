@@ -14,6 +14,7 @@ import Screening from "./pages/Screening";
 import AdhdEducation from "./pages/AdhdEducation";
 import ADHD from "./pages/ADHD";
 import Anxiety from "./pages/Anxiety";
+import Depression from "./pages/Depression";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
