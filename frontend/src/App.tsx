@@ -13,6 +13,7 @@ import Forms from "./pages/Forms";
 import Screening from "./pages/Screening";
 import AdhdEducation from "./pages/AdhdEducation";
 import ADHD from "./pages/ADHD";
+import Anxiety from "./pages/Anxiety";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
