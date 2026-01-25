@@ -343,7 +343,7 @@ export default function Anxiety() {
                       <Award className="w-6 h-6 text-healing" />
                     </div>
                     <div>
-                      <p className="font-bold text-foreground">8,000+ Patients</p>
+                      <p className="font-bold text-foreground">Over 9,000 Patients</p>
                       <p className="text-sm text-muted-foreground">Successfully Treated</p>
                     </div>
                   </div>
