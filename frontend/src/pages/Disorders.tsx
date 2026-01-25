@@ -122,6 +122,15 @@ const Disorders = () => {
       treatments: ["Light therapy", "Medication", "CBT-SAD", "Lifestyle changes"],
       color: "from-amber-500/20 to-amber-600/20",
       link: "/seasonal-affective-disorder"
+    },
+    {
+      icon: Activity,
+      title: "Trichotillomania",
+      description: "Hair pulling disorder - a body-focused repetitive behavior (BFRB).",
+      symptoms: ["Recurrent hair pulling", "Urges before pulling", "Relief after pulling", "Noticeable hair loss"],
+      treatments: ["NAC", "Habit Reversal Training", "ComB therapy", "Medication"],
+      color: "from-teal-500/20 to-teal-600/20",
+      link: "/trichotillomania"
     }
   ];
 
