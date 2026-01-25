@@ -201,8 +201,12 @@ export default function Anxiety() {
       answer: "Everyone worries sometimes—that&apos;s normal and even helpful. An anxiety disorder is different: the worry is excessive, hard to control, happens most days, and interferes with daily life. If anxiety is affecting your work, relationships, sleep, or quality of life, it may be time to seek help. Our evaluation will help determine whether your symptoms meet criteria for a disorder and what treatment would help."
     },
     {
+      question: "Do I really need medicine for anxiety?",
+      answer: "You don&apos;t NEED medicine—but your life could be easier, better, more enjoyable. Medicine is a tool, not a crutch. And you&apos;re always in control. If we try a medication and you don&apos;t like how it makes you feel, give it 2-3 days. If you&apos;re still uncomfortable, stop it and call us. We&apos;ll figure out what happened and try something else. Dr. Shapiro&apos;s commitment: We keep working together until you&apos;re dramatically better."
+    },
+    {
       question: "Can anxiety be treated without medication?",
-      answer: "Yes, many people improve significantly with therapy alone, especially Cognitive Behavioral Therapy (CBT). However, for moderate to severe anxiety, research shows combining medication with therapy often produces the best results. We&apos;ll discuss all your options and never pressure you into medication. The choice is always yours, and we&apos;ll support whatever approach you&apos;re comfortable with."
+      answer: "Yes! There&apos;s more than one way to solve problems in life. Medicine is one option. Therapy is another—especially Cognitive Behavioral Therapy (CBT). Lifestyle changes, relaxation techniques, family support—these all matter. We&apos;ll discuss ALL your options and decide together what makes sense for YOU. Dr. Shapiro will never push you toward something you&apos;re not comfortable with."
     },
     {
       question: "What are your payment options?",
@@ -219,6 +223,10 @@ export default function Anxiety() {
     {
       question: "What if I have anxiety AND depression?",
       answer: "It&apos;s very common for anxiety and depression to occur together—we see this frequently. Our comprehensive evaluation looks for all conditions, not just one. If you have multiple diagnoses, Dr. Shapiro will create a treatment plan that addresses everything together. This is actually one of our strengths: we don&apos;t just treat one symptom in isolation."
+    },
+    {
+      question: "What is Dr. Shapiro&apos;s treatment goal?",
+      answer: "Dr. Shapiro&apos;s goal isn&apos;t just to get you &apos;stable&apos; or &apos;managing.&apos; His goal is to get you dramatically better. He treats every patient the way he would treat his own family—taking time to find out what&apos;s really going on, explaining everything clearly, and never rushing you into decisions you&apos;re not comfortable with."
     }
   ];
 
