@@ -84,6 +84,9 @@ const Contact = () => {
                         <p className="text-base font-semibold text-primary mb-1">{info.primary}</p>
                         <p className="text-sm text-muted-foreground">{info.secondary}</p>
                         <p className="text-xs text-muted-foreground mt-2">{info.description}</p>
+                        {info.note && (
+                          <p className="text-xs text-primary font-medium mt-2">{info.note}</p>
+                        )}
                       </div>
                     </div>
                   </CardContent>
