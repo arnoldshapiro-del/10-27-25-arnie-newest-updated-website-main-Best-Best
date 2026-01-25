@@ -30,9 +30,6 @@ import {
   Scale,
   Moon,
   Sun,
-  Battery,
-  BatteryLow,
-  BatteryFull,
   AlertTriangle,
   Sparkles,
   Target,
@@ -40,7 +37,6 @@ import {
   RefreshCw,
   Baby,
   GraduationCap,
-  Briefcase,
   HeartPulse,
   Waves,
   CircleDot,
@@ -50,11 +46,10 @@ import {
   UserCheck,
   ClipboardList,
   BookOpen,
-  Home,
-  BedDouble,
-  Dumbbell,
+  Wind,
   Coffee,
-  Wind
+  BedDouble,
+  XCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -104,7 +99,7 @@ const bipolarSchema = [
         "name": "What causes bipolar disorder?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Bipolar disorder results from a combination of genetic, neurobiological, and environmental factors. It tends to run in families, and brain imaging shows differences in structure and function. Stressful life events can trigger episodes in those predisposed."
+          "text": "Bipolar disorder results from a combination of genetic, neurobiological, and environmental factors. It tends to run in families—if you have a first-degree relative with bipolar disorder, your risk is about 10 times higher than the general population."
         }
       },
       {
@@ -112,7 +107,7 @@ const bipolarSchema = [
         "name": "Can bipolar disorder be cured?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "While there is no cure for bipolar disorder, it is highly treatable. With proper medication, therapy, and lifestyle management, most people achieve significant stability and lead fulfilling lives."
+          "text": "Currently, bipolar disorder cannot be cured, but it can be excellently managed. With proper treatment, many people achieve long periods of mood stability and lead full, productive lives."
         }
       },
       {
@@ -120,7 +115,7 @@ const bipolarSchema = [
         "name": "Will I need medication for life?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most people with bipolar disorder benefit from long-term medication to prevent episodes. Stopping medication is the most common cause of relapse. However, treatment is individualized, and we work together to find the right long-term plan."
+          "text": "For most people with Bipolar I Disorder, long-term medication is recommended. The relapse rate after stopping mood stabilizers is very high—over 50% within 6 months."
         }
       }
     ]
@@ -139,10 +134,10 @@ export default function BipolarDisorder() {
       iconBg: "bg-red-100",
       iconColor: "text-red-600",
       features: [
-        "At least one manic episode lasting 7+ days (or requiring hospitalization)",
-        "Manic episodes may include psychotic features",
-        "Depressive episodes common but not required for diagnosis",
-        "Most severe form of bipolar disorder"
+        "Characterized by manic episodes lasting at least 7 days (or requiring hospitalization)",
+        "Manic episodes involve elevated mood, dramatically increased energy, reduced need for sleep, racing thoughts, and often impulsive behavior",
+        "Depressive episodes typically occur but aren't required for diagnosis",
+        "Episodes may include psychotic features (delusions or hallucinations)"
       ]
     },
     {
@@ -152,10 +147,10 @@ export default function BipolarDisorder() {
       iconBg: "bg-blue-100",
       iconColor: "text-blue-600",
       features: [
-        "Hypomanic episodes (less severe than full mania, lasting 4+ days)",
-        "At least one major depressive episode",
-        "No full manic episodes (which would change diagnosis to Bipolar I)",
-        "Depression tends to dominate the clinical picture"
+        "Involves hypomanic episodes (less severe than full mania) lasting at least 4 days",
+        "Major depressive episodes are the predominant feature—patients often spend significantly more time depressed than hypomanic",
+        "Hypomania may feel productive or pleasant, causing many patients to initially seek help only for depression",
+        "Frequently misdiagnosed as major depression, leading to ineffective treatment"
       ]
     },
     {
@@ -165,76 +160,91 @@ export default function BipolarDisorder() {
       iconBg: "bg-purple-100",
       iconColor: "text-purple-600",
       features: [
-        "Chronic fluctuating mood over 2+ years",
-        "Hypomanic symptoms and depressive symptoms",
-        "Symptoms don't meet full criteria for hypomania or major depression",
+        "Chronic fluctuating mood involving numerous periods of hypomanic and depressive symptoms",
+        "Symptoms are present for at least 2 years but don't meet full criteria for hypomanic or major depressive episodes",
+        "May progress to Bipolar I or II in some individuals",
         "Never symptom-free for more than 2 months"
       ]
     },
     {
-      title: "Other Specified/Unspecified",
+      title: "Other Specified Bipolar Disorder",
       icon: CircleDot,
       color: "bg-gray-100 text-gray-700 border-gray-200",
       iconBg: "bg-gray-100",
       iconColor: "text-gray-600",
       features: [
-        "Bipolar symptoms that don't fit neatly into above categories",
-        "Short-duration hypomanic episodes with depression",
+        "Bipolar-type symptoms that don't fit neatly into the above categories",
+        "May include shorter episode durations or insufficient symptom numbers",
         "Substance/medication-induced bipolar disorder",
-        "Bipolar due to another medical condition"
+        "Still requires careful clinical attention and treatment"
       ]
     }
   ];
 
   // Manic/Hypomanic Symptoms
   const manicSymptoms = [
-    "Abnormally elevated, expansive, or irritable mood",
-    "Decreased need for sleep (feels rested after 3-4 hours)",
-    "Racing thoughts or flight of ideas",
-    "Rapid, pressured speech",
-    "Increased goal-directed activity or agitation",
-    "Distractibility",
-    "Grandiosity or inflated self-esteem",
-    "Excessive involvement in risky activities (spending sprees, sexual indiscretions, poor business decisions)"
+    { symptom: "Decreased need for sleep", detail: "Feeling rested after only 2-4 hours of sleep, or not feeling tired despite no sleep" },
+    { symptom: "Elevated or irritable mood", detail: "Feeling unusually happy, confident, or on top of the world—or extremely irritable and agitated" },
+    { symptom: "Racing thoughts", detail: "Ideas coming so fast it's hard to keep up; jumping from topic to topic" },
+    { symptom: "Pressured speech", detail: "Talking rapidly, being difficult to interrupt, feeling compelled to keep talking" },
+    { symptom: "Increased energy and activity", detail: "Taking on multiple projects, feeling you can accomplish anything" },
+    { symptom: "Grandiosity", detail: "Inflated self-esteem, believing you have special abilities or are destined for greatness" },
+    { symptom: "Impulsive behavior", detail: "Spending sprees, risky investments, sexual indiscretions, reckless driving" },
+    { symptom: "Distractibility", detail: "Attention easily pulled to unimportant things" },
+    { symptom: "Poor judgment", detail: "Making decisions that seem brilliant in the moment but cause problems later" }
   ];
 
   // Depressive Symptoms
   const depressiveSymptoms = [
-    "Persistent sad, empty, or hopeless mood",
-    "Loss of interest or pleasure in activities",
-    "Significant weight changes or appetite changes",
-    "Insomnia or hypersomnia",
-    "Fatigue or loss of energy",
-    "Feelings of worthlessness or excessive guilt",
-    "Difficulty concentrating or making decisions",
-    "Thoughts of death or suicide"
+    { symptom: "Persistent sad or empty mood", detail: "Feeling hopeless, helpless, or worthless for weeks at a time" },
+    { symptom: "Loss of interest or pleasure", detail: "Activities you once enjoyed feel meaningless" },
+    { symptom: "Sleep changes", detail: "Sleeping too much (hypersomnia) or difficulty sleeping (insomnia)" },
+    { symptom: "Fatigue and low energy", detail: "Even small tasks feel exhausting; 'leaden paralysis' where arms and legs feel heavy" },
+    { symptom: "Difficulty concentrating", detail: "Trouble thinking, making decisions, or remembering things" },
+    { symptom: "Appetite changes", detail: "Significant weight loss or gain without dieting" },
+    { symptom: "Psychomotor changes", detail: "Moving and speaking slowly, or feeling restless and agitated" },
+    { symptom: "Thoughts of death or suicide", detail: "Recurrent thoughts that life isn't worth living" }
   ];
 
   // Differential Diagnosis Comparisons
   const differentialDiagnosis = [
     {
       condition: "Major Depression",
-      bipolar: "History of manic/hypomanic episodes; episodic pattern; family history of bipolar",
-      other: "No manic/hypomanic episodes; may be single episode or recurrent",
-      key: "Ask about past elevated mood, decreased sleep with high energy, impulsive behavior"
+      features: [
+        { label: "History of elevated mood", bipolar: "Yes (mania or hypomania, even if subtle)", other: "No" },
+        { label: "Energy levels", bipolar: "Cycles between high and low", other: "Consistently low during episodes" },
+        { label: "Sleep in depression", bipolar: "Often hypersomnia (sleeping too much)", other: "Typically insomnia" },
+        { label: "Antidepressant response", bipolar: "May trigger mania or rapid cycling", other: "Generally helpful" },
+        { label: "Age of onset", bipolar: "Often late teens to early 20s", other: "Can occur at any age" }
+      ],
+      keyPoint: "Standard antidepressants used alone can destabilize bipolar patients, potentially triggering manic episodes or rapid cycling. This is why accurate diagnosis is essential before beginning treatment."
     },
     {
       condition: "ADHD",
-      bipolar: "Episodic symptoms; mood elevation/depression; onset often in late teens/early 20s",
-      other: "Chronic, persistent symptoms since childhood; no mood episodes",
-      key: "ADHD is constant; bipolar is episodic. Can co-occur (up to 20% of bipolar patients have ADHD)"
+      features: [
+        { label: "Symptom pattern", bipolar: "Episodic—distinct periods of wellness between episodes", other: "Chronic and consistent from childhood" },
+        { label: "Attention issues", bipolar: "Distractibility during episodes", other: "Persistent difficulty sustaining attention" },
+        { label: "Sleep", bipolar: "Dramatically reduced need during mania", other: "Often difficulty settling at night" }
+      ],
+      keyPoint: "Many patients have BOTH conditions, requiring careful sequential treatment. ADHD treatment must wait until mood is stable."
     },
     {
       condition: "Borderline Personality Disorder",
-      bipolar: "Episodes last days to months; mood shifts independent of relationships; grandiosity in mania",
-      other: "Mood shifts within hours; triggered by interpersonal events; chronic emptiness; self-harm",
-      key: "BPD mood is reactive to relationships; bipolar mood episodes are more autonomous"
+      features: [
+        { label: "Mood episode duration", bipolar: "Days to weeks", other: "Hours to days, often interpersonally triggered" },
+        { label: "Episode pattern", bipolar: "Clear onset and offset", other: "More chronic emotional dysregulation" },
+        { label: "Self-esteem in elevated mood", bipolar: "Stable grandiosity during episodes", other: "Oscillating self-image" }
+      ],
+      keyPoint: "Both conditions can co-occur and require integrated treatment approaches."
     },
     {
       condition: "Anxiety Disorders",
-      bipolar: "Anxiety may spike during episodes but mood symptoms dominate",
-      other: "Anxiety is primary; no manic/depressive episodes",
-      key: "Anxiety is extremely common in bipolar (>50%) but should not be the sole diagnosis"
+      features: [
+        { label: "Relationship", bipolar: "Anxiety common (present in 50-60%)", other: "Primary condition" },
+        { label: "Presentation", bipolar: "Agitated depression/mixed states can mimic anxiety", other: "Consistent anxiety symptoms" },
+        { label: "Treatment", bipolar: "SSRIs/SNRIs alone can worsen bipolar", other: "SSRIs/SNRIs typically helpful" }
+      ],
+      keyPoint: "Anxiety in bipolar disorder responds better to mood stabilization plus targeted approaches."
     }
   ];
 
@@ -243,12 +253,12 @@ export default function BipolarDisorder() {
     {
       icon: ClipboardList,
       title: "Thorough Diagnostic Evaluation",
-      description: "Comprehensive assessment including mood history, family history, medical workup, and screening for co-occurring conditions."
+      description: "Detailed psychiatric history, family history assessment, medical workup to rule out mimicking conditions, and timeline mapping of mood episodes."
     },
     {
       icon: Target,
       title: "Individualized Treatment Planning",
-      description: "No cookie-cutter approaches. Your treatment plan is tailored to your specific bipolar type, symptom pattern, and life circumstances."
+      description: "Treatment tailored to your predominant polarity, episode severity, mixed features, rapid cycling, co-occurring conditions, and life circumstances."
     },
     {
       icon: Pill,
@@ -256,70 +266,102 @@ export default function BipolarDisorder() {
       description: "Careful selection and monitoring of mood stabilizers, antipsychotics, and adjunctive medications based on 35+ years of experience."
     },
     {
-      icon: Users,
-      title: "Coordinated Care",
-      description: "Collaboration with therapists, primary care providers, and family members to ensure comprehensive support."
+      icon: RefreshCw,
+      title: "Ongoing Monitoring",
+      description: "Regular follow-up appointments, laboratory monitoring, dose adjustments, and proactive management of emerging episodes."
     }
   ];
 
   // Mood Stabilizers
   const moodStabilizers = [
     {
-      name: "Lithium",
-      description: "The gold standard for bipolar disorder. Highly effective for preventing both manic and depressive episodes. Uniquely neuroprotective and reduces suicide risk.",
-      considerations: "Requires blood monitoring; narrow therapeutic window; thyroid and kidney monitoring"
+      name: "Lithium — The Gold Standard",
+      description: "The oldest and most proven mood stabilizer, used for over 70 years. Effective for both manic and depressive episodes. The only medication proven to reduce suicide risk independent of its mood-stabilizing effects. Neuroprotective—actually helps preserve brain tissue over time.",
+      considerations: "Requires regular blood level monitoring and kidney/thyroid checks. Works best for 'classic' euphoric mania. I have extensive experience optimizing lithium therapy to maximize benefits while minimizing side effects.",
+      highlight: "Only medication proven to reduce suicide risk"
     },
     {
       name: "Valproate (Depakote)",
-      description: "Effective for acute mania and maintenance. Works quickly. Good for mixed episodes and rapid cycling.",
-      considerations: "Teratogenic (avoid in women of childbearing potential); weight gain; tremor"
+      description: "Particularly effective for mixed states and rapid cycling. Often works when lithium doesn't. Useful for patients with prominent irritability or agitation.",
+      considerations: "Requires monitoring of blood levels and liver function. Contraindicated in pregnancy due to birth defect risks.",
+      highlight: "Effective for mixed states"
     },
     {
       name: "Lamotrigine (Lamictal)",
-      description: "Excellent for preventing depressive episodes. Does not cause weight gain. Well-tolerated long-term.",
-      considerations: "Must be titrated slowly to avoid rash; less effective for mania; takes weeks to reach therapeutic dose"
+      description: "Especially effective for preventing depressive episodes. Excellent choice for patients with depression-predominant bipolar disorder. Weight-neutral and generally well-tolerated.",
+      considerations: "Requires slow dose titration to minimize rash risk. Less effective for acute mania. Takes weeks to reach therapeutic dose.",
+      highlight: "Best for preventing depression"
     },
     {
       name: "Carbamazepine (Tegretol)",
-      description: "Alternative mood stabilizer. May be helpful when lithium and valproate aren't tolerated.",
-      considerations: "Drug interactions; blood monitoring required; can affect other medications"
+      description: "Alternative mood stabilizer with strong antimanic effects. May help when other options fail.",
+      considerations: "Requires careful drug interaction management and blood monitoring.",
+      highlight: "Alternative option"
     }
   ];
 
   // Atypical Antipsychotics for Mania
   const antipsychoticsMania = [
-    { name: "Olanzapine (Zyprexa)", note: "Very effective; weight gain concern" },
-    { name: "Quetiapine (Seroquel)", note: "Effective for mania and depression" },
-    { name: "Risperidone (Risperdal)", note: "Good efficacy; movement side effects possible" },
-    { name: "Aripiprazole (Abilify)", note: "Weight-neutral; activating" },
-    { name: "Ziprasidone (Geodon)", note: "Weight-neutral; take with food" },
-    { name: "Asenapine (Saphris)", note: "Sublingual; rapid onset" }
+    { name: "Olanzapine (Zyprexa)", note: "Highly effective but significant weight/metabolic effects" },
+    { name: "Quetiapine (Seroquel)", note: "Versatile for mania and depression; sedating" },
+    { name: "Risperidone (Risperdal)", note: "Potent antimanic; can elevate prolactin" },
+    { name: "Aripiprazole (Abilify)", note: "Generally well-tolerated; can be activating" },
+    { name: "Ziprasidone (Geodon)", note: "Weight-neutral but requires food for absorption" },
+    { name: "Asenapine (Saphris)", note: "Particularly useful for mixed states" }
   ];
 
   // Atypical Antipsychotics for Depression
   const antipsychoticsDepression = [
-    { name: "Quetiapine (Seroquel)", note: "FDA-approved for bipolar depression" },
-    { name: "Lurasidone (Latuda)", note: "FDA-approved; weight-neutral; take with food" },
-    { name: "Lumateperone (Caplyta)", note: "Newer option; favorable side effect profile" },
-    { name: "Cariprazine (Vraylar)", note: "FDA-approved for bipolar depression and mania" },
-    { name: "Olanzapine-Fluoxetine (Symbyax)", note: "Combination product; weight gain" }
+    { name: "Quetiapine (Seroquel)", note: "FDA-approved for bipolar depression; strong evidence" },
+    { name: "Lurasidone (Latuda)", note: "Effective with minimal metabolic effects; must take with food" },
+    { name: "Lumateperone (Caplyta)", note: "Newer option with favorable side effect profile" },
+    { name: "Cariprazine (Vraylar)", note: "Unique mechanism targeting motivation and energy" },
+    { name: "Olanzapine/Fluoxetine (Symbyax)", note: "Effective but metabolically challenging" }
+  ];
+
+  // Treatment-Resistant Options
+  const treatmentResistantOptions = [
+    {
+      name: "Clozapine",
+      description: "Considered the most effective medication for treatment-resistant bipolar mania. Requires regular blood monitoring but can be life-changing for the right patients. Reserved for cases where multiple other treatments have failed."
+    },
+    {
+      name: "Combination Strategies",
+      description: "Lithium + Valproate (particularly for rapid cycling), mood stabilizer + atypical antipsychotic combinations, 'triple therapy' for refractory mania (lithium + valproate + antipsychotic)."
+    },
+    {
+      name: "Pramipexole",
+      description: "A dopamine agonist that can help treatment-resistant bipolar depression. Targets the motivation and reward systems differently than standard approaches."
+    },
+    {
+      name: "Thyroid Augmentation",
+      description: "Even in patients with normal thyroid function, adding thyroid hormone can help stabilize rapid cycling. A well-established strategy at major academic centers."
+    },
+    {
+      name: "Ketamine/Esketamine",
+      description: "Rapidly emerging as an option for severe, treatment-resistant bipolar depression. Must be used with mood stabilizer coverage. Can provide rapid relief while longer-term treatments take effect."
+    },
+    {
+      name: "Electroconvulsive Therapy (ECT)",
+      description: "Highly effective for severe bipolar depression or mania, especially with psychotic features or catatonia. Often works when medications don't. Modern ECT is safe and well-tolerated. May be lifesaving in emergencies."
+    }
   ];
 
   // Therapy Approaches
   const therapyApproaches = [
     {
       name: "Interpersonal and Social Rhythm Therapy (IPSRT)",
-      description: "Focuses on stabilizing daily routines (sleep, meals, activities) and addressing interpersonal problems. Particularly effective for bipolar disorder.",
+      description: "Developed specifically for bipolar disorder. Focuses on stabilizing daily routines (sleep, wake, meal times, social contact). Addresses interpersonal problems that can trigger episodes. Helps you recognize and respond to early warning signs. Research shows IPSRT significantly speeds recovery and prevents relapse.",
       icon: Clock
     },
     {
       name: "Family-Focused Therapy (FFT)",
-      description: "Involves family members in treatment. Improves communication, reduces expressed emotion, and helps families support their loved one.",
+      description: "Involves family members in treatment. Improves communication and reduces criticism in the home environment. Helps families recognize warning signs and respond appropriately. Reduces hospitalization rates by 30-40%. Particularly valuable for younger patients.",
       icon: Users
     },
     {
       name: "Cognitive Behavioral Therapy for Bipolar (CBT-BP)",
-      description: "Addresses negative thought patterns, helps identify early warning signs, and develops coping strategies for mood episodes.",
+      description: "Helps identify and change thought patterns that worsen mood episodes. Emphasizes medication adherence and early warning sign detection. Teaches coping strategies for managing symptoms. Addresses the grief of living with a chronic illness.",
       icon: Brain
     }
   ];
@@ -327,35 +369,34 @@ export default function BipolarDisorder() {
   // Lifestyle Factors
   const lifestyleFactors = [
     {
-      title: "Sleep Hygiene",
+      title: "Sleep — The Most Important Factor",
       icon: Moon,
       tips: [
-        "Maintain consistent sleep and wake times—even on weekends",
-        "Sleep disruption is the #1 trigger for manic episodes",
-        "Avoid all-nighters and shift work if possible",
-        "Address sleep apnea if present"
+        "Sleep disruption is both a trigger and symptom of mood episodes",
+        "Maintaining regular sleep-wake times is essential (even on weekends)",
+        "Aim for 7-9 hours consistently",
+        "Protect your sleep like your life depends on it—because your stability does"
       ],
       critical: true
     },
     {
-      title: "Routine Maintenance",
+      title: "Routine and Rhythm",
       icon: Calendar,
       tips: [
-        "Regular meal times help stabilize mood",
-        "Consistent daily schedule reduces episode risk",
-        "Social rhythms (regular activities with others) are protective",
-        "Avoid major schedule disruptions when possible"
+        "Regular meal times, exercise times, and social schedules stabilize circadian rhythms",
+        "The bipolar brain needs predictability",
+        "Even positive schedule disruptions (vacations, celebrations) can trigger episodes"
       ],
       critical: false
     },
     {
-      title: "Stress Management",
-      icon: Wind,
+      title: "Light Exposure",
+      icon: Sun,
       tips: [
-        "Identify personal stress triggers",
-        "Build in recovery time after stressful events",
-        "Practice relaxation techniques",
-        "Learn to say no to excessive demands"
+        "Morning bright light can help depression (but may trigger mania if used incorrectly)",
+        "Midday light exposure is safer for bipolar patients",
+        "Limiting blue light (screens) in the evening supports sleep",
+        "'Dark therapy' (avoiding light after 6 PM) can help stabilize mania"
       ],
       critical: false
     },
@@ -363,10 +404,10 @@ export default function BipolarDisorder() {
       title: "Substance Avoidance",
       icon: Coffee,
       tips: [
-        "Alcohol destabilizes mood and interferes with medication",
-        "Cannabis can trigger mania in vulnerable individuals",
-        "Stimulants (cocaine, amphetamines) commonly trigger mania",
-        "Even caffeine can disrupt sleep and mood"
+        "Alcohol destabilizes mood and interacts with medications",
+        "Cannabis can worsen psychotic symptoms and mood instability",
+        "Stimulants (cocaine, amphetamines) can trigger severe manic episodes",
+        "Even caffeine in excess can disrupt sleep and mood"
       ],
       critical: true
     }
@@ -378,44 +419,44 @@ export default function BipolarDisorder() {
       title: "Women's Health & Pregnancy",
       icon: Baby,
       content: [
-        "Hormonal fluctuations can trigger mood episodes (postpartum period is high-risk)",
-        "Some medications (valproate, carbamazepine) are teratogenic—avoid in pregnancy",
-        "Lamotrigine and certain antipsychotics may be safer options during pregnancy",
-        "Breastfeeding considerations vary by medication",
-        "Planning pregnancy? We discuss medication adjustments BEFORE conception"
+        "Many women notice mood fluctuations related to their menstrual cycle",
+        "Perimenopause (ages 45-55) is a high-risk period for mood destabilization",
+        "Pregnancy requires careful preconception planning—some medications are safer than others",
+        "Lithium can be used with appropriate monitoring; Lamotrigine is relatively safe",
+        "Valproate should be avoided due to birth defect and developmental risks",
+        "Postpartum period carries very high relapse risk—planning ahead is essential",
+        "I work closely with patients planning pregnancy to optimize treatment at every stage"
       ]
     },
     {
       title: "Young Adults & Adolescents",
       icon: GraduationCap,
       content: [
-        "Bipolar disorder often first appears in late teens/early 20s",
-        "May initially look like depression, ADHD, or 'normal' teen behavior",
-        "Academic stress and sleep deprivation can trigger first episodes",
-        "Early treatment improves long-term prognosis",
-        "Family involvement is particularly important"
+        "Bipolar disorder often first appears in late teens to early 20s",
+        "Early episodes are frequently misdiagnosed as depression, ADHD, or substance use",
+        "Early intervention can prevent years of inappropriate treatment and unnecessary suffering",
+        "Family involvement is particularly important",
+        "Certain medications have specific FDA approvals and evidence for younger patients"
       ]
     },
     {
       title: "Older Adults",
       icon: Heart,
       content: [
-        "Late-onset bipolar disorder may indicate underlying medical condition",
-        "Medical comorbidities affect medication selection",
-        "Lower medication doses often needed",
-        "Increased sensitivity to side effects",
-        "Cognitive changes may accompany long-standing bipolar disorder"
+        "Bipolar symptoms may change character over time",
+        "Medication dosing often needs adjustment (bodies process drugs differently with age)",
+        "Cognitive effects of medications require more careful attention",
+        "Drug interactions become more important with multiple medical conditions",
+        "New-onset 'mania' in older adults requires medical workup to rule out other causes"
       ]
     },
     {
       title: "Co-occurring Conditions",
       icon: Sparkles,
       content: [
-        "ADHD co-occurs in up to 20% of bipolar patients",
-        "Anxiety disorders are present in >50% (treat both)",
-        "Substance use disorders affect up to 50% (complicates treatment)",
-        "Thyroid disorders can mimic or worsen bipolar symptoms",
-        "Metabolic syndrome requires monitoring and management"
+        "Bipolar + ADHD: Very common (10-20%). ADHD treatment must wait until mood is stable. Stimulants can be safe with mood stabilizer coverage.",
+        "Bipolar + Anxiety: Present in over half of patients. Mood stabilization often improves anxiety. Some medications treat both.",
+        "Bipolar + Substance Use: Affects up to 60%. Valproate may be preferred for bipolar + alcohol use. Treating bipolar reduces cravings."
       ]
     }
   ];
@@ -425,17 +466,17 @@ export default function BipolarDisorder() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has treated over 9,000 patients, with extensive expertise in complex mood disorders including treatment-resistant bipolar disorder."
+      description: "Over 9,000 patients successfully treated throughout my career. Deep expertise in complex mood disorders including treatment-resistant bipolar disorder."
     },
     {
       icon: Brain,
       title: "Diagnostic Expertise",
-      description: "Bipolar disorder is often misdiagnosed. We take the time to get the diagnosis right, distinguishing bipolar from depression, ADHD, and personality disorders."
+      description: "Bipolar disorder is often misdiagnosed. I take the time to get the diagnosis right, distinguishing bipolar from depression, ADHD, and personality disorders."
     },
     {
       icon: Pill,
       title: "Medication Mastery",
-      description: "Expert knowledge of mood stabilizers, antipsychotics, and combination strategies. We know what works and how to minimize side effects."
+      description: "Expert knowledge of mood stabilizers, antipsychotics, and combination strategies. I know what works and how to minimize side effects."
     },
     {
       icon: Clock,
@@ -445,7 +486,7 @@ export default function BipolarDisorder() {
     {
       icon: Shield,
       title: "Long-Term Partnership",
-      description: "Bipolar disorder requires ongoing management. We're here for the long haul, adjusting treatment as your life and needs change."
+      description: "Bipolar disorder requires ongoing management. I'm here for the long haul, adjusting treatment as your life and needs change."
     },
     {
       icon: MapPin,
@@ -458,43 +499,43 @@ export default function BipolarDisorder() {
   const faqs = [
     {
       question: "What causes bipolar disorder?",
-      answer: "Bipolar disorder results from a combination of genetic, neurobiological, and environmental factors. It tends to run in families—if you have a first-degree relative with bipolar disorder, your risk is 10x higher than the general population. Brain imaging shows differences in structure and function, particularly in areas regulating emotion. Stressful life events, sleep deprivation, and substance use can trigger episodes in those predisposed."
+      answer: "Bipolar disorder results from a combination of genetic, neurobiological, and environmental factors. It tends to run in families—if you have a first-degree relative with bipolar disorder, your risk is about 10 times higher than the general population. Brain imaging studies show differences in the structure and function of mood-regulating circuits. The condition involves dysregulation of biological rhythms, neurotransmitter systems, and cellular energy metabolism. Stressful life events can trigger episodes, but they don't cause the underlying illness."
     },
     {
       question: "Can bipolar disorder be cured?",
-      answer: "While there is no cure for bipolar disorder, it is highly treatable. With proper medication, therapy, and lifestyle management, most people achieve significant stability and lead fulfilling lives. The goal is to prevent episodes, reduce their severity when they occur, and maintain functioning between episodes. Many people with bipolar disorder have successful careers, relationships, and families."
+      answer: "Currently, bipolar disorder cannot be cured, but it can be excellently managed. With proper treatment, many people achieve long periods of mood stability and lead full, productive lives. The goal of treatment is to minimize episode frequency and severity, maintain functioning between episodes, and prevent the cumulative brain changes that can occur with repeated untreated episodes. Many patients do very well on maintenance treatment and experience only rare breakthrough episodes."
     },
     {
       question: "Will I need medication for life?",
-      answer: "Most people with bipolar disorder benefit from long-term medication to prevent episodes. Stopping medication is the most common cause of relapse—studies show 80-90% relapse rates within 2 years of stopping. However, treatment is individualized. Some people do well with lower doses during stable periods. We work together to find the right long-term plan that balances effectiveness with quality of life."
+      answer: "For most people with Bipolar I Disorder, long-term medication is recommended. The relapse rate after stopping mood stabilizers is very high—over 50% within 6 months, and even higher long-term. Importantly, stopping medication abruptly can trigger severe rebound episodes that may be worse than the original illness. That said, medication regimens often simplify over time, and the goal is always the minimum effective treatment with acceptable side effects."
     },
     {
-      question: "What about antidepressants?",
-      answer: "Antidepressants alone can be dangerous in bipolar disorder—they can trigger manic episodes or rapid cycling. If antidepressants are used, they're almost always combined with a mood stabilizer or antipsychotic. For bipolar depression, we typically prefer quetiapine, lurasidone, lumateperone, or lamotrigine over traditional antidepressants."
+      question: "What about antidepressants for bipolar depression?",
+      answer: "This is one of the most important things to understand: Standard antidepressants (like Prozac, Zoloft, Lexapro, or Effexor) are generally not recommended as first-line treatment for bipolar depression, especially in Bipolar I. Research shows they often don't work better than mood stabilizers alone and can trigger mania or accelerate mood cycling. Bipolar depression is best treated with mood stabilizers, certain atypical antipsychotics (like lurasidone, quetiapine, or cariprazine), or specific combinations. If you've been treated for 'depression' that keeps coming back despite antidepressants, it's worth considering whether bipolar disorder might be the underlying issue."
     },
     {
       question: "How long until I feel better?",
-      answer: "For acute mania, improvement often begins within days to a week with appropriate treatment. For bipolar depression, improvement typically takes 2-6 weeks. Finding the right long-term medication regimen may take several months of adjustment. We move as quickly as safely possible while monitoring for side effects."
+      answer: "Response to treatment varies, but most people begin noticing improvement within 2-4 weeks of starting effective medication. Full stabilization may take longer—sometimes 2-3 months to achieve optimal response. For acute manic episodes, medications often work faster (days to weeks). Depressive episodes may take longer to lift. Treatment-resistant cases may require several medication trials before finding the right approach. Patience and close communication during this process are essential."
     },
     {
       question: "Can I still work and go to school?",
-      answer: "Absolutely. With effective treatment, most people with bipolar disorder maintain careers and academic pursuits. You may need accommodations during episodes or recovery periods. Managing stress and maintaining sleep become important priorities. Many highly successful people have bipolar disorder—the key is consistent treatment."
+      answer: "Absolutely. With proper treatment, most people with bipolar disorder maintain careers, complete education, and have successful relationships. Some highly successful people in business, arts, and sciences have lived with bipolar disorder. The key is getting diagnosed, getting treated, and staying on treatment. Accommodations may help during recovery or for managing appointments, but the goal is always to help you function at your best."
     },
     {
       question: "What if my medication stops working?",
-      answer: "Sometimes medications lose effectiveness over time, or life changes require treatment adjustments. This is normal and expected. We have many options—adjusting doses, switching medications, adding augmentation agents. Treatment resistance doesn't mean hopelessness; it means we haven't found the right combination yet."
+      answer: "Sometimes medications that worked well lose effectiveness over time, or episodes break through despite treatment. This doesn't mean you're out of options. Often the solution involves optimizing doses or checking blood levels, adding or switching medications, addressing factors that might be undermining treatment (substance use, sleep deprivation, new stressors), or considering more intensive treatment options. I have extensive experience helping patients who feel they've 'failed everything' find new approaches that work."
     },
     {
-      question: "Is bipolar disorder hereditary?",
-      answer: "Bipolar disorder has strong genetic components. If one parent has bipolar disorder, a child has about 10% risk. If both parents have it, risk rises to 40%. However, genetics isn't destiny—many people with family history never develop the condition, and many with bipolar have no family history. Knowing your family history helps us monitor for early signs."
+      question: "Is bipolar disorder hereditary? Should I worry about my children?",
+      answer: "Bipolar disorder has a strong genetic component. If one parent has bipolar disorder, a child's risk is approximately 10-15%. If both parents have it, the risk rises to 50-75%. However, most children of bipolar parents do not develop the condition. Being aware of the family history allows for early recognition and intervention if symptoms emerge. I can help you think through how to discuss this with family members and what to watch for in children at risk."
     },
     {
       question: "What about pregnancy and bipolar medications?",
-      answer: "This requires careful planning. Some medications (especially valproate) cause birth defects and must be avoided. Others (lamotrigine, certain antipsychotics) may be safer options. Ideally, we discuss pregnancy plans BEFORE conception to optimize your medication regimen. Untreated bipolar disorder during pregnancy also carries risks—we balance all factors to protect both mother and baby."
+      answer: "Pregnancy requires careful planning and management, but it is absolutely possible to have a healthy pregnancy while managing bipolar disorder. Lithium can be used with appropriate monitoring. Lamotrigine is considered relatively safe. Valproate should be avoided due to birth defect risks. Many atypical antipsychotics have growing safety data. The risk of untreated bipolar disorder during pregnancy must be weighed against medication risks. Postpartum planning is especially critical since the postpartum period carries very high relapse risk. I work closely with patients planning pregnancy to optimize treatment at every stage."
     },
     {
-      question: "How is bipolar different from being 'moody'?",
-      answer: "Normal moodiness involves reactions to events—you feel happy when good things happen, sad when bad things happen, and moods shift within hours. Bipolar episodes last days to months, often occur without clear triggers, and involve dramatic changes in energy, sleep, thinking, and behavior—not just mood. During mania, you might sleep 3 hours and feel great; during depression, you might sleep 12 hours and still be exhausted. The intensity and duration distinguish it from normal mood variation."
+      question: "How is bipolar disorder different from just being 'moody'?",
+      answer: "Everyone has mood fluctuations—that's normal human experience. Bipolar disorder is different in several key ways: Duration (episodes last days, weeks, or months—not hours), Intensity (episodes represent a marked change from baseline functioning), Impairment (episodes cause significant problems in work, relationships, or daily functioning), Specific symptoms (true manic/hypomanic episodes include decreased need for sleep, racing thoughts, and other specific features), and Pattern (there are distinct periods of wellness between episodes). If you're unsure whether your experiences might represent bipolar disorder, an evaluation can help clarify the picture."
     }
   ];
 
@@ -552,37 +593,30 @@ export default function BipolarDisorder() {
                 </h1>
                 
                 <p className="text-xl text-purple-700 font-semibold">
-                  Expert psychiatric care for bipolar disorder with 35+ years of experience treating mood instability
+                  Expert Psychiatric Care for Mood Instability | 35+ Years of Experience
                 </p>
                 
                 <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                   <p>
-                    The highs feel incredible—until they spin out of control. The lows feel endless—like you&apos;ll 
-                    never surface. And the people around you can&apos;t understand why you can&apos;t &quot;just be stable.&quot;
+                    Living with bipolar disorder can feel like being on an emotional roller coaster you never 
+                    chose to ride. If you or someone you love is experiencing dramatic mood swings—periods of 
+                    intense energy and elation followed by crushing depression—you&apos;re not alone, and effective 
+                    treatment is available.
                   </p>
                   <p>
-                    If this sounds familiar, you may be living with bipolar disorder. <strong>You&apos;re not broken. 
-                    You&apos;re not weak. And with the right treatment, stability is absolutely achievable.</strong>
+                    With over 35 years of experience and more than 9,000 patients treated, I&apos;ve helped countless 
+                    individuals achieve mood stability and reclaim their lives. <strong>Bipolar disorder is highly 
+                    treatable</strong>, and the right combination of medication, therapy, and lifestyle management 
+                    can lead to lasting stability.
                   </p>
                 </div>
                 
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2 text-foreground">
-                    <Check className="w-5 h-5 text-healing" />
-                    <span>Comprehensive diagnostic evaluation</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-foreground">
-                    <Check className="w-5 h-5 text-healing" />
-                    <span>Expert medication management</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-foreground">
-                    <Check className="w-5 h-5 text-healing" />
-                    <span>Treatment-resistant case expertise</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-foreground">
-                    <Check className="w-5 h-5 text-healing" />
-                    <span>Same-day responses to your questions</span>
-                  </div>
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <p className="text-purple-800">
+                    <strong>What&apos;s important to understand:</strong> Bipolar disorder is a biological condition 
+                    involving brain chemistry and circadian rhythm regulation—it&apos;s not a character flaw, a sign 
+                    of weakness, or something you can simply &quot;snap out of.&quot;
+                  </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -636,64 +670,72 @@ export default function BipolarDisorder() {
         {/* Section 1: Understanding Bipolar Disorder */}
         <section id="understanding" className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="space-y-6">
-                  <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
-                    <Heart className="w-4 h-4 mr-1" />
-                    Understanding Your Experience
-                  </Badge>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
-                    Understanding Bipolar Disorder
-                  </h2>
-                  
-                  <div className="space-y-4 text-muted-foreground leading-relaxed">
-                    <p>
-                      Bipolar disorder is a brain-based illness that causes dramatic shifts in mood, energy, 
-                      activity levels, and the ability to carry out daily tasks. These aren&apos;t ordinary mood 
-                      swings—they&apos;re intense episodes that can last days, weeks, or months.
-                    </p>
-                    <p>
-                      During manic episodes, you might feel euphoric, invincible, or irritable—with racing thoughts, 
-                      little need for sleep, and impulsive decisions you later regret. During depressive episodes, 
-                      you may feel hopeless, exhausted, and unable to function.
-                    </p>
-                    <p className="text-primary font-medium">
-                      You&apos;re not alone. Bipolar disorder affects approximately 2.8% of adults—about 7 million 
-                      Americans. With proper treatment, most people achieve significant stability.
-                    </p>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <Card className="bg-card border-border">
-                      <CardContent className="p-4 text-center">
-                        <p className="text-3xl font-bold text-primary">2.8%</p>
-                        <p className="text-sm text-muted-foreground">of adults affected</p>
-                      </CardContent>
-                    </Card>
-                    <Card className="bg-card border-border">
-                      <CardContent className="p-4 text-center">
-                        <p className="text-3xl font-bold text-primary">25</p>
-                        <p className="text-sm text-muted-foreground">average age of onset</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
-                
-                <div className="flex justify-center">
-                  <div className="relative">
-                    <div className="w-64 h-64 bg-gradient-to-br from-purple-100 to-blue-100 rounded-full flex items-center justify-center">
-                      <Scale className="w-32 h-32 text-purple-400" />
-                    </div>
-                    <div className="absolute -top-4 -right-4 bg-red-100 rounded-full p-4">
-                      <TrendingUp className="w-8 h-8 text-red-500" />
-                    </div>
-                    <div className="absolute -bottom-4 -left-4 bg-blue-100 rounded-full p-4">
-                      <TrendingDown className="w-8 h-8 text-blue-500" />
-                    </div>
-                  </div>
-                </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
+                  <Heart className="w-4 h-4 mr-1" />
+                  Understanding Your Experience
+                </Badge>
+                <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  Understanding Bipolar Disorder
+                </h2>
               </div>
+              
+              <Card className="bg-card border-border">
+                <CardContent className="p-8">
+                  <div className="space-y-6 text-foreground leading-relaxed">
+                    <p className="text-lg">
+                      Bipolar disorder is a complex brain condition that affects approximately <strong>2.8% of 
+                      American adults</strong>. Unlike ordinary mood changes that everyone experiences, bipolar 
+                      disorder involves distinct episodes of mania (or hypomania) and depression that significantly 
+                      impact daily functioning, relationships, and quality of life.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="bg-red-50 rounded-lg p-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <TrendingUp className="w-5 h-5 text-red-600" />
+                          <h4 className="font-semibold text-red-900">During Manic Episodes</h4>
+                        </div>
+                        <p className="text-red-800 text-sm">
+                          You might feel euphoric, invincible, or irritable—with racing thoughts, little need 
+                          for sleep, and impulsive decisions you later regret.
+                        </p>
+                      </div>
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <div className="flex items-center gap-2 mb-2">
+                          <TrendingDown className="w-5 h-5 text-blue-600" />
+                          <h4 className="font-semibold text-blue-900">During Depressive Episodes</h4>
+                        </div>
+                        <p className="text-blue-800 text-sm">
+                          You may feel hopeless, exhausted, and unable to function. Activities that once 
+                          brought joy feel meaningless.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <Card className="bg-purple-50 border-purple-200">
+                        <CardContent className="p-4 text-center">
+                          <p className="text-3xl font-bold text-purple-700">2.8%</p>
+                          <p className="text-sm text-purple-600">of American adults affected</p>
+                        </CardContent>
+                      </Card>
+                      <Card className="bg-purple-50 border-purple-200">
+                        <CardContent className="p-4 text-center">
+                          <p className="text-3xl font-bold text-purple-700">~25</p>
+                          <p className="text-sm text-purple-600">typical age of onset</p>
+                        </CardContent>
+                      </Card>
+                    </div>
+                    
+                    <p className="text-primary font-medium text-lg">
+                      You&apos;re not alone. With proper treatment, mood stability is achievable and most people 
+                      lead full, productive lives.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -766,24 +808,30 @@ export default function BipolarDisorder() {
                       <TrendingUp className="w-6 h-6 text-red-600" />
                     </div>
                     <div>
-                      <CardTitle className="text-xl text-red-900">Manic/Hypomanic Episodes</CardTitle>
+                      <CardTitle className="text-xl text-red-900">Manic or Hypomanic Episodes</CardTitle>
                       <p className="text-sm text-red-700">Elevated mood, energy, and activity</p>
                     </div>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 mb-4">
-                    {manicSymptoms.map((symptom, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <Flame className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground">{symptom}</span>
+                  <ul className="space-y-3 mb-4">
+                    {manicSymptoms.map((item, index) => (
+                      <li key={index} className="text-sm">
+                        <div className="flex items-start gap-2">
+                          <Flame className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-medium text-foreground">{item.symptom}</span>
+                            <span className="text-muted-foreground"> — {item.detail}</span>
+                          </div>
+                        </div>
                       </li>
                     ))}
                   </ul>
-                  <div className="bg-red-100 rounded-lg p-3">
-                    <p className="text-red-800 text-sm">
-                      <strong>Duration:</strong> Mania lasts 7+ days (or any duration if hospitalization required). 
-                      Hypomania lasts 4+ days but is less severe.
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    <p className="text-amber-800 text-sm">
+                      <strong>Important:</strong> Many people enjoy the productive, confident feelings of hypomania 
+                      and don&apos;t recognize it as part of an illness. However, these episodes often escalate or 
+                      precede debilitating depressive crashes.
                     </p>
                   </div>
                 </CardContent>
@@ -803,18 +851,24 @@ export default function BipolarDisorder() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2 mb-4">
-                    {depressiveSymptoms.map((symptom, index) => (
-                      <li key={index} className="flex items-start gap-2 text-sm">
-                        <Snowflake className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground">{symptom}</span>
+                  <ul className="space-y-3 mb-4">
+                    {depressiveSymptoms.map((item, index) => (
+                      <li key={index} className="text-sm">
+                        <div className="flex items-start gap-2">
+                          <Snowflake className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="font-medium text-foreground">{item.symptom}</span>
+                            <span className="text-muted-foreground"> — {item.detail}</span>
+                          </div>
+                        </div>
                       </li>
                     ))}
                   </ul>
                   <div className="bg-blue-100 rounded-lg p-3">
                     <p className="text-blue-800 text-sm">
-                      <strong>Duration:</strong> Depressive episodes last 2+ weeks. 
-                      Many people with bipolar spend more time depressed than manic.
+                      <strong>Bipolar depression often dominates:</strong> Patients with Bipolar I spend 
+                      approximately three times more time depressed than manic. For Bipolar II, this ratio 
+                      can be as high as 39:1.
                     </p>
                   </div>
                 </CardContent>
@@ -823,7 +877,7 @@ export default function BipolarDisorder() {
 
             {/* Mixed Features */}
             <div className="max-w-4xl mx-auto mt-8">
-              <Card className="bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200">
+              <Card className="bg-gradient-to-r from-purple-50 to-pink-50 border-purple-200 border-2">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -831,11 +885,22 @@ export default function BipolarDisorder() {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-purple-900 mb-2">Mixed Features</h3>
-                      <p className="text-purple-800">
-                        Some people experience symptoms of both mania and depression simultaneously—feeling 
-                        energized and agitated while also feeling hopeless and suicidal. These &quot;mixed episodes&quot; 
-                        are particularly dangerous and require careful treatment, as antidepressants can worsen them.
+                      <p className="text-purple-800 mb-3">
+                        Some patients experience symptoms of both mania and depression simultaneously. This might look like:
                       </p>
+                      <ul className="grid md:grid-cols-2 gap-2 text-purple-700 text-sm mb-3">
+                        <li>• Feeling energized but deeply sad</li>
+                        <li>• Racing thoughts filled with negative content</li>
+                        <li>• Irritable, agitated, and hopeless at the same time</li>
+                        <li>• High energy with suicidal thoughts</li>
+                      </ul>
+                      <div className="bg-red-100 border border-red-200 rounded p-2">
+                        <p className="text-red-800 text-sm font-medium">
+                          <AlertTriangle className="w-4 h-4 inline mr-1" />
+                          Mixed states are particularly dangerous because they combine despair with impulsive 
+                          energy. These require urgent clinical attention.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -856,30 +921,41 @@ export default function BipolarDisorder() {
                 How Bipolar Differs from Other Conditions
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Bipolar disorder is frequently misdiagnosed. Getting the right diagnosis is crucial for effective treatment.
+                Understanding these distinctions is crucial because treatment approaches differ significantly.
               </p>
             </div>
             
-            <div className="max-w-5xl mx-auto space-y-4">
+            <div className="max-w-5xl mx-auto space-y-6">
               {differentialDiagnosis.map((item, index) => (
                 <Card key={index} className="bg-card border-border">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg">Bipolar vs. {item.condition}</CardTitle>
+                  <CardHeader>
+                    <CardTitle className="text-xl">Bipolar Disorder vs. {item.condition}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="bg-purple-50 rounded-lg p-3">
-                        <h4 className="font-semibold text-purple-800 text-sm mb-1">Bipolar:</h4>
-                        <p className="text-purple-700 text-sm">{item.bipolar}</p>
-                      </div>
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <h4 className="font-semibold text-gray-800 text-sm mb-1">{item.condition}:</h4>
-                        <p className="text-gray-700 text-sm">{item.other}</p>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-3">
-                        <h4 className="font-semibold text-green-800 text-sm mb-1">Key Distinction:</h4>
-                        <p className="text-green-700 text-sm">{item.key}</p>
-                      </div>
+                    <div className="overflow-x-auto mb-4">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="text-left py-2 font-semibold text-foreground">Feature</th>
+                            <th className="text-left py-2 font-semibold text-purple-700">Bipolar</th>
+                            <th className="text-left py-2 font-semibold text-gray-700">{item.condition}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {item.features.map((feature, idx) => (
+                            <tr key={idx} className="border-b">
+                              <td className="py-2 font-medium text-foreground">{feature.label}</td>
+                              <td className="py-2 text-purple-700">{feature.bipolar}</td>
+                              <td className="py-2 text-gray-600">{feature.other}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                      <p className="text-amber-800 text-sm">
+                        <strong>Key Point:</strong> {item.keyPoint}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>
@@ -900,15 +976,15 @@ export default function BipolarDisorder() {
                 Comprehensive Treatment Approach
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                With over 35 years of experience and 9,000+ patients treated, we provide thorough, 
-                individualized care for bipolar disorder.
+                Effective bipolar treatment requires a multi-faceted approach tailored to your specific symptoms, 
+                history, and circumstances.
               </p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {treatmentApproach.map((item, index) => (
-                <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow text-center">
-                  <CardContent className="p-6">
+                <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <item.icon className="w-8 h-8 text-primary" />
                     </div>
@@ -933,7 +1009,8 @@ export default function BipolarDisorder() {
                 Medications for Bipolar Disorder
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Medication is the cornerstone of bipolar treatment. We have many effective options.
+                Medication is the cornerstone of bipolar treatment. The goal is to stabilize mood, prevent 
+                future episodes, and maintain quality of life with minimal side effects.
               </p>
             </div>
             
@@ -950,8 +1027,11 @@ export default function BipolarDisorder() {
                     {moodStabilizers.map((med, index) => (
                       <Card key={index} className="bg-card border-border">
                         <CardContent className="p-6">
-                          <h4 className="text-lg font-semibold text-foreground mb-2">{med.name}</h4>
-                          <p className="text-muted-foreground mb-2">{med.description}</p>
+                          <div className="flex items-start justify-between mb-2">
+                            <h4 className="text-lg font-semibold text-foreground">{med.name}</h4>
+                            <Badge variant="secondary" className="bg-green-100 text-green-700">{med.highlight}</Badge>
+                          </div>
+                          <p className="text-muted-foreground mb-3">{med.description}</p>
                           <p className="text-sm text-amber-700 bg-amber-50 rounded p-2">
                             <strong>Considerations:</strong> {med.considerations}
                           </p>
@@ -962,12 +1042,17 @@ export default function BipolarDisorder() {
                 </TabsContent>
                 
                 <TabsContent value="antipsychotics">
+                  <p className="text-muted-foreground mb-6">
+                    Despite their name, these medications are essential tools in bipolar treatment—not because 
+                    bipolar involves psychosis (though it can), but because they effectively stabilize mood 
+                    through multiple brain pathways.
+                  </p>
                   <div className="grid md:grid-cols-2 gap-6">
                     <Card className="bg-red-50 border-red-200">
                       <CardHeader>
                         <CardTitle className="text-lg text-red-900 flex items-center gap-2">
                           <TrendingUp className="w-5 h-5" />
-                          For Mania
+                          For Manic Episodes
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -986,7 +1071,7 @@ export default function BipolarDisorder() {
                       <CardHeader>
                         <CardTitle className="text-lg text-blue-900 flex items-center gap-2">
                           <TrendingDown className="w-5 h-5" />
-                          For Depression
+                          For Depressive Episodes
                         </CardTitle>
                       </CardHeader>
                       <CardContent>
@@ -1001,28 +1086,46 @@ export default function BipolarDisorder() {
                       </CardContent>
                     </Card>
                   </div>
+                  
+                  {/* Antidepressant Warning */}
+                  <Card className="bg-red-50 border-red-300 border-2 mt-6">
+                    <CardHeader>
+                      <CardTitle className="text-lg text-red-900 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5" />
+                        What About Antidepressants?
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-red-800 mb-3">
+                        <strong>This deserves special attention:</strong> In Bipolar I Disorder, standard 
+                        antidepressants (SSRIs, SNRIs) used alone are generally <strong>not recommended</strong>. 
+                        Large studies found that adding antidepressants to mood stabilizers provided no benefit 
+                        over mood stabilizers alone. Worse, antidepressants can trigger manic episodes or 
+                        accelerate mood cycling.
+                      </p>
+                      <p className="text-red-700 text-sm">
+                        <strong>The bottom line:</strong> If you&apos;ve been diagnosed with or suspected of having 
+                        bipolar disorder, antidepressant monotherapy is rarely appropriate. Mood stabilization must come first.
+                      </p>
+                    </CardContent>
+                  </Card>
                 </TabsContent>
                 
                 <TabsContent value="resistant">
-                  <Card className="bg-card border-border">
-                    <CardContent className="p-6">
-                      <h4 className="text-lg font-semibold text-foreground mb-4">When Standard Treatments Aren&apos;t Enough</h4>
-                      <div className="space-y-4">
-                        <div className="bg-purple-50 rounded-lg p-4">
-                          <h5 className="font-medium text-purple-900 mb-1">Clozapine</h5>
-                          <p className="text-purple-800 text-sm">The most effective medication for treatment-resistant bipolar disorder. Requires blood monitoring but can be life-changing for those who haven&apos;t responded to other medications.</p>
-                        </div>
-                        <div className="bg-indigo-50 rounded-lg p-4">
-                          <h5 className="font-medium text-indigo-900 mb-1">Combination Therapy</h5>
-                          <p className="text-indigo-800 text-sm">Sometimes optimal treatment requires combining medications—such as lithium plus an antipsychotic plus lamotrigine (&quot;triple therapy&quot;). We carefully balance effectiveness with side effect burden.</p>
-                        </div>
-                        <div className="bg-teal-50 rounded-lg p-4">
-                          <h5 className="font-medium text-teal-900 mb-1">Electroconvulsive Therapy (ECT)</h5>
-                          <p className="text-teal-800 text-sm">For severe, treatment-resistant episodes (especially with psychosis or suicidality), ECT remains highly effective. Modern ECT is safe and often provides rapid relief when medications haven&apos;t worked.</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <p className="text-muted-foreground mb-6">
+                    When standard treatments don&apos;t provide adequate relief, I have extensive experience with 
+                    more advanced approaches:
+                  </p>
+                  <div className="space-y-4">
+                    {treatmentResistantOptions.map((option, index) => (
+                      <Card key={index} className="bg-card border-border">
+                        <CardContent className="p-6">
+                          <h4 className="text-lg font-semibold text-foreground mb-2">{option.name}</h4>
+                          <p className="text-muted-foreground">{option.description}</p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </TabsContent>
               </Tabs>
               
@@ -1032,9 +1135,9 @@ export default function BipolarDisorder() {
                   <div>
                     <h4 className="font-semibold text-amber-900 mb-1">Important Note</h4>
                     <p className="text-amber-800">
-                      Medication selection is highly individualized based on your symptom profile, bipolar type, 
-                      side effect tolerance, medical history, and personal preferences. What works for one person 
-                      may not work for another. We take time to find the right fit.
+                      Medication selection is always individualized based on your specific symptom profile, 
+                      medical history, previous treatment responses, potential side effects, and personal preferences. 
+                      There is no one-size-fits-all approach.
                     </p>
                   </div>
                 </div>
@@ -1055,12 +1158,14 @@ export default function BipolarDisorder() {
                 Therapy & Lifestyle Management
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Medication is essential, but therapy and lifestyle changes significantly improve outcomes.
+                While medication is essential, the best outcomes combine pharmacotherapy with therapy and 
+                lifestyle modifications.
               </p>
             </div>
             
             <div className="max-w-5xl mx-auto">
               {/* Therapy Approaches */}
+              <h3 className="text-2xl font-bold text-foreground mb-6">Evidence-Based Psychotherapies</h3>
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 {therapyApproaches.map((therapy, index) => (
                   <Card key={index} className="bg-card border-border">
@@ -1078,7 +1183,7 @@ export default function BipolarDisorder() {
               </div>
               
               {/* Lifestyle Factors */}
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">Critical Lifestyle Factors</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-6">Critical Lifestyle Factors</h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {lifestyleFactors.map((factor, index) => (
                   <Card key={index} className={`bg-card border-border ${factor.critical ? 'ring-2 ring-red-200' : ''}`}>
@@ -1092,7 +1197,7 @@ export default function BipolarDisorder() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ul className="space-y-1">
+                      <ul className="space-y-2">
                         {factor.tips.map((tip, idx) => (
                           <li key={idx} className="flex items-start gap-2 text-sm">
                             <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
@@ -1295,9 +1400,10 @@ export default function BipolarDisorder() {
                 Ready to Find Stability?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Living with untreated bipolar disorder means living at the mercy of your mood episodes. 
-                <strong> It doesn&apos;t have to be that way.</strong> With proper treatment, most people achieve 
-                significant stability and lead fulfilling lives. Take the first step today.
+                You don&apos;t have to navigate bipolar disorder alone. With proper diagnosis and treatment, 
+                mood stability is achievable. Whether you&apos;re seeking answers for confusing symptoms, looking 
+                for a new psychiatrist after previous treatment hasn&apos;t worked, or need expert management 
+                for a complex case, I&apos;m here to help.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
