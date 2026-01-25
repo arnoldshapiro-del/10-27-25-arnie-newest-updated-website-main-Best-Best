@@ -950,7 +950,7 @@ export default function Trichotillomania() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-teal-800">We understand that SSRIs alone don't work for trichotillomania</span>
+                        <span className="text-teal-800">We understand that SSRIs alone don&apos;t work for trichotillomania</span>
                       </div>
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
