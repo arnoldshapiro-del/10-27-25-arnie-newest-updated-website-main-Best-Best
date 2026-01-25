@@ -51,6 +51,7 @@ const App = () => (
             <Route path="/ocd" element={<OCD />} />
             <Route path="/social-anxiety" element={<SocialAnxiety />} />
             <Route path="/bipolar-disorder" element={<BipolarDisorder />} />
+            <Route path="/trichotillomania" element={<Trichotillomania />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
