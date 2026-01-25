@@ -40,7 +40,7 @@ const Disorders = () => {
       symptoms: ["Persistent sadness", "Loss of interest", "Fatigue", "Sleep disturbances"],
       treatments: ["Therapy", "Antidepressants", "Lifestyle changes", "Light therapy"],
       color: "from-purple-500/20 to-purple-600/20",
-      link: null
+      link: "/depression"
     },
     {
       icon: Zap,
