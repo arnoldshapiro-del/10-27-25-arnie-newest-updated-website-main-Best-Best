@@ -12,8 +12,6 @@ import {
   Clock,
   FileText,
   Award,
-  Stethoscope,
-  GraduationCap,
   MessageCircle,
   Phone,
   MapPin,
@@ -21,7 +19,6 @@ import {
   ChevronRight,
   Shield,
   Pill,
-  Star,
   Calendar,
   Eye,
   EyeOff,
@@ -33,7 +30,6 @@ import {
   PartyPopper,
   HandshakeIcon,
   Presentation,
-  CircleAlert,
   Thermometer,
   Droplets,
   HeartPulse,
@@ -41,14 +37,22 @@ import {
   Target,
   XCircle,
   CheckCircle,
-  ArrowDownCircle,
   TrendingDown,
   Sparkles,
   Zap,
   RefreshCw,
   UserCheck,
   ClipboardList,
-  Lightbulb
+  Lightbulb,
+  Video,
+  ArrowDown,
+  Wine,
+  GraduationCap,
+  Baby,
+  Puzzle,
+  AlertTriangle,
+  BookOpen,
+  Stethoscope
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -97,23 +101,23 @@ const socialAnxietySchema = [
         "name": "Is social anxiety the same as being introverted?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Introversion is a personality trait—introverts prefer quieter environments and need alone time to recharge. Social anxiety is a disorder characterized by fear and avoidance. Introverts can enjoy social situations; people with social anxiety fear them."
+          "text": "No. Introversion (preferring quieter environments, recharging alone) is different from social anxiety (fear of judgment causing avoidance and distress). You can be introverted without social anxiety, or extroverted with social anxiety."
         }
       },
       {
         "@type": "Question",
-        "name": "Can social anxiety be cured?",
+        "name": "How long does social anxiety treatment take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Many people achieve significant and lasting improvement with proper treatment. CBT and medication can reduce symptoms by 50-80%. While some may always have a tendency toward social sensitivity, it doesn't have to control your life."
+          "text": "Most people see significant improvement within 3-6 months of combined treatment. Medication typically takes 8-12 weeks at effective dose. CBT usually involves 12-16 sessions."
         }
       },
       {
         "@type": "Question",
-        "name": "Why do I blush so easily?",
+        "name": "Will I need medication forever for social anxiety?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Blushing is caused by the sympathetic nervous system dilating blood vessels in the face when you feel self-conscious. It's involuntary and common in social anxiety. The fear of blushing often makes it worse. Treatment focuses on reducing this fear rather than stopping the blush."
+          "text": "Many people can eventually taper off medication after 12-24 months of remission, especially if they've developed strong CBT skills. However, some people do better with long-term medication, and that's okay too."
         }
       }
     ]
@@ -121,186 +125,163 @@ const socialAnxietySchema = [
 ];
 
 export default function SocialAnxiety() {
+  // Common trigger situations
+  const triggerSituations = [
+    "Public speaking or presentations",
+    "Meeting new people",
+    "Being the center of attention",
+    "Eating or drinking in front of others",
+    "Making phone calls",
+    "Expressing opinions in groups",
+    "Attending parties or social gatherings",
+    "Dating or romantic interactions",
+    "Being watched while working",
+    "Talking to authority figures"
+  ];
+
   // Physical symptoms
   const physicalSymptoms = [
-    { symptom: "Blushing", description: "Face turning red when feeling observed or embarrassed" },
-    { symptom: "Sweating", description: "Excessive perspiration, especially palms, underarms, face" },
-    { symptom: "Trembling", description: "Shaking hands, voice, or body when anxious" },
-    { symptom: "Racing heart", description: "Palpitations, pounding, or rapid heartbeat" },
-    { symptom: "Nausea", description: "Upset stomach, feeling like you might vomit" },
-    { symptom: "Dry mouth", description: "Difficulty speaking or swallowing" },
-    { symptom: "Muscle tension", description: "Tight shoulders, jaw clenching, stiffness" },
-    { symptom: "Dizziness", description: "Lightheadedness or feeling faint" }
+    { symptom: "Blushing or flushing", detail: "(and fear of blushing)" },
+    { symptom: "Excessive sweating", detail: "(especially palms, underarms)" },
+    { symptom: "Trembling or shaking", detail: "(hands, voice)" },
+    { symptom: "Racing heart or palpitations", detail: "" },
+    { symptom: "Shortness of breath or tight chest", detail: "" },
+    { symptom: "Nausea or stomach upset", detail: "" },
+    { symptom: "Dry mouth or difficulty swallowing", detail: "" },
+    { symptom: "Muscle tension", detail: "" },
+    { symptom: "Mind going blank", detail: "" }
   ];
 
   // Cognitive symptoms
   const cognitiveSymptoms = [
-    { symptom: "Mind going blank", description: "Forgetting what you were saying mid-sentence" },
-    { symptom: "Negative predictions", description: "'They'll think I'm stupid,' 'I'll embarrass myself'" },
-    { symptom: "Post-event rumination", description: "Replaying conversations, analyzing every word for hours or days" },
-    { symptom: "Catastrophizing", description: "Assuming the worst possible outcome will happen" },
-    { symptom: "Mind-reading", description: "Believing you know others are judging you negatively" },
-    { symptom: "Spotlight effect", description: "Feeling like everyone is watching and noticing your flaws" }
+    { symptom: "Negative predictions", detail: "(\"I'll say something stupid\")" },
+    { symptom: "Mind-reading", detail: "(\"They think I'm boring\")" },
+    { symptom: "Fortune-telling", detail: "(\"This will be a disaster\")" },
+    { symptom: "Spotlight effect", detail: "(\"Everyone is watching me\")" },
+    { symptom: "All-or-nothing thinking", detail: "(\"If I blush, I'm ruined\")" },
+    { symptom: "Post-event rumination", detail: "(replaying conversations for hours/days)" }
   ];
 
-  // Behavioral symptoms
-  const behavioralSymptoms = [
-    { symptom: "Avoidance", description: "Skipping events, declining invitations, calling in sick" },
-    { symptom: "Escape", description: "Leaving situations early, hiding in bathrooms" },
-    { symptom: "Safety behaviors", description: "Drinking to cope, over-preparing, staying quiet" },
-    { symptom: "Limited eye contact", description: "Looking away, staring at phone or ground" },
-    { symptom: "Speaking softly", description: "Mumbling, trailing off, one-word answers" },
-    { symptom: "Physical barriers", description: "Crossing arms, standing in corners, wearing sunglasses" }
+  // Avoidance behaviors
+  const avoidanceBehaviors = [
+    "Declining invitations",
+    "Choosing careers that minimize social exposure",
+    "Not asking questions in meetings",
+    "Arriving late/leaving early to avoid small talk",
+    "Using alcohol to \"loosen up\""
   ];
 
-  // Feared situations
-  const fearedSituations = [
-    { icon: Presentation, situation: "Public speaking", description: "Presentations, meetings, speaking in class" },
-    { icon: Coffee, situation: "Small talk", description: "Casual conversations, making chitchat" },
-    { icon: PartyPopper, situation: "Parties", description: "Social gatherings, networking events" },
-    { icon: HandshakeIcon, situation: "Meeting new people", description: "Introductions, first impressions" },
-    { icon: Phone, situation: "Phone calls", description: "Making or receiving calls, especially unexpected ones" },
-    { icon: Users, situation: "Being observed", description: "Eating, writing, or performing while others watch" },
-    { icon: Building2, situation: "Authority figures", description: "Talking to bosses, doctors, teachers" },
-    { icon: Eye, situation: "Being the center of attention", description: "Birthdays, being called on, entering late" }
+  // Safety behaviors
+  const safetyBehaviors = [
+    "Rehearsing what you'll say",
+    "Gripping objects tightly to hide trembling",
+    "Avoiding eye contact",
+    "Speaking quickly to \"get it over with\"",
+    "Standing near exits",
+    "Wearing makeup/clothing to hide blushing",
+    "Bringing a \"safe person\" to social events",
+    "Staying on your phone to avoid interaction"
   ];
 
-  // Subtypes
-  const subtypes = [
+  // Vicious cycle steps
+  const viciousCycle = [
+    { step: "1", title: "Anticipate", description: "Anticipate a social situation → Experience dread and anxiety" },
+    { step: "2", title: "Respond", description: "Either avoid entirely (reinforcing fear) OR enter with high anxiety" },
+    { step: "3", title: "Cope", description: "Use \"safety behaviors\" (avoid eye contact, rehearse scripts, grip glass)" },
+    { step: "4", title: "Ruminate", description: "Engage in \"post-event processing\"—replaying every moment looking for mistakes" },
+    { step: "5", title: "Conclude", description: "Conclude you \"failed\" → Dread the next situation even more" }
+  ];
+
+  // Normal vs Social Anxiety comparison
+  const normalVsSocialAnxiety = {
+    normal: [
+      "Temporary discomfort that passes once you settle in",
+      "Doesn't significantly interfere with your life",
+      "You push through and feel fine afterward",
+      "Occasional, situation-specific"
+    ],
+    socialAnxiety: [
+      "Intense fear that feels overwhelming, not just \"butterflies\"",
+      "Causes significant avoidance of social situations",
+      "Leads to hours of anticipatory dread beforehand and rumination afterward",
+      "Interferes with career, relationships, or daily functioning",
+      "Persistent pattern lasting months or years"
+    ]
+  };
+
+  // Medication options
+  const medications = [
+    { name: "Sertraline (Zoloft)", dose: "100-200mg (up to 300mg)", notes: "Good all-around choice" },
+    { name: "Escitalopram (Lexapro)", dose: "20mg (up to 30-40mg)", notes: "Very clean side effect profile" },
+    { name: "Venlafaxine XR (Effexor)", dose: "150-225mg", notes: "Adds norepinephrine effect; helpful for low energy/motivation" },
+    { name: "Paroxetine (Paxil)", dose: "40-60mg", notes: "Effective but harder to stop" }
+  ];
+
+  // CBT components
+  const cbtComponents = [
     {
-      title: "Generalized Social Anxiety",
-      description: "Fear across most social situations",
-      examples: ["Conversations", "Parties", "Work meetings", "Dating", "Making phone calls"],
-      severity: "More pervasive impact on daily life",
-      color: "bg-blue-50",
-      borderColor: "border-blue-200"
+      title: "Identify safety behaviors",
+      description: "What are you doing to \"stay safe\"? Rehearsing? Avoiding eye contact? These must go."
     },
     {
-      title: "Performance-Only Social Anxiety",
-      description: "Fear limited to performance situations",
-      examples: ["Public speaking", "Presentations", "Musical performances", "Sports in front of others"],
-      severity: "Can often manage other social situations well",
-      color: "bg-green-50",
-      borderColor: "border-green-200"
+      title: "Shift attention outward",
+      description: "Social anxiety creates intense self-focus (\"How do I look? What are they thinking?\"). We train you to focus externally."
+    },
+    {
+      title: "Behavioral experiments",
+      description: "Not just \"exposure\" but testing specific predictions. Prediction: \"If I pause while speaking, everyone will think I'm stupid.\" Experiment: Deliberately pause. Observe the actual reaction."
+    },
+    {
+      title: "Video feedback",
+      description: "One of the most powerful techniques. We record you giving a speech. You predict what you'll look like. Then we watch together. Nearly everyone is shocked that they look far more composed than they felt."
+    },
+    {
+      title: "Drop the post-event rumination",
+      description: "That mental replay session after every social interaction? It's a compulsion that maintains anxiety. We work on letting go without reviewing."
     }
   ];
 
-  // Avoidance trap cycle
-  const avoidanceCycle = [
-    { step: "Fear", description: "Anticipate social situation → anxiety rises" },
-    { step: "Avoidance", description: "Skip the event → immediate relief" },
-    { step: "Reinforcement", description: "Brain learns avoidance = safety" },
-    { step: "Weakening", description: "Confidence decreases, fear increases" },
-    { step: "Spreading", description: "More situations become threatening" }
+  // School accommodations
+  const schoolAccommodations = [
+    "\"No cold-calling\" rule—student presents only with 24-hour notice",
+    "\"Safe pass\" to leave class briefly without asking permission",
+    "Option to give presentations to teacher privately or pre-recorded",
+    "Designated \"safe person\" (counselor) to check in with"
   ];
 
-  // Treatment approaches
-  const treatments = [
+  // FAQs
+  const faqs = [
     {
-      title: "Cognitive Behavioral Therapy (CBT)",
-      subtitle: "The Gold Standard",
-      icon: Brain,
-      description: "CBT is the most effective psychological treatment for social anxiety. It addresses both the distorted thoughts and avoidance behaviors that maintain the disorder.",
-      components: [
-        "Cognitive restructuring: Identifying and challenging negative thought patterns",
-        "Behavioral experiments: Testing whether feared outcomes actually happen",
-        "Exposure therapy: Gradually facing feared situations in a structured way",
-        "Social skills training: Building confidence in specific situations (when needed)"
-      ],
-      effectiveness: "50-70% achieve significant improvement"
+      question: "I function at work but struggle in personal social situations. Is that still social anxiety?",
+      answer: "Yes. Social anxiety can be situation-specific. Some people are fine in structured professional settings (where there are clear roles and scripts) but struggle with unstructured social situations (parties, dating) where \"rules\" are unclear. We can target treatment to your specific problem areas."
     },
     {
-      title: "Medication Options",
-      subtitle: "Evidence-Based Pharmacotherapy",
-      icon: Pill,
-      description: "Medications can significantly reduce social anxiety symptoms, especially when combined with therapy.",
-      options: [
-        { name: "SSRIs", detail: "First-line treatment (sertraline, paroxetine, escitalopram). Take 4-8 weeks for full effect." },
-        { name: "SNRIs", detail: "Alternative first-line option (venlafaxine). Similar efficacy to SSRIs." },
-        { name: "Beta-blockers", detail: "For performance anxiety only (propranolol). Reduces physical symptoms like trembling and racing heart." },
-        { name: "Benzodiazepines", detail: "Short-term or as-needed use. Risk of dependence limits long-term use." }
-      ]
+      question: "I've always been \"shy.\" Isn't this just my personality?",
+      answer: "Introversion (preferring quieter environments, recharging alone) is different from social anxiety (fear of judgment causing avoidance and distress). You can be introverted without social anxiety, or extroverted with social anxiety. If your \"shyness\" causes significant distress or holds you back from things you want, it's worth evaluating."
     },
     {
-      title: "Combination Treatment",
-      subtitle: "Often Most Effective",
-      icon: Sparkles,
-      description: "Research shows that combining medication with CBT often produces better results than either alone, especially for moderate-to-severe social anxiety.",
-      benefits: [
-        "Medication reduces symptoms enough to engage in therapy",
-        "Therapy provides lasting skills even after medication stops",
-        "Combined approach shows highest response rates"
-      ]
-    }
-  ];
-
-  // Physical symptom management
-  const physicalManagement = [
-    {
-      symptom: "Blushing",
-      strategies: [
-        "Accept it rather than fight it (fighting makes it worse)",
-        "Cognitive restructuring: 'Blushing is normal, most people don't notice'",
-        "Some respond to certain medications (beta-blockers, clonidine)",
-        "ETS surgery is a last resort with significant side effects"
-      ]
+      question: "Will medication make me feel \"drugged\" or change my personality?",
+      answer: "The goal is to reduce the excessive anxiety, not to change who you are. Most patients report feeling \"more like themselves\"—able to engage without the constant internal alarm. If any medication makes you feel unlike yourself, we adjust."
     },
     {
-      symptom: "Sweating",
-      strategies: [
-        "Clinical-strength antiperspirants",
-        "Wear breathable, dark-colored clothing",
-        "Certain medications can help (glycopyrrolate)",
-        "Address underlying anxiety to reduce trigger"
-      ]
+      question: "I use alcohol to cope with social situations. Is that a problem?",
+      answer: "Alcohol provides immediate relief (GABAergic effect), which is why ~20% of people with social anxiety self-medicate this way. But alcohol causes a glutamate rebound the next day—meaning your baseline anxiety is actually HIGHER the morning after drinking. We call it \"hangxiety.\" This creates a cycle that worsens both social anxiety and alcohol dependence. If alcohol is your coping mechanism, we address both issues together."
     },
     {
-      symptom: "Trembling",
-      strategies: [
-        "Beta-blockers can be very effective for performance situations",
-        "Deep breathing and muscle relaxation techniques",
-        "Reduce caffeine intake",
-        "Accept some trembling as normal under stress"
-      ]
-    }
-  ];
-
-  // Child/teen specific info
-  const childTeenSigns = [
-    "Refusing to go to school or frequent stomachaches on school days",
-    "Extreme distress about presentations, reading aloud, or being called on",
-    "Avoiding birthday parties, sleepovers, or extracurricular activities",
-    "Difficulty making friends or speaking to peers",
-    "Crying, tantrums, or freezing in social situations",
-    "Excessive reliance on parents in social situations",
-    "Fear of eating in the cafeteria or using school bathrooms"
-  ];
-
-  // Differential diagnosis
-  const differentialDiagnosis = [
-    {
-      condition: "Autism Spectrum Disorder",
-      overlap: "Social difficulties, may avoid social situations",
-      difference: "ASD: Social challenges stem from difficulty reading social cues, not fear of judgment. May not desire more social connection.",
-      key: "Social anxiety: Wants to connect but fears negative evaluation"
+      question: "How long does treatment take?",
+      answer: "Most people see significant improvement within 3-6 months of combined treatment. Medication typically takes 8-12 weeks at effective dose. CBT usually involves 12-16 sessions. But \"improvement\" doesn't mean \"cure\"—we aim for you to function fully even if some nervousness remains."
     },
     {
-      condition: "Avoidant Personality Disorder",
-      overlap: "Avoidance of social situations, fear of rejection",
-      difference: "AvPD: More pervasive, affects all relationships, deep-seated feelings of inadequacy across life domains.",
-      key: "Social anxiety: Often situational, person sees self as adequate in non-social areas"
+      question: "Will I need medication forever?",
+      answer: "Many people can eventually taper off medication after 12-24 months of remission, especially if they've developed strong CBT skills. However, some people do better with long-term medication, and that's okay too. We make that decision together based on your response and preferences."
     },
     {
-      condition: "Panic Disorder",
-      overlap: "Physical symptoms, avoidance",
-      difference: "Panic disorder: Fears the panic attack itself and physical sensations, not social judgment.",
-      key: "Social anxiety: Fears what others will think of them"
+      question: "My child won't go to school. What do I do?",
+      answer: "School refusal is a psychiatric emergency—every day of avoidance makes anxiety worse. Don't let the school put your child on \"homebound instruction\" (this reinforces avoidance). Instead, we work on graduated return with accommodations. Quick intervention is key."
     },
     {
-      condition: "Generalized Anxiety Disorder",
-      overlap: "Chronic worry, physical symptoms",
-      difference: "GAD: Worry spans many topics (health, finances, family). Not specifically about social evaluation.",
-      key: "Social anxiety: Worry specifically centers on social situations"
+      question: "I've tried therapy before and it didn't work.",
+      answer: "Most general therapists aren't trained in the specific techniques that work for social anxiety. Generic \"talk therapy\" about your childhood or feelings doesn't address the behavioral maintenance of social anxiety. If you haven't done structured CBT with behavioral experiments, attention retraining, and video feedback from a specialist, you haven't tried what actually works."
     }
   ];
 
@@ -313,13 +294,13 @@ export default function SocialAnxiety() {
     },
     {
       icon: Brain,
-      title: "Understands the Fear",
-      description: "We know that 'just talk to people' isn't helpful advice. We understand the terror of being watched and judged."
+      title: "Specialist Knowledge",
+      description: "We use evidence-based protocols (Clark & Wells model) specifically designed for social anxiety—not generic anxiety treatment."
     },
     {
       icon: Pill,
-      title: "Evidence-Based Treatment",
-      description: "We use proven approaches—CBT techniques and appropriate medications—not generic talk therapy."
+      title: "Proper Medication Dosing",
+      description: "Social anxiety often requires higher doses and longer timelines than depression. We know the evidence and dose accordingly."
     },
     {
       icon: Clock,
@@ -329,52 +310,12 @@ export default function SocialAnxiety() {
     {
       icon: Shield,
       title: "Comprehensive Evaluation",
-      description: "We assess for everything—not just social anxiety, but depression, other anxiety disorders, and conditions that commonly co-occur."
+      description: "We assess for everything—social anxiety, autism features, avoidant personality, depression—to ensure accurate diagnosis."
     },
     {
       icon: Heart,
-      title: "No Pressure",
-      description: "We understand that talking to a psychiatrist is itself anxiety-provoking. We'll move at your pace."
-    }
-  ];
-
-  // FAQs
-  const faqs = [
-    {
-      question: "Is social anxiety the same as being shy or introverted?",
-      answer: "No. Shyness is a personality trait—some people are naturally more reserved. Introversion means you recharge through alone time. Social anxiety is a disorder characterized by intense fear and avoidance that interferes with your life. You can be an extrovert with social anxiety (you WANT to be social but fear prevents it) or a shy introvert without social anxiety (you prefer quiet but don't fear judgment)."
-    },
-    {
-      question: "I only get anxious about public speaking. Is that social anxiety?",
-      answer: "Possibly. 'Performance-only' social anxiety is a recognized subtype where fear is limited to performance situations. It's extremely common—public speaking anxiety affects up to 75% of people to some degree. If it's significantly impacting your career or life, it's worth treating. Beta-blockers can be very effective for this subtype."
-    },
-    {
-      question: "Can social anxiety be cured?",
-      answer: "Many people achieve significant and lasting improvement. CBT produces 50-70% response rates, and combining therapy with medication often works even better. While you may always have some tendency toward social sensitivity, proper treatment can reduce it to a manageable level that doesn't control your life."
-    },
-    {
-      question: "Why do I blush so easily? Can anything stop it?",
-      answer: "Blushing is caused by the sympathetic nervous system dilating facial blood vessels when you feel self-conscious. Unfortunately, trying to stop blushing often makes it worse (the 'white bear' effect). Treatment focuses on reducing your fear of blushing rather than eliminating the blush itself. Some medications can help, and cognitive restructuring helps you care less about it."
-    },
-    {
-      question: "Will medication make me a different person?",
-      answer: "No. The goal of medication is to reduce the excessive fear response, not change your personality. Patients often describe feeling 'more like themselves'—able to do things they always wanted to do but couldn't because of anxiety. You won't become recklessly social; you'll just have a choice about how to respond."
-    },
-    {
-      question: "I've avoided social situations my whole life. Is it too late?",
-      answer: "Absolutely not. While early treatment is ideal, people of all ages respond to treatment for social anxiety. You may have more deeply ingrained avoidance patterns, which means treatment might take longer, but improvement is still very possible. Many patients in their 40s, 50s, and beyond find significant relief."
-    },
-    {
-      question: "How is social anxiety different from autism?",
-      answer: "While both can involve social difficulties, the core difference is WHY. In social anxiety, you understand social rules but fear being judged negatively. In autism, the challenge is more about understanding and processing social information. People with social anxiety usually want more social connection but fear prevents it; those with autism may or may not desire more connection."
-    },
-    {
-      question: "Do I need therapy or can medication alone work?",
-      answer: "Medication alone can help, but research consistently shows that combining medication with CBT produces the best outcomes. Medication reduces symptoms so you can engage in therapy; therapy gives you skills that last even after medication stops. For mild cases, therapy alone may be sufficient."
-    },
-    {
-      question: "What are your payment options?",
-      answer: "We are an out-of-network practice. You'll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
+      title: "We Understand the Irony",
+      description: "Seeing a psychiatrist can trigger social anxiety. We get it. We'll move at your pace and never judge."
     }
   ];
 
@@ -383,7 +324,7 @@ export default function SocialAnxiety() {
       <Helmet>
         <title>Social Anxiety Treatment in Cincinnati | Social Phobia Psychiatrist | Dr. Shapiro</title>
         <meta name="description" content="Expert social anxiety treatment in Cincinnati & Northern Kentucky. Board-certified psychiatrist Dr. Arnold Shapiro specializes in social phobia including CBT and medication management. 35+ years experience. Call (859) 341-7453." />
-        <meta name="keywords" content="social anxiety treatment Cincinnati, social phobia psychiatrist Cincinnati, social anxiety disorder treatment Ohio, social anxiety specialist Cincinnati, performance anxiety treatment, social anxiety medication, CBT for social anxiety, social anxiety doctor Fort Wright KY" />
+        <meta name="keywords" content="social anxiety treatment Cincinnati, social anxiety psychiatrist Cincinnati, social phobia treatment Ohio, social anxiety disorder specialist, performance anxiety treatment, fear of public speaking Cincinnati, social anxiety medication, CBT for social anxiety Cincinnati, blushing treatment psychiatrist, social anxiety doctor Fort Wright KY" />
         <link rel="canonical" href={`${window.location.origin}/social-anxiety`} />
         
         {/* Open Graph */}
@@ -437,17 +378,22 @@ export default function SocialAnxiety() {
                 
                 <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                   <p>
-                    Your heart pounds before every meeting. You rehearse conversations in your head—then replay them 
-                    for hours afterward, cringing at every word. You&apos;ve declined invitations, avoided promotions, 
-                    and structured your entire life around minimizing the terror of being watched and judged.
+                    Your heart races before every meeting. Your mind goes blank when all eyes turn to you. 
+                    You rehearse conversations obsessively, then replay every word afterward, searching for mistakes. 
+                    You&apos;ve declined promotions because they required presentations. You&apos;ve turned down invitations 
+                    because &quot;what if I have nothing to say?&quot;
                   </p>
                   <p>
-                    This isn&apos;t shyness. This isn&apos;t introversion. <strong>This is social anxiety disorder—and 
-                    it&apos;s stealing your life one avoided opportunity at a time.</strong>
+                    You know it doesn&apos;t make logical sense. You know other people aren&apos;t analyzing your every move. 
+                    But knowing doesn&apos;t stop the dread.
+                  </p>
+                  <p>
+                    This isn&apos;t being &quot;shy.&quot; This isn&apos;t being &quot;introverted.&quot; <strong>This is Social Anxiety 
+                    Disorder—and it&apos;s stealing opportunities you deserve.</strong>
                   </p>
                   <p className="text-primary font-medium">
-                    The good news: Social anxiety is highly treatable. With the right approach, most people 
-                    achieve significant improvement.
+                    The good news: social anxiety is highly treatable. With the right approach, most people 
+                    achieve significant improvement and reclaim their ability to connect, perform, and live fully.
                   </p>
                 </div>
                 
@@ -464,9 +410,12 @@ export default function SocialAnxiety() {
                     variant="outline" 
                     size="lg"
                     className="border-primary text-primary hover:bg-primary/5 text-lg px-8"
-                    onClick={() => window.location.href = '/screening?assessment=social-anxiety'}
+                    asChild
                   >
-                    Take Free Screening
+                    <a href="tel:+18593417453">
+                      <Phone className="w-5 h-5 mr-2" />
+                      Call (859) 341-7453
+                    </a>
                   </Button>
                 </div>
               </div>
@@ -486,8 +435,8 @@ export default function SocialAnxiety() {
                       <Award className="w-6 h-6 text-healing" />
                     </div>
                     <div>
-                      <p className="font-bold text-foreground">Over 9,000 Patients</p>
-                      <p className="text-sm text-muted-foreground">Successfully Treated</p>
+                      <p className="font-bold text-foreground">70-80% Response Rate</p>
+                      <p className="text-sm text-muted-foreground">With Combination Treatment</p>
                     </div>
                   </div>
                 </div>
@@ -496,25 +445,44 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* Not a Character Flaw Callout */}
+        {/* Callout Box - Social Anxiety Is Not a Character Flaw */}
         <section className="py-12 bg-gradient-to-r from-cyan-600 to-blue-600">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center text-white">
               <h2 className="text-2xl lg:text-3xl font-bold mb-4">
                 Social Anxiety Is Not a Character Flaw
               </h2>
-              <p className="text-lg lg:text-xl leading-relaxed opacity-95">
-                Social anxiety disorder is a neurobiological condition where your brain&apos;s threat-detection 
-                system fires inappropriately during social situations. It&apos;s not weakness. It&apos;s not poor 
-                social skills. It&apos;s a treatable medical condition. With over 9,000 patients treated and 
-                35+ years of experience, Dr. Shapiro provides comprehensive evaluation and evidence-based 
-                treatment that restores your ability to connect with the world.
-              </p>
+              <div className="text-lg lg:text-xl leading-relaxed opacity-95 space-y-4">
+                <p>
+                  Social anxiety disorder is a neurobiological condition where your brain&apos;s threat-detection 
+                  system fires inappropriately during social situations. The prefrontal cortex can&apos;t effectively 
+                  tell the amygdala &quot;this isn&apos;t dangerous.&quot;
+                </p>
+                <p>
+                  It&apos;s not weakness. It&apos;s not poor social skills. It&apos;s not a fundamental defect in who you are.
+                </p>
+                <p>
+                  With proper treatment—structured CBT and appropriate medication—most people achieve dramatic 
+                  improvement. Research shows <strong>70-80% response rates</strong> with combination treatment.
+                </p>
+                <p className="font-semibold">
+                  The tragedy of social anxiety isn&apos;t the disorder itself—it&apos;s the decades people lose to 
+                  avoidance before seeking help.
+                </p>
+              </div>
+              <Button 
+                size="lg" 
+                className="mt-6 bg-white text-cyan-700 hover:bg-gray-100"
+                onClick={() => window.location.href = '/contact'}
+              >
+                <Calendar className="w-5 h-5 mr-2" />
+                Schedule Your Evaluation
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* More Than Just Shyness */}
+        {/* Section 1: More Than Just Shyness */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -530,34 +498,49 @@ export default function SocialAnxiety() {
               
               <Card className="bg-card border-border">
                 <CardContent className="p-8">
-                  <div className="space-y-6 text-foreground text-lg leading-relaxed">
-                    <p>
-                      People tell you to &quot;just relax&quot; or &quot;be yourself.&quot; They don&apos;t understand that for you, 
-                      social situations feel genuinely threatening—like walking into a room full of people who 
-                      are all silently evaluating and judging you.
+                  <div className="space-y-6 text-foreground leading-relaxed">
+                    <p className="text-lg">
+                      Everyone feels nervous sometimes—before a job interview, on a first date, when speaking to a 
+                      large crowd. That&apos;s normal. Social anxiety disorder is something different.
                     </p>
                     
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-green-800 mb-2">Shyness:</h4>
-                        <p className="text-green-700 text-sm">
-                          Initial discomfort that fades once you warm up. Doesn&apos;t significantly impair your life. 
-                          You might prefer smaller groups but can manage larger ones.
-                        </p>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="bg-green-50 rounded-lg p-6">
+                        <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2">
+                          <CheckCircle className="w-5 h-5" />
+                          Normal Nervousness
+                        </h4>
+                        <ul className="space-y-2">
+                          {normalVsSocialAnxiety.normal.map((item, index) => (
+                            <li key={index} className="flex items-start gap-2 text-green-700">
+                              <Check className="w-4 h-4 mt-1 flex-shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <div className="bg-red-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-red-800 mb-2">Social Anxiety Disorder:</h4>
-                        <p className="text-red-700 text-sm">
-                          Intense fear that doesn&apos;t fade. Leads to avoidance that limits your career, relationships, 
-                          and quality of life. Physical symptoms like sweating, trembling, and racing heart.
-                        </p>
+                      <div className="bg-red-50 rounded-lg p-6">
+                        <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2">
+                          <AlertCircle className="w-5 h-5" />
+                          Social Anxiety Disorder
+                        </h4>
+                        <ul className="space-y-2">
+                          {normalVsSocialAnxiety.socialAnxiety.map((item, index) => (
+                            <li key={index} className="flex items-start gap-2 text-red-700">
+                              <XCircle className="w-4 h-4 mt-1 flex-shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                     
                     <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded">
-                      <p className="text-amber-900 font-medium">
-                        <strong>Key distinction:</strong> Social anxiety isn&apos;t about preferring alone time (introversion). 
-                        Many people with social anxiety desperately WANT to connect—but fear prevents them.
+                      <p className="text-amber-900">
+                        <strong>The difference isn&apos;t how &quot;outgoing&quot; you are.</strong> Many people with social 
+                        anxiety appear confident on the surface—they&apos;ve just learned to hide the internal storm. 
+                        Some are even performers or public figures. The defining feature is the degree of distress 
+                        and interference, not your personality type.
                       </p>
                     </div>
                   </div>
@@ -567,7 +550,7 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* What Is Social Anxiety Disorder */}
+        {/* Section 2: What Is Social Anxiety Disorder? */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -580,51 +563,68 @@ export default function SocialAnxiety() {
                   What Is Social Anxiety Disorder?
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Social anxiety disorder (also called social phobia) is marked by intense, persistent fear 
-                  of social situations where you might be scrutinized by others.
+                  Social Anxiety Disorder (also called Social Phobia) is characterized by intense fear of 
+                  social situations where you might be scrutinized, judged, or embarrassed.
                 </p>
               </div>
               
               <Card className="bg-card border-border mb-8">
                 <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-foreground mb-4">The Core Fear</h3>
-                  <p className="text-lg text-muted-foreground mb-6">
-                    At its heart, social anxiety is about fear of negative evaluation—worrying that others 
-                    will judge you as:
-                  </p>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    {["Stupid or incompetent", "Awkward or weird", "Boring or uninteresting", 
-                      "Weak or anxious", "Unlikeable", "A fraud"].map((fear, index) => (
+                  <div className="bg-red-50 rounded-lg p-6 mb-6">
+                    <h3 className="text-xl font-bold text-red-900 mb-2">The Core Fear</h3>
+                    <p className="text-red-800 text-lg">
+                      That you will do or say something that reveals your inadequacy, and others will think less of you.
+                    </p>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-4">Common Trigger Situations</h3>
+                  <div className="grid md:grid-cols-2 gap-3 mb-8">
+                    {triggerSituations.map((situation, index) => (
                       <div key={index} className="flex items-center gap-2 text-foreground">
-                        <XCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-                        <span>{fear}</span>
+                        <ChevronRight className="w-4 h-4 text-cyan-500 flex-shrink-0" />
+                        <span>{situation}</span>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
-              
-              <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-                Common Situations That Trigger Social Anxiety
-              </h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                {fearedSituations.map((item, index) => (
-                  <Card key={index} className="bg-card border-border hover:shadow-md transition-shadow">
-                    <CardContent className="p-4 text-center">
-                      <div className="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <item.icon className="w-6 h-6 text-cyan-600" />
+
+              {/* The Vicious Cycle */}
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-xl flex items-center gap-2">
+                    <RefreshCw className="w-5 h-5 text-red-500" />
+                    The Vicious Cycle
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    {viciousCycle.map((item, index) => (
+                      <div key={index} className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-red-700 font-bold">{item.step}</span>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-foreground">{item.title}</h4>
+                          <p className="text-muted-foreground">{item.description}</p>
+                        </div>
                       </div>
-                      <h4 className="font-semibold text-foreground mb-1">{item.situation}</h4>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                    ))}
+                  </div>
+                  <div className="mt-6 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-amber-800">
+                      <strong>This cycle is self-perpetuating.</strong> Each avoidance &quot;teaches&quot; your brain the 
+                      situation was genuinely dangerous. Each use of a safety behavior prevents you from learning 
+                      you&apos;d be okay without it.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Signs You Might Have Social Anxiety */}
+        {/* Section 3: Signs You Might Have Social Anxiety */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
@@ -638,7 +638,7 @@ export default function SocialAnxiety() {
                 </h2>
               </div>
               
-              <div className="grid lg:grid-cols-3 gap-8">
+              <div className="grid lg:grid-cols-3 gap-8 mb-8">
                 {/* Physical Symptoms */}
                 <Card className="bg-card border-border">
                   <CardHeader className="bg-gradient-to-r from-red-500/10 to-red-600/10">
@@ -646,18 +646,20 @@ export default function SocialAnxiety() {
                       <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
                         <HeartPulse className="w-5 h-5 text-red-600" />
                       </div>
-                      <CardTitle className="text-xl">Physical Symptoms</CardTitle>
+                      <div>
+                        <CardTitle className="text-lg">Physical Symptoms</CardTitle>
+                        <p className="text-sm text-muted-foreground">The Body Alarm</p>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <ul className="space-y-3">
+                    <ul className="space-y-2">
                       {physicalSymptoms.map((item, index) => (
                         <li key={index} className="flex items-start gap-2">
                           <Thermometer className="w-4 h-4 text-red-500 mt-1 flex-shrink-0" />
-                          <div>
-                            <span className="font-medium text-foreground">{item.symptom}:</span>
-                            <span className="text-muted-foreground text-sm ml-1">{item.description}</span>
-                          </div>
+                          <span className="text-foreground">
+                            {item.symptom} <span className="text-muted-foreground text-sm">{item.detail}</span>
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -671,18 +673,20 @@ export default function SocialAnxiety() {
                       <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
                         <BrainCircuit className="w-5 h-5 text-purple-600" />
                       </div>
-                      <CardTitle className="text-xl">Cognitive Symptoms</CardTitle>
+                      <div>
+                        <CardTitle className="text-lg">Cognitive Symptoms</CardTitle>
+                        <p className="text-sm text-muted-foreground">The Mental Storm</p>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <ul className="space-y-3">
+                    <ul className="space-y-2">
                       {cognitiveSymptoms.map((item, index) => (
                         <li key={index} className="flex items-start gap-2">
                           <Brain className="w-4 h-4 text-purple-500 mt-1 flex-shrink-0" />
-                          <div>
-                            <span className="font-medium text-foreground">{item.symptom}:</span>
-                            <span className="text-muted-foreground text-sm ml-1">{item.description}</span>
-                          </div>
+                          <span className="text-foreground">
+                            {item.symptom} <span className="text-muted-foreground text-sm">{item.detail}</span>
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -696,18 +700,28 @@ export default function SocialAnxiety() {
                       <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
                         <EyeOff className="w-5 h-5 text-orange-600" />
                       </div>
-                      <CardTitle className="text-xl">Behavioral Symptoms</CardTitle>
+                      <div>
+                        <CardTitle className="text-lg">Behavioral Symptoms</CardTitle>
+                        <p className="text-sm text-muted-foreground">The Escape Patterns</p>
+                      </div>
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <ul className="space-y-3">
-                      {behavioralSymptoms.map((item, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <UserX className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                          <div>
-                            <span className="font-medium text-foreground">{item.symptom}:</span>
-                            <span className="text-muted-foreground text-sm ml-1">{item.description}</span>
-                          </div>
+                    <h5 className="font-semibold text-foreground mb-2">Avoidance:</h5>
+                    <ul className="space-y-1 mb-4">
+                      {avoidanceBehaviors.map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-sm">
+                          <UserX className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <h5 className="font-semibold text-foreground mb-2">Safety Behaviors:</h5>
+                    <ul className="space-y-1">
+                      {safetyBehaviors.slice(0, 4).map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-sm">
+                          <Shield className="w-4 h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                          <span className="text-foreground">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -718,7 +732,7 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* Generalized vs Performance-Only */}
+        {/* Section 4: Generalized vs. Performance-Only */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -728,50 +742,79 @@ export default function SocialAnxiety() {
                   Subtypes
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                  Generalized vs. Performance-Only
+                  Generalized vs. Performance-Only Social Anxiety
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Social anxiety exists on a spectrum. Understanding your subtype helps guide treatment.
+                  Social anxiety exists on a spectrum.
                 </p>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8">
-                {subtypes.map((subtype, index) => (
-                  <Card key={index} className={`${subtype.color} ${subtype.borderColor} border-2`}>
-                    <CardHeader>
-                      <CardTitle className="text-xl">{subtype.title}</CardTitle>
-                      <p className="text-muted-foreground">{subtype.description}</p>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="mb-4">
-                        <h4 className="font-semibold text-foreground mb-2">Affected Situations:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {subtype.examples.map((example, idx) => (
-                            <Badge key={idx} variant="outline" className="bg-white">
-                              {example}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                      <p className="text-sm text-muted-foreground italic">{subtype.severity}</p>
-                    </CardContent>
-                  </Card>
-                ))}
+              <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <Card className="bg-blue-50 border-blue-200 border-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-blue-900">Generalized Social Anxiety</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-blue-800 mb-4">Fear extends to most social situations:</p>
+                    <ul className="space-y-2 mb-4">
+                      {["Conversations with acquaintances or strangers", "Social gatherings of any size", 
+                        "Interactions at work, school, stores", "Dating and friendships", 
+                        "Any situation where judgment might occur"].map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-blue-700">
+                          <ChevronRight className="w-4 h-4 mt-1 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="bg-blue-100 rounded p-3">
+                      <p className="text-blue-900 text-sm">
+                        <strong>Treatment approach:</strong> Requires comprehensive intervention—medication 
+                        plus therapy targeting multiple situations.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-green-50 border-green-200 border-2">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-green-900">Performance-Only Social Anxiety</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-green-800 mb-4">Fear is limited to specific performance situations:</p>
+                    <ul className="space-y-2 mb-4">
+                      {["Public speaking", "Performing music or sports", "Giving presentations", "Leading meetings"].map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-green-700">
+                          <Presentation className="w-4 h-4 mt-1 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="text-green-700 text-sm mb-4">
+                      Between performances, the person functions well socially. They can chat at parties 
+                      but freeze when asked to give a toast.
+                    </p>
+                    <div className="bg-green-100 rounded p-3">
+                      <p className="text-green-900 text-sm">
+                        <strong>Treatment approach:</strong> Often responds well to <strong>beta-blockers</strong> (propranolol 10-40mg) 
+                        taken 1 hour before the event—blocks physical symptoms without affecting thinking.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
               
-              <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h4 className="font-bold text-blue-900 mb-2">Performance Anxiety Note:</h4>
-                <p className="text-blue-800">
-                  Performance-only social anxiety is extremely common—public speaking fear affects up to 75% 
-                  of people to some degree. If yours is limited to specific performance situations, 
-                  beta-blockers can be remarkably effective, often allowing you to manage without daily medication.
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
+                <h4 className="font-bold text-amber-900 mb-2">Important Note on Beta-Blockers:</h4>
+                <p className="text-amber-800">
+                  Beta-blockers help the physical symptoms but don&apos;t address the underlying anxiety. 
+                  If you also have generalized social anxiety, you&apos;ll need broader treatment.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* How Social Anxiety Affects Your Brain */}
+        {/* Section 5: How Social Anxiety Affects Your Brain */}
         <section className="py-16 bg-gradient-to-br from-purple-50 via-background to-blue-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -783,69 +826,59 @@ export default function SocialAnxiety() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   How Social Anxiety Affects Your Brain
                 </h2>
+                <p className="text-lg text-muted-foreground">
+                  Your brain has two systems that should work in balance:
+                </p>
               </div>
               
-              <Card className="bg-card border-border">
+              <Card className="bg-card border-border mb-8">
                 <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div className="bg-purple-50 rounded-lg p-6">
-                      <h3 className="text-xl font-bold text-purple-900 mb-4">The Threat Response System</h3>
-                      <p className="text-purple-800 mb-4">
-                        In social anxiety, your brain&apos;s threat detection center (the amygdala) is hyperactive. 
-                        It treats social situations like physical dangers, triggering the same fight-or-flight 
-                        response you&apos;d have facing a predator.
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-red-50 rounded-lg p-6">
+                      <h3 className="text-lg font-bold text-red-900 mb-2 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5" />
+                        The Alarm System (Amygdala)
+                      </h3>
+                      <p className="text-red-800">
+                        Detects threats and triggers the fight-or-flight response.
                       </p>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="bg-white rounded p-4">
-                          <h4 className="font-semibold text-purple-800 mb-2">What Should Happen:</h4>
-                          <p className="text-sm text-purple-700">
-                            Amygdala scans for threats → Social situation detected → Prefrontal cortex says 
-                            &quot;not dangerous&quot; → You feel calm
-                          </p>
-                        </div>
-                        <div className="bg-white rounded p-4">
-                          <h4 className="font-semibold text-purple-800 mb-2">What Happens in Social Anxiety:</h4>
-                          <p className="text-sm text-purple-700">
-                            Amygdala scans for threats → Social situation detected → Amygdala overrides: 
-                            &quot;DANGER!&quot; → Full stress response activates
-                          </p>
-                        </div>
-                      </div>
                     </div>
-                    
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-4">Key Brain Differences</h3>
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                          <Zap className="w-5 h-5 text-purple-500 mt-1" />
-                          <div>
-                            <strong>Overactive amygdala:</strong> Fires more intensely to social cues, especially 
-                            faces that might be judging
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Zap className="w-5 h-5 text-purple-500 mt-1" />
-                          <div>
-                            <strong>Weaker prefrontal regulation:</strong> The &quot;rational brain&quot; has trouble 
-                            calming the fear response
-                          </div>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <Zap className="w-5 h-5 text-purple-500 mt-1" />
-                          <div>
-                            <strong>Altered serotonin function:</strong> Why SSRIs often help—they modulate the 
-                            fear circuitry
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <div className="bg-green-50 rounded-lg p-6">
+                      <h3 className="text-lg font-bold text-green-900 mb-2 flex items-center gap-2">
+                        <Brain className="w-5 h-5" />
+                        The Rational System (Prefrontal Cortex)
+                      </h3>
                       <p className="text-green-800">
-                        <strong>The Good News:</strong> These brain patterns are NOT fixed. Both therapy and 
-                        medication have been shown to normalize amygdala activity over time. Your brain can change.
+                        Evaluates whether the threat is real and tells the alarm system to stand down.
                       </p>
                     </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-foreground mb-4">What Goes Wrong in Social Anxiety:</h3>
+                  <ul className="space-y-4 mb-6">
+                    {[
+                      { title: "Hyperactive amygdala", detail: "Your brain's alarm fires at \"social threat\" signals that aren't actually dangerous—a glance, a pause in conversation, a facial expression" },
+                      { title: "Weak top-down regulation", detail: "The prefrontal cortex (your \"rational brain\") can't effectively tell the amygdala to calm down" },
+                      { title: "Glutamate/GABA imbalance", detail: "Too much excitatory signaling (glutamate) and not enough inhibitory signaling (GABA) keeps you in \"alert mode\"" },
+                      { title: "Insula hyperactivity", detail: "This brain region monitors your body. In social anxiety, it's hypersensitive—you feel your heart pounding louder than it actually is" }
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <Zap className="w-5 h-5 text-purple-500 mt-1 flex-shrink-0" />
+                        <div>
+                          <strong className="text-foreground">{item.title}:</strong>
+                          <span className="text-muted-foreground ml-1">{item.detail}</span>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <h4 className="font-bold text-green-900 mb-2">What This Means:</h4>
+                    <ul className="space-y-1 text-green-800">
+                      <li>• This is biology, not weakness</li>
+                      <li>• Your brain can change (neuroplasticity)</li>
+                      <li>• Treatment works by rebalancing these systems—medication dampens the amygdala while therapy strengthens prefrontal control</li>
+                    </ul>
                   </div>
                 </CardContent>
               </Card>
@@ -853,49 +886,67 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* The Avoidance Trap */}
+        {/* Section 6: The Avoidance Trap */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <Badge variant="secondary" className="bg-red-100 text-red-700 border-red-200 mb-4">
                   <TrendingDown className="w-4 h-4 mr-1" />
-                  The Vicious Cycle
+                  The Hidden Trap
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   The Avoidance Trap
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  Why avoidance feels like the solution but actually makes social anxiety worse
+                <p className="text-lg text-muted-foreground">
+                  Avoidance feels protective but is actually the fuel that keeps social anxiety burning.
                 </p>
               </div>
               
-              <Card className="bg-card border-border mb-8">
+              <Card className="bg-card border-border">
                 <CardContent className="p-8">
-                  <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    {avoidanceCycle.map((item, index) => (
-                      <React.Fragment key={index}>
-                        <div className="text-center">
-                          <div className="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center mx-auto mb-2">
-                            <span className="text-red-700 font-bold">{index + 1}</span>
-                          </div>
-                          <h4 className="font-semibold text-foreground">{item.step}</h4>
-                          <p className="text-xs text-muted-foreground max-w-24">{item.description}</p>
-                        </div>
-                        {index < avoidanceCycle.length - 1 && (
-                          <ChevronRight className="w-6 h-6 text-red-400 self-center hidden md:block" />
-                        )}
-                      </React.Fragment>
-                    ))}
+                  <div className="mb-8">
+                    <h3 className="text-xl font-bold text-foreground mb-4">The Logic Seems Sound:</h3>
+                    <div className="bg-gray-50 rounded-lg p-4 space-y-2 italic text-muted-foreground">
+                      <p>&quot;If I don&apos;t go to the party, I can&apos;t embarrass myself.&quot;</p>
+                      <p>&quot;If I decline the promotion, I won&apos;t have to give presentations.&quot;</p>
+                      <p>&quot;If I stay quiet in meetings, no one can judge my ideas.&quot;</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded">
-                    <h4 className="font-bold text-red-900 mb-2">The Cruel Irony:</h4>
-                    <p className="text-red-800">
-                      Every time you avoid a social situation, you teach your brain that it WAS dangerous. 
-                      The relief you feel reinforces the fear. Over time, your world gets smaller as more 
-                      situations become &quot;too scary.&quot; The only way out is through—which is why exposure is 
-                      central to treatment.
+                  <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded mb-8">
+                    <h3 className="text-xl font-bold text-red-900 mb-3">The Hidden Cost:</h3>
+                    <p className="text-red-800 text-lg">
+                      Every avoidance confirms to your brain that the situation was genuinely dangerous. 
+                      You never get to learn that you could have handled it. <strong>Your world gets smaller and smaller.</strong>
+                    </p>
+                  </div>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-foreground mb-4">Safety Behaviors Are &quot;Hidden Avoidance&quot;:</h3>
+                    <p className="text-muted-foreground mb-4">
+                      Even when you DO enter social situations, safety behaviors prevent real learning:
+                    </p>
+                    <ul className="space-y-3">
+                      {[
+                        "If you grip the glass tightly to hide trembling, you never learn that slight trembling doesn't cause rejection",
+                        "If you rehearse every sentence, you never learn you can handle spontaneous conversation",
+                        "If you avoid eye contact, you never learn that connection doesn't lead to judgment"
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-start gap-2 text-foreground">
+                          <XCircle className="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <h4 className="font-bold text-green-900 mb-2">The Treatment Implication:</h4>
+                    <p className="text-green-800">
+                      Effective therapy isn&apos;t just about reducing anxiety—it&apos;s about dropping the safety 
+                      behaviors and learning that you can handle whatever happens. This is uncomfortable in 
+                      the short term but liberating in the long term.
                     </p>
                   </div>
                 </CardContent>
@@ -904,7 +955,7 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* Treatment That Works */}
+        {/* Section 7: Treatment That Works */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -916,120 +967,266 @@ export default function SocialAnxiety() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   Treatment That Works
                 </h2>
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Social anxiety is one of the most treatable anxiety disorders when approached correctly.
-                </p>
               </div>
               
-              <div className="space-y-8">
-                {treatments.map((treatment, index) => (
-                  <Card key={index} className="bg-card border-border">
-                    <CardHeader className="bg-gradient-to-r from-green-500/10 to-teal-500/10">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                          <treatment.icon className="w-6 h-6 text-green-600" />
+              {/* CBT Section */}
+              <Card className="bg-card border-border mb-8">
+                <CardHeader className="bg-gradient-to-r from-green-500/10 to-teal-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <Brain className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Cognitive Behavioral Therapy: The Gold Standard</CardTitle>
+                      <p className="text-green-700">The Clark & Wells Model (superior to generic CBT for social anxiety)</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    {cbtComponents.map((component, index) => (
+                      <div key={index} className="flex items-start gap-4">
+                        <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-green-700 font-bold text-sm">{index + 1}</span>
                         </div>
                         <div>
-                          <CardTitle className="text-xl">{treatment.title}</CardTitle>
-                          <p className="text-green-700 font-medium">{treatment.subtitle}</p>
+                          <h4 className="font-semibold text-foreground">{component.title}</h4>
+                          <p className="text-muted-foreground">{component.description}</p>
                         </div>
                       </div>
-                    </CardHeader>
-                    <CardContent className="p-6">
-                      <p className="text-muted-foreground mb-4">{treatment.description}</p>
-                      
-                      {treatment.components && (
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-foreground mb-2">Key Components:</h4>
-                          <ul className="space-y-2">
-                            {treatment.components.map((component, idx) => (
-                              <li key={idx} className="flex items-start gap-2">
-                                <Check className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-                                <span className="text-foreground">{component}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          {treatment.effectiveness && (
-                            <p className="mt-3 text-green-700 font-medium">
-                              Effectiveness: {treatment.effectiveness}
-                            </p>
-                          )}
-                        </div>
-                      )}
-                      
-                      {treatment.options && (
-                        <div className="grid md:grid-cols-2 gap-4">
-                          {treatment.options.map((option, idx) => (
-                            <div key={idx} className="bg-muted/50 rounded-lg p-3">
-                              <h5 className="font-semibold text-foreground">{option.name}</h5>
-                              <p className="text-sm text-muted-foreground">{option.detail}</p>
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      
-                      {treatment.benefits && (
-                        <ul className="space-y-2">
-                          {treatment.benefits.map((benefit, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <Sparkles className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-                              <span className="text-foreground">{benefit}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Medication Section */}
+              <Card className="bg-card border-border mb-8">
+                <CardHeader className="bg-gradient-to-r from-blue-500/10 to-indigo-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Pill className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Medication Options</CardTitle>
+                      <p className="text-blue-700">First-line: SSRIs/SNRIs</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="overflow-x-auto mb-6">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b">
+                          <th className="text-left py-2 font-semibold text-foreground">Medication</th>
+                          <th className="text-left py-2 font-semibold text-foreground">Target Dose</th>
+                          <th className="text-left py-2 font-semibold text-foreground">Notes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {medications.map((med, index) => (
+                          <tr key={index} className="border-b">
+                            <td className="py-3 text-foreground font-medium">{med.name}</td>
+                            <td className="py-3 text-muted-foreground">{med.dose}</td>
+                            <td className="py-3 text-muted-foreground">{med.notes}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-6">
+                    <p className="text-amber-800">
+                      <strong>Important:</strong> Unlike depression, social anxiety often requires 
+                      <strong> higher doses</strong> and <strong>longer timelines</strong> (8-12 weeks at full dose) 
+                      to see significant improvement.
+                    </p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-green-900 mb-2">For Performance Anxiety:</h4>
+                      <p className="text-green-800 text-sm">
+                        <strong>Propranolol (10-40mg):</strong> Blocks physical symptoms. Take 1 hour before the event. 
+                        Does not affect cognition.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-purple-900 mb-2">Augmentation Options:</h4>
+                      <ul className="text-purple-800 text-sm space-y-1">
+                        <li>• Pregabalin (Lyrica): Excellent for somatic symptoms</li>
+                        <li>• Gabapentin: Similar mechanism</li>
+                        <li>• Buspirone: Helps with the &quot;worry&quot; component</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Combination Treatment */}
+              <Card className="bg-card border-border mb-8">
+                <CardHeader className="bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                      <Sparkles className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-xl">Combination Treatment</CardTitle>
+                      <p className="text-purple-700">Medication + CBT works better than either alone</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <p className="text-muted-foreground mb-4">
+                    Research consistently shows: <strong>Medication + CBT works better than either alone.</strong>
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-purple-500 mt-0.5" />
+                      <span>Medication turns down the volume of the alarm system, making it possible to do the behavioral work of therapy</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-purple-500 mt-0.5" />
+                      <span>Therapy teaches skills that persist even if you eventually stop medication</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              {/* Treatment-Resistant Options */}
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg">Treatment-Resistant Options</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-4">
+                    For patients who don&apos;t respond adequately to standard treatment:
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <Zap className="w-5 h-5 text-amber-500 mt-0.5" />
+                      <span><strong>rTMS (Transcranial Magnetic Stimulation):</strong> Non-invasive brain stimulation targeting overactive threat circuits</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Zap className="w-5 h-5 text-amber-500 mt-0.5" />
+                      <span><strong>Phenelzine (Nardil):</strong> An older MAOI that remains the most effective medication for severe social anxiety. Requires dietary restrictions but produces dramatic improvement when other options fail.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Zap className="w-5 h-5 text-amber-500 mt-0.5" />
+                      <span><strong>Stellate ganglion block:</strong> An emerging option for severe physical symptoms (blushing, sweating) that don&apos;t respond to medication</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Managing Physical Symptoms */}
+        {/* Section 8: Managing Physical Symptoms */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <Badge variant="secondary" className="bg-orange-100 text-orange-700 border-orange-200 mb-4">
                   <Thermometer className="w-4 h-4 mr-1" />
-                  Practical Solutions
+                  Targeted Solutions
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   Managing Physical Symptoms
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  The physical symptoms of social anxiety can feel as distressing as the anxiety itself.
+                  For many people, the fear isn&apos;t the social situation itself—it&apos;s the fear that others 
+                  will notice their physical symptoms. Treating the symptom can break the cycle.
                 </p>
               </div>
               
               <div className="space-y-6">
-                {physicalManagement.map((item, index) => (
-                  <Card key={index} className="bg-card border-border">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <Droplets className="w-5 h-5 text-orange-500" />
-                        {item.symptom}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
-                        {item.strategies.map((strategy, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <ChevronRight className="w-4 h-4 text-orange-500 mt-1 flex-shrink-0" />
-                            <span className="text-muted-foreground">{strategy}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                ))}
+                {/* Excessive Sweating */}
+                <Card className="bg-card border-border">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <Droplets className="w-5 h-5 text-blue-500" />
+                      Excessive Sweating (Hyperhidrosis)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Topical Options:</h4>
+                        <ul className="space-y-1 text-muted-foreground text-sm">
+                          <li>• Aluminum chloride 20% (Drysol): Apply at night, wash off in morning</li>
+                          <li>• Glycopyrronium wipes (Qbrexza): Single-use cloths for underarm sweating</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Oral Options:</h4>
+                        <ul className="space-y-1 text-muted-foreground text-sm">
+                          <li>• Glycopyrrolate (Robinul): Blocks nerve signal to sweat glands</li>
+                          <li>• Doesn&apos;t affect thinking; must be taken on empty stomach</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Blushing */}
+                <Card className="bg-card border-border">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <HeartPulse className="w-5 h-5 text-red-500" />
+                      Blushing (Erythrophobia)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-4">
+                      Beta-blockers (propranolol) usually don&apos;t help blushing—the mechanism is different.
+                    </p>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-green-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-green-900 mb-2">What Does Help:</h4>
+                        <ul className="space-y-1 text-green-800 text-sm">
+                          <li>• Clonidine or guanfacine: Alpha-2 agonists that reduce flushing</li>
+                          <li>• Cognitive work: Accepting/announcing blushing often reduces it</li>
+                          <li>• Green-tinted makeup primers can neutralize redness</li>
+                        </ul>
+                      </div>
+                      <div className="bg-red-50 rounded-lg p-4">
+                        <h4 className="font-semibold text-red-900 mb-2">What to Avoid:</h4>
+                        <p className="text-red-800 text-sm">
+                          <strong>ETS surgery:</strong> While it eliminates blushing, 50-80% of patients develop 
+                          severe compensatory sweating elsewhere. The regret rate is very high.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Trembling */}
+                <Card className="bg-card border-border">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-purple-500" />
+                      Trembling/Shaking
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-purple-500 mt-1" />
+                        <span><strong>Propranolol:</strong> Very effective for tremor, especially hands and voice</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <Check className="w-4 h-4 text-purple-500 mt-1" />
+                        <span><strong>Gabapentin/Pregabalin:</strong> Calms nervous system without cognitive effects of benzodiazepines</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Social Anxiety in Children & Teens */}
+        {/* Section 9: Social Anxiety in Children & Teenagers */}
         <section className="py-16 bg-gradient-to-br from-blue-50 via-background to-purple-50">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -1039,37 +1236,77 @@ export default function SocialAnxiety() {
                   Pediatric Focus
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                  Social Anxiety in Children & Teens
+                  Social Anxiety in Children & Teenagers
                 </h2>
-                <p className="text-lg text-muted-foreground">
-                  Social anxiety often begins in childhood or adolescence and can be easily mistaken for shyness.
-                </p>
               </div>
               
-              <Card className="bg-card border-border">
-                <CardContent className="p-8">
-                  <h3 className="text-xl font-bold text-foreground mb-4">Warning Signs in Young People</h3>
-                  <div className="grid md:grid-cols-2 gap-4 mb-6">
-                    {childTeenSigns.map((sign, index) => (
-                      <div key={index} className="flex items-start gap-2">
+              <Card className="bg-card border-border mb-8">
+                <CardHeader>
+                  <CardTitle className="text-lg">How It Looks Different in Youth</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {[
+                      "May not recognize the fear as excessive—it just feels \"real\"",
+                      "Often appears as irritability rather than obvious anxiety",
+                      "School refusal is common (\"My stomach hurts every Monday morning\")",
+                      "May seem defiant when actually terrified",
+                      "Avoids answering questions in class, joining activities, making friends",
+                      "Can appear as selective mutism in younger children"
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-2">
                         <AlertCircle className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-foreground">{sign}</span>
-                      </div>
+                        <span className="text-foreground">{item}</span>
+                      </li>
                     ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-red-50 border-red-200 border-2 mb-8">
+                <CardHeader>
+                  <CardTitle className="text-xl text-red-900 flex items-center gap-2">
+                    <AlertTriangle className="w-6 h-6" />
+                    School Refusal: A Psychiatric Emergency
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-red-800 mb-4 font-medium">
+                    Every day of avoidance hardens the anxiety circuitry. Quick intervention is critical.
+                  </p>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-semibold text-red-900 mb-2">The Approach:</h4>
+                      <ol className="space-y-2 text-red-800">
+                        <li><strong>1. Validate:</strong> &quot;I know you&apos;re scared. This is really hard.&quot;</li>
+                        <li><strong>2. Externalize:</strong> &quot;The Anxiety Monster is lying to you. It says you can&apos;t handle this, but you can.&quot;</li>
+                        <li><strong>3. Return to school</strong> with accommodations—NOT homebound instruction (which reinforces avoidance)</li>
+                      </ol>
+                    </div>
                   </div>
-                  
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                    <h4 className="font-bold text-blue-900 mb-3">School Refusal & Presentations</h4>
-                    <p className="text-blue-800 mb-3">
-                      Social anxiety is one of the most common causes of school avoidance. Children may 
-                      complain of stomachaches or headaches to avoid school, particularly on days with 
-                      presentations, group work, or social activities.
-                    </p>
-                    <p className="text-blue-800">
-                      <strong>Early intervention is crucial.</strong> Untreated social anxiety in childhood 
-                      tends to worsen and can lead to depression, substance use, and long-term impairment 
-                      in academic and social development.
-                    </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg">Helpful School Accommodations (504 Plan)</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-2">
+                    {schoolAccommodations.map((item, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-blue-900 mb-2">Medication for Children/Teens:</h4>
+                    <ul className="text-blue-800 text-sm space-y-1">
+                      <li>• Fluoxetine (Prozac) or sertraline: Best evidence in youth</li>
+                      <li>• Start low, increase slowly</li>
+                      <li>• Monitor for activation (restlessness, increased anxiety) in first 2-4 weeks</li>
+                    </ul>
                   </div>
                 </CardContent>
               </Card>
@@ -1077,7 +1314,7 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* Social Anxiety vs Other Conditions */}
+        {/* Section 10: Social Anxiety vs. Other Conditions */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -1090,40 +1327,115 @@ export default function SocialAnxiety() {
                   Social Anxiety vs. Other Conditions
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Accurate diagnosis matters because treatment approaches differ.
+                  Getting the right diagnosis matters because treatment differs.
                 </p>
               </div>
               
               <div className="space-y-6">
-                {differentialDiagnosis.map((item, index) => (
-                  <Card key={index} className="bg-card border-border">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg">{item.condition}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid md:grid-cols-3 gap-4">
-                        <div className="bg-amber-50 rounded-lg p-3">
-                          <h4 className="font-semibold text-amber-800 text-sm mb-1">Overlap:</h4>
-                          <p className="text-amber-700 text-sm">{item.overlap}</p>
-                        </div>
-                        <div className="bg-red-50 rounded-lg p-3">
-                          <h4 className="font-semibold text-red-800 text-sm mb-1">Key Difference:</h4>
-                          <p className="text-red-700 text-sm">{item.difference}</p>
-                        </div>
-                        <div className="bg-green-50 rounded-lg p-3">
-                          <h4 className="font-semibold text-green-800 text-sm mb-1">Social Anxiety:</h4>
-                          <p className="text-green-700 text-sm">{item.key}</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
+                {/* Social Anxiety vs Autism */}
+                <Card className="bg-card border-border">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Social Anxiety vs. Autism Spectrum Disorder</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="text-left py-2 font-semibold text-foreground">Feature</th>
+                            <th className="text-left py-2 font-semibold text-cyan-700">Social Anxiety</th>
+                            <th className="text-left py-2 font-semibold text-purple-700">Autism Spectrum</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Core issue</td>
+                            <td className="py-3 text-cyan-700">Fear of judgment</td>
+                            <td className="py-3 text-purple-700">Difficulty reading social cues</td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Social desire</td>
+                            <td className="py-3 text-cyan-700">High—wants connection but fears it</td>
+                            <td className="py-3 text-purple-700">Variable—may prefer solitude</td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Eye contact</td>
+                            <td className="py-3 text-cyan-700">Avoids to reduce anxiety</td>
+                            <td className="py-3 text-purple-700">Avoids due to intensity/discomfort</td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">After socializing</td>
+                            <td className="py-3 text-cyan-700">Replays interactions anxiously</td>
+                            <td className="py-3 text-purple-700">Needs recovery from sensory/cognitive load</td>
+                          </tr>
+                          <tr>
+                            <td className="py-3 font-medium">Response to exposure</td>
+                            <td className="py-3 text-cyan-700">Improves with practice</td>
+                            <td className="py-3 text-purple-700">Often worsens (leads to burnout)</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div className="mt-4 bg-amber-50 border border-amber-200 rounded-lg p-4">
+                      <p className="text-amber-800 text-sm">
+                        <strong>The &quot;camouflaging&quot; trap:</strong> Some people (especially women) with undiagnosed 
+                        autism have learned to mask—intellectually learning social scripts. They may appear socially 
+                        anxious but describe social interaction as &quot;exhausting performance art&quot; rather than &quot;terrifying.&quot;
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Social Anxiety vs Avoidant Personality */}
+                <Card className="bg-card border-border">
+                  <CardHeader>
+                    <CardTitle className="text-lg">Social Anxiety vs. Avoidant Personality Disorder</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="border-b">
+                            <th className="text-left py-2 font-semibold text-foreground">Feature</th>
+                            <th className="text-left py-2 font-semibold text-cyan-700">Social Anxiety</th>
+                            <th className="text-left py-2 font-semibold text-red-700">Avoidant Personality</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Core belief</td>
+                            <td className="py-3 text-cyan-700">&quot;I&apos;ll embarrass myself&quot;</td>
+                            <td className="py-3 text-red-700">&quot;I am fundamentally defective/inferior&quot;</td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Scope</td>
+                            <td className="py-3 text-cyan-700">Situation-specific fears</td>
+                            <td className="py-3 text-red-700">Pervasive sense of inadequacy</td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-3 font-medium">Self-view</td>
+                            <td className="py-3 text-cyan-700">&quot;I hate that I&apos;m anxious&quot; (ego-dystonic)</td>
+                            <td className="py-3 text-red-700">&quot;This is who I am&quot; (ego-syntonic)</td>
+                          </tr>
+                          <tr>
+                            <td className="py-3 font-medium">Treatment response</td>
+                            <td className="py-3 text-cyan-700">Responds well to CBT (12-16 weeks)</td>
+                            <td className="py-3 text-red-700">Slower, requires longer-term schema therapy</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p className="mt-4 text-muted-foreground text-sm">
+                      Many people have elements of both. We assess for personality factors because they affect treatment planning.
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
         </section>
 
-        {/* What to Expect: Your Evaluation */}
+        {/* Section 11: What to Expect: Your Evaluation */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -1135,50 +1447,56 @@ export default function SocialAnxiety() {
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                   What to Expect: Your Evaluation
                 </h2>
+                <p className="text-lg text-muted-foreground">Initial appointment: 60-90 minutes</p>
               </div>
               
               <Card className="bg-card border-border">
                 <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <p className="text-lg text-muted-foreground">
-                      We understand that coming to see a psychiatrist can itself trigger social anxiety. 
-                      Here&apos;s what to expect so there are no surprises:
-                    </p>
-                    
-                    <div className="space-y-4">
-                      {[
-                        {
-                          title: "Comprehensive History",
-                          description: "We'll discuss when your social anxiety started, what situations trigger it, and how it's affecting your life. No judgment—we've heard it all."
-                        },
-                        {
-                          title: "Symptom Assessment",
-                          description: "We'll explore your specific symptoms—physical, cognitive, and behavioral—to understand your unique presentation."
-                        },
-                        {
-                          title: "Rule Out Other Conditions",
-                          description: "Social anxiety often co-occurs with depression, other anxiety disorders, or ADHD. We'll assess for everything to ensure complete care."
-                        },
-                        {
-                          title: "Discussion of Options",
-                          description: "We'll explain treatment options—therapy, medication, or both—and work together to create a plan you're comfortable with."
-                        },
-                        {
-                          title: "No Pressure",
-                          description: "You won't be pushed into anything. If you need time to think, that's fine. If you want to start slowly, we can do that."
-                        }
-                      ].map((step, index) => (
-                        <div key={index} className="flex items-start gap-4">
-                          <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0">
-                            <span className="text-teal-700 font-bold text-sm">{index + 1}</span>
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">{step.title}</h4>
-                            <p className="text-muted-foreground">{step.description}</p>
-                          </div>
-                        </div>
-                      ))}
+                  <h3 className="text-xl font-bold text-foreground mb-4">We&apos;ll Discuss:</h3>
+                  <ul className="space-y-3 mb-8">
+                    {[
+                      "Your specific fears—which situations, what you're afraid will happen",
+                      "History of social anxiety—when it started, how it evolved",
+                      "Physical symptoms and which ones bother you most",
+                      "Avoidance patterns and safety behaviors",
+                      "Impact on work, relationships, and daily life",
+                      "Previous treatment and what worked/didn't work",
+                      "Family history of anxiety",
+                      "Screening for related conditions (depression, substance use, autism features)"
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-teal-500 mt-0.5 flex-shrink-0" />
+                        <span className="text-foreground">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-blue-900 mb-2">Assessment Tools:</h4>
+                      <ul className="text-blue-800 text-sm space-y-1">
+                        <li>• Liebowitz Social Anxiety Scale (LSAS): Gold standard for measuring severity</li>
+                        <li>• Thyroid panel: Hyperthyroidism can mimic anxiety</li>
+                        <li>• Substance use screening: Alcohol commonly co-occurs</li>
+                      </ul>
                     </div>
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h4 className="font-semibold text-green-900 mb-2">What We Determine Together:</h4>
+                      <ul className="text-green-800 text-sm space-y-1">
+                        <li>• Confirmation of diagnosis</li>
+                        <li>• Severity level and subtype</li>
+                        <li>• Whether medication, therapy, or both is appropriate</li>
+                        <li>• Specific treatment plan with realistic timelines</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-amber-800">
+                      <strong>Important:</strong> To help you effectively, I need to understand your specific fears 
+                      and behaviors in detail. This can feel embarrassing to discuss, but nothing you describe will 
+                      surprise me—I&apos;ve heard it all. The more specific you can be, the better I can help.
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -1217,7 +1535,7 @@ export default function SocialAnxiety() {
           </div>
         </section>
 
-        {/* FAQs */}
+        {/* Section 12: FAQs */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
@@ -1312,13 +1630,13 @@ export default function SocialAnxiety() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Your Life Doesn&apos;t Have to Shrink Around Your Fear
+                You Don&apos;t Have to Keep Living Small
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
                 Social anxiety has probably already cost you opportunities—jobs you didn&apos;t apply for, 
                 relationships you didn&apos;t pursue, experiences you avoided. <strong>It doesn&apos;t have to keep 
                 taking from you.</strong> With proper treatment, most people achieve significant improvement. 
-                The first step is the hardest—but you don&apos;t have to take it alone.
+                The first step is the hardest—reaching out. But you don&apos;t have to take it alone.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
