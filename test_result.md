@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Verify the Postpartum Depression page at `/postpartum-depression` renders correctly with hero section, clinical content sections, navigation and footer"
+user_problem_statement: "Verify the new DMDD page at `/dmdd` renders correctly with hero section, quick facts bar, main sections, treatment tabs, FAQ accordion, CTA section, header navigation and footer"
 
 frontend:
   - task: "PDF Download functionality for Depression Screening (PHQ-9)"
