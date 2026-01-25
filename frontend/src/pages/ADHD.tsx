@@ -375,9 +375,9 @@ export default function ADHD() {
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Attention Deficit Hyperactivity Disorder (ADHD) is a neurodevelopmental condition that affects millions 
-                of children and adults. It impacts the brain's executive functions—the mental skills that help us plan, 
+                of children and adults. It impacts the brain&apos;s executive functions—the mental skills that help us plan, 
                 focus, remember instructions, and manage multiple tasks. ADHD is not a character flaw or lack of 
-                intelligence; it's a medical condition that responds well to proper treatment.
+                intelligence; it&apos;s a medical condition that responds well to proper treatment.
               </p>
             </div>
             
