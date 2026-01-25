@@ -94,7 +94,7 @@ const Disorders = () => {
       symptoms: ["Difficulty falling asleep", "Frequent awakening", "Daytime fatigue", "Sleep disruption"],
       treatments: ["Sleep hygiene", "CBT for insomnia", "Medication", "Sleep studies"],
       color: "from-slate-500/20 to-slate-600/20",
-      link: null
+      link: "/insomnia"
     },
     {
       icon: Activity,
