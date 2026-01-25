@@ -301,7 +301,7 @@ const Forms = () => {
             <h3 className="text-xl font-bold mb-4">Need Help with Forms?</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               If you have questions about completing any forms or need assistance, 
-              our staff is here to help. Don't let paperwork prevent you from getting care.
+              our staff is here to help. Don&apos;t let paperwork prevent you from getting care.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button>
