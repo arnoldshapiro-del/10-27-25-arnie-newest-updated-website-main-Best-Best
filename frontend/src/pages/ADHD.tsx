@@ -818,6 +818,7 @@ export default function ADHD() {
                 <CardContent className="space-y-3">
                   <p className="text-foreground">1717 Dixie Highway, Suite 200</p>
                   <p className="text-foreground">Fort Wright, KY 41011</p>
+                  <p className="text-primary text-sm font-medium">Just 5 minutes from downtown Cincinnati</p>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Clock className="w-4 h-4" />
                     <span>Mon-Thu: 9am-5pm | Fri: 9am-12pm</span>
