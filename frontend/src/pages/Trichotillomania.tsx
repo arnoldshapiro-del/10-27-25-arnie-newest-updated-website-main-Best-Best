@@ -1106,7 +1106,7 @@ export default function Trichotillomania() {
                           <h5 className="font-semibold text-indigo-900 mb-2">Emerging Options</h5>
                           <ul className="text-indigo-800 text-sm space-y-1">
                             <li>• rTMS (repetitive transcranial magnetic stimulation) targeting the supplementary motor area</li>
-                            <li>• Ketamine protocols for "circuit breaking"</li>
+                            <li>• Ketamine protocols for &quot;circuit breaking&quot;</li>
                           </ul>
                         </div>
                       </div>
