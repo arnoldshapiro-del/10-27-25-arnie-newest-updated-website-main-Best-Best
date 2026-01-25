@@ -29,8 +29,11 @@ import {
   Zap,
   Activity,
   AlertTriangle,
-  Coffee,
-  BedDouble
+  BedDouble,
+  Sparkles,
+  Baby,
+  Ban,
+  Lightbulb
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -47,7 +50,7 @@ const insomniaSchema = [
     "about": {
       "@type": "MedicalCondition",
       "name": "Insomnia",
-      "alternateName": ["Sleep Disorder", "Sleeplessness", "Sleep Problems"],
+      "alternateName": ["Sleep Disorder", "Sleeplessness", "Sleep Problems", "Chronic Insomnia"],
       "signOrSymptom": [
         "Difficulty falling asleep",
         "Difficulty staying asleep",
@@ -59,7 +62,7 @@ const insomniaSchema = [
     },
     "mainContentOfPage": {
       "@type": "WebPageElement",
-      "description": "Information about insomnia symptoms, diagnosis, and treatment options including medication management, CBT-I, and sleep hygiene"
+      "description": "Information about insomnia symptoms, diagnosis, and treatment options including CBT-I, medication management, and sleep hygiene"
     },
     "specialty": {
       "@type": "MedicalSpecialty",
@@ -77,26 +80,26 @@ const insomniaSchema = [
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What causes insomnia?",
+        "name": "How long does it take to see improvement with insomnia treatment?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Insomnia can be caused by many factors including stress, anxiety, depression, poor sleep habits, medical conditions, medications, and lifestyle factors. Often, multiple factors contribute to sleep problems."
+          "text": "With CBT-I, most people see significant improvement within 4-6 weeks. With medication, improvement often begins within the first week. We'll monitor closely and adjust as needed."
         }
       },
       {
         "@type": "Question",
-        "name": "How is insomnia treated?",
+        "name": "Will I need to take sleep medication forever?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Insomnia treatment may include cognitive behavioral therapy for insomnia (CBT-I), sleep hygiene improvements, addressing underlying conditions like anxiety or depression, and when appropriate, sleep medications. The best approach depends on the cause and severity of your sleep problems."
+          "text": "Usually not. For many people, medication is a bridge while we address underlying issues and build better sleep habits. Some people do better with ongoing low-dose medication, especially if they have chronic conditions. We'll find what works for you."
         }
       },
       {
         "@type": "Question",
-        "name": "When should I see a doctor for sleep problems?",
+        "name": "Why won't you prescribe Xanax for sleep?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You should see a doctor if sleep problems persist for more than a few weeks, affect your daytime functioning, or are accompanied by other symptoms like loud snoring, gasping during sleep, or restless legs."
+          "text": "Benzodiazepines help short-term but cause dependence, worsen sleep quality over time, increase fall risk (especially in older adults), and are associated with cognitive problems. We have much better options that work without these risks."
         }
       }
     ]
@@ -104,102 +107,84 @@ const insomniaSchema = [
 ];
 
 export default function Insomnia() {
-  // Sleep Disorder Symptoms Data
-  const childSymptoms = [
-    "Difficulty falling asleep at bedtime",
-    "Resistance to going to bed or stalling tactics",
-    "Frequent night wakings or nightmares",
-    "Difficulty waking up in the morning",
-    "Excessive daytime sleepiness or fatigue",
-    "Behavioral problems or hyperactivity (can mimic ADHD)",
-    "Difficulty concentrating in school",
-    "Mood swings or irritability",
-    "Snoring or breathing pauses during sleep"
-  ];
-
-  const adultSymptoms = [
-    "Difficulty falling asleep despite being tired",
-    "Waking up frequently during the night",
-    "Waking up too early and unable to fall back asleep",
-    "Daytime fatigue, sleepiness, or low energy",
-    "Difficulty concentrating or remembering things",
-    "Irritability, depression, or anxiety",
-    "Increased errors or accidents",
-    "Ongoing worries about sleep",
-    "Relying on sleep aids or alcohol to fall asleep",
-    "Snoring, gasping, or restless legs at night"
-  ];
-
+  // Sleep Disorder Types
   const sleepDisorderTypes = [
     {
       icon: Moon,
-      title: "Insomnia",
-      description: "Difficulty falling asleep, staying asleep, or waking too early. The most common sleep disorder, affecting up to 30% of adults at some point.",
+      title: "Chronic Insomnia",
+      description: "Difficulty falling asleep or staying asleep at least 3 nights per week for 3 months or more. This isn't just 'bad sleep'—it's a medical condition that responds to treatment.",
       color: "bg-indigo-100",
       iconColor: "text-indigo-600"
     },
     {
-      icon: AlertTriangle,
-      title: "Sleep Apnea",
-      description: "Breathing repeatedly stops and starts during sleep. Causes loud snoring, gasping, and daytime fatigue. Requires a sleep study for diagnosis.",
-      color: "bg-red-100",
-      iconColor: "text-red-600"
+      icon: Clock,
+      title: "Sleep Onset Insomnia",
+      description: "You lie in bed for an hour or more before falling asleep. Your mind races, you watch the clock, and the harder you try to sleep, the more awake you become.",
+      color: "bg-blue-100",
+      iconColor: "text-blue-600"
     },
     {
-      icon: Zap,
-      title: "Restless Leg Syndrome (RLS)",
-      description: "Uncomfortable sensations in the legs with an irresistible urge to move them, especially at night. Can severely disrupt sleep.",
-      color: "bg-amber-100",
-      iconColor: "text-amber-600"
+      icon: Activity,
+      title: "Sleep Maintenance Insomnia",
+      description: "You fall asleep fine but wake up at 2 or 3 AM and can't get back to sleep. Or you wake up repeatedly throughout the night and never feel rested.",
+      color: "bg-purple-100",
+      iconColor: "text-purple-600"
     },
     {
       icon: Sun,
       title: "Circadian Rhythm Disorders",
-      description: "When your internal clock is out of sync with the external world. Common in shift workers, teens, and travelers (jet lag).",
-      color: "bg-orange-100",
-      iconColor: "text-orange-600"
+      description: "Your internal clock is misaligned with the world. You might be a severe 'night owl' who can't fall asleep until 2 AM, or an 'early bird' who crashes at 7 PM and wakes at 3 AM.",
+      color: "bg-amber-100",
+      iconColor: "text-amber-600"
     },
     {
-      icon: Activity,
-      title: "Hypersomnia",
-      description: "Excessive daytime sleepiness despite adequate nighttime sleep. Includes conditions like narcolepsy.",
-      color: "bg-blue-100",
-      iconColor: "text-blue-600"
-    }
-  ];
-
-  const treatmentOptions = [
-    {
-      icon: MessageCircle,
-      title: "CBT-I (Cognitive Behavioral Therapy for Insomnia)",
-      description: "The gold standard treatment for chronic insomnia. Addresses the thoughts and behaviors that perpetuate sleep problems without medication.",
-      details: ["Sleep restriction therapy", "Stimulus control", "Cognitive restructuring", "Relaxation techniques", "Sleep hygiene education"]
+      icon: Heart,
+      title: "Sleep Problems with Depression or Anxiety",
+      description: "Sleep and mood are deeply connected. 90% of people with depression have sleep problems. Often, fixing the sleep helps fix the mood—and vice versa.",
+      color: "bg-red-100",
+      iconColor: "text-red-600"
     },
     {
       icon: Pill,
-      title: "Medication Options",
-      description: "When appropriate, sleep medications can provide short-term relief while addressing underlying causes. We carefully select and monitor all sleep medications.",
-      details: ["Non-benzodiazepine sleep aids (Ambien, Lunesta)", "Low-dose trazodone", "Melatonin and melatonin agonists", "Treating underlying conditions (anxiety, depression)", "Avoiding habit-forming medications when possible"]
-    },
-    {
-      icon: BedDouble,
-      title: "Sleep Hygiene Optimization",
-      description: "Simple changes to your sleep environment and habits can make a significant difference, especially when combined with other treatments.",
-      details: ["Consistent sleep schedule", "Optimizing bedroom environment", "Managing light exposure", "Limiting caffeine and alcohol", "Pre-sleep routine development"]
-    },
-    {
-      icon: Stethoscope,
-      title: "Sleep Study Referral",
-      description: "When sleep apnea or other medical sleep disorders are suspected, we coordinate with sleep medicine specialists for proper testing and treatment.",
-      details: ["Home sleep tests", "In-lab polysomnography", "CPAP therapy coordination", "Ongoing follow-up care"]
+      title: "Medication-Related Sleep Problems",
+      description: "Some medications (including certain antidepressants, ADHD medications, and steroids) can disrupt sleep. We'll review everything you're taking.",
+      color: "bg-green-100",
+      iconColor: "text-green-600"
     }
+  ];
+
+  // Child Symptoms
+  const childSymptoms = [
+    "Difficulty falling asleep (bedtime battles lasting over 30 minutes)",
+    "Waking frequently during the night",
+    "Difficulty waking up in the morning despite adequate time in bed",
+    "Falling asleep in school or during homework",
+    "Irritability, mood swings, or behavioral problems",
+    "Hyperactivity (sleep-deprived kids often seem wired, not tired)",
+    "Declining grades or concentration problems",
+    "Excessive daytime sleepiness",
+    "Snoring, mouth breathing, or pauses in breathing during sleep",
+    "Restless legs or growing pains that interfere with sleep"
+  ];
+
+  // Adult Symptoms
+  const adultSymptoms = [
+    "Taking 30+ minutes to fall asleep regularly",
+    "Waking up during the night and struggling to get back to sleep",
+    "Waking up too early and being unable to return to sleep",
+    "Not feeling refreshed despite spending enough time in bed",
+    "Daytime fatigue, low energy, or difficulty concentrating",
+    "Irritability, anxiety, or depression related to poor sleep",
+    "Relying on alcohol or over-the-counter sleep aids",
+    "Worry or dread about bedtime (\"I know I won't sleep tonight\")",
+    "Sleep problems affecting your work, relationships, or quality of life"
   ];
 
   const whyChooseUs = [
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has helped thousands of patients overcome sleep problems, understanding the complex relationship between sleep and mental health."
+      description: "Dr. Shapiro has helped over 9,000 patients overcome sleep problems, understanding the complex relationship between sleep and mental health."
     },
     {
       icon: Brain,
@@ -214,11 +199,11 @@ export default function Insomnia() {
     {
       icon: Clock,
       title: "Same-Day Response",
-      description: "We&apos;re extremely accessible—your questions are answered almost always the same day. Never feel alone in your treatment."
+      description: "We're extremely accessible—your questions are answered almost always the same day. Never feel alone in your treatment."
     },
     {
       icon: Shield,
-      title: "Medication + Therapy",
+      title: "Medication + CBT-I",
       description: "Unlike many psychiatrists who only prescribe sleep medications, we offer CBT-I and address underlying causes for lasting improvement."
     },
     {
@@ -230,36 +215,36 @@ export default function Insomnia() {
 
   const faqs = [
     {
-      question: "What causes insomnia?",
-      answer: "Insomnia can be caused by many factors including stress, anxiety, depression, poor sleep habits, medical conditions, medications, caffeine, alcohol, and lifestyle factors. Often, multiple factors contribute. That&apos;s why we do a comprehensive evaluation to understand YOUR specific situation."
+      question: "How long does it take to see improvement?",
+      answer: "With CBT-I, most people see significant improvement within 4-6 weeks. With medication, improvement often begins within the first week. We'll monitor closely and adjust as needed."
     },
     {
-      question: "Is insomnia connected to anxiety or depression?",
-      answer: "Absolutely. Insomnia and mental health conditions have a bidirectional relationship—each can cause or worsen the other. Up to 80% of people with depression have insomnia, and chronic insomnia significantly increases the risk of developing depression and anxiety. Treating both together often produces the best results."
+      question: "Will I need to take sleep medication forever?",
+      answer: "Usually not. For many people, medication is a bridge while we address underlying issues and build better sleep habits. Some people do better with ongoing low-dose medication, especially if they have chronic conditions. We'll find what works for you."
     },
     {
-      question: "Do I need a sleep study?",
-      answer: "Not everyone with sleep problems needs a sleep study. Sleep studies are primarily used to diagnose sleep apnea, restless leg syndrome, and other medical sleep disorders. If your symptoms suggest these conditions (loud snoring, gasping, leg movements), we&apos;ll coordinate a referral. Many cases of insomnia can be effectively treated without a sleep study."
+      question: "I've tried everything. Can you really help?",
+      answer: "'Treatment-resistant insomnia' usually means the underlying cause wasn't found. We look for everything—depression, anxiety, ADHD, circadian rhythm problems, sleep apnea, restless legs, medication interactions. Once we find the real problem, treatment usually works."
     },
     {
-      question: "Are sleep medications safe?",
-      answer: "Sleep medications can be safe and effective when used appropriately. We prefer to use them short-term while addressing underlying causes. When medications are needed longer-term, we choose the safest options and monitor closely. Many patients eventually sleep well without medication after treating anxiety, depression, or learning CBT-I techniques."
+      question: "Is CBT-I just 'sleep hygiene'?",
+      answer: "No. Sleep hygiene (dark room, no caffeine, etc.) is basic advice that rarely fixes true insomnia. CBT-I is a structured, evidence-based treatment that actually retrains your brain. It's the most effective insomnia treatment we have."
     },
     {
-      question: "What is CBT-I?",
-      answer: "Cognitive Behavioral Therapy for Insomnia (CBT-I) is the gold standard treatment for chronic insomnia. It&apos;s a structured program that helps you identify and change thoughts and behaviors that cause or worsen sleep problems. Research shows CBT-I is as effective as sleep medication in the short term and MORE effective in the long term."
+      question: "Why won't you prescribe Xanax for sleep?",
+      answer: "Benzodiazepines help short-term but cause dependence, worsen sleep quality over time, increase fall risk (especially in older adults), and are associated with cognitive problems. We have much better options that work without these risks."
     },
     {
-      question: "How long does it take to improve sleep?",
-      answer: "Many people see improvement within 2-4 weeks of starting treatment, especially with CBT-I techniques. However, if underlying conditions like anxiety or depression are contributing, full improvement may take 6-8 weeks as we address those as well. Dr. Shapiro will work with you until you&apos;re sleeping dramatically better."
+      question: "My child can't fall asleep. Should they take melatonin?",
+      answer: "Melatonin can help, but timing and dose matter. Many over-the-counter products are mislabeled or too strong. We'll evaluate whether melatonin is appropriate and, if so, recommend the right dose and timing."
     },
     {
-      question: "Do you treat children with sleep problems?",
-      answer: "Yes. Sleep problems in children and teens are common and often connected to anxiety, ADHD, or other conditions. Interestingly, sleep deprivation in children often looks like HYPERACTIVITY rather than sleepiness. We evaluate comprehensively and involve the whole family in treatment."
+      question: "I sleep 8 hours but still feel exhausted. What's wrong?",
+      answer: "This suggests you may not be getting quality sleep. Sleep apnea, periodic limb movements, and other conditions can fragment your sleep without you knowing. We may recommend a sleep study to find out what's happening."
     },
     {
       question: "What are your payment options?",
-      answer: "We are an out-of-network practice. You&apos;ll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
+      answer: "We are an out-of-network practice. You'll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
     }
   ];
 
@@ -268,7 +253,7 @@ export default function Insomnia() {
       <Helmet>
         <title>Insomnia Treatment Cincinnati | Sleep Disorder Care for Children & Adults | Dr. Shapiro</title>
         <meta name="description" content="Expert insomnia and sleep disorder treatment in Cincinnati & Northern Kentucky. Board-certified psychiatrist Dr. Arnold Shapiro specializes in sleep problems for children, teens, and adults. 35+ years experience. Same-day responses. Call (859) 341-7453." />
-        <meta name="keywords" content="insomnia treatment Cincinnati, sleep disorder doctor Cincinnati, insomnia Northern Kentucky, sleep problems, child sleep specialist, CBT-I therapy, sleep medication management" />
+        <meta name="keywords" content="insomnia treatment Cincinnati, sleep disorder doctor Cincinnati, insomnia Northern Kentucky, sleep problems, child sleep specialist, CBT-I therapy, sleep medication management, chronic insomnia treatment" />
         <link rel="canonical" href={`${window.location.origin}/insomnia`} />
         
         {/* Open Graph */}
@@ -316,10 +301,15 @@ export default function Insomnia() {
                   <span className="text-primary">Cincinnati & Northern Kentucky</span>
                 </h1>
                 
+                <p className="text-2xl text-primary font-semibold">
+                  Finally Get the Rest You Deserve
+                </p>
+                
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Struggling to fall asleep, stay asleep, or wake up feeling rested? Dr. Arnold Shapiro provides comprehensive 
-                  sleep evaluation and personalized treatment for children, adolescents, and adults. With 35+ years 
-                  of experience, we understand the deep connection between sleep and mental health.
+                  Sleep problems aren&apos;t just annoying—they affect everything. Your mood, your focus, your health, 
+                  your relationships. The good news? <strong>Insomnia is one of the most treatable conditions in medicine.</strong> With 
+                  the right approach, most people sleep dramatically better within weeks. You don&apos;t have to keep 
+                  struggling through exhausted days.
                 </p>
                 
                 <div className="space-y-3">
@@ -329,7 +319,7 @@ export default function Insomnia() {
                   </div>
                   <div className="flex items-center gap-2 text-foreground">
                     <Check className="w-5 h-5 text-healing" />
-                    <span>CBT-I and medication options available</span>
+                    <span>CBT-I (gold standard) and medication options</span>
                   </div>
                   <div className="flex items-center gap-2 text-foreground">
                     <Check className="w-5 h-5 text-healing" />
@@ -348,15 +338,15 @@ export default function Insomnia() {
                     onClick={() => window.location.href = '/contact'}
                   >
                     <Calendar className="w-5 h-5 mr-2" />
-                    Schedule Sleep Evaluation
+                    Schedule Your Evaluation
                   </Button>
                   <Button 
                     variant="outline" 
                     size="lg"
                     className="border-primary text-primary hover:bg-primary/5 text-lg px-8"
-                    onClick={() => window.location.href = '/screening'}
+                    onClick={() => window.location.href = '/screening?assessment=sleep'}
                   >
-                    Take Free Screening
+                    Take Free Insomnia Self-Assessment
                   </Button>
                 </div>
               </div>
@@ -389,24 +379,66 @@ export default function Insomnia() {
         {/* Understanding Sleep Problems Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
-                <Brain className="w-4 h-4 mr-1" />
-                Understanding Sleep Problems
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
+                  <Brain className="w-4 h-4 mr-1" />
+                  Understanding Sleep Problems
+                </Badge>
+                <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  Why Can&apos;t I Sleep?
+                </h2>
+              </div>
+              
+              <Card className="bg-card border-border">
+                <CardContent className="p-8">
+                  <div className="space-y-6 text-foreground text-lg leading-relaxed">
+                    <p>
+                      If you&apos;ve tried everything—the sleep apps, the white noise, the &quot;sleep hygiene&quot; tips—and 
+                      you&apos;re still staring at the ceiling at 3 AM, you&apos;re not alone. <strong>And it&apos;s not your fault.</strong>
+                    </p>
+                    
+                    <div className="bg-indigo-50 border-l-4 border-indigo-500 p-6 rounded-r-lg">
+                      <p className="text-indigo-800">
+                        Your brain has a &quot;sleep switch&quot; that&apos;s supposed to turn off wakefulness when it&apos;s time to rest. 
+                        <strong> In insomnia, this switch gets stuck.</strong> Your brain stays in &quot;alert mode&quot; even when you&apos;re 
+                        exhausted. It&apos;s like a car with the engine running even after you&apos;ve turned off the ignition.
+                      </p>
+                    </div>
+                    
+                    <p>
+                      The older approach to sleep medication was to force the brain into unconsciousness (like general anesthesia). 
+                      <strong> Modern treatments work differently</strong>—they gently flip the switch back to its &quot;off&quot; position, 
+                      allowing natural, restorative sleep.
+                    </p>
+                    
+                    <p className="text-primary font-medium">
+                      This is why the right treatment makes such a difference. We&apos;re not just knocking you out—we&apos;re 
+                      helping your brain remember how to sleep properly.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Types of Sleep Disorders */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
+                <FileText className="w-4 h-4 mr-1" />
+                Types of Sleep Disorders
               </Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Why Can&apos;t I Sleep?
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Different Sleep Problems, Different Solutions
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Sleep problems are incredibly common—and incredibly frustrating. When you can&apos;t sleep, everything 
-                suffers: your mood, your energy, your concentration, your relationships. But here&apos;s what most 
-                people don&apos;t realize: <strong>insomnia is often a symptom, not just a condition.</strong> Anxiety, 
-                depression, ADHD, stress, and other factors frequently drive sleep problems. Finding and treating 
-                the root cause is the key to lasting improvement.
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Understanding which type of sleep problem you have helps guide the most effective treatment approach.
               </p>
             </div>
             
-            {/* Types of Sleep Disorders Cards */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {sleepDisorderTypes.map((type, index) => (
                 <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
@@ -426,7 +458,7 @@ export default function Insomnia() {
         </section>
 
         {/* Symptoms Section */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
@@ -434,11 +466,10 @@ export default function Insomnia() {
                 Recognize the Signs
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Sleep Problem Symptoms to Watch For
+                Symptoms to Watch For
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Sleep problems present differently in children and adults. Recognizing the signs is the first step 
-                toward getting proper help.
+                Sleep problems look different across the lifespan. Here&apos;s what to watch for.
               </p>
             </div>
             
@@ -451,7 +482,7 @@ export default function Insomnia() {
                     Sleep Problems in Children & Teens
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Signs that may indicate your child needs a sleep evaluation
+                    Signs that your child may need a sleep evaluation
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -474,7 +505,7 @@ export default function Insomnia() {
                     Sleep Problems in Adults
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Signs that you may benefit from professional sleep evaluation
+                    Signs you may benefit from professional evaluation
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -491,16 +522,13 @@ export default function Insomnia() {
             </div>
             
             <div className="text-center mt-10">
-              <p className="text-muted-foreground mb-4">
-                Experiencing several of these symptoms? Take our free screening tools.
-              </p>
               <Button 
                 size="lg"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary/5"
-                onClick={() => window.location.href = '/screening'}
+                onClick={() => window.location.href = '/screening?assessment=sleep'}
               >
-                Take Free Self-Assessment
+                Take Free Insomnia Self-Assessment
                 <ChevronRight className="w-5 h-5 ml-1" />
               </Button>
             </div>
@@ -508,71 +536,95 @@ export default function Insomnia() {
         </section>
 
         {/* The Science of Sleep */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
                 <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
                   <Brain className="w-4 h-4 mr-1" />
                   The Science
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  Why Sleep Matters for Mental Health
+                  Why Sleep Matters More Than You Think
                 </h2>
               </div>
               
               <Card className="bg-card border-border mb-8">
                 <CardContent className="p-8">
-                  <div className="space-y-6 text-foreground">
-                    <p className="text-lg leading-relaxed">
-                      Sleep isn&apos;t just &quot;rest&quot;—it&apos;s an active process essential for brain health. During sleep, 
-                      your brain consolidates memories, processes emotions, clears toxins, and restores itself. 
-                      When sleep is disrupted, all of these functions suffer.
-                    </p>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-indigo-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-indigo-800 mb-2">Sleep & Mood</h4>
-                        <p className="text-sm text-indigo-700">
-                          Just one night of poor sleep increases emotional reactivity and decreases your ability to 
-                          regulate emotions. Chronic sleep deprivation significantly increases risk of depression and anxiety.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-purple-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-purple-800 mb-2">Sleep & Thinking</h4>
-                        <p className="text-sm text-purple-700">
-                          Sleep deprivation impairs attention, concentration, problem-solving, and memory—the same 
-                          functions affected by ADHD. Poor sleep can mimic or worsen ADHD symptoms.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-blue-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-blue-800 mb-2">Sleep & Stress</h4>
-                        <p className="text-sm text-blue-700">
-                          Poor sleep elevates cortisol (the stress hormone) and keeps your nervous system in 
-                          &quot;fight or flight&quot; mode. This creates a vicious cycle: stress disrupts sleep, 
-                          and poor sleep increases stress.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-green-800 mb-2">Sleep & Healing</h4>
-                        <p className="text-sm text-green-700">
-                          Good sleep accelerates recovery from mental health conditions. Many patients find their 
-                          anxiety or depression improves significantly once sleep is addressed.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-lg text-foreground leading-relaxed mb-6">
+                    Sleep isn&apos;t just &quot;rest&quot;—it&apos;s when your brain does critical maintenance work.
+                  </p>
                 </CardContent>
               </Card>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-8">
+                <Card className="bg-gradient-to-br from-purple-50 to-background border-purple-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-purple-700 flex items-center gap-2">
+                      <Sparkles className="w-5 h-5" />
+                      Brain Cleaning
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      During deep sleep, your brain activates its &quot;cleaning system&quot; (called the glymphatic system), 
+                      flushing out toxic proteins that accumulate during the day. This includes the proteins linked 
+                      to Alzheimer&apos;s disease. <strong>Chronic poor sleep means this cleaning doesn&apos;t happen properly.</strong>
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-blue-50 to-background border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-blue-700 flex items-center gap-2">
+                      <Brain className="w-5 h-5" />
+                      Memory Consolidation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      What you learned today gets permanently stored tonight. Sleep deprivation doesn&apos;t just make 
+                      you foggy—it <strong>prevents new memories from forming properly</strong>.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-green-50 to-background border-green-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-green-700 flex items-center gap-2">
+                      <Heart className="w-5 h-5" />
+                      Emotional Regulation
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Sleep deprivation makes your emotional brain (the amygdala) hyperactive while shutting down 
+                      your rational brain (prefrontal cortex). <strong>This is why everything feels harder after a bad night.</strong>
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-red-50 to-background border-red-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-red-700 flex items-center gap-2">
+                      <Activity className="w-5 h-5" />
+                      Physical Health
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Poor sleep increases risk for heart disease, diabetes, obesity, and weakened immunity. 
+                      <strong> Treating insomnia isn&apos;t a luxury—it&apos;s protecting your brain, your body, and your future.</strong>
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         </section>
 
         {/* Sleep-Mental Health Connection */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
@@ -581,40 +633,40 @@ export default function Insomnia() {
                   The Connection
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  The Sleep-Mental Health Connection
+                  Sleep Problems Rarely Travel Alone
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Sleep problems rarely exist in isolation. Understanding these connections is key to effective treatment.
+                  If you have insomnia, there&apos;s a very high chance something else is going on too.
                 </p>
               </div>
               
-              <div className="grid md:grid-cols-3 gap-6">
-                <Card className="bg-gradient-to-br from-purple-50 to-background border-purple-200">
-                  <CardHeader>
-                    <CardTitle className="text-lg text-purple-700 flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5" />
-                      Insomnia + Anxiety
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm">
-                      Racing thoughts keep you awake. The more you worry about not sleeping, the harder it becomes. 
-                      Treating anxiety often dramatically improves sleep—and vice versa.
-                    </p>
-                  </CardContent>
-                </Card>
-                
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <Card className="bg-gradient-to-br from-blue-50 to-background border-blue-200">
                   <CardHeader>
                     <CardTitle className="text-lg text-blue-700 flex items-center gap-2">
                       <Heart className="w-5 h-5" />
-                      Insomnia + Depression
+                      Depression
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm">
-                      Up to 80% of people with depression have insomnia. Poor sleep worsens depression, and 
-                      depression disrupts sleep. Breaking this cycle often requires treating both together.
+                      90% of people with depression have sleep problems. But here&apos;s what&apos;s interesting—<strong>treating 
+                      insomnia often helps depression improve</strong>, sometimes as much as antidepressants alone.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-purple-50 to-background border-purple-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-purple-700 flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      Anxiety
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm">
+                      Racing thoughts keeping you awake? Anxiety and insomnia fuel each other. The less you sleep, 
+                      the more anxious you become. The more anxious you are, the harder it is to sleep.
                     </p>
                   </CardContent>
                 </Card>
@@ -623,13 +675,426 @@ export default function Insomnia() {
                   <CardHeader>
                     <CardTitle className="text-lg text-green-700 flex items-center gap-2">
                       <Brain className="w-5 h-5" />
-                      Insomnia + ADHD
+                      ADHD
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground text-sm">
-                      ADHD brains have trouble &quot;turning off&quot; at night. Plus, sleep deprivation causes symptoms 
-                      identical to ADHD. Sometimes what looks like ADHD is actually a sleep problem.
+                      Adults with ADHD often have significant sleep problems—difficulty &quot;shutting off&quot; the brain at night, 
+                      delayed sleep phase (can&apos;t fall asleep until very late), and unrefreshing sleep.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-amber-50 to-background border-amber-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-amber-700 flex items-center gap-2">
+                      <Zap className="w-5 h-5" />
+                      Bipolar Disorder
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm">
+                      Sleep disruption can trigger mood episodes. <strong>Protecting sleep is a critical part 
+                      of bipolar management.</strong>
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-red-50 to-background border-red-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-red-700 flex items-center gap-2">
+                      <Shield className="w-5 h-5" />
+                      PTSD
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm">
+                      Nightmares and hypervigilance make sleep feel unsafe. We have specific treatments 
+                      for trauma-related sleep problems.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="text-center mt-8">
+                <p className="text-lg text-foreground font-medium">
+                  This is why we evaluate for everything when you come in with sleep problems. 
+                  <span className="text-primary"> Finding and treating the underlying conditions often transforms sleep.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* We Look for Everything Callout */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-primary/30 rounded-xl p-6 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Moon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-primary mb-2">We Look for Everything—Not Just Insomnia</h3>
+                    <p className="text-foreground leading-relaxed">
+                      When you come to us with sleep problems, we don&apos;t stop there—we evaluate for <em>everything</em>. 
+                      Depression, anxiety, ADHD, bipolar disorder, and other conditions often cause or worsen insomnia. 
+                      Many patients actually have two, three, or more conditions. <strong>Finding the complete picture 
+                      changes everything about your treatment.</strong>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Treatment Options */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-trust/10 text-trust border-trust/20 mb-4">
+                <Stethoscope className="w-4 h-4 mr-1" />
+                Treatment Options
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Evidence-Based Insomnia Treatment
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                There&apos;s no one-size-fits-all approach. The right treatment depends on your specific sleep pattern, 
+                underlying conditions, and preferences. Dr. Shapiro will work with you to find what works.
+              </p>
+            </div>
+
+            {/* CBT-I Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-green-600" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Behavioral Treatment - CBT-I</CardTitle>
+                      <p className="text-muted-foreground">The Gold Standard</p>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <p className="text-foreground">
+                    <strong>Cognitive Behavioral Therapy for Insomnia (CBT-I)</strong> is the gold standard treatment 
+                    recommended by every major medical organization. It&apos;s not &quot;talk therapy&quot;—it&apos;s a structured 
+                    program that retrains your brain to sleep.
+                  </p>
+                  
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-green-800 mb-2">Sleep Restriction</h5>
+                      <p className="text-green-700 text-sm">
+                        Sounds counterintuitive, but temporarily limiting your time in bed builds up your &quot;sleep hunger.&quot; 
+                        When you finally get in bed, your brain is so desperate for sleep that you fall asleep quickly and stay asleep.
+                      </p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-blue-800 mb-2">Stimulus Control</h5>
+                      <p className="text-blue-700 text-sm">
+                        If you&apos;ve spent months lying awake in bed, your brain has learned that Bed = Wakefulness. 
+                        We break this association by having you get out of bed if you&apos;re not sleeping.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-2">Cognitive Restructuring</h5>
+                      <p className="text-purple-700 text-sm">
+                        Changing the anxious thoughts about sleep that keep you awake. &quot;If I don&apos;t sleep tonight, 
+                        tomorrow will be ruined&quot; becomes &quot;I&apos;ve survived bad nights before.&quot;
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <p className="text-amber-800 font-semibold">
+                      CBT-I typically works within 4-6 weeks and has long-lasting results—often better than medication alone.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Medication Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Pill className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <CardTitle className="text-2xl">Medication Options</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <p className="text-foreground">
+                    When medication is needed, we now have much better options than the old sleeping pills.
+                  </p>
+                  
+                  <div>
+                    <h4 className="font-bold text-lg text-foreground mb-3">Newer Medications (Orexin Blockers)</h4>
+                    <p className="text-muted-foreground mb-4">
+                      These work by blocking the brain&apos;s &quot;wakefulness signal&quot; rather than forcing sedation.
+                    </p>
+                    <div className="bg-indigo-50 rounded-lg p-4 space-y-2">
+                      <p className="text-indigo-800"><strong>Dayvigo (lemborexant)</strong> – Our preferred choice for most patients. Works for both falling asleep and staying asleep. Minimal next-day grogginess.</p>
+                      <p className="text-indigo-800"><strong>Quviviq (daridorexant)</strong> – Shorter-acting, excellent for people worried about morning drowsiness.</p>
+                      <p className="text-indigo-800"><strong>Belsomra (suvorexant)</strong> – Good for sleep maintenance.</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-lg text-foreground mb-3">Traditional Sleep Medications (for short-term use)</h4>
+                    <div className="bg-blue-50 rounded-lg p-4 space-y-2">
+                      <p className="text-blue-800"><strong>Ambien (zolpidem)</strong> – Fast-acting, best for occasional use (not long-term).</p>
+                      <p className="text-blue-800"><strong>Lunesta (eszopiclone)</strong> – Longer-acting, can be used longer than other &quot;Z-drugs.&quot;</p>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-lg text-foreground mb-3">Medications for Specific Situations</h4>
+                    <div className="bg-green-50 rounded-lg p-4 space-y-2">
+                      <p className="text-green-800"><strong>Trazodone</strong> – Low doses help with sleep; also treats depression. Good for PTSD-related sleep problems.</p>
+                      <p className="text-green-800"><strong>Remeron (mirtazapine)</strong> – Helpful when depression, poor appetite, and insomnia occur together.</p>
+                      <p className="text-green-800"><strong>Rozerem (ramelteon)</strong> – Works on melatonin receptors; good for circadian rhythm problems.</p>
+                      <p className="text-green-800"><strong>Low-dose Silenor (doxepin)</strong> – Safe for elderly patients; helps with staying asleep.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-red-800 mb-2">What We Avoid (and Why)</h5>
+                    <p className="text-red-700 text-sm">
+                      We generally don&apos;t prescribe benzodiazepines (Xanax, Ativan, Klonopin) for insomnia. While they 
+                      help short-term, they cause dependence, disrupt sleep architecture, and increase fall risk—especially 
+                      in older adults. There are better options.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Other Treatments */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                      <Lightbulb className="w-6 h-6 text-amber-600" />
+                    </div>
+                    <CardTitle className="text-2xl">Other Sleep Treatments</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-amber-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-amber-800 mb-2">Light Therapy</h5>
+                      <p className="text-amber-700 text-sm">
+                        Morning bright light helps reset your internal clock, especially for &quot;night owls&quot; or seasonal sleep problems.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-2">Melatonin</h5>
+                      <p className="text-purple-700 text-sm">
+                        Low doses (0.5-3mg) taken at the right time can help with circadian rhythm issues. Timing matters more than dose.
+                      </p>
+                    </div>
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-green-800 mb-2">Treating Underlying Conditions</h5>
+                      <p className="text-green-700 text-sm">
+                        Sometimes the best insomnia treatment is treating the depression, anxiety, or ADHD driving it.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* When We Refer for Sleep Studies */}
+            <div className="max-w-5xl mx-auto">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                      <Stethoscope className="w-6 h-6 text-red-600" />
+                    </div>
+                    <CardTitle className="text-2xl">When We Refer for Sleep Studies</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-foreground">
+                    Not all sleep problems are insomnia. We&apos;ll refer you for a sleep study if we suspect:
+                  </p>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="bg-red-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-red-800 mb-2">Sleep Apnea</h5>
+                      <p className="text-red-700 text-sm">
+                        Especially if you snore, gasp, or stop breathing during sleep, or if you&apos;re overweight and tired despite &quot;enough&quot; sleep.
+                      </p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-blue-800 mb-2">Restless Legs Syndrome</h5>
+                      <p className="text-blue-700 text-sm">
+                        Uncomfortable sensations in your legs that make you need to move them.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-2">Periodic Limb Movements</h5>
+                      <p className="text-purple-700 text-sm">
+                        Leg jerks during sleep that you may not even know about.
+                      </p>
+                    </div>
+                    <div className="bg-amber-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-amber-800 mb-2">Narcolepsy</h5>
+                      <p className="text-amber-700 text-sm">
+                        If you have excessive daytime sleepiness despite adequate sleep.
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-primary font-medium">
+                    These conditions require different treatments, and missing them is a common reason insomnia treatment &quot;doesn&apos;t work.&quot;
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Special Considerations */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
+                <Users className="w-4 h-4 mr-1" />
+                Special Considerations
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Different Situations, Different Approaches
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <GraduationCap className="w-5 h-5 text-purple-600" />
+                    Sleep Problems in Older Adults
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Sleep changes with age—lighter sleep, earlier bedtimes, more awakenings. But significant insomnia 
+                    isn&apos;t &quot;normal aging.&quot; We&apos;re careful to avoid medications that increase fall risk or confusion. 
+                    Certain newer medications (like daridorexant and low-dose doxepin) are specifically studied and safe for older adults.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Users className="w-5 h-5 text-blue-600" />
+                    Sleep Problems in Children & Teens
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Pediatric sleep issues often respond well to behavioral approaches. We use age-appropriate strategies 
+                    and avoid adult sleep medications when possible. For teens, delayed sleep phase (&quot;can&apos;t fall asleep 
+                    until 2 AM&quot;) is extremely common and very treatable with light therapy and properly-timed melatonin.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Baby className="w-5 h-5 text-pink-600" />
+                    Pregnancy
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Most sleep medications aren&apos;t safe during pregnancy. CBT-I is the treatment of choice. If medication 
+                    is absolutely necessary, we discuss the safest options for each trimester.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-green-600" />
+                    Getting Off Long-Term Sleep Medications
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    If you&apos;ve been taking Ambien, Xanax, or other sleep medications for years and want to stop, we can help. 
+                    Gradual tapering with a &quot;bridge&quot; medication and CBT-I can help you sleep naturally again.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* What Doesn't Work */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge variant="secondary" className="bg-red-100 text-red-600 border-red-200 mb-4">
+                  <Ban className="w-4 h-4 mr-1" />
+                  Common Myths
+                </Badge>
+                <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                  What Doesn&apos;t Work (Despite What You&apos;ve Heard)
+                </h2>
+              </div>
+              
+              <div className="space-y-4">
+                <Card className="bg-red-50 border-red-200">
+                  <CardContent className="pt-6">
+                    <h4 className="font-bold text-red-800 mb-2">Benadryl (diphenhydramine)</h4>
+                    <p className="text-red-700">
+                      Over-the-counter, but not safe for regular use. Causes tolerance within days, morning grogginess, 
+                      and is linked to increased dementia risk with chronic use. We never recommend this for ongoing insomnia.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-red-50 border-red-200">
+                  <CardContent className="pt-6">
+                    <h4 className="font-bold text-red-800 mb-2">Alcohol</h4>
+                    <p className="text-red-700">
+                      Helps you fall asleep but destroys sleep quality. You wake up more often, get less deep sleep, and feel unrefreshed.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-red-50 border-red-200">
+                  <CardContent className="pt-6">
+                    <h4 className="font-bold text-red-800 mb-2">Most CBD/Cannabis Products</h4>
+                    <p className="text-red-700">
+                      Despite marketing claims, research doesn&apos;t support cannabis for long-term sleep. THC disrupts REM sleep 
+                      and causes dependence. Some CBD products may help anxiety but aren&apos;t effective sleep aids.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-red-50 border-red-200">
+                  <CardContent className="pt-6">
+                    <h4 className="font-bold text-red-800 mb-2">Generic &quot;Sleep Hygiene&quot; Alone</h4>
+                    <p className="text-red-700">
+                      Yes, a dark room and avoiding screens helps, but if you have true insomnia, these tips alone won&apos;t fix it. 
+                      You need actual treatment.
                     </p>
                   </CardContent>
                 </Card>
@@ -652,25 +1117,6 @@ export default function Insomnia() {
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Comprehensive Assessment That Finds Real Answers
               </p>
-            </div>
-
-            {/* Condition-Specific Evaluation Callout */}
-            <div className="max-w-4xl mx-auto mb-12">
-              <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-primary/30 rounded-xl p-6 shadow-sm">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Moon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-primary mb-2">We Look for Everything—Not Just Insomnia</h3>
-                    <p className="text-foreground leading-relaxed">
-                      When you come to us with sleep problems, we don&apos;t stop there—we evaluate for <em>everything</em>. 
-                      Depression, anxiety, ADHD, and other conditions often cause or worsen insomnia. Many patients actually 
-                      have two, three, or more conditions. <strong>Finding the complete picture changes everything about your treatment.</strong>
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -767,55 +1213,8 @@ export default function Insomnia() {
           </div>
         </section>
 
-        {/* Treatment Options */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <Badge variant="secondary" className="bg-trust/10 text-trust border-trust/20 mb-4">
-                <Stethoscope className="w-4 h-4 mr-1" />
-                Treatment Options
-              </Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Comprehensive Sleep Treatment
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                We use evidence-based approaches to treat sleep problems, focusing on long-term solutions 
-                rather than just quick fixes.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {treatmentOptions.map((option, index) => (
-                <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <option.icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl mb-2">{option.title}</CardTitle>
-                        <p className="text-muted-foreground text-sm">{option.description}</p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {option.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm">
-                          <Check className="w-4 h-4 text-healing flex-shrink-0" />
-                          <span className="text-foreground">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Why Choose Us */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
@@ -852,7 +1251,7 @@ export default function Insomnia() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
@@ -942,11 +1341,12 @@ export default function Insomnia() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Ready to Finally Sleep Better?
+                Ready to Finally Sleep?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Don&apos;t spend another night tossing and turning. With over 9,000 patients helped and 35+ years of experience, 
-                Dr. Shapiro can help you find out what&apos;s really keeping you awake—and fix it.
+                Good sleep changes everything—your mood, your energy, your health, your life. With over 9,000 patients 
+                helped and 35+ years of experience, Dr. Shapiro has the expertise to find what&apos;s really keeping 
+                you awake and get you the rest you deserve.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
