@@ -134,6 +134,21 @@ const Contact = () => {
               </Card>
             </div>
 
+            {/* Payment Information */}
+            <Card className="bg-amber-50 border-amber-200 hover:shadow-lg transition-shadow mt-6">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <CreditCard className="h-8 w-8 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-bold text-lg mb-2 text-amber-800">Payment Information</h3>
+                    <p className="text-amber-700">
+                      We are an out-of-network practice. We provide superbills for insurance reimbursement.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             {/* Telehealth Option */}
             <Card className="bg-primary/5 border-primary/20 hover:shadow-lg transition-shadow mt-6">
               <CardContent className="p-8">
