@@ -713,7 +713,7 @@ export default function Trichotillomania() {
                         </li>
                       </ul>
                       <p className="font-semibold mt-4 text-amber-900 bg-white/50 p-3 rounded-lg">
-                        Here's what I want you to understand: <strong>This condition is not your fault.</strong> Your brain 
+                        Here&apos;s what I want you to understand: <strong>This condition is not your fault.</strong> Your brain 
                         is wired differently in the circuits that control habits and impulses. With proper treatment, 
                         improvement is absolutely possible.
                       </p>
