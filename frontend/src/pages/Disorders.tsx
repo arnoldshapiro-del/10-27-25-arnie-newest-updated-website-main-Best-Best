@@ -34,6 +34,15 @@ const Disorders = () => {
       link: "/anxiety"
     },
     {
+      icon: Users,
+      title: "Social Anxiety",
+      description: "Intense fear of social situations where you may be judged or scrutinized by others.",
+      symptoms: ["Fear of judgment", "Avoidance of social situations", "Physical symptoms when observed", "Performance anxiety"],
+      treatments: ["CBT", "Exposure therapy", "SSRIs", "Beta-blockers for performance anxiety"],
+      color: "from-cyan-500/20 to-cyan-600/20",
+      link: "/social-anxiety"
+    },
+    {
       icon: Heart,
       title: "Depression",
       description: "Major depression, persistent depressive disorder, and seasonal affective disorder.",
