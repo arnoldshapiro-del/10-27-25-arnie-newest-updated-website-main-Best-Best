@@ -1092,7 +1092,7 @@ export default function Trichotillomania() {
                   <Card className="bg-card border-border">
                     <CardContent className="p-6">
                       <h4 className="text-lg font-semibold text-foreground mb-4">Treatment-Resistant Protocols</h4>
-                      <p className="text-muted-foreground mb-6">When standard approaches don't work, we have additional options:</p>
+                      <p className="text-muted-foreground mb-6">When standard approaches don&apos;t work, we have additional options:</p>
                       <div className="space-y-4">
                         <div className="bg-purple-50 rounded-lg p-4">
                           <h5 className="font-semibold text-purple-900 mb-2">The Combination Approach ("Chicago Cocktail")</h5>
