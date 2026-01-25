@@ -212,8 +212,8 @@ export default function ADHD() {
       answer: "ADHD is typically a lifelong condition that requires ongoing management. The good news is that with proper treatment, most people see significant improvement within weeks to months. Treatment plans evolve over time as needs change. Regular follow-ups ensure continued success."
     },
     {
-      question: "Does insurance cover ADHD treatment?",
-      answer: "Most insurance plans cover psychiatric evaluation and treatment for ADHD. We recommend contacting your insurance provider to verify your mental health benefits. Our office staff can help you understand your coverage and navigate insurance questions."
+      question: "What are your payment options?",
+      answer: "We are an out-of-network practice. You'll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
     },
     {
       question: "What's the difference between ADD and ADHD?",
