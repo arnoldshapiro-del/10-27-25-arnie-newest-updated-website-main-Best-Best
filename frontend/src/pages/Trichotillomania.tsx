@@ -1378,7 +1378,7 @@ export default function Trichotillomania() {
                 understanding of how this condition actually works in the brain.
               </p>
               <p className="text-lg text-foreground font-medium mb-8">
-                Whether you're newly struggling or have dealt with trichotillomania for decades, 
+                Whether you&apos;re newly struggling or have dealt with trichotillomania for decades, 
                 Dr. Shapiro can help you develop a personalized treatment plan.
               </p>
               
