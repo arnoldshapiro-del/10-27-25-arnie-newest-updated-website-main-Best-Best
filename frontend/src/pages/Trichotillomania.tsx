@@ -122,8 +122,8 @@ const trichotillomaniaSchema = [
 ];
 
 export default function Trichotillomania() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [openSpecial, setOpenSpecial] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState(null as number | null);
+  const [openSpecial, setOpenSpecial] = useState(null as number | null);
 
   // Signs/Symptoms Cards
   const signsCards = [
