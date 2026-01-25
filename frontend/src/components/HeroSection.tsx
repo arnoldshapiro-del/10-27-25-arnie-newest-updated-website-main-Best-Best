@@ -18,7 +18,7 @@ const HeroSection = () => {
               </Badge>
               <Badge variant="secondary" className="bg-healing/10 text-healing border-healing/20">
                 <Users className="w-4 h-4 mr-1" />
-                8000+ Patients Helped
+                Over 9,000 Patients Helped
               </Badge>
             </div>
 
