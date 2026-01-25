@@ -32,8 +32,8 @@ const Forms = () => {
       downloadLink: "#"
     },
     {
-      title: "Insurance Information Form",
-      description: "Insurance details, billing information, and authorization forms.",
+      title: "Payment & Insurance Information",
+      description: "We are an out-of-network practice, which means you pay at the time of service. We provide detailed receipts (superbills) with all the documentation you need to submit to your insurance for reimbursement. Many patients receive partial reimbursement for out-of-network mental health benefits.",
       duration: "5-10 minutes",
       required: true,
       icon: CreditCard,
