@@ -195,6 +195,7 @@ const Index = () => {
       />
       <Header />
       <HeroSection />
+      <EvaluationProcessSection />
       <AboutSection />
       <ServicesSection />
       <ApproachSection />
