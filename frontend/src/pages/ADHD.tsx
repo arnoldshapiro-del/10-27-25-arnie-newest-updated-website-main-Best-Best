@@ -613,7 +613,7 @@ export default function ADHD() {
                 Why Patients Trust Dr. Shapiro for ADHD Care
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                With over three decades of experience and a patient-centered approach, we've helped 
+                With over three decades of experience and a patient-centered approach, we&apos;ve helped 
                 thousands of individuals with ADHD achieve their full potential.
               </p>
             </div>
