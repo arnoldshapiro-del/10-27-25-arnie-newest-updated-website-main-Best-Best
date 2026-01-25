@@ -18,7 +18,7 @@ import {
   Phone,
   MapPin,
   AlertCircle,
-  Lightbulb,
+  AlertTriangle,
   ChevronRight,
   Shield,
   Pill,
@@ -27,7 +27,13 @@ import {
   Calendar,
   Cloud,
   Zap,
-  Activity
+  Activity,
+  Sun,
+  Moon,
+  Dumbbell,
+  Wine,
+  Utensils,
+  Target
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -74,34 +80,26 @@ const depressionSchema = [
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is Major Depressive Disorder?",
+        "name": "How do I know if I'm depressed or just going through a hard time?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Major Depressive Disorder (MDD) is a serious mood disorder characterized by persistent feelings of sadness, hopelessness, and loss of interest in activities. It affects how you feel, think, and handle daily activities. It is highly treatable with proper care."
+          "text": "The difference is duration and impact. If you've felt this way for more than two weeks, and it's affecting your ability to work, maintain relationships, or enjoy life, it's worth getting evaluated. You don't have to figure this out alone."
         }
       },
       {
         "@type": "Question",
-        "name": "How is depression diagnosed?",
+        "name": "Will I have to take medication forever?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Depression diagnosis involves a comprehensive psychiatric evaluation including clinical interviews, symptom assessment, medical history review, and ruling out other conditions. Our practice uses a thorough three-part evaluation system to ensure accurate diagnosis."
+          "text": "Not necessarily. Many people take antidepressants for 6-12 months after feeling better, then taper off successfully. Others benefit from longer-term treatment, especially if they've had multiple episodes."
         }
       },
       {
         "@type": "Question",
-        "name": "What treatments are available for depression?",
+        "name": "What if antidepressants don't work for me?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Depression treatment typically includes medication management (antidepressants like SSRIs and SNRIs), psychotherapy (especially CBT), and lifestyle modifications. Dr. Shapiro creates individualized treatment plans combining these approaches for optimal results."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can children have depression?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, depression can occur in children and teenagers. Symptoms may present differently than in adults, often appearing as irritability rather than sadness. Our practice specializes in both pediatric and adult depression evaluation and treatment."
+          "text": "If you haven't responded to two medications, we move to additional strategies: augmentation (adding a second medication), switching to a different class, or advanced treatments like Spravato or TMS. Dr. Shapiro has extensive experience with treatment-resistant depression."
         }
       }
     ]
@@ -111,37 +109,74 @@ const depressionSchema = [
 export default function Depression() {
   // Depression Symptoms Data
   const childSymptoms = [
-    "Persistent sadness, tearfulness, or irritability",
-    "Loss of interest in friends, activities, or hobbies",
-    "Changes in appetite or weight (increase or decrease)",
-    "Sleep problems—too much or too little",
-    "Low energy, fatigue, or sluggishness",
-    "Complaints of physical aches and pains",
-    "Decline in school performance",
-    "Withdrawal from family and friends",
-    "Expressions of worthlessness or guilt",
-    "Thoughts of death or suicide (take seriously)"
+    "Irritability or anger (more common than sadness in young people)",
+    "Declining grades or loss of interest in school",
+    "Withdrawal from friends and activities they used to enjoy",
+    "Changes in sleep—sleeping too much or too little",
+    "Changes in appetite or weight",
+    "Complaints of headaches or stomachaches with no medical cause",
+    "Talking about feeling worthless or being a burden",
+    "Increased sensitivity to rejection or criticism",
+    "Low energy or motivation (\"I don't care about anything\")"
   ];
 
   const adultSymptoms = [
-    "Persistent sad, anxious, or \"empty\" mood",
-    "Loss of interest or pleasure in activities once enjoyed",
-    "Significant changes in appetite or weight",
-    "Sleep disturbances—insomnia or oversleeping",
-    "Fatigue and decreased energy",
+    "Persistent sad, empty, or \"numb\" feeling",
+    "Loss of interest or pleasure in activities you used to enjoy",
+    "Fatigue and low energy, even after adequate sleep",
     "Difficulty concentrating, remembering, or making decisions",
-    "Feelings of worthlessness or excessive guilt",
-    "Restlessness or feeling slowed down",
-    "Physical symptoms that don&apos;t respond to treatment",
+    "Sleep problems—insomnia or sleeping too much",
+    "Changes in appetite or weight (increase or decrease)",
+    "Feelings of worthlessness, guilt, or hopelessness",
+    "Irritability or restlessness",
+    "Physical symptoms that don't respond to treatment (pain, digestive issues)",
     "Thoughts of death or suicide"
+  ];
+
+  const depressionTypes = [
+    {
+      icon: Cloud,
+      title: "Major Depressive Disorder (MDD)",
+      description: "The most common form of clinical depression. Symptoms last at least two weeks and significantly interfere with daily life. Episodes can happen once or recur throughout life.",
+      color: "bg-purple-100",
+      iconColor: "text-purple-600"
+    },
+    {
+      icon: Activity,
+      title: "Persistent Depressive Disorder (Dysthymia)",
+      description: "A chronic, lower-grade depression lasting two years or more. You might not feel 'severely' depressed, but you rarely feel good either. Many people don't realize this is treatable—they think it's just their personality.",
+      color: "bg-blue-100",
+      iconColor: "text-blue-600"
+    },
+    {
+      icon: Shield,
+      title: "Treatment-Resistant Depression (TRD)",
+      description: "When standard treatments haven't worked. This doesn't mean you're hopeless—it means you need a more specialized approach. Dr. Shapiro has extensive experience with difficult-to-treat cases.",
+      color: "bg-red-100",
+      iconColor: "text-red-600"
+    },
+    {
+      icon: Zap,
+      title: "Situational Depression (Adjustment Disorder)",
+      description: "Depression triggered by a specific life event—job loss, divorce, death of a loved one. While understandable, it still deserves treatment, especially if symptoms persist beyond a few months.",
+      color: "bg-amber-100",
+      iconColor: "text-amber-600"
+    },
+    {
+      icon: AlertCircle,
+      title: "Depression with Anxiety",
+      description: "Over half of people with depression also have significant anxiety. Both conditions need to be addressed for full recovery.",
+      color: "bg-green-100",
+      iconColor: "text-green-600"
+    }
   ];
 
   const treatmentOptions = [
     {
       icon: Pill,
       title: "Medication Management",
-      description: "When appropriate, antidepressant medications can significantly improve depression symptoms. We carefully select and monitor each patient&apos;s treatment for optimal results.",
-      details: ["SSRIs (Lexapro, Zoloft, Prozac)", "SNRIs (Effexor, Cymbalta, Pristiq)", "Atypical antidepressants (Wellbutrin)", "Augmentation strategies when needed", "GeneSight genetic testing available"]
+      description: "When appropriate, antidepressant medications can significantly improve depression symptoms. We carefully select and monitor each patient's treatment for optimal results.",
+      details: ["SSRIs (Lexapro, Zoloft, Prozac)", "SNRIs (Effexor, Cymbalta, Pristiq)", "Wellbutrin for fatigue and low motivation", "Augmentation strategies when needed", "GeneSight genetic testing available"]
     },
     {
       icon: MessageCircle,
@@ -182,7 +217,7 @@ export default function Depression() {
     {
       icon: Clock,
       title: "Same-Day Response",
-      description: "We&apos;re extremely accessible—your questions are answered almost always the same day. Never feel alone in your treatment."
+      description: "We're extremely accessible—your questions are answered almost always the same day. Never feel alone in your treatment."
     },
     {
       icon: Shield,
@@ -191,43 +226,47 @@ export default function Depression() {
     },
     {
       icon: GraduationCap,
-      title: "Education Focus",
-      description: "We empower patients with knowledge through educational resources and ongoing support to understand and manage their condition."
+      title: "Treatment-Resistant Expertise",
+      description: "If standard treatments haven't worked, Dr. Shapiro has extensive experience with advanced options including Spravato and augmentation strategies."
     }
   ];
 
   const faqs = [
     {
-      question: "What&apos;s the difference between feeling sad and having depression?",
-      answer: "Everyone feels sad sometimes—that&apos;s a normal part of life. Depression is different: the sadness is persistent (lasting at least two weeks), more intense, and comes with other symptoms like loss of interest, energy changes, and difficulty functioning. If your low mood is affecting your work, relationships, or daily life, it may be time to seek help."
+      question: "How do I know if I'm depressed or just going through a hard time?",
+      answer: "The difference is duration and impact. If you've felt this way for more than two weeks, and it's affecting your ability to work, maintain relationships, or enjoy life, it's worth getting evaluated. You don't have to figure this out alone."
     },
     {
-      question: "Do I really need medicine for depression?",
-      answer: "You don&apos;t NEED medicine—but your life could be easier, better, more enjoyable. Medicine is a tool, not a crutch. And you&apos;re always in control. If we try a medication and you don&apos;t like how it makes you feel, give it 2-3 days. If you&apos;re still uncomfortable, stop it and call us. We&apos;ll figure out what happened and try something else. Dr. Shapiro&apos;s commitment: We keep working together until you&apos;re dramatically better."
+      question: "Will I have to take medication forever?",
+      answer: "Not necessarily. Many people take antidepressants for 6-12 months after feeling better, then taper off successfully. Others benefit from longer-term treatment, especially if they've had multiple episodes. We'll discuss what makes sense for your situation."
     },
     {
-      question: "Can depression be treated without medication?",
-      answer: "Yes! There&apos;s more than one way to solve problems in life. Therapy—especially Cognitive Behavioral Therapy—can be very effective for mild to moderate depression. Lifestyle changes, exercise, social support, and other approaches all play important roles. We&apos;ll discuss ALL your options and decide together what makes sense for YOU."
+      question: "I'm worried about side effects.",
+      answer: "Most side effects are mild and temporary—often resolving within the first week or two. Dr. Shapiro's approach: start low, go slow, and if a medication doesn't agree with you, we stop it and try something else. The goal is for you to feel dramatically better with no problems."
     },
     {
-      question: "How long does depression treatment take?",
-      answer: "Most people begin to feel some improvement within 2-4 weeks of starting treatment, though full benefits may take 6-8 weeks or longer. Depression often requires ongoing management, but many people eventually do well with minimal or no medication. Dr. Shapiro&apos;s goal is to get you dramatically better, not just &apos;stable.&apos;"
+      question: "What if antidepressants don't work for me?",
+      answer: "If you haven't responded to two medications, we move to additional strategies: augmentation (adding a second medication), switching to a different class, or advanced treatments like Spravato or TMS. Dr. Shapiro has extensive experience with treatment-resistant depression."
+    },
+    {
+      question: "Can children take antidepressants?",
+      answer: "Yes, when appropriate. Fluoxetine (Prozac) and escitalopram (Lexapro) are FDA-approved for pediatric depression. The research shows that for moderate-to-severe depression in young people, medication plus therapy works better than either alone. We monitor closely and involve the whole family in treatment decisions."
+    },
+    {
+      question: "Is depression genetic?",
+      answer: "Depression runs in families, but it's not destiny. Having a parent with depression increases risk, but many people with family history never develop it, and many without family history do. Genes are one factor among many."
+    },
+    {
+      question: "How is depression different from bipolar disorder?",
+      answer: "In depression, mood goes down. In bipolar disorder, mood cycles between down and up (mania or hypomania). This matters because treatment is different. We screen carefully for bipolar features before starting treatment."
+    },
+    {
+      question: "What about natural treatments like supplements?",
+      answer: "Some supplements have modest evidence: Omega-3 fatty acids (fish oil), L-methylfolate, and SAMe. However, they're typically not strong enough for moderate-to-severe depression. They're sometimes useful as additions to medication, not replacements. Always tell us what supplements you're taking."
     },
     {
       question: "What are your payment options?",
-      answer: "We are an out-of-network practice. You&apos;ll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
-    },
-    {
-      question: "Do you treat children with depression?",
-      answer: "Yes, depression can affect children and teenagers, and Dr. Shapiro has extensive experience treating pediatric depression. Children often show depression differently—irritability, physical complaints, and school problems are common. Our child evaluation process involves meeting with parents, the child, and gathering information from teachers when appropriate."
-    },
-    {
-      question: "What if I have depression AND anxiety?",
-      answer: "It&apos;s very common for depression and anxiety to occur together—we see this frequently. Our comprehensive evaluation looks for all conditions, not just one. If you have multiple diagnoses, Dr. Shapiro will create a treatment plan that addresses everything together. This is actually one of our strengths."
-    },
-    {
-      question: "What is Dr. Shapiro&apos;s treatment goal?",
-      answer: "Dr. Shapiro&apos;s goal isn&apos;t just to get you &apos;stable&apos; or &apos;managing.&apos; His goal is to get you dramatically better. He treats every patient the way he would treat his own family—taking time to find out what&apos;s really going on, explaining everything clearly, and never rushing you into decisions you&apos;re not comfortable with."
+      answer: "We are an out-of-network practice. You'll pay at the time of your visit, and we provide detailed receipts (superbills) so you can submit to your insurance for possible reimbursement. Many patients with out-of-network mental health benefits receive partial reimbursement. We accept cash, check, and all major credit cards."
     }
   ];
 
@@ -236,7 +275,7 @@ export default function Depression() {
       <Helmet>
         <title>Depression Treatment Cincinnati | Expert Depression Care for Children & Adults | Dr. Shapiro</title>
         <meta name="description" content="Expert depression diagnosis and treatment in Cincinnati & Northern Kentucky. Board-certified psychiatrist Dr. Arnold Shapiro specializes in depression for children, teens, and adults. 35+ years experience. Same-day responses. Call (859) 341-7453." />
-        <meta name="keywords" content="depression treatment Cincinnati, depression doctor Cincinnati, major depressive disorder treatment Northern Kentucky, clinical depression, child depression psychiatrist, antidepressant medication management, therapy for depression" />
+        <meta name="keywords" content="depression treatment Cincinnati, depression doctor Cincinnati, major depressive disorder treatment Northern Kentucky, clinical depression, child depression psychiatrist, antidepressant medication management, therapy for depression, treatment-resistant depression" />
         <link rel="canonical" href={`${window.location.origin}/depression`} />
         
         {/* Open Graph */}
@@ -280,14 +319,18 @@ export default function Depression() {
                 </div>
                 
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                  Expert Depression Treatment in{" "}
+                  Depression Treatment in{" "}
                   <span className="text-primary">Cincinnati & Northern Kentucky</span>
                 </h1>
                 
+                <p className="text-2xl text-primary font-semibold">
+                  Real Help When Life Feels Too Heavy
+                </p>
+                
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Struggling with persistent sadness, loss of interest, or hopelessness? Dr. Arnold Shapiro provides comprehensive 
-                  depression evaluation and personalized treatment for children, adolescents, and adults. With 35+ years 
-                  of experience and a compassionate approach, we help patients find hope and reclaim their lives.
+                  Depression isn&apos;t just feeling sad. It&apos;s a medical condition that affects how your brain works—and 
+                  it&apos;s one of the most treatable conditions in all of medicine. With the right diagnosis and treatment, 
+                  most people feel dramatically better. <strong>You don&apos;t have to keep struggling.</strong>
                 </p>
                 
                 <div className="space-y-3">
@@ -305,7 +348,7 @@ export default function Depression() {
                   </div>
                   <div className="flex items-center gap-2 text-foreground">
                     <Check className="w-5 h-5 text-healing" />
-                    <span>Two convenient locations in OH & KY</span>
+                    <span>Treatment-resistant depression expertise</span>
                   </div>
                 </div>
                 
@@ -316,7 +359,7 @@ export default function Depression() {
                     onClick={() => window.location.href = '/contact'}
                   >
                     <Calendar className="w-5 h-5 mr-2" />
-                    Schedule Depression Evaluation
+                    Schedule Your Evaluation
                   </Button>
                   <Button 
                     variant="outline" 
@@ -357,74 +400,82 @@ export default function Depression() {
         {/* What is Depression Section */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
-                <Brain className="w-4 h-4 mr-1" />
-                Understanding Depression
-              </Badge>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                What is Depression?
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Depression is more than just feeling sad or going through a rough patch. It&apos;s a serious but treatable 
-                medical condition that affects how you feel, think, and handle daily activities. Depression involves 
-                changes in brain chemistry and function—it&apos;s not a character flaw or weakness. With proper treatment, 
-                most people with depression can get better.
-              </p>
-            </div>
-            
-            {/* Types of Depression Cards */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <Card className="bg-card border-border text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Cloud className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <CardTitle className="text-lg">Major Depressive Disorder</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">
-                    Persistent depressed mood or loss of interest lasting at least two weeks, with significant 
-                    impact on daily functioning. The most common form of depression.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
+                  <Brain className="w-4 h-4 mr-1" />
+                  Understanding Depression
+                </Badge>
+                <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                  More Than Just Feeling Sad
+                </h2>
+              </div>
               
-              <Card className="bg-card border-border text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Activity className="w-8 h-8 text-blue-600" />
+              <Card className="bg-card border-border">
+                <CardContent className="p-8">
+                  <div className="space-y-6 text-foreground text-lg leading-relaxed">
+                    <p>
+                      Everyone feels sad sometimes. But <strong>clinical depression is different</strong>—it&apos;s a 
+                      medical condition where the brain&apos;s chemistry and circuitry aren&apos;t working properly.
+                    </p>
+                    
+                    <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                      <p className="text-blue-800">
+                        <strong>Think of it like a car with a faulty fuel system.</strong> The car looks fine from the outside, 
+                        but it won&apos;t run right no matter how hard you try. Depression works the same way—your brain&apos;s 
+                        &quot;fuel system&quot; (the chemicals that regulate mood, energy, and motivation) isn&apos;t delivering what you need.
+                      </p>
+                    </div>
+                    
+                    <p>
+                      <strong>The good news?</strong> Unlike a broken car, your brain can heal. With proper treatment, 
+                      the brain&apos;s chemistry rebalances and the circuits that control mood start working again. 
+                      <span className="text-primary font-semibold"> Most people with depression respond well to treatment—many 
+                      feel dramatically better within weeks.</span>
+                    </p>
                   </div>
-                  <CardTitle className="text-lg">Persistent Depressive Disorder</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">
-                    A chronic form of depression lasting two years or more. Symptoms may be less severe but 
-                    are long-lasting and can significantly affect quality of life.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="bg-card border-border text-center">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-8 h-8 text-amber-600" />
-                  </div>
-                  <CardTitle className="text-lg">Other Depressive Disorders</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">
-                    Includes seasonal affective disorder (SAD), postpartum depression, and depression related 
-                    to medical conditions. Each requires specialized evaluation and treatment.
-                  </p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </section>
 
-        {/* Symptoms Section */}
+        {/* Types of Depression */}
         <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
+                <FileText className="w-4 h-4 mr-1" />
+                Types of Depression
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Depression Takes Many Forms
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Understanding which type of depression you have helps guide the most effective treatment approach.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {depressionTypes.map((type, index) => (
+                <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
+                  <CardHeader className="pb-2">
+                    <div className={`w-14 h-14 ${type.color} rounded-full flex items-center justify-center mb-4`}>
+                      <type.icon className={`w-7 h-7 ${type.iconColor}`} />
+                    </div>
+                    <CardTitle className="text-lg">{type.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground text-sm">{type.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Symptoms Section */}
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
@@ -432,15 +483,14 @@ export default function Depression() {
                 Recognize the Signs
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Depression Symptoms to Watch For
+                Symptoms to Watch For
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Depression presents differently in children and adults. Recognizing these symptoms is the first step 
-                toward getting proper help and finding relief.
+                Depression looks different in children and adults. Recognizing the signs is the first step toward getting help.
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-8">
               {/* Children & Teens Symptoms */}
               <Card className="bg-gradient-to-br from-blue-50 to-background border-blue-200">
                 <CardHeader>
@@ -449,7 +499,7 @@ export default function Depression() {
                     Depression in Children & Teens
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Signs that may indicate your child needs a depression evaluation
+                    Signs that may indicate your child needs evaluation
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -472,7 +522,7 @@ export default function Depression() {
                     Depression in Adults
                   </CardTitle>
                   <p className="text-muted-foreground">
-                    Signs that you may benefit from professional depression treatment
+                    Signs that you may benefit from professional evaluation
                   </p>
                 </CardHeader>
                 <CardContent>
@@ -480,18 +530,42 @@ export default function Depression() {
                     {adultSymptoms.map((symptom, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0" />
-                        <span className="text-foreground" dangerouslySetInnerHTML={{ __html: symptom.replace(/&apos;/g, "'") }} />
+                        <span className="text-foreground">{symptom}</span>
                       </li>
                     ))}
                   </ul>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Crisis Callout */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-red-50 border-2 border-red-300 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-red-800 mb-2">If You&apos;re in Crisis</h3>
+                    <p className="text-red-700 mb-3">
+                      If you&apos;re experiencing thoughts of suicide or self-harm, please reach out immediately:
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <div className="bg-white rounded-lg px-4 py-2 border border-red-200">
+                        <p className="font-semibold text-red-800">National Suicide Prevention Lifeline</p>
+                        <p className="text-red-700 text-lg font-bold">988</p>
+                      </div>
+                      <div className="bg-white rounded-lg px-4 py-2 border border-red-200">
+                        <p className="font-semibold text-red-800">Crisis Text Line</p>
+                        <p className="text-red-700 text-lg font-bold">Text HOME to 741741</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
             
             <div className="text-center mt-10">
-              <p className="text-muted-foreground mb-4">
-                Experiencing several of these symptoms? Take our free screening tool.
-              </p>
               <Button 
                 size="lg"
                 variant="outline"
@@ -506,69 +580,88 @@ export default function Depression() {
         </section>
 
         {/* The Science Behind Depression */}
-        <section className="py-16 bg-muted/30">
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center mb-12">
                 <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 mb-4">
                   <Brain className="w-4 h-4 mr-1" />
                   The Science
                 </Badge>
                 <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                  The Science Behind Depression
+                  Why Does Depression Happen?
                 </h2>
               </div>
               
-              <Card className="bg-card border-border">
+              <Card className="bg-card border-border mb-8">
                 <CardContent className="p-8">
-                  <div className="space-y-6 text-foreground">
-                    <p className="text-lg leading-relaxed">
-                      Depression is not simply &quot;feeling sad&quot; or a personal weakness. It&apos;s a medical condition 
-                      involving real changes in brain chemistry and function. Research shows that depression is 
-                      associated with:
-                    </p>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="bg-blue-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-blue-800 mb-2">Neurotransmitter Imbalances</h4>
-                        <p className="text-sm text-blue-700">
-                          Depression involves imbalances in brain chemicals like serotonin, norepinephrine, and dopamine. 
-                          These chemicals regulate mood, sleep, appetite, and energy.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-purple-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-purple-800 mb-2">Brain Structure Changes</h4>
-                        <p className="text-sm text-purple-700">
-                          Studies show that certain brain regions may be smaller or less active in people with depression. 
-                          The good news: treatment can help normalize these changes.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-green-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-green-800 mb-2">Genetic Factors</h4>
-                        <p className="text-sm text-green-700">
-                          Depression can run in families. If you have a parent or sibling with depression, you&apos;re 
-                          2-3 times more likely to develop it—but genetics isn&apos;t destiny.
-                        </p>
-                      </div>
-                      
-                      <div className="bg-amber-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-amber-800 mb-2">Life Events & Stress</h4>
-                        <p className="text-sm text-amber-700">
-                          Trauma, loss, chronic stress, and major life changes can trigger depression in people 
-                          who are vulnerable. Understanding triggers helps guide treatment.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <p className="text-lg leading-relaxed font-medium text-primary">
-                      Understanding that depression is a medical condition—not a personal failing—is the first step 
-                      toward getting effective treatment and feeling better.
-                    </p>
-                  </div>
+                  <p className="text-lg text-foreground leading-relaxed mb-6">
+                    For decades, doctors talked about depression as a &quot;chemical imbalance&quot;—not enough serotonin 
+                    in the brain. While that&apos;s part of the story, modern neuroscience reveals it&apos;s more complex.
+                  </p>
+                  <p className="text-xl font-semibold text-primary mb-6">
+                    Depression involves three main systems:
+                  </p>
                 </CardContent>
               </Card>
+              
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <Card className="bg-gradient-to-br from-blue-50 to-background border-blue-200">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                      <span className="text-2xl font-bold text-blue-600">1</span>
+                    </div>
+                    <CardTitle className="text-xl text-blue-700">Brain Chemistry</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Several neurotransmitters are involved—<strong>serotonin</strong> (mood stability), 
+                      <strong> norepinephrine</strong> (energy and alertness), and <strong>dopamine</strong> (motivation 
+                      and pleasure). When these are out of balance, you feel it in every aspect of life.
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-purple-50 to-background border-purple-200">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-2">
+                      <span className="text-2xl font-bold text-purple-600">2</span>
+                    </div>
+                    <CardTitle className="text-xl text-purple-700">Brain Circuitry</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Depression affects how different parts of the brain communicate. The &quot;stuck&quot; feeling many 
+                      people describe is literally visible on brain scans—certain circuits become <strong>overactive</strong> (rumination, 
+                      self-criticism) while others become <strong>underactive</strong> (motivation, pleasure).
+                    </p>
+                  </CardContent>
+                </Card>
+                
+                <Card className="bg-gradient-to-br from-green-50 to-background border-green-200">
+                  <CardHeader>
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-2">
+                      <span className="text-2xl font-bold text-green-600">3</span>
+                    </div>
+                    <CardTitle className="text-xl text-green-700">Neuroplasticity</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">
+                      Chronic stress and depression can actually change brain structure—weakening connections in areas 
+                      that regulate mood. <strong>The exciting news?</strong> Treatment can reverse these changes. 
+                      Medications and therapy help the brain grow new connections and heal.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+              
+              <div className="bg-primary/10 border-2 border-primary/20 rounded-xl p-6 text-center">
+                <p className="text-lg text-foreground font-medium">
+                  <strong>The Bottom Line:</strong> Depression is a real medical condition with real biological changes. 
+                  It&apos;s not weakness, laziness, or a character flaw. And because it&apos;s biological, 
+                  <span className="text-primary"> it responds to biological treatment.</span>
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -600,9 +693,9 @@ export default function Depression() {
                     <h3 className="text-lg font-bold text-primary mb-2">We Look for Everything—Not Just Depression</h3>
                     <p className="text-foreground leading-relaxed">
                       When you come to us thinking you have depression, we don&apos;t stop there—we evaluate for <em>everything</em>. 
-                      Anxiety, ADHD, bipolar disorder, and other conditions often overlap with depression or can look just like it. 
-                      Many patients actually have two, three, or more conditions. <strong>Finding the complete picture changes everything 
-                      about your treatment.</strong>
+                      ADHD, anxiety, bipolar disorder, thyroid problems, sleep disorders, and other conditions can all look like 
+                      depression or exist alongside it. Many patients actually have two, three, or more conditions. 
+                      <strong> Finding the complete picture changes everything about your treatment.</strong>
                     </p>
                   </div>
                 </div>
@@ -639,15 +732,9 @@ export default function Depression() {
                     <p className="text-blue-700 text-sm">
                       We don&apos;t just look for what you think you might have. If you come to us saying &quot;I think I have depression,&quot; 
                       we evaluate for <em>everything</em>—anxiety, ADHD, bipolar disorder, and other conditions that can look like 
-                      depression or co-exist with it. Many patients have 2, 3, or even 5 conditions that need to be addressed together.
+                      depression or co-exist with it.
                     </p>
                   </div>
-                  
-                  <p className="text-foreground">
-                    Dr. Shapiro will explain all your treatment options—because there&apos;s more than one way to address these 
-                    challenges. You&apos;ll decide together what feels right for you. If medication is part of your plan, he&apos;ll 
-                    explain exactly how it works, what side effects to watch for, and how to handle them.
-                  </p>
                   
                   <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg">
                     <p className="text-amber-800 font-semibold text-sm">Dr. Shapiro&apos;s Guidance:</p>
@@ -678,8 +765,7 @@ export default function Depression() {
                   <p className="text-foreground">
                     We take extra care with young patients. The process begins with a <strong>one-hour meeting</strong> between 
                     parents and our licensed counselor, followed by a separate <strong>one-hour session</strong> where the 
-                    counselor meets with your child or teenager. Rating scales are collected from parents, teachers, and 
-                    sometimes the child.
+                    counselor meets with your child or teenager.
                   </p>
                   
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 my-4">
@@ -691,14 +777,8 @@ export default function Depression() {
                   </div>
                   
                   <p className="text-foreground">
-                    After the counselor extensively reviews all findings with Dr. Shapiro (he takes pages of notes), you&apos;ll 
+                    After the counselor extensively reviews all findings with Dr. Shapiro, you&apos;ll 
                     have a <strong>one-hour family meeting</strong> with Dr. Shapiro. Parents AND the child attend together.
-                  </p>
-                  
-                  <p className="text-foreground">
-                    Dr. Shapiro shares his findings, asks clarifying questions, and explains any diagnoses—sometimes one 
-                    condition, sometimes several. He&apos;ll discuss all treatment options, always emphasizing: 
-                    <em>&quot;There&apos;s more than one way to solve problems in life.&quot;</em>
                   </p>
                   
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 my-4">
@@ -712,10 +792,6 @@ export default function Depression() {
                     <p className="text-amber-800 font-semibold text-sm">Dr. Shapiro&apos;s Guidance:</p>
                     <p className="text-amber-700 italic">&quot;If the medicine makes you uncomfortable for 2-3 days, stop it and call us.&quot;</p>
                   </div>
-                  
-                  <p className="text-foreground mt-4">
-                    <strong>Monthly appointments</strong> continue until your child is dramatically better.
-                  </p>
                 </CardContent>
               </Card>
             </div>
@@ -731,40 +807,328 @@ export default function Depression() {
                 Treatment Options
               </Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Comprehensive Depression Treatment
+                Evidence-Based Depression Treatment
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                We create individualized treatment plans using proven approaches. Unlike many practices, 
-                we offer both medication management and therapy for complete care.
+                There&apos;s no one-size-fits-all approach to depression. The right treatment depends on your specific 
+                situation, symptoms, and preferences. Dr. Shapiro will work with you to find what works best for YOU.
+              </p>
+            </div>
+
+            {/* Medication Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <Pill className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <CardTitle className="text-2xl">Medication Options</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-lg text-foreground mb-3">First-Line Medications (SSRIs and SNRIs)</h4>
+                    <p className="text-muted-foreground mb-4">
+                      These medications help restore balance to brain chemistry. They&apos;re well-studied, generally 
+                      well-tolerated, and effective for most people.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-blue-50 rounded-lg p-4">
+                        <h5 className="font-semibold text-blue-800 mb-2">SSRIs (Selective Serotonin Reuptake Inhibitors)</h5>
+                        <ul className="text-sm text-blue-700 space-y-1">
+                          <li>• <strong>Lexapro</strong> (escitalopram) – Often first choice due to effectiveness and tolerability</li>
+                          <li>• <strong>Zoloft</strong> (sertraline) – Good for depression with anxiety</li>
+                          <li>• <strong>Prozac</strong> (fluoxetine) – Long-acting, helpful for inconsistent schedules</li>
+                        </ul>
+                      </div>
+                      <div className="bg-purple-50 rounded-lg p-4">
+                        <h5 className="font-semibold text-purple-800 mb-2">SNRIs (Serotonin-Norepinephrine Reuptake Inhibitors)</h5>
+                        <ul className="text-sm text-purple-700 space-y-1">
+                          <li>• <strong>Effexor</strong> (venlafaxine) – Adds norepinephrine boost for energy</li>
+                          <li>• <strong>Cymbalta</strong> (duloxetine) – Good when pain is also present</li>
+                          <li>• <strong>Pristiq</strong> (desvenlafaxine) – Fewer drug interactions</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-amber-800 mb-2">What to Expect</h5>
+                    <p className="text-amber-700 text-sm">
+                      Most antidepressants take 2-4 weeks to begin working and 6-8 weeks for full effect. 
+                      Side effects, if any, usually improve within the first week or two.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-bold text-lg text-foreground mb-3">Other Medication Options</h4>
+                    <ul className="text-muted-foreground space-y-2">
+                      <li>• <strong>Wellbutrin</strong> (bupropion) – Works on dopamine and norepinephrine; good for fatigue and low motivation; doesn&apos;t cause weight gain or sexual side effects</li>
+                      <li>• <strong>Remeron</strong> (mirtazapine) – Helps with sleep and appetite; often used in combination</li>
+                      <li>• <strong>Auvelity</strong> – Newer rapid-acting medication that can work within one week</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                    <h5 className="font-semibold text-red-800 mb-2">For Treatment-Resistant Depression</h5>
+                    <p className="text-red-700 text-sm mb-2">If standard medications haven&apos;t helped, there are additional options:</p>
+                    <ul className="text-red-700 text-sm space-y-1">
+                      <li>• <strong>Spravato</strong> (esketamine) – FDA-approved nasal spray that works through a different brain system (glutamate)</li>
+                      <li>• <strong>Lithium augmentation</strong> – Adding lithium to an antidepressant can boost effectiveness</li>
+                      <li>• <strong>Combination strategies</strong> – Using two complementary medications together</li>
+                      <li>• <strong>TMS</strong> (Transcranial Magnetic Stimulation) – Non-invasive brain stimulation</li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Therapy Section */}
+            <div className="max-w-5xl mx-auto mb-12">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                      <MessageCircle className="w-6 h-6 text-green-600" />
+                    </div>
+                    <CardTitle className="text-2xl">Therapy Options</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <p className="text-muted-foreground">
+                    Medication addresses the biology. Therapy addresses the thoughts and behaviors. 
+                    <strong> The most effective treatment for moderate-to-severe depression is usually both together.</strong>
+                  </p>
+                  
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-green-800 mb-2">Cognitive Behavioral Therapy (CBT)</h5>
+                      <p className="text-green-700 text-sm">
+                        The most researched therapy for depression. Identifies and changes negative thought patterns 
+                        and behaviors that maintain depression.
+                      </p>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-blue-800 mb-2">Interpersonal Therapy (IPT)</h5>
+                      <p className="text-blue-700 text-sm">
+                        Focuses on improving relationships and communication. Especially helpful when depression 
+                        is connected to relationship problems or major life changes.
+                      </p>
+                    </div>
+                    <div className="bg-purple-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-purple-800 mb-2">Behavioral Activation</h5>
+                      <p className="text-purple-700 text-sm">
+                        Sometimes the simplest approach works—gradually increasing engagement in meaningful 
+                        activities to break the cycle of withdrawal and isolation.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Timeline Section */}
+            <div className="max-w-4xl mx-auto">
+              <Card className="bg-gradient-to-r from-primary/5 to-healing/5 border-primary/20">
+                <CardHeader>
+                  <CardTitle className="text-xl text-center">Timeline Expectations</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid md:grid-cols-4 gap-4 text-center">
+                    <div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="font-bold text-primary">1-2</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">Weeks: Side effects (if any) emerge and begin to fade</p>
+                    </div>
+                    <div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="font-bold text-primary">2-4</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">Weeks: Early improvement—better sleep, more energy</p>
+                    </div>
+                    <div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="font-bold text-primary">4-8</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">Weeks: Full antidepressant effect develops</p>
+                    </div>
+                    <div>
+                      <div className="w-12 h-12 bg-healing/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <span className="font-bold text-healing">8-12</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">Weeks: Fine-tuning if needed</p>
+                    </div>
+                  </div>
+                  <p className="text-center text-foreground font-medium mt-6">
+                    Most people feel significantly better within 6-8 weeks. Dr. Shapiro will see you monthly until 
+                    you&apos;re <strong>dramatically better</strong>—not just &quot;okay,&quot; but truly thriving.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Special Considerations */}
+        <section className="py-16 bg-muted/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-warm-accent/10 text-warm-accent border-warm-accent/20 mb-4">
+                <Target className="w-4 h-4 mr-1" />
+                Special Considerations
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Depression Often Comes with Company
+              </h2>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Brain className="w-5 h-5 text-blue-600" />
+                    Depression + ADHD
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    About 30% of people with depression also have undiagnosed ADHD. The &quot;brain fog&quot; and concentration 
+                    problems of depression overlap almost completely with ADHD. <strong>If we find both, treating the 
+                    ADHD sometimes resolves the depression entirely.</strong>
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-purple-600" />
+                    Depression + Anxiety
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    More than half of people with depression also have significant anxiety. We treat both conditions 
+                    together—and <strong>many medications help both</strong>.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Zap className="w-5 h-5 text-amber-600" />
+                    &quot;Soft&quot; Bipolar Disorder
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Some people diagnosed with depression actually have a mild form of bipolar disorder. This matters 
+                    because antidepressants alone can make bipolar worse. Signs include: depression that started before 
+                    age 25, multiple episodes, family history of bipolar, or medications that worked at first then 
+                    &quot;pooped out.&quot; <strong>We screen carefully for this.</strong>
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg flex items-center gap-2">
+                    <Users className="w-5 h-5 text-green-600" />
+                    Depression in Older Adults
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Depression in seniors is common but often missed—it can look like memory problems or physical symptoms. 
+                    <strong>It&apos;s absolutely treatable.</strong> We&apos;re careful to choose medications that are safe 
+                    and don&apos;t interact with other prescriptions.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Lifestyle Factors */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <Badge variant="secondary" className="bg-healing/10 text-healing border-healing/20 mb-4">
+                <Heart className="w-4 h-4 mr-1" />
+                Beyond Medication
+              </Badge>
+              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                Lifestyle Factors That Matter
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                While medication and therapy are the foundation of treatment, these factors can significantly impact your recovery.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              {treatmentOptions.map((option, index) => (
-                <Card key={index} className="bg-card border-border hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <option.icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl mb-2">{option.title}</CardTitle>
-                        <p className="text-muted-foreground text-sm">{option.description}</p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {option.details.map((detail, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm">
-                          <Check className="w-4 h-4 text-healing flex-shrink-0" />
-                          <span className="text-foreground">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+              <Card className="bg-card border-border text-center">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Dumbbell className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h4 className="font-semibold mb-2">Exercise</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Regular aerobic exercise can be as effective as antidepressant medication for mild-to-moderate depression.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border text-center">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Moon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold mb-2">Sleep</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Depression disrupts sleep, and poor sleep worsens depression. Establishing consistent sleep habits is part of treatment.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border text-center">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Sun className="w-6 h-6 text-amber-600" />
+                  </div>
+                  <h4 className="font-semibold mb-2">Light</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Morning bright light helps regulate your body&apos;s clock and can improve mood, especially in winter months.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border text-center">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Utensils className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h4 className="font-semibold mb-2">Nutrition</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Emerging research links gut health to brain health. A Mediterranean-style diet may support recovery.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-card border-border text-center">
+                <CardContent className="pt-6">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Wine className="w-6 h-6 text-red-600" />
+                  </div>
+                  <h4 className="font-semibold mb-2">Alcohol</h4>
+                  <p className="text-xs text-muted-foreground">
+                    Alcohol is a depressant. Even moderate drinking can interfere with treatment and worsen symptoms.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -806,31 +1170,6 @@ export default function Depression() {
           </div>
         </section>
 
-        {/* Educational Resources Banner */}
-        <section className="py-12 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl mx-auto">
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold text-primary-foreground mb-2">
-                  Learn More About Depression
-                </h3>
-                <p className="text-primary-foreground/80">
-                  Explore our comprehensive educational slideshow to better understand depression
-                </p>
-              </div>
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="bg-white text-primary hover:bg-white/90"
-                onClick={() => window.location.href = '/slideshows'}
-              >
-                <BookOpen className="w-5 h-5 mr-2" />
-                View Depression Education Slideshow
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
@@ -850,11 +1189,11 @@ export default function Depression() {
                   <CardHeader>
                     <CardTitle className="text-lg text-foreground flex items-start gap-3">
                       <span className="text-primary font-bold">Q:</span>
-                      <span dangerouslySetInnerHTML={{ __html: faq.question.replace(/&apos;/g, "'") }} />
+                      <span>{faq.question}</span>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground pl-7" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/&apos;/g, "'") }} />
+                    <p className="text-muted-foreground pl-7">{faq.answer}</p>
                   </CardContent>
                 </Card>
               ))}
@@ -922,11 +1261,11 @@ export default function Depression() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Ready to Find Hope Again?
+                Ready to Feel Better?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Don&apos;t let depression steal your joy. Schedule a comprehensive evaluation 
-                with Dr. Shapiro and start your journey to feeling like yourself again.
+                Depression is treatable. With over 9,000 patients helped and 35+ years of experience, 
+                Dr. Shapiro has the expertise to find what&apos;s really going on and get you the relief you deserve.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
