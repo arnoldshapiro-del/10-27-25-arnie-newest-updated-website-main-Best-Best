@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import EvaluationProcessSection from "@/components/EvaluationProcessSection";
+import TreatmentPhilosophySection from "@/components/TreatmentPhilosophySection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ApproachSection from "@/components/ApproachSection";
