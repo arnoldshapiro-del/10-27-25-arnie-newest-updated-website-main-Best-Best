@@ -13,8 +13,10 @@ import {
   Target,
   Lightbulb,
   Activity,
-  Smile
+  Smile,
+  ArrowRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import EmergencyDisclaimer from "@/components/EmergencyDisclaimer";
 import Footer from "@/components/Footer";
