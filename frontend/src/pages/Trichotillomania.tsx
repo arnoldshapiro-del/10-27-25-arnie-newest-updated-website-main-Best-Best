@@ -630,7 +630,7 @@ export default function Trichotillomania() {
                       part of the body.
                     </p>
                     <p>
-                      This is <strong className="text-foreground">not a "bad habit" or a sign of weakness</strong>. 
+                      This is <strong className="text-foreground">not a &quot;bad habit&quot; or a sign of weakness</strong>. 
                       Trichotillomania is classified in the DSM-5-TR as an Obsessive-Compulsive and Related Disorder. 
                       It involves real differences in brain chemistry and structure—specifically in the circuits that 
                       control impulses and habits.
