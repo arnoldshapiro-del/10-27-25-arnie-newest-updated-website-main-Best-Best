@@ -70,7 +70,7 @@ const Footer = () => {
         {/* Disclaimer and Copyright */}
         <div className="border-t border-border pt-8 space-y-4">
           <p className="text-sm text-muted-foreground text-center">
-            If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
+            If you&apos;re experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
           </p>
           <p className="text-xs text-muted-foreground text-center">
             © {currentYear} Arnold G. Shapiro MD. All rights reserved. | Cincinnati, OH & Fort Wright, KY
