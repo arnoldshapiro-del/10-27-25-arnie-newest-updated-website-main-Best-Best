@@ -998,7 +998,7 @@ export default function Trichotillomania() {
                 <TabsList className="grid w-full grid-cols-4 mb-8">
                   <TabsTrigger value="first-line">First-Line</TabsTrigger>
                   <TabsTrigger value="additional">Additional Options</TabsTrigger>
-                  <TabsTrigger value="ineffective">What Doesn't Work</TabsTrigger>
+                  <TabsTrigger value="ineffective">What Doesn&apos;t Work</TabsTrigger>
                   <TabsTrigger value="resistant">Treatment-Resistant</TabsTrigger>
                 </TabsList>
                 
