@@ -131,7 +131,7 @@ const TreatmentPhilosophySection = () => {
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Heart className="w-5 h-5 text-healing" />
-            <span>8,000+ Patients Helped</span>
+            <span>Over 9,000 Patients Helped</span>
           </div>
           <div className="flex items-center gap-2 text-muted-foreground">
             <Quote className="w-5 h-5 text-warm-accent" />
