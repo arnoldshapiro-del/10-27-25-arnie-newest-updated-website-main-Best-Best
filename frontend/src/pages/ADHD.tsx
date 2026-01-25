@@ -863,7 +863,7 @@ export default function ADHD() {
               </div>
               
               <p className="text-muted-foreground text-sm">
-                Same-day response to your questions • Accepting new patients • Most insurance accepted
+                Same-day response to your questions • Accepting new patients • Out-of-network provider
               </p>
             </div>
           </div>
