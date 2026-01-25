@@ -194,24 +194,6 @@ export default function ADHD() {
     }
   ];
 
-  const evaluationSteps = [
-    {
-      step: "1",
-      title: "Initial Consultation",
-      description: "Detailed discussion of symptoms, history, and concerns. We gather information about behavior patterns across different settings (home, school, work)."
-    },
-    {
-      step: "2",
-      title: "Comprehensive Assessment",
-      description: "Standardized rating scales, behavioral checklists, and clinical interviews with patients and family members to build a complete picture."
-    },
-    {
-      step: "3",
-      title: "Diagnosis & Treatment Planning",
-      description: "Review of findings, clear explanation of diagnosis, and collaborative development of a personalized treatment plan tailored to your specific needs."
-    }
-  ];
-
   const faqs = [
     {
       question: "At what age can ADHD be diagnosed?",
