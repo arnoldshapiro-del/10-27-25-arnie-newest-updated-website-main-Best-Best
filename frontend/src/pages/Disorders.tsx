@@ -131,6 +131,15 @@ const Disorders = () => {
       treatments: ["NAC", "Habit Reversal Training", "ComB therapy", "Medication"],
       color: "from-teal-500/20 to-teal-600/20",
       link: "/trichotillomania"
+    },
+    {
+      icon: Heart,
+      title: "Postpartum Depression",
+      description: "Depression affecting new mothers, with specialized treatment options available.",
+      symptoms: ["Persistent sadness", "Difficulty bonding with baby", "Severe mood swings", "Overwhelming fatigue"],
+      treatments: ["Therapy", "Breastfeeding-safe medications", "Zuranolone (new)", "Support groups"],
+      color: "from-rose-500/20 to-rose-600/20",
+      link: "/postpartum-depression"
     }
   ];
 
