@@ -16,6 +16,7 @@ import ADHD from "./pages/ADHD";
 import Anxiety from "./pages/Anxiety";
 import Depression from "./pages/Depression";
 import Insomnia from "./pages/Insomnia";
+import Autism from "./pages/Autism";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
