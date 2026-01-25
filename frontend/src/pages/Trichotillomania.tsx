@@ -1095,7 +1095,7 @@ export default function Trichotillomania() {
                       <p className="text-muted-foreground mb-6">When standard approaches don&apos;t work, we have additional options:</p>
                       <div className="space-y-4">
                         <div className="bg-purple-50 rounded-lg p-4">
-                          <h5 className="font-semibold text-purple-900 mb-2">The Combination Approach ("Chicago Cocktail")</h5>
+                          <h5 className="font-semibold text-purple-900 mb-2">The Combination Approach (&quot;Chicago Cocktail&quot;)</h5>
                           <ul className="text-purple-800 text-sm space-y-1">
                             <li>• NAC (glutamate modulation) PLUS</li>
                             <li>• Memantine (NMDA modulation) PLUS</li>
