@@ -510,14 +510,23 @@ export default function ADHD() {
               </p>
             </div>
 
-            {/* Finding the Complete Picture Callout */}
+            {/* Condition-Specific Evaluation Callout */}
             <div className="max-w-4xl mx-auto mb-12">
-              <div className="bg-primary/10 border-l-4 border-primary rounded-r-lg p-6">
-                <h3 className="text-xl font-bold text-primary mb-2">&quot;Finding the Complete Picture&quot;</h3>
-                <p className="text-foreground italic">
-                  &quot;We don&apos;t just treat symptoms—we find the real answers. Many patients who come to us thinking 
-                  they have one condition actually have two, three, or more. Getting the complete picture changes everything.&quot;
-                </p>
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-primary/30 rounded-xl p-6 shadow-sm">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Brain className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-primary mb-2">We Look for Everything—Not Just ADHD</h3>
+                    <p className="text-foreground leading-relaxed">
+                      When you come to us thinking you have ADHD, we don&apos;t just test for ADHD—we evaluate for <em>everything</em>. 
+                      Anxiety, depression, OCD, mood disorders, and learning differences can all look like ADHD or coexist with it. 
+                      Many patients actually have two, three, or more conditions. <strong>Finding the complete picture changes everything 
+                      about your treatment.</strong>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
             
