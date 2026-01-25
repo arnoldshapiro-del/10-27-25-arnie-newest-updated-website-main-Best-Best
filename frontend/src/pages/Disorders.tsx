@@ -140,6 +140,15 @@ const Disorders = () => {
       treatments: ["Therapy", "Breastfeeding-safe medications", "Zuranolone (new)", "Support groups"],
       color: "from-rose-500/20 to-rose-600/20",
       link: "/postpartum-depression"
+    },
+    {
+      icon: Zap,
+      title: "DMDD",
+      description: "Disruptive Mood Dysregulation Disorder - severe irritability and temper outbursts in children.",
+      symptoms: ["Severe temper outbursts", "Chronic irritability", "Angry mood between outbursts", "Difficulty in multiple settings"],
+      treatments: ["CBT", "Parent training", "Medication management", "School interventions"],
+      color: "from-orange-500/20 to-red-500/20",
+      link: "/dmdd"
     }
   ];
 
