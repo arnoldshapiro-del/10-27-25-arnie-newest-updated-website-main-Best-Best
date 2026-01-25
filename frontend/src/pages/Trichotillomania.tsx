@@ -701,7 +701,7 @@ export default function Trichotillomania() {
                         </li>
                         <li className="flex items-start gap-2">
                           <ChevronRight className="w-4 h-4 mt-1 flex-shrink-0" />
-                          <span>Feeling "crazy" or "out of control"</span>
+                          <span>Feeling &quot;crazy&quot; or &quot;out of control&quot;</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <ChevronRight className="w-4 h-4 mt-1 flex-shrink-0" />
