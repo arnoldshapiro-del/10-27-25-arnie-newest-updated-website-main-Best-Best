@@ -30,7 +30,8 @@ const Disorders = () => {
       description: "Generalized anxiety, panic disorder, social anxiety, and specific phobias.",
       symptoms: ["Excessive worry", "Panic attacks", "Avoidance behaviors", "Physical symptoms"],
       treatments: ["Cognitive Behavioral Therapy", "Exposure therapy", "Medication", "Relaxation techniques"],
-      color: "from-blue-500/20 to-blue-600/20"
+      color: "from-blue-500/20 to-blue-600/20",
+      link: "/anxiety"
     },
     {
       icon: Heart,
@@ -38,7 +39,8 @@ const Disorders = () => {
       description: "Major depression, persistent depressive disorder, and seasonal affective disorder.",
       symptoms: ["Persistent sadness", "Loss of interest", "Fatigue", "Sleep disturbances"],
       treatments: ["Therapy", "Antidepressants", "Lifestyle changes", "Light therapy"],
-      color: "from-purple-500/20 to-purple-600/20"
+      color: "from-purple-500/20 to-purple-600/20",
+      link: null
     },
     {
       icon: Zap,
@@ -46,7 +48,8 @@ const Disorders = () => {
       description: "Mood disorder characterized by episodes of mania and depression.",
       symptoms: ["Mood swings", "Manic episodes", "Depressive episodes", "Energy changes"],
       treatments: ["Mood stabilizers", "Therapy", "Lifestyle management", "Support groups"],
-      color: "from-orange-500/20 to-orange-600/20"
+      color: "from-orange-500/20 to-orange-600/20",
+      link: null
     },
     {
       icon: Shield,
@@ -54,7 +57,8 @@ const Disorders = () => {
       description: "Post-traumatic stress disorder and other trauma-related conditions.",
       symptoms: ["Flashbacks", "Nightmares", "Hypervigilance", "Emotional numbing"],
       treatments: ["EMDR", "Trauma-focused therapy", "Medication", "Group therapy"],
-      color: "from-red-500/20 to-red-600/20"
+      color: "from-red-500/20 to-red-600/20",
+      link: null
     },
     {
       icon: Target,
@@ -62,7 +66,8 @@ const Disorders = () => {
       description: "Attention-deficit/hyperactivity disorder affecting focus and behavior.",
       symptoms: ["Inattention", "Hyperactivity", "Impulsivity", "Organization difficulties"],
       treatments: ["Stimulant medications", "Behavioral therapy", "Skills training", "Accommodations"],
-      color: "from-green-500/20 to-green-600/20"
+      color: "from-green-500/20 to-green-600/20",
+      link: "/adhd"
     },
     {
       icon: Users,
@@ -70,7 +75,8 @@ const Disorders = () => {
       description: "Developmental disorder affecting communication and social interaction.",
       symptoms: ["Social challenges", "Communication differences", "Repetitive behaviors", "Sensory sensitivities"],
       treatments: ["Behavioral interventions", "Social skills training", "Occupational therapy", "Family support"],
-      color: "from-teal-500/20 to-teal-600/20"
+      color: "from-teal-500/20 to-teal-600/20",
+      link: null
     },
     {
       icon: AlertTriangle,
@@ -78,7 +84,8 @@ const Disorders = () => {
       description: "Obsessive-compulsive disorder involving intrusive thoughts and compulsions.",
       symptoms: ["Obsessive thoughts", "Compulsive behaviors", "Anxiety", "Time-consuming rituals"],
       treatments: ["Exposure therapy", "CBT", "Medication", "Mindfulness techniques"],
-      color: "from-indigo-500/20 to-indigo-600/20"
+      color: "from-indigo-500/20 to-indigo-600/20",
+      link: null
     },
     {
       icon: Moon,
@@ -86,7 +93,8 @@ const Disorders = () => {
       description: "Insomnia, sleep apnea, and other sleep-related conditions.",
       symptoms: ["Difficulty falling asleep", "Frequent awakening", "Daytime fatigue", "Sleep disruption"],
       treatments: ["Sleep hygiene", "CBT for insomnia", "Medication", "Sleep studies"],
-      color: "from-slate-500/20 to-slate-600/20"
+      color: "from-slate-500/20 to-slate-600/20",
+      link: null
     },
     {
       icon: Activity,
@@ -94,7 +102,8 @@ const Disorders = () => {
       description: "Anxiety disorder marked by recurrent unexpected panic attacks",
       symptoms: ["Sudden episodes of intense fear or discomfort", "Palpitations or pounding of the heart", "Sweating, trembling, chills or hot flashes", "Shortness of breath or chest pain and others"],
       treatments: ["CBT", "Exposure therapy", "Antidepressant medications", "Benzodiazepines and beta blockers"],
-      color: "from-pink-500/20 to-pink-600/20"
+      color: "from-pink-500/20 to-pink-600/20",
+      link: null
     }
   ];
 
