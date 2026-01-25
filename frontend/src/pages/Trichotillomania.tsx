@@ -1144,7 +1144,7 @@ export default function Trichotillomania() {
                 Evidence-Based Behavioral Treatments
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                <strong>Why Regular "Talk Therapy" Doesn't Work:</strong> Standard counseling or psychotherapy—where you 
+                <strong>Why Regular &quot;Talk Therapy&quot; Doesn&apos;t Work:</strong> Standard counseling or psychotherapy—where you 
                 discuss your feelings and life circumstances—is generally ineffective for trichotillomania. This condition 
                 requires specific, skills-based behavioral interventions.
               </p>
