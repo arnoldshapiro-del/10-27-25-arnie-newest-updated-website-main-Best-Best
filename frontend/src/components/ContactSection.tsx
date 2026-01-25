@@ -157,7 +157,7 @@ const ContactSection = () => {
             {/* Emergency Information */}
             <div className="p-6 text-base text-muted-foreground">
               <p>
-                For non-emergency concerns, call our office at (859) 341-7453. If you're experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
+                For non-emergency concerns, call our office at (859) 341-7453. If you&apos;re experiencing a psychiatric emergency, call 911 or go to your nearest emergency room.
               </p>
             </div>
           </div>
