@@ -151,7 +151,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Postpartum Depression page rendering and content verification"
+    - "DMDD page rendering and content verification"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
