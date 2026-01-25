@@ -22,14 +22,16 @@ const Contact = () => {
       title: "Cincinnati Office",
       primary: "(859) 341-7453",
       secondary: "8280 Montgomery Road, Suite 304",
-      description: "Cincinnati, OH 45236"
+      description: "Cincinnati, OH 45236",
+      note: null
     },
     {
       icon: Phone,
       title: "Fort Wright Office",
       primary: "(859) 341-7453",
       secondary: "1717 Dixie Highway, Suite 200",
-      description: "Fort Wright, KY 41011"
+      description: "Fort Wright, KY 41011",
+      note: "Conveniently located just 5 minutes from downtown Cincinnati"
     }
   ];
 
