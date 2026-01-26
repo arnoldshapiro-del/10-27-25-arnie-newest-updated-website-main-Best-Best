@@ -158,6 +158,15 @@ const Disorders = () => {
       treatments: ["CBT", "Parent training", "Medication management", "School interventions"],
       color: "from-orange-500/20 to-red-500/20",
       link: "/dmdd"
+    },
+    {
+      icon: AlertTriangle,
+      title: "Oppositional Defiant Disorder (ODD)",
+      description: "Behavioral disorder with persistent pattern of angry mood, argumentative behavior, and defiance.",
+      symptoms: ["Frequent temper outbursts", "Argumentative with adults", "Defiance of rules", "Blaming others"],
+      treatments: ["Parent training", "Individual therapy", "Family therapy", "Medication when needed"],
+      color: "from-red-500/20 to-orange-500/20",
+      link: "/oppositional-defiant-disorder"
     }
   ];
 
