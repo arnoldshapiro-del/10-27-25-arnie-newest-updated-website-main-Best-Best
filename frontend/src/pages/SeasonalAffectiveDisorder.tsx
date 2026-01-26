@@ -441,17 +441,6 @@ export default function SeasonalAffectiveDisorder() {
                     loading="eager"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 hidden lg:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                      <Award className="w-6 h-6 text-amber-600" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-foreground">Over 9,000 Patients</p>
-                      <p className="text-sm text-muted-foreground">Successfully Treated</p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
