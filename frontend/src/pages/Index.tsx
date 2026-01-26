@@ -189,7 +189,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Dr. Arnold Shapiro, MD | Adult & Child Psychiatrist | Cincinnati OH & Northern Kentucky"
+        title="Dr. Arnold Shapiro, MD | Board-Certified Psychiatrist | Cincinnati OH & Northern Kentucky"
         description="Dr. Arnold Shapiro, MD - Board-certified adult and child psychiatrist serving Cincinnati, OH and Northern Kentucky. Expert treatment for ADHD, anxiety, depression, bipolar disorder, OCD. Two convenient locations. Same-day responses. Call (859) 341-7453."
         path="/"
         schema={schemas}
