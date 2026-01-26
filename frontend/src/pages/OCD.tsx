@@ -261,7 +261,7 @@ export default function OCD() {
     },
     {
       question: "Can OCD be cured?",
-      answer: "OCD is a chronic condition, but most people achieve significant improvement—often 60-80% reduction in symptoms. Many people reach a point where OCD no longer controls their lives, even if occasional symptoms persist. The skills learned in ERP last a lifetime."
+      answer: "OCD is a chronic condition, but most people achieve significant improvement with proper treatment. Many people reach a point where OCD no longer controls their lives, even if occasional symptoms persist. The skills learned in ERP last a lifetime."
     },
     {
       question: "Why do I need such high doses of medication?",
@@ -269,7 +269,7 @@ export default function OCD() {
     },
     {
       question: "How long will I need to take medication?",
-      answer: "Most guidelines recommend at least 12-24 months of medication after achieving remission. Stopping too early leads to high relapse rates (up to 90% without ongoing therapy skills). Many patients stay on medication long-term, which is safe."
+      answer: "Most guidelines recommend at least 12-24 months of medication after achieving remission. Stopping medication too early can lead to relapse, especially without ongoing therapy skills. Many patients stay on medication long-term, which is safe."
     },
     {
       question: "My child's OCD demands we follow certain rules or they melt down. Should we comply?",
