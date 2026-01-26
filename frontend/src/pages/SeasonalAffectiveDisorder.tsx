@@ -867,7 +867,7 @@ export default function SeasonalAffectiveDisorder() {
                   <p className="text-foreground">
                     Light therapy involves sitting in front of a special bright light box that mimics natural outdoor 
                     light. It works by resetting your circadian rhythm and suppressing melatonin production. 
-                    <strong> About 50-80% of people with SAD respond to light therapy alone.</strong>
+                    <strong> Many people with SAD respond well to light therapy alone.</strong>
                   </p>
                   
                   <div className="bg-amber-50 rounded-lg p-4">
