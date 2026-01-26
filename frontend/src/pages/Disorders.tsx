@@ -167,6 +167,15 @@ const Disorders = () => {
       treatments: ["Parent training", "Individual therapy", "Family therapy", "Medication when needed"],
       color: "from-red-500/20 to-orange-500/20",
       link: "/oppositional-defiant-disorder"
+    },
+    {
+      icon: Activity,
+      title: "Tic Disorders & Tourette Syndrome",
+      description: "Movement disorders characterized by sudden, repetitive motor movements or vocalizations.",
+      symptoms: ["Motor tics", "Vocal tics", "Premonitory urges", "Waxing and waning patterns"],
+      treatments: ["CBIT therapy", "Medication", "Lifestyle modifications", "School accommodations"],
+      color: "from-blue-500/20 to-purple-500/20",
+      link: "/tic-disorders"
     }
   ];
 
