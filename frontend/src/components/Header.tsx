@@ -270,17 +270,6 @@ const Header = () => {
                         {condition.shortName || condition.name}
                       </Link>
                     ))}
-                    <Link
-                      to="/disorders"
-                      className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm font-semibold text-primary hover:bg-primary/10 transition-colors min-h-[44px] mt-1 border-t border-gray-200 dark:border-gray-700 pt-3"
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setIsConditionsExpanded(false);
-                      }}
-                    >
-                      View All Conditions
-                      <ArrowRight size={14} />
-                    </Link>
                   </div>
                 )}
               </div>
