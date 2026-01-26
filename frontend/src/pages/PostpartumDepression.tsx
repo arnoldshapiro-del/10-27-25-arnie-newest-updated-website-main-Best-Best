@@ -1734,64 +1734,6 @@ export default function PostpartumDepression() {
           </div>
         </section>
 
-        {/* Crisis Resources Section */}
-        <section id="crisis-resources" className="py-12 bg-red-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold text-red-900 mb-6 text-center flex items-center justify-center gap-2">
-                <AlertTriangle className="w-6 h-6" />
-                Crisis Resources - If You Need Help Now
-              </h2>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <Card className="bg-white border-red-200">
-                  <CardContent className="p-4 text-center">
-                    <Phone className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                    <h3 className="font-bold text-red-900 text-sm">Maternal Mental Health Hotline</h3>
-                    <a href="tel:18338526262" className="text-xl font-bold text-red-700 hover:underline block mt-2">
-                      1-833-TLC-MAMA
-                    </a>
-                    <p className="text-xs text-red-700">Free, confidential, 24/7</p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="bg-white border-red-200">
-                  <CardContent className="p-4 text-center">
-                    <Phone className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                    <h3 className="font-bold text-red-900 text-sm">988 Suicide &amp; Crisis Lifeline</h3>
-                    <a href="tel:988" className="text-xl font-bold text-red-700 hover:underline block mt-2">
-                      Call or Text 988
-                    </a>
-                    <p className="text-xs text-red-700">24/7 Support</p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="bg-white border-red-200">
-                  <CardContent className="p-4 text-center">
-                    <Heart className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                    <h3 className="font-bold text-red-900 text-sm">Postpartum Support Int&apos;l</h3>
-                    <a href="tel:18009444773" className="text-xl font-bold text-red-700 hover:underline block mt-2">
-                      1-800-944-4773
-                    </a>
-                    <p className="text-xs text-red-700">Text &quot;HELP&quot; to 988</p>
-                  </CardContent>
-                </Card>
-                
-                <Card className="bg-white border-red-200">
-                  <CardContent className="p-4 text-center">
-                    <AlertTriangle className="w-8 h-8 text-red-600 mx-auto mb-2" />
-                    <h3 className="font-bold text-red-900 text-sm">Emergency</h3>
-                    <a href="tel:911" className="text-xl font-bold text-red-700 hover:underline block mt-2">
-                      Call 911
-                    </a>
-                    <p className="text-xs text-red-700">For immediate danger</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Locations Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
