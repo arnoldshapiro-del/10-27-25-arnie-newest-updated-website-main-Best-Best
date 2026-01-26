@@ -728,7 +728,7 @@ export default function PostpartumDepression() {
                 <div className="flex flex-wrap gap-3 text-sm">
                   <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
                     <Award className="w-4 h-4 text-healing" />
-                    <span className="font-medium">Board-Certified Adult &amp; Child Psychiatrist</span>
+                    <span className="font-medium">Board-Certified Psychiatrist</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
                     <Stethoscope className="w-4 h-4 text-healing" />
