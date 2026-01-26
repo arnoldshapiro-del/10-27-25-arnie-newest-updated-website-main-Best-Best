@@ -178,7 +178,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Conditions dropdown menu navigation functionality"
+    - "Childhood Bipolar Disorder page rendering and navigation"
     - "DMDD page rendering and content verification"
   stuck_tasks: []
   test_all: false
