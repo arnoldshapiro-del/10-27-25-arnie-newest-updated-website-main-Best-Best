@@ -717,9 +717,9 @@ export default function PostpartumDepression() {
                 
                 <div className="text-lg text-muted-foreground leading-relaxed space-y-4">
                   <p>
-                    Postpartum depression affects <strong className="text-foreground">1 in 7 new mothers</strong>, yet many suffer in silence. 
+                    Postpartum depression is common among new mothers, yet many suffer in silence. 
                     If you&apos;re struggling to feel like yourself after having a baby, you&apos;re not alone—and you don&apos;t have to 
-                    white-knuckle through it. With proper treatment, <strong className="text-foreground">over 80% of mothers recover fully</strong>. 
+                    white-knuckle through it. With proper treatment, <strong className="text-foreground">most mothers recover fully</strong>. 
                     New rapid-acting medications can bring relief in days, not weeks.
                   </p>
                 </div>
