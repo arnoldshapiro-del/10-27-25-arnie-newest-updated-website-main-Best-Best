@@ -22,7 +22,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 Cincinnati's Trusted 
-                <span className="text-primary"> Child & Adult Psychiatrist</span>
+                <span className="text-primary"> Board-Certified Psychiatrist</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
                 Dr. Arnold Shapiro provides expert psychiatric care for ADHD, anxiety, depression, bipolar disorder, and OCD in Cincinnati, OH and Northern Kentucky. 
