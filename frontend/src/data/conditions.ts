@@ -77,6 +77,11 @@ export const CONDITIONS: Condition[] = [
     name: "Trichotillomania (Hair-Pulling)",
     path: "/trichotillomania",
     shortName: "Trichotillomania (Hair-Pulling)"
+  },
+  {
+    name: "Oppositional Defiant Disorder (ODD)",
+    path: "/oppositional-defiant-disorder",
+    shortName: "ODD (Oppositional Defiant Disorder)"
   }
 ];
 
