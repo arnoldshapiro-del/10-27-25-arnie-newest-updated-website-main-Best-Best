@@ -339,7 +339,7 @@ const DMDD = () => {
                 <ul className="space-y-3">
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-amber-200" />
-                    <span>Board-Certified Child Psychiatrist</span>
+                    <span>Board-Certified Psychiatrist</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <Check className="w-5 h-5 text-amber-200" />
