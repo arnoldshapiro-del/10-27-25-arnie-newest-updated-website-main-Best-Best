@@ -1671,7 +1671,7 @@ export default function PostpartumDepression() {
                 Why Choose Dr. Shapiro
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Dr. Arnold Shapiro is board-certified in both adult and child psychiatry, bringing 
+                Dr. Arnold Shapiro is a board-certified psychiatrist bringing 
                 <strong className="text-foreground"> 35+ years of clinical experience</strong> to the treatment of postpartum depression. 
                 With over 9,000 patients treated, he combines deep expertise with compassionate, individualized care.
               </p>
