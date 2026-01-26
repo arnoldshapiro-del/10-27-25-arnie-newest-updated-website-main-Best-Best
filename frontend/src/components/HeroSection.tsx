@@ -16,10 +16,6 @@ const HeroSection = () => {
                 <Award className="w-4 h-4 mr-1" />
                 35+ Years Experience
               </Badge>
-              <Badge variant="secondary" className="bg-healing/10 text-healing border-healing/20">
-                <Users className="w-4 h-4 mr-1" />
-                Over 9,000 Patients Helped
-              </Badge>
             </div>
 
             {/* Main headline */}
