@@ -61,6 +61,15 @@ const Disorders = () => {
       link: "/bipolar-disorder"
     },
     {
+      icon: Activity,
+      title: "Childhood Bipolar Disorder",
+      description: "Bipolar disorder presenting in children and adolescents with unique characteristics.",
+      symptoms: ["Severe mood swings", "Irritability", "Sleep disturbances", "Rapid cycling"],
+      treatments: ["Mood stabilizers", "Family therapy", "Medication management", "School support"],
+      color: "from-amber-500/20 to-orange-500/20",
+      link: "/childhood-bipolar"
+    },
+    {
       icon: Shield,
       title: "PTSD & Trauma",
       description: "Post-traumatic stress disorder and other trauma-related conditions.",
