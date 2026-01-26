@@ -1367,8 +1367,7 @@ const DMDD = () => {
                   🚨 Emergency Resources
                 </p>
                 <p className="text-muted-foreground">
-                  If your child is in immediate danger or expressing thoughts of self-harm, call 911 or go to your nearest emergency room. 
-                  You can also call the <strong>988 Suicide &amp; Crisis Lifeline</strong> (call or text 988) available 24/7.
+                  If your child is in immediate danger or expressing thoughts of self-harm, call 911 or go to your nearest emergency room.
                 </p>
               </div>
             </CardContent>
