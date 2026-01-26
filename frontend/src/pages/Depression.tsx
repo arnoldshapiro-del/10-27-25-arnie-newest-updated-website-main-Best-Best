@@ -526,33 +526,6 @@ export default function Depression() {
                 </CardContent>
               </Card>
             </div>
-
-            {/* Crisis Callout */}
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-red-50 border-2 border-red-300 rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <AlertTriangle className="w-6 h-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-red-800 mb-2">If You&apos;re in Crisis</h3>
-                    <p className="text-red-700 mb-3">
-                      If you&apos;re experiencing thoughts of suicide or self-harm, please reach out immediately:
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                      <div className="bg-white rounded-lg px-4 py-2 border border-red-200">
-                        <p className="font-semibold text-red-800">National Suicide Prevention Lifeline</p>
-                        <p className="text-red-700 text-lg font-bold">988</p>
-                      </div>
-                      <div className="bg-white rounded-lg px-4 py-2 border border-red-200">
-                        <p className="font-semibold text-red-800">Crisis Text Line</p>
-                        <p className="text-red-700 text-lg font-bold">Text HOME to 741741</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             
             <div className="text-center mt-10">
               <Button 
