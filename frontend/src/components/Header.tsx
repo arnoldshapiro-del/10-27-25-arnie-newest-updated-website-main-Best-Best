@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, MapPin, Menu, X, ChevronDown, ChevronUp, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CONDITIONS } from "@/data/conditions";
