@@ -333,7 +333,7 @@ const DMDD = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">Expert Care</h3>
-                    <p className="text-white/70">40+ Years Experience</p>
+                    <p className="text-white/70">35+ Years Experience</p>
                   </div>
                 </div>
                 <ul className="space-y-3">
