@@ -26,6 +26,7 @@ import PostpartumDepression from "./pages/PostpartumDepression";
 import DMDD from "./pages/DMDD";
 import ChildhoodBipolar from "./pages/ChildhoodBipolar";
 import ODD from "./pages/ODD";
+import TicDisorders from "./pages/TicDisorders";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -61,6 +62,8 @@ const App = () => (
             <Route path="/childhood-bipolar" element={<ChildhoodBipolar />} />
             <Route path="/oppositional-defiant-disorder" element={<ODD />} />
             <Route path="/odd" element={<ODD />} />
+            <Route path="/tic-disorders" element={<TicDisorders />} />
+            <Route path="/tourette-syndrome" element={<TicDisorders />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -82,6 +82,11 @@ export const CONDITIONS: Condition[] = [
     name: "Oppositional Defiant Disorder (ODD)",
     path: "/oppositional-defiant-disorder",
     shortName: "ODD (Oppositional Defiant Disorder)"
+  },
+  {
+    name: "Tic Disorders & Tourette Syndrome",
+    path: "/tic-disorders",
+    shortName: "Tic Disorders & Tourette Syndrome"
   }
 ];
 
