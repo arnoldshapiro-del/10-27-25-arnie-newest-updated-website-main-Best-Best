@@ -1521,7 +1521,7 @@ const DMDD = () => {
             </div>
             <div className="flex items-center gap-2">
               <Award className="w-5 h-5" />
-              <span>40+ Years Experience</span>
+              <span>35+ Years Experience</span>
             </div>
           </div>
         </div>
