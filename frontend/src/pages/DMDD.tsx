@@ -1482,7 +1482,7 @@ const DMDD = () => {
             DMDD is challenging, but it is treatable. With the right combination of therapy, family support, and when needed, medication, most children show significant improvement.
           </p>
           <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            Dr. Shapiro has over 40 years of experience treating complex pediatric mood disorders. He understands that DMDD affects the whole family and takes a comprehensive approach to treatment.
+            Dr. Shapiro has over 35 years of experience treating complex pediatric mood disorders. He understands that DMDD affects the whole family and takes a comprehensive approach to treatment.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
