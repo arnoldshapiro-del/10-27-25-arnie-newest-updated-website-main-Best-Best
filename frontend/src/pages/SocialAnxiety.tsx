@@ -452,7 +452,7 @@ export default function SocialAnxiety() {
                 </p>
                 <p>
                   With proper treatment—structured CBT and appropriate medication—most people achieve dramatic 
-                  improvement. Research shows <strong>70-80% response rates</strong> with combination treatment.
+                  improvement and can reclaim their lives from social anxiety.
                 </p>
                 <p className="font-semibold">
                   The tragedy of social anxiety isn&apos;t the disorder itself—it&apos;s the decades people lose to 
