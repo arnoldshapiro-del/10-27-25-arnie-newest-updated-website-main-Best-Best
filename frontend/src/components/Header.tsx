@@ -163,16 +163,6 @@ const Header = () => {
                         </Link>
                       ))}
                     </div>
-                    <div className="border-t border-gray-200 dark:border-gray-700 mt-3 pt-3">
-                      <Link
-                        to="/disorders"
-                        role="menuitem"
-                        className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 rounded-md transition-colors"
-                      >
-                        View All Conditions
-                        <ArrowRight size={14} />
-                      </Link>
-                    </div>
                   </div>
                 </div>
               )}
