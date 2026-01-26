@@ -121,32 +121,32 @@ export default function Autism() {
     {
       icon: Zap,
       title: "ADHD",
-      percentage: "Very Common",
-      description: "Many autistic individuals also have ADHD. The combination—sometimes called 'AuDHD'—creates unique challenges: the autistic brain craves routine while the ADHD brain craves novelty. Treatment requires understanding both.",
+      percentage: "50-70%",
+      description: "of autistic individuals also have ADHD. The combination—sometimes called 'AuDHD'—creates unique challenges: the autistic brain craves routine while the ADHD brain craves novelty. Treatment requires understanding both.",
       color: "bg-amber-100",
       iconColor: "text-amber-600"
     },
     {
       icon: AlertCircle,
       title: "Anxiety",
-      percentage: "Common",
-      description: "Many autistic youth have significant anxiety. Much of this anxiety comes from living in an unpredictable world that doesn't make intuitive sense. We address both the underlying neurology and practical coping strategies.",
+      percentage: "40-50%",
+      description: "of autistic youth have significant anxiety. Much of this anxiety comes from living in an unpredictable world that doesn't make intuitive sense. We address both the underlying neurology and practical coping strategies.",
       color: "bg-purple-100",
       iconColor: "text-purple-600"
     },
     {
       icon: Moon,
       title: "Sleep Disorders",
-      percentage: "Very Common",
-      description: "Many autistic children have sleep problems. The brain's melatonin production is often dysregulated. Poor sleep makes every autism-related challenge worse—addressing sleep is often our first priority.",
+      percentage: "Up to 80%",
+      description: "of autistic children have sleep problems. The brain's melatonin production is often dysregulated. Poor sleep makes every autism-related challenge worse—addressing sleep is often our first priority.",
       color: "bg-indigo-100",
       iconColor: "text-indigo-600"
     },
     {
       icon: Activity,
       title: "Gastrointestinal Issues",
-      percentage: "Common",
-      description: "Many autistic individuals have gut problems (constipation, reflux, food sensitivities). A child who seems irritable or aggressive may actually be in physical pain they can't communicate. We always consider the gut.",
+      percentage: "40-60%",
+      description: "of autistic individuals have gut problems (constipation, reflux, food sensitivities). A child who seems irritable or aggressive may actually be in physical pain they can't communicate. We always consider the gut.",
       color: "bg-green-100",
       iconColor: "text-green-600"
     },
