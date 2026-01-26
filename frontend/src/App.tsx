@@ -24,6 +24,7 @@ import BipolarDisorder from "./pages/BipolarDisorder";
 import Trichotillomania from "./pages/Trichotillomania";
 import PostpartumDepression from "./pages/PostpartumDepression";
 import DMDD from "./pages/DMDD";
+import ChildhoodBipolar from "./pages/ChildhoodBipolar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
