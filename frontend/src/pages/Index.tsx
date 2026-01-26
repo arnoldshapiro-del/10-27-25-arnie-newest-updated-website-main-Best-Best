@@ -22,7 +22,7 @@ const Index = () => {
       "@id": `${window.location.origin}/#physician`,
       "name": "Dr. Arnold G. Shapiro, MD",
       "alternateName": "Arnold Shapiro MD",
-      "description": "Board-certified adult and child psychiatrist serving Cincinnati, Ohio and Northern Kentucky. Specializing in ADHD, anxiety, depression, bipolar disorder, OCD, and more.",
+      "description": "Board-certified psychiatrist serving Cincinnati, Ohio and Northern Kentucky. Specializing in ADHD, anxiety, depression, bipolar disorder, OCD, and more.",
       "medicalSpecialty": [
         "Psychiatry",
         "Child and Adolescent Psychiatry",
