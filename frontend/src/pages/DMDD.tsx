@@ -113,8 +113,8 @@ const dmddSchema = [
 const quickFacts = [
   { icon: Calendar, label: "Age of Onset", value: "Before Age 10", detail: "Symptoms must begin before age 10 for diagnosis" },
   { icon: Activity, label: "Frequency Required", value: "3+ Per Week", detail: "Severe temper outbursts occurring at least 3 times weekly" },
-  { icon: Target, label: "ADHD Overlap", value: "80%+", detail: "Most children with DMDD also have ADHD" },
-  { icon: CheckCircle, label: "Treatment Response", value: "90%", detail: "Response rate with specialized DBT-C therapy" }
+  { icon: Target, label: "ADHD Overlap", value: "Common", detail: "Most children with DMDD also have ADHD" },
+  { icon: CheckCircle, label: "Treatment", value: "Effective", detail: "Most children improve with specialized therapy" }
 ];
 
 // Symptom Categories
