@@ -159,6 +159,18 @@ frontend:
           agent: "testing"
           comment: "✅ CONDITIONS DROPDOWN MENU TESTING COMPLETED SUCCESSFULLY. DESKTOP TESTS (1920x800): 1) Conditions button visible with chevron icon ✅ 2) Hover functionality working perfectly - dropdown appears on hover ✅ 3) All 12 conditions displayed in 2-column layout: ADHD, Anxiety, Autism, Bipolar, Depression, DMDD, Insomnia, OCD, Postpartum, SAD, Social Anxiety, Trichotillomania ✅ 4) Individual condition navigation working (tested ADHD -> /adhd, Depression -> /depression) ✅ 5) 'View All Conditions' link navigation working (/disorders) ✅. MOBILE TESTS (375x667): 1) Hamburger menu icon visible and functional ✅ 2) Mobile menu opens correctly ✅ 3) Conditions button visible with chevron in mobile menu ✅ 4) Conditions section expands to show all 12 conditions as sub-items ✅ 5) All condition links present in mobile submenu with correct hrefs ✅ 6) Individual condition navigation working (tested ADHD) ✅ 7) 'View All Conditions' navigation working ✅ 8) Menu closes after navigation ✅. No JavaScript errors detected. The dropdown menu implementation is fully functional across both desktop and mobile viewports."
 
+  - task: "Childhood Bipolar Disorder page rendering and navigation"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/pages/ChildhoodBipolar.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "New Childhood Bipolar Disorder placeholder page needs comprehensive testing. Tests required: 1) Direct navigation to /childhood-bipolar 2) Page loads without errors 3) Page title contains 'Childhood Bipolar Disorder' 4) Hero section visible with condition name 5) Navigation header present 6) Navigation from /disorders page via card click 7) Header dropdown navigation functionality. This is a placeholder page with '[Placeholder]' text which is expected."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
