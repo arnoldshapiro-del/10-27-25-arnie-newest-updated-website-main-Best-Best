@@ -552,11 +552,7 @@ export default function Trichotillomania() {
                   </div>
                   <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
                     <Stethoscope className="w-4 h-4 text-healing" />
-                    <span className="font-medium">Board-Certified Adult & Child Psychiatrist</span>
-                  </div>
-                  <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
-                    <Users className="w-4 h-4 text-healing" />
-                    <span className="font-medium">Over 9,000 Patients Treated</span>
+                    <span className="font-medium">Board-Certified Psychiatrist</span>
                   </div>
                   <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
                     <Target className="w-4 h-4 text-healing" />
