@@ -10,8 +10,7 @@ const Header = () => {
   const [isConditionsExpanded, setIsConditionsExpanded] = useState(false);
   const location = useLocation();
   const pathname = location.pathname || '';
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTriggerRef = useRef<HTMLButtonElement>(null);
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Close dropdown on route change
   useEffect(() => {
@@ -25,7 +24,6 @@ const Header = () => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsConditionsDropdownOpen(false);
-        dropdownTriggerRef.current?.focus();
       }
     };
 
@@ -35,29 +33,28 @@ const Header = () => {
     }
   }, [isConditionsDropdownOpen]);
 
-  // Close dropdown when clicking outside
+  // Clean up timeout on unmount
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsConditionsDropdownOpen(false);
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
       }
     };
+  }, []);
 
-    if (isConditionsDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+  // Hover handlers with delay for smooth interaction
+  const handleMouseEnter = () => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
     }
-  }, [isConditionsDropdownOpen]);
+    setIsConditionsDropdownOpen(true);
+  };
 
-  const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      setIsConditionsDropdownOpen(!isConditionsDropdownOpen);
-    } else if (e.key === 'ArrowDown' && isConditionsDropdownOpen) {
-      e.preventDefault();
-      const firstLink = dropdownRef.current?.querySelector('a');
-      firstLink?.focus();
-    }
+  const handleMouseLeave = () => {
+    closeTimeoutRef.current = setTimeout(() => {
+      setIsConditionsDropdownOpen(false);
+    }, 150);
   };
 
   const isConditionActive = CONDITIONS.some(c => pathname === c.path) || pathname === '/disorders';
@@ -76,7 +73,7 @@ const Header = () => {
             </div>
             <div className="flex items-center space-x-2 text-xs">
               <MapPin size={14} />
-              <span>Cincinnati, OH & Fort Wright, KY</span>
+              <span>Cincinnati, OH &amp; Fort Wright, KY</span>
             </div>
           </div>
         </div>
@@ -111,63 +108,71 @@ const Header = () => {
               About
             </Link>
             
-            {/* Conditions Dropdown */}
+            {/* Conditions Dropdown - WRAPPER with both trigger and dropdown inside */}
             <div 
               className="relative"
-              ref={dropdownRef}
-              onMouseEnter={() => setIsConditionsDropdownOpen(true)}
-              onMouseLeave={() => setIsConditionsDropdownOpen(false)}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
-              <button
-                ref={dropdownTriggerRef}
-                className={`flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm whitespace-nowrap ${isConditionActive ? 'text-primary border-b-2 border-primary' : ''}`}
-                onClick={() => window.location.href = '/disorders'}
-                onKeyDown={handleDropdownKeyDown}
+              {/* The nav link/trigger */}
+              <Link
+                to="/disorders"
+                className={`flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm whitespace-nowrap py-2 ${isConditionActive ? 'text-primary border-b-2 border-primary' : ''}`}
                 aria-expanded={isConditionsDropdownOpen}
                 aria-haspopup="true"
                 aria-controls="conditions-dropdown"
               >
-                Conditions
+                Conditions We Treat
                 <ChevronDown 
                   size={14} 
                   className={`transition-transform duration-200 ${isConditionsDropdownOpen ? 'rotate-180' : ''}`}
                   aria-hidden="true"
                 />
-              </button>
+              </Link>
               
-              {/* Desktop Dropdown Menu */}
+              {/* Desktop Dropdown Menu - INSIDE the same wrapper */}
               {isConditionsDropdownOpen && (
                 <div 
                   id="conditions-dropdown"
                   role="menu"
-                  aria-label="Conditions submenu"
-                  className="absolute top-full left-0 mt-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl py-4 px-5 min-w-[520px] max-w-[600px] z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                  aria-label="Conditions We Treat submenu"
+                  className="absolute top-full left-0 pt-2 z-50"
+                  style={{ paddingTop: '8px' }}
                 >
-                  <div className="grid grid-cols-2 gap-x-6 gap-y-1">
-                    {CONDITIONS.map((condition) => (
+                  {/* Invisible bridge to prevent gap */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-3 bg-transparent"
+                    style={{ marginLeft: '-20px', marginRight: '-20px', width: 'calc(100% + 40px)' }}
+                  />
+                  
+                  {/* The actual dropdown content */}
+                  <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl py-4 px-5 min-w-[520px] max-w-[600px] animate-in fade-in slide-in-from-top-2 duration-150">
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                      {CONDITIONS.map((condition) => (
+                        <Link
+                          key={condition.path}
+                          to={condition.path}
+                          role="menuitem"
+                          className={`block px-3 py-2.5 text-sm rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                            pathname === condition.path 
+                              ? 'text-primary bg-primary/10 font-medium' 
+                              : 'text-gray-700 dark:text-gray-300'
+                          }`}
+                        >
+                          {condition.shortName || condition.name}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="border-t border-gray-200 dark:border-gray-700 mt-3 pt-3">
                       <Link
-                        key={condition.path}
-                        to={condition.path}
+                        to="/disorders"
                         role="menuitem"
-                        className={`block px-3 py-2.5 text-sm rounded-md transition-colors hover:bg-gray-100 dark:hover:bg-gray-800 ${
-                          pathname === condition.path 
-                            ? 'text-primary bg-primary/10 font-medium' 
-                            : 'text-gray-700 dark:text-gray-300'
-                        }`}
+                        className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 rounded-md transition-colors"
                       >
-                        {condition.shortName || condition.name}
+                        View All Conditions
+                        <ArrowRight size={14} />
                       </Link>
-                    ))}
-                  </div>
-                  <div className="border-t border-gray-200 dark:border-gray-700 mt-3 pt-3">
-                    <Link
-                      to="/disorders"
-                      role="menuitem"
-                      className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-primary hover:bg-primary/10 rounded-md transition-colors"
-                    >
-                      View All Conditions
-                      <ArrowRight size={14} />
-                    </Link>
+                    </div>
                   </div>
                 </div>
               )}
@@ -245,7 +250,7 @@ const Header = () => {
                   aria-expanded={isConditionsExpanded}
                   aria-controls="mobile-conditions-menu"
                 >
-                  <span>Conditions</span>
+                  <span>Conditions We Treat</span>
                   {isConditionsExpanded ? (
                     <ChevronUp size={18} className="text-muted-foreground" />
                   ) : (
