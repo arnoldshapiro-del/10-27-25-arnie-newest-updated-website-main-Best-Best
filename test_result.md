@@ -144,6 +144,18 @@ frontend:
           agent: "testing"
           comment: "New DMDD page needs comprehensive testing to verify all sections render correctly including hero section with gradient background, quick facts bar, main content sections, treatment tabs, FAQ accordion, and CTA section."
 
+  - task: "Conditions dropdown menu navigation functionality"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/Header.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "testing"
+          comment: "New Conditions dropdown menu needs comprehensive testing for both desktop and mobile views. Desktop: hover functionality, 2-column layout with all 12 conditions, navigation to individual condition pages, View All Conditions link. Mobile: hamburger menu, expandable conditions section, navigation functionality."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
