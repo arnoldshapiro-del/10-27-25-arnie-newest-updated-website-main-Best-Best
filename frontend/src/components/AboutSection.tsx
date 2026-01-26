@@ -31,12 +31,6 @@ const AboutSection = () => {
                   <div className="text-sm text-foreground">Years of Experience</div>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-healing/5 to-healing/10 border-healing/20">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl font-bold text-healing mb-2">9,000+</div>
-                  <div className="text-sm text-foreground">Patients and Families Helped</div>
-                </CardContent>
-              </Card>
             </div>
           </div>
 
