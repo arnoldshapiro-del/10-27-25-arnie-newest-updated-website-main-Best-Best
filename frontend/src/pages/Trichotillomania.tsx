@@ -269,7 +269,7 @@ export default function Trichotillomania() {
       name: "N-Acetylcysteine (NAC)",
       highlight: "Gold Standard",
       description: "NAC is our gold-standard first-line medication for trichotillomania. It's an amino acid derivative that modulates glutamate, a brain chemical involved in habit formation. By normalizing glutamate levels in the brain's reward and habit circuits, it reduces the rigid, compulsive drive to pull.",
-      evidence: "In a landmark 2009 study by Dr. Jon Grant, 56% of patients responded to NAC versus only 16% on placebo. This was a breakthrough—no medication had shown such clear benefit before.",
+      evidence: "Research has shown NAC to be significantly more effective than placebo for trichotillomania, making it a breakthrough treatment option.",
       dosing: "Start at 600mg twice daily, increase to 1200mg twice daily (2400mg total)",
       timeline: "Benefits typically emerge over 8-12 weeks",
       sideEffects: "Generally well-tolerated; some GI effects (bloating) possible",
@@ -278,8 +278,8 @@ export default function Trichotillomania() {
     {
       name: "Memantine (Namenda)",
       highlight: "Emerging First-Line",
-      description: "Originally developed for Alzheimer's disease, memantine works on glutamate receptors differently than NAC. It has emerged as a first-line option based on impressive 2023 research.",
-      evidence: "In a 2023 double-blind study of 100 patients with trichotillomania and skin picking, 60.5% showed significant improvement on memantine versus only 8.3% on placebo. This is the strongest evidence base of any current medication.",
+      description: "Originally developed for Alzheimer's disease, memantine works on glutamate receptors differently than NAC. It has emerged as a first-line option based on recent research.",
+      evidence: "Recent studies have shown memantine to be significantly more effective than placebo for trichotillomania and related conditions.",
       dosing: "Start at 5mg daily, increase gradually to 10-20mg daily",
       timeline: "Gradual titration over several weeks",
       sideEffects: "Well-tolerated in younger patients (unlike in elderly Alzheimer's patients). Main side effect: occasional dizziness",
@@ -289,7 +289,7 @@ export default function Trichotillomania() {
 
   // Additional Medications
   const additionalMeds = [
-    { name: "Olanzapine (Zyprexa)", note: "For severe/treatment-resistant cases. In a controlled trial, 85% of patients responded—exceptional rate. Tradeoff: significant risk of weight gain and metabolic effects. Reserved for cases where other options have failed." },
+    { name: "Olanzapine (Zyprexa)", note: "For severe/treatment-resistant cases. Studies show strong response rates. Tradeoff: significant risk of weight gain and metabolic effects. Reserved for cases where other options have failed." },
     { name: "Aripiprazole (Abilify)", note: "Good augmentation option with less metabolic risk than olanzapine. Often added when NAC or memantine provides partial benefit." },
     { name: "Naltrexone", note: "For patients who describe a 'thrill,' 'rush,' or distinct pleasure from pulling. Works by blocking the endorphin 'reward' associated with the pull." }
   ];
