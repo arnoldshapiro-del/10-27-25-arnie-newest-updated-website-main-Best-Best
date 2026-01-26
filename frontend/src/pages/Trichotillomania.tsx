@@ -406,7 +406,7 @@ export default function Trichotillomania() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has over 35 years of psychiatric experience and has treated over 9,000 patients throughout his career."
+      description: "Dr. Shapiro has over 35 years of psychiatric experience with extensive expertise treating complex conditions."
     },
     {
       icon: Stethoscope,
