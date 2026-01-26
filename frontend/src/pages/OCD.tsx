@@ -106,7 +106,7 @@ const ocdSchema = [
         "name": "Can OCD be cured?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "OCD is a chronic condition, but most people achieve significant improvement—often 60-80% reduction in symptoms. Many people reach a point where OCD no longer controls their lives, even if occasional symptoms persist."
+          "text": "OCD is a chronic condition, but most people achieve significant improvement with proper treatment. Many people reach a point where OCD no longer controls their lives, even if occasional symptoms persist."
         }
       }
     ]
