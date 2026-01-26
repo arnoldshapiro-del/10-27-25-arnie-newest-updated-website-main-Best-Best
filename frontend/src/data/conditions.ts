@@ -34,6 +34,11 @@ export const CONDITIONS: Condition[] = [
     shortName: "Bipolar Disorder"
   },
   {
+    name: "Childhood Bipolar Disorder",
+    path: "/childhood-bipolar",
+    shortName: "Childhood Bipolar Disorder"
+  },
+  {
     name: "Depression",
     path: "/depression",
     shortName: "Depression"
