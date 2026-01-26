@@ -891,7 +891,7 @@ const DMDD = () => {
                         <h3 className="text-xl font-semibold">Dialectical Behavior Therapy for Children (DBT-C)</h3>
                       </div>
                       <p className="text-muted-foreground mb-4">
-                        The Perepletchikova Protocol has demonstrated <strong>90% response rates</strong> in clinical trials — superior to any medication study for DMDD.
+                        The Perepletchikova Protocol is a specialized DBT-C approach that has shown excellent results for children with DMDD.
                       </p>
                       
                       <div className="grid md:grid-cols-2 gap-4">
