@@ -1489,7 +1489,7 @@ const DMDD = () => {
               className="bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
               asChild
             >
-              <Link to="/contact">
+              <Link to="/schedule">
                 <Calendar className="w-5 h-5 mr-2" />
                 Schedule Consultation
               </Link>
