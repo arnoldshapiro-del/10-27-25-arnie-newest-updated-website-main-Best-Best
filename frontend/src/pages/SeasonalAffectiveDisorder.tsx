@@ -532,7 +532,7 @@ export default function SeasonalAffectiveDisorder() {
                     <h3 className="text-lg font-bold text-amber-800 mb-2">Not Just &quot;Feeling Blah&quot;</h3>
                     <p className="text-amber-700 leading-relaxed">
                       SAD is a real medical condition involving your brain&apos;s response to reduced daylight. It&apos;s not 
-                      laziness, weakness, or just &quot;hating winter.&quot; With <strong>over 9,000 patients treated and 35+ years 
+                      laziness, weakness, or just &quot;hating winter.&quot; With <strong>35+ years
                       of experience</strong>, Dr. Shapiro provides comprehensive evaluation and evidence-based treatment.
                     </p>
                   </div>
