@@ -66,7 +66,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium text-lg px-8 py-6"
-                onClick={() => window.location.href = '/contact'}
+                onClick={() => window.location.href = '/schedule'}
               >
                 Schedule Your Evaluation
               </Button>
