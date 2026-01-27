@@ -1405,7 +1405,7 @@ export default function Trichotillomania() {
               <div className="flex flex-wrap justify-center gap-4 text-sm">
                 <div className="bg-white/70 rounded-lg px-4 py-2">
                   <strong className="text-red-900">988 Suicide & Crisis Lifeline:</strong>
-                  <span className="text-red-700 ml-2">Call or text 988</span>
+                  <span className="text-red-700 ml-2">Call 988</span>
                 </div>
                 <div className="bg-white/70 rounded-lg px-4 py-2">
                   <strong className="text-red-900">Emergency:</strong>
