@@ -1327,8 +1327,8 @@ export default function SeasonalAffectiveDisorder() {
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
                 The best time to start SAD treatment is <strong>before symptoms hit</strong>. If you&apos;ve struggled 
-                with winter depression before, schedule your evaluation in late summer or early fall. With over 
-                9,000 patients helped and 35+ years of experience, Dr. Shapiro can help you take back your winters.
+                with winter depression before, schedule your evaluation in late summer or early fall. With
+                35+ years of experience, Dr. Shapiro can help you take back your winters.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
