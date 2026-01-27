@@ -4923,8 +4923,6 @@ const Screening = () => {
       modal.appendChild(iframe);
       document.body.appendChild(modal);
       
-      console.log('PDF displayed in viewer:', fileName);
-      
       // Show success message
       alert('Your PDF report has been generated! Check your Downloads folder. If you don\'t see it, your browser may have blocked the download - try right-clicking the "View PDF Report" button and selecting "Save link as..."');
       
