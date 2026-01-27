@@ -1226,7 +1226,7 @@ export default function Depression() {
                 Ready to Feel Better?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Depression is treatable. With over 9,000 patients helped and 35+ years of experience, 
+                Depression is treatable. With 35+ years of experience, 
                 Dr. Shapiro has the expertise to find what&apos;s really going on and get you the relief you deserve.
               </p>
               
