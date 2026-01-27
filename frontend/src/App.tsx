@@ -27,6 +27,7 @@ import DMDD from "./pages/DMDD";
 import ChildhoodBipolar from "./pages/ChildhoodBipolar";
 import ODD from "./pages/ODD";
 import TicDisorders from "./pages/TicDisorders";
+import ScheduleEvaluation from "./pages/ScheduleEvaluation";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 
