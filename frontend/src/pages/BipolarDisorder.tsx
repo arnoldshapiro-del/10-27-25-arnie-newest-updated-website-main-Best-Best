@@ -466,7 +466,7 @@ export default function BipolarDisorder() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Over 9,000 patients successfully treated throughout my career. Deep expertise in complex mood disorders including treatment-resistant bipolar disorder."
+      description: "Deep expertise in complex mood disorders including treatment-resistant bipolar disorder developed over 35+ years of practice."
     },
     {
       icon: Brain,
