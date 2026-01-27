@@ -157,7 +157,7 @@ const Services = () => {
               <div className="flex flex-wrap gap-4">
                 <Button 
                   size="lg" 
-                  className="bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
+                  className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg"
                   asChild
                 >
                   <Link to="/contact">
