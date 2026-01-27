@@ -219,7 +219,7 @@ const Header = () => {
               className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-sm px-3 py-1 text-xs whitespace-nowrap"
               asChild
             >
-              <Link to="/contact">Schedule Evaluation</Link>
+              <Link to="/schedule">Schedule Evaluation</Link>
             </Button>
           </div>
 
