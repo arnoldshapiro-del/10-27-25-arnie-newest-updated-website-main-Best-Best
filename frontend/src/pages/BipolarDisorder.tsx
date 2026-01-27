@@ -604,7 +604,7 @@ export default function BipolarDisorder() {
                     treatment is available.
                   </p>
                   <p>
-                    With over 35 years of experience and more than 9,000 patients treated, I&apos;ve helped countless 
+                    With 35+ years of experience, I&apos;ve helped countless 
                     individuals achieve mood stability and reclaim their lives. <strong>Bipolar disorder is highly 
                     treatable</strong>, and the right combination of medication, therapy, and lifestyle management 
                     can lead to lasting stability.
