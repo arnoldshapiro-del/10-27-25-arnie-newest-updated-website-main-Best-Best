@@ -623,7 +623,7 @@ export default function BipolarDisorder() {
                   <Button 
                     size="lg" 
                     className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium text-lg px-8"
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => window.location.href = '/schedule'}
                   >
                     <Calendar className="w-5 h-5 mr-2" />
                     Schedule a Consultation
@@ -1399,7 +1399,7 @@ export default function BipolarDisorder() {
                 <Button 
                   size="lg" 
                   className="bg-warm-accent hover:bg-warm-accent/90 text-warm-accent-foreground shadow-medium text-lg px-8"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => window.location.href = '/schedule'}
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule a Consultation
