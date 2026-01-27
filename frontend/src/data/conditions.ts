@@ -1,105 +1,90 @@
 // ============================================
-// CONDITIONS DATA - MASTER LIST
+// CONDITIONS DATA - ORGANIZED BY CATEGORY
 // ============================================
-// To add a new condition in the future:
-// 1. Add a new object to this array
-// 2. That's it - the navigation will automatically update
+// Adult and Pediatric conditions are separated
+// for organized navigation display
 // ============================================
 
 export interface Condition {
   name: string;        // Full display name
   path: string;        // URL path (must start with /)
-  shortName?: string;  // Display name for dropdown menu
+  shortName?: string;  // Display name for dropdown menu (deprecated - use name)
 }
 
-export const CONDITIONS: Condition[] = [
+// Adult Conditions - in display order
+export const ADULT_CONDITIONS: Condition[] = [
   {
-    name: "ADHD (Attention-Deficit/Hyperactivity Disorder)",
-    path: "/adhd",
-    shortName: "ADHD"
+    name: "Anxiety Disorders",
+    path: "/anxiety"
   },
   {
-    name: "Other Anxiety Disorders",
-    path: "/anxiety",
-    shortName: "Other Anxiety Disorders"
+    name: "Social Anxiety Disorder",
+    path: "/social-anxiety"
   },
   {
-    name: "Autism Spectrum Disorder (ASD)",
-    path: "/autism",
-    shortName: "Autism Spectrum Disorder (ASD)"
-  },
-  {
-    name: "Bipolar Disorder",
-    path: "/bipolar-disorder",
-    shortName: "Bipolar Disorder"
-  },
-  {
-    name: "Childhood Bipolar Disorder",
-    path: "/childhood-bipolar",
-    shortName: "Childhood Bipolar Disorder"
-  },
-  {
-    name: "Depression",
-    path: "/depression",
-    shortName: "Depression"
-  },
-  {
-    name: "DMDD (Disruptive Mood Dysregulation Disorder)",
-    path: "/dmdd",
-    shortName: "DMDD (Disruptive Mood Dysregulation Disorder)"
-  },
-  {
-    name: "Insomnia",
-    path: "/insomnia",
-    shortName: "Insomnia"
-  },
-  {
-    name: "OCD (Obsessive-Compulsive Disorder)",
-    path: "/ocd",
-    shortName: "OCD (Obsessive-Compulsive Disorder)"
+    name: "Depression (MDD)",
+    path: "/depression"
   },
   {
     name: "Postpartum Depression",
-    path: "/postpartum-depression",
-    shortName: "Postpartum Depression"
+    path: "/postpartum-depression"
   },
   {
-    name: "Winter Depression (SAD)",
-    path: "/seasonal-affective-disorder",
-    shortName: "Winter Depression (SAD)"
+    name: "Seasonal Affective Disorder (Seasonal Depression)",
+    path: "/seasonal-affective-disorder"
   },
   {
-    name: "Social Anxiety",
-    path: "/social-anxiety",
-    shortName: "Social Anxiety"
+    name: "Obsessive-Compulsive Disorder (OCD)",
+    path: "/ocd"
   },
   {
-    name: "Trichotillomania (Hair-Pulling)",
-    path: "/trichotillomania",
-    shortName: "Trichotillomania (Hair-Pulling)"
+    name: "Insomnia and Sleep Disorders",
+    path: "/insomnia"
   },
   {
-    name: "Oppositional Defiant Disorder (ODD)",
-    path: "/oppositional-defiant-disorder",
-    shortName: "ODD (Oppositional Defiant Disorder)"
+    name: "Bipolar Disorder",
+    path: "/bipolar-disorder"
   },
   {
-    name: "Tic Disorders & Tourette Syndrome",
-    path: "/tic-disorders",
-    shortName: "Tic Disorders & Tourette Syndrome"
+    name: "Trichotillomania (Hair Pulling)",
+    path: "/trichotillomania"
+  },
+  {
+    name: "Autism Spectrum Disorder (ASD)",
+    path: "/autism"
   }
 ];
 
-// ============================================
-// FUTURE CONDITIONS - Just uncomment and add to array above:
-// ============================================
-// {
-//   name: "Oppositional Defiant Disorder (ODD)",
-//   path: "/odd",
-//   shortName: "ODD (Oppositional Defiant Disorder)"
-// },
-// {
-//   name: "Childhood Bipolar Disorder",
-//   path: "/childhood-bipolar",
-//   shortName: "Childhood Bipolar Disorder"
-// },
+// Pediatric Conditions - in display order
+export const PEDIATRIC_CONDITIONS: Condition[] = [
+  {
+    name: "ADHD",
+    path: "/adhd"
+  },
+  {
+    name: "Oppositional Defiant Disorder (ODD)",
+    path: "/odd"
+  },
+  {
+    name: "Disruptive Mood Dysregulation Disorder (DMDD)",
+    path: "/dmdd"
+  },
+  {
+    name: "Childhood Bipolar Disorder",
+    path: "/childhood-bipolar"
+  },
+  {
+    name: "Tic Disorders and Tourette's Syndrome",
+    path: "/tic-disorders"
+  },
+  {
+    name: "Autism Spectrum Disorder (ASD)",
+    path: "/autism"
+  }
+];
+
+// Combined list for backward compatibility and route checking
+export const CONDITIONS: Condition[] = [
+  ...ADULT_CONDITIONS,
+  ...PEDIATRIC_CONDITIONS.filter(p => !ADULT_CONDITIONS.some(a => a.path === p.path))
+];
