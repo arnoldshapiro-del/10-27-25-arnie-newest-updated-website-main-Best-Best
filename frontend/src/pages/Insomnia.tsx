@@ -1333,8 +1333,8 @@ export default function Insomnia() {
                 Ready to Finally Sleep?
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Good sleep changes everything—your mood, your energy, your health, your life. With over 9,000 patients 
-                helped and 35+ years of experience, Dr. Shapiro has the expertise to find what&apos;s really keeping 
+                Good sleep changes everything—your mood, your energy, your health, your life. With
+                35+ years of experience, Dr. Shapiro has the expertise to find what&apos;s really keeping 
                 you awake and get you the rest you deserve.
               </p>
               
