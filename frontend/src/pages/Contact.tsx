@@ -292,7 +292,7 @@ const Contact = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 text-white py-16">
+      <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 text-white py-16">
         <div className="container max-w-4xl mx-auto px-4 text-center">
           <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <Calendar className="w-10 h-10" />
