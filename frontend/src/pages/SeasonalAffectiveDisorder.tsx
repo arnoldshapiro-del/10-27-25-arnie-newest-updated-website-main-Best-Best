@@ -266,7 +266,7 @@ export default function SeasonalAffectiveDisorder() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has treated over 9,000 patients, with extensive experience managing seasonal mood disorders in the Cincinnati climate."
+      description: "Dr. Shapiro has extensive experience managing seasonal mood disorders in the Cincinnati climate, developed over 35+ years of practice."
     },
     {
       icon: Brain,
