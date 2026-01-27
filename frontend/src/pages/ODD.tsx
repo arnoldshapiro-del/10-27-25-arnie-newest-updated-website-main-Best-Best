@@ -297,8 +297,8 @@ const ODD = () => {
               <div className="relative">
                 <div className="rounded-2xl overflow-hidden shadow-large">
                   <img 
-                    src="https://images.pexels.com/photos/8363104/pexels-photo-8363104.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                    alt="Compassionate psychiatric consultation for childhood behavioral disorders" 
+                    src="https://images.pexels.com/photos/7820626/pexels-photo-7820626.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                    alt="Frustrated child displaying emotional distress - representing the challenges families face with Oppositional Defiant Disorder" 
                     className="w-full h-auto object-cover"
                     loading="eager"
                   />
