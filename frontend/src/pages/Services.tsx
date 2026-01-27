@@ -183,7 +183,7 @@ const Services = () => {
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-                    <Stethoscope className="w-8 h-8 text-amber-200" />
+                    <Stethoscope className="w-8 h-8 text-blue-200" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold">Expert Care</h3>
