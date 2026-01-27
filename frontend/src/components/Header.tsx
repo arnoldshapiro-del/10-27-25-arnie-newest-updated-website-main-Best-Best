@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, MapPin, Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { CONDITIONS, ADULT_CONDITIONS, PEDIATRIC_CONDITIONS } from "@/data/conditions";
+import { CONDITIONS, LEFT_COLUMN_CONDITIONS, RIGHT_COLUMN_CONDITIONS } from "@/data/conditions";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
