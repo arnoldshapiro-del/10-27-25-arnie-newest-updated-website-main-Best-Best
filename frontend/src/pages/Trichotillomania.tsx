@@ -1408,10 +1408,6 @@ export default function Trichotillomania() {
                   <span className="text-red-700 ml-2">Call or text 988</span>
                 </div>
                 <div className="bg-white/70 rounded-lg px-4 py-2">
-                  <strong className="text-red-900">Crisis Text Line:</strong>
-                  <span className="text-red-700 ml-2">Text HOME to 741741</span>
-                </div>
-                <div className="bg-white/70 rounded-lg px-4 py-2">
                   <strong className="text-red-900">Emergency:</strong>
                   <span className="text-red-700 ml-2">Call 911</span>
                 </div>
