@@ -183,7 +183,7 @@ export default function Autism() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has helped over 9,000 patients, with extensive experience in autism evaluation and treating co-occurring conditions."
+      description: "Dr. Shapiro has extensive experience in autism evaluation and treating co-occurring conditions."
     },
     {
       icon: Brain,
