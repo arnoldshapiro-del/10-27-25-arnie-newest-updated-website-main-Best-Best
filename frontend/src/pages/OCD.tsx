@@ -225,7 +225,7 @@ export default function OCD() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has treated over 9,000 patients, with extensive experience in OCD and anxiety disorders."
+      description: "Dr. Shapiro has extensive experience in OCD and anxiety disorders developed over 35+ years of practice."
     },
     {
       icon: Brain,
