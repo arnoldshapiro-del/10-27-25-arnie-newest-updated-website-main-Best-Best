@@ -184,7 +184,7 @@ export default function Insomnia() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has helped over 9,000 patients overcome sleep problems, understanding the complex relationship between sleep and mental health."
+      description: "Dr. Shapiro understands the complex relationship between sleep and mental health, developed over 35+ years of practice."
     },
     {
       icon: Brain,
