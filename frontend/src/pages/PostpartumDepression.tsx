@@ -734,10 +734,6 @@ export default function PostpartumDepression() {
                     <Stethoscope className="w-4 h-4 text-healing" />
                     <span className="font-medium">35+ Years Experience</span>
                   </div>
-                  <div className="flex items-center gap-2 bg-white/80 rounded-full px-4 py-2 shadow-sm">
-                    <Users className="w-4 h-4 text-healing" />
-                    <span className="font-medium">9,000+ Patients Treated</span>
-                  </div>
                 </div>
                 
                 {/* CTAs */}
