@@ -577,7 +577,7 @@ export default function PostpartumDepression() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Extensive experience treating perinatal mood disorders with over 9,000 patients successfully treated."
+      description: "Extensive experience treating perinatal mood disorders developed over 35+ years of practice."
     },
     {
       icon: Stethoscope,
