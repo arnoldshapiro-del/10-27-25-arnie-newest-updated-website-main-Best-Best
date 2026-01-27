@@ -770,7 +770,7 @@ export default function OCD() {
                       specialized approaches.
                     </p>
                     <p className="text-indigo-800 font-medium">
-                      With <strong>over 9,000 patients treated and 35+ years of experience</strong>, Dr. Shapiro 
+                      With <strong>35+ years of experience</strong>, Dr. Shapiro 
                       provides comprehensive evaluation and evidence-based treatment. You don&apos;t have to keep 
                       living in this loop.
                     </p>
