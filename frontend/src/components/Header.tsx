@@ -271,7 +271,7 @@ const Header = () => {
                   aria-expanded={isConditionsExpanded}
                   aria-controls="mobile-conditions-menu"
                 >
-                  <span>Conditions We Treat</span>
+                  <span>Child and Adult Conditions We Treat</span>
                   {isConditionsExpanded ? (
                     <ChevronUp size={18} className="text-muted-foreground" />
                   ) : (
@@ -282,9 +282,13 @@ const Header = () => {
                 {isConditionsExpanded && (
                   <div 
                     id="mobile-conditions-menu"
-                    className="flex flex-col ml-4 border-l-2 border-gray-200 dark:border-gray-700 pl-3 mt-1 mb-2 space-y-0.5"
+                    className="flex flex-col ml-4 border-l-2 border-primary/30 pl-3 mt-1 mb-2"
                   >
-                    {CONDITIONS.map((condition) => (
+                    {/* Adult Conditions Section */}
+                    <h4 className="text-xs font-semibold text-primary uppercase tracking-wider py-2 mt-1">
+                      Adult Conditions
+                    </h4>
+                    {ADULT_CONDITIONS.map((condition) => (
                       <Link
                         key={condition.path}
                         to={condition.path}
@@ -298,7 +302,29 @@ const Header = () => {
                           setIsConditionsExpanded(false);
                         }}
                       >
-                        {condition.shortName || condition.name}
+                        {condition.name}
+                      </Link>
+                    ))}
+                    
+                    {/* Pediatric Conditions Section */}
+                    <h4 className="text-xs font-semibold text-primary uppercase tracking-wider py-2 mt-3 border-t border-primary/20 pt-3">
+                      Pediatric Conditions
+                    </h4>
+                    {PEDIATRIC_CONDITIONS.map((condition) => (
+                      <Link
+                        key={`mobile-pediatric-${condition.path}`}
+                        to={condition.path}
+                        className={`px-3 py-2.5 rounded-lg text-sm transition-colors min-h-[44px] flex items-center ${
+                          pathname === condition.path 
+                            ? 'text-primary bg-primary/10 font-medium' 
+                            : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                        }`}
+                        onClick={() => {
+                          setIsMenuOpen(false);
+                          setIsConditionsExpanded(false);
+                        }}
+                      >
+                        {condition.name}
                       </Link>
                     ))}
                   </div>
