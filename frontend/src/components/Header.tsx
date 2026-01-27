@@ -274,35 +274,10 @@ const Header = () => {
                     id="mobile-conditions-menu"
                     className="flex flex-col ml-4 border-l-2 border-primary/30 pl-3 mt-1 mb-2"
                   >
-                    {/* Adult Conditions Section */}
-                    <h4 className="text-xs font-semibold text-primary uppercase tracking-wider py-2 mt-1">
-                      Adult Conditions
-                    </h4>
-                    {ADULT_CONDITIONS.map((condition) => (
+                    {/* All conditions in a single list for mobile */}
+                    {CONDITIONS.map((condition) => (
                       <Link
-                        key={condition.path}
-                        to={condition.path}
-                        className={`px-3 py-2.5 rounded-lg text-sm transition-colors min-h-[44px] flex items-center ${
-                          pathname === condition.path 
-                            ? 'text-primary bg-primary/10 font-medium' 
-                            : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                        }`}
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                          setIsConditionsExpanded(false);
-                        }}
-                      >
-                        {condition.name}
-                      </Link>
-                    ))}
-                    
-                    {/* Pediatric Conditions Section */}
-                    <h4 className="text-xs font-semibold text-primary uppercase tracking-wider py-2 mt-3 border-t border-primary/20 pt-3">
-                      Pediatric Conditions
-                    </h4>
-                    {PEDIATRIC_CONDITIONS.map((condition) => (
-                      <Link
-                        key={`mobile-pediatric-${condition.path}`}
+                        key={`mobile-${condition.path}`}
                         to={condition.path}
                         className={`px-3 py-2.5 rounded-lg text-sm transition-colors min-h-[44px] flex items-center ${
                           pathname === condition.path 
