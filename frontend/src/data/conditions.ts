@@ -1,18 +1,18 @@
 // ============================================
-// CONDITIONS DATA - ORGANIZED BY CATEGORY
+// CONDITIONS DATA - TWO COLUMN LAYOUT
 // ============================================
-// Adult and Pediatric conditions are separated
-// for organized navigation display
+// Left column: 8 conditions
+// Right column: 7 conditions
+// Total: 15 unique conditions (no duplicates)
 // ============================================
 
 export interface Condition {
   name: string;        // Full display name
   path: string;        // URL path (must start with /)
-  shortName?: string;  // Display name for dropdown menu (deprecated - use name)
 }
 
-// Adult Conditions - in display order
-export const ADULT_CONDITIONS: Condition[] = [
+// Left Column - 8 conditions (in exact order)
+export const LEFT_COLUMN_CONDITIONS: Condition[] = [
   {
     name: "Anxiety Disorders",
     path: "/anxiety"
@@ -44,19 +44,11 @@ export const ADULT_CONDITIONS: Condition[] = [
   {
     name: "Bipolar Disorder",
     path: "/bipolar-disorder"
-  },
-  {
-    name: "Trichotillomania (Hair Pulling)",
-    path: "/trichotillomania"
-  },
-  {
-    name: "Autism Spectrum Disorder (ASD)",
-    path: "/autism"
   }
 ];
 
-// Pediatric Conditions - in display order
-export const PEDIATRIC_CONDITIONS: Condition[] = [
+// Right Column - 7 conditions (in exact order)
+export const RIGHT_COLUMN_CONDITIONS: Condition[] = [
   {
     name: "ADHD",
     path: "/adhd"
@@ -78,6 +70,10 @@ export const PEDIATRIC_CONDITIONS: Condition[] = [
     path: "/tic-disorders"
   },
   {
+    name: "Trichotillomania (Hair Pulling)",
+    path: "/trichotillomania"
+  },
+  {
     name: "Autism Spectrum Disorder (ASD)",
     path: "/autism"
   }
@@ -85,6 +81,10 @@ export const PEDIATRIC_CONDITIONS: Condition[] = [
 
 // Combined list for backward compatibility and route checking
 export const CONDITIONS: Condition[] = [
-  ...ADULT_CONDITIONS,
-  ...PEDIATRIC_CONDITIONS.filter(p => !ADULT_CONDITIONS.some(a => a.path === p.path))
+  ...LEFT_COLUMN_CONDITIONS,
+  ...RIGHT_COLUMN_CONDITIONS
 ];
+
+// Legacy exports for any components still using old names
+export const ADULT_CONDITIONS = LEFT_COLUMN_CONDITIONS;
+export const PEDIATRIC_CONDITIONS = RIGHT_COLUMN_CONDITIONS;
