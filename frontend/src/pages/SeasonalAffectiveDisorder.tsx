@@ -416,7 +416,7 @@ export default function SeasonalAffectiveDisorder() {
                   <Button 
                     size="lg" 
                     className="bg-amber-600 hover:bg-amber-700 text-white shadow-medium text-lg px-8"
-                    onClick={() => window.location.href = '/contact'}
+                    onClick={() => window.location.href = '/schedule'}
                   >
                     <Calendar className="w-5 h-5 mr-2" />
                     Schedule an Evaluation
@@ -1335,7 +1335,7 @@ export default function SeasonalAffectiveDisorder() {
                 <Button 
                   size="lg" 
                   className="bg-amber-600 hover:bg-amber-700 text-white shadow-medium text-lg px-8"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => window.location.href = '/schedule'}
                 >
                   <Calendar className="w-5 h-5 mr-2" />
                   Schedule an Evaluation
