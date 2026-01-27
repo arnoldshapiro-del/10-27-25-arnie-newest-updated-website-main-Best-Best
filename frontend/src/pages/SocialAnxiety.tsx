@@ -290,7 +290,7 @@ export default function SocialAnxiety() {
     {
       icon: Award,
       title: "35+ Years Experience",
-      description: "Dr. Shapiro has treated over 9,000 patients, with extensive experience in anxiety disorders including social phobia."
+      description: "Dr. Shapiro has extensive experience in anxiety disorders including social phobia, developed over 35+ years of practice."
     },
     {
       icon: Brain,
