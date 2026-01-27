@@ -1406,7 +1406,7 @@ export default function OCD() {
               </h2>
               <p className="text-xl text-muted-foreground mb-8">
                 OCD is exhausting. The constant thoughts, the endless rituals, the feeling that no one could 
-                possibly understand. <strong>But OCD is treatable.</strong> With over 9,000 patients helped and 
+                possibly understand. <strong>But OCD is treatable.</strong> With
                 35+ years of experience, Dr. Shapiro can help you break free from the loop.
               </p>
               
