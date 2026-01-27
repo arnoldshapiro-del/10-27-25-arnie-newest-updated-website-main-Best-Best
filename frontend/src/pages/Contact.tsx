@@ -59,7 +59,7 @@ const Contact = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
               size="lg" 
-              className="bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg"
               asChild
             >
               <a href="tel:859-341-7453">
@@ -306,7 +306,7 @@ const Contact = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
               size="lg" 
-              className="bg-white text-orange-600 hover:bg-orange-50 shadow-lg"
+              className="bg-white text-blue-600 hover:bg-blue-50 shadow-lg"
               asChild
             >
               <a href="tel:859-341-7453">
