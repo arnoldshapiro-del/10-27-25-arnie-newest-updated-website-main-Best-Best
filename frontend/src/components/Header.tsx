@@ -148,50 +148,40 @@ const Header = () => {
                   {/* The actual dropdown content - Two Column Layout */}
                   <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-xl py-5 px-6 min-w-[600px] max-w-[700px] animate-in fade-in slide-in-from-top-2 duration-150">
                     <div className="grid grid-cols-2 gap-x-8">
-                      {/* Adult Conditions Column */}
-                      <div className="flex flex-col">
-                        <h3 className="text-xs font-semibold text-primary uppercase tracking-wider pb-2 mb-2 border-b border-primary/20">
-                          Adult Conditions
-                        </h3>
-                        <div className="flex flex-col gap-0.5">
-                          {ADULT_CONDITIONS.map((condition) => (
-                            <Link
-                              key={condition.path}
-                              to={condition.path}
-                              role="menuitem"
-                              className={`block px-3 py-2 text-sm rounded-md transition-all duration-150 hover:bg-primary/10 hover:text-primary hover:translate-x-1 ${
-                                pathname === condition.path 
-                                  ? 'text-primary bg-primary/10 font-medium' 
-                                  : 'text-gray-700 dark:text-gray-300'
-                              }`}
-                            >
-                              {condition.name}
-                            </Link>
-                          ))}
-                        </div>
+                      {/* Left Column - 8 conditions */}
+                      <div className="flex flex-col gap-0.5">
+                        {LEFT_COLUMN_CONDITIONS.map((condition) => (
+                          <Link
+                            key={condition.path}
+                            to={condition.path}
+                            role="menuitem"
+                            className={`block px-3 py-2 text-sm rounded-md transition-all duration-150 hover:bg-primary/10 hover:text-primary hover:translate-x-1 ${
+                              pathname === condition.path 
+                                ? 'text-primary bg-primary/10 font-medium' 
+                                : 'text-gray-700 dark:text-gray-300'
+                            }`}
+                          >
+                            {condition.name}
+                          </Link>
+                        ))}
                       </div>
                       
-                      {/* Pediatric Conditions Column */}
-                      <div className="flex flex-col">
-                        <h3 className="text-xs font-semibold text-primary uppercase tracking-wider pb-2 mb-2 border-b border-primary/20">
-                          Pediatric Conditions
-                        </h3>
-                        <div className="flex flex-col gap-0.5">
-                          {PEDIATRIC_CONDITIONS.map((condition) => (
-                            <Link
-                              key={`pediatric-${condition.path}`}
-                              to={condition.path}
-                              role="menuitem"
-                              className={`block px-3 py-2 text-sm rounded-md transition-all duration-150 hover:bg-primary/10 hover:text-primary hover:translate-x-1 ${
-                                pathname === condition.path 
-                                  ? 'text-primary bg-primary/10 font-medium' 
-                                  : 'text-gray-700 dark:text-gray-300'
-                              }`}
-                            >
-                              {condition.name}
-                            </Link>
-                          ))}
-                        </div>
+                      {/* Right Column - 7 conditions */}
+                      <div className="flex flex-col gap-0.5">
+                        {RIGHT_COLUMN_CONDITIONS.map((condition) => (
+                          <Link
+                            key={`right-${condition.path}`}
+                            to={condition.path}
+                            role="menuitem"
+                            className={`block px-3 py-2 text-sm rounded-md transition-all duration-150 hover:bg-primary/10 hover:text-primary hover:translate-x-1 ${
+                              pathname === condition.path 
+                                ? 'text-primary bg-primary/10 font-medium' 
+                                : 'text-gray-700 dark:text-gray-300'
+                            }`}
+                          >
+                            {condition.name}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </div>
